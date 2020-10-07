@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Thing } from "../components/thing";
 
 export default class extends Component {
   constructor(props) {
@@ -19,8 +20,7 @@ export default class extends Component {
   render() {
     return (
       <div className='center'>
-        <p><s> Recipething </s></p>
-        <p> Gardenify </p>
+        <Thing />
       </div>
     )
   }
