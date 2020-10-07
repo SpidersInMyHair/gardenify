@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const home = require('./_backend/home_service/api.js');
+const home = require('./_backend/home_service/_api.js');
 
 const dev = process.env.ENV !== 'production';
 const port = process.env.PORT || 3000;
