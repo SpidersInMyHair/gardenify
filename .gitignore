@@ -9,7 +9,7 @@
 /coverage
 
 # idea
-/.idea
+/.idea/
 
 # next.js
 /.next/
