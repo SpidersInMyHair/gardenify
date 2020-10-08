@@ -1,1 +1,0 @@
-import { User } from '../../protos/_backend/user_service/user_pb';
