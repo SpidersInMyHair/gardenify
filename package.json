@@ -4,6 +4,7 @@
   "authors": "Taylor Swift",
   "main": "server.js",
   "scripts": {
+    "ci": "ENV=ci node server.js",
     "dev": "git init -q && ENV=dev node server.js",
     "build": "next build",
     "start": "next build && ENV=production node server.js"
