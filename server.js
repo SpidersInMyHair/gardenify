@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const home = require('./_backend/home_service/_api.js');
 
+const ci = process.env.ENV === 'ci';
 const dev = process.env.ENV !== 'production';
 const port = process.env.PORT || 3000;
 
@@ -29,6 +30,7 @@ app.prepare()
 
   server.listen(port, (err) => {
     if (err) throw err;
+    if (ci) process.exit(0);
     console.log(`> App ready on http://localhost:${port}`);
   });
 })
