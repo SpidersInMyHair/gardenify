@@ -22,6 +22,11 @@ app.prepare()
   server.use(cookieParser());
   server.use(cors({ credentials: true, origin: true }));
 
+  if (!ci) {
+    const repo = require('./_repository/_config');
+    server.use(repo);
+  }
+
   server.use(home);
 
   server.get('*', (req, res) => {
