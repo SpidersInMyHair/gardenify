@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const home = require('./_backend/home_service/_api.js');
+const home = require('./ts_out/home_service/_api');
+const plant = require('./ts_out/plant_service/_api');
+const user = require('./ts_out/user_service/_api');
 
 const ci = process.env.ENV === 'ci';
 const dev = process.env.ENV !== 'production';
@@ -28,6 +30,8 @@ app.prepare()
   }
 
   server.use(home);
+  server.use(plant);
+  server.use(user);
 
   server.get('*', (req, res) => {
     return handle(req, res);
