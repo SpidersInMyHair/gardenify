@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message PlantVariety {
+  string id = 1;
+  string genus = 2;
+  string species = 3;
+  string description = 4;
+}
