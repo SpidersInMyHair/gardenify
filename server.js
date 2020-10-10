@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+const repo = require('./_repository/_config');
+
 const home = require('./_backend/home_service/_api.js');
 
 const ci = process.env.ENV === 'ci';
@@ -21,6 +23,8 @@ app.prepare()
   server.use(bodyParser.urlencoded({ extended: true }));
   server.use(cookieParser());
   server.use(cors({ credentials: true, origin: true }));
+
+  server.use(repo);
 
   server.use(home);
 
