@@ -4,10 +4,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const home = require('./ts_out/home_service/_api');
-const plant = require('./ts_out/plant_service/_api');
-const user = require('./ts_out/user_service/_api');
-
 const ci = process.env.ENV === 'ci';
 const dev = process.env.ENV !== 'production';
 const port = process.env.PORT || 3000;
@@ -25,13 +21,16 @@ app.prepare()
   server.use(cors({ credentials: true, origin: true }));
 
   if (!ci) {
-    const repo = require('./_repository/_config');
+    const repo = require('./ts_out/_repository/_config');
     server.use(repo);
-  }
 
-  server.use(home);
-  server.use(plant);
-  server.use(user);
+    const home = require('./ts_out/_backend/home_service/_api');
+    const plant = require('./ts_out/_backend/plant_service/_api');
+    const user = require('./ts_out/_backend/user_service/_api');
+    server.use(home);
+    server.use(plant);
+    server.use(user);
+  }
 
   server.get('*', (req, res) => {
     return handle(req, res);

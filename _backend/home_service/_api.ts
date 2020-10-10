@@ -1,4 +1,5 @@
 import express from 'express';
+
 const app = module.exports = express();
 const SERVICE = '/home';
 
@@ -7,5 +8,5 @@ const SERVICE = '/home';
 /* ------------------------------------------------------------------------- */
 
 app.get(`${SERVICE}/test`, (req, res) => {
-    res.status(200).send('Test was Okay');
+  res.status(200).send('Test was Okay');
 });

@@ -5,16 +5,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = module.exports = express_1.default();
+const repo = require('./_database/_repo');
 const SERVICE = '/plant';
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /plant/:id           Get the summary of a plant variety given an id.
 // POST /plant/              Create a new plant variety.
 /* ------------------------------------------------------------------------- */
 app.get(`${SERVICE}/:id`, (req, res) => {
-    res.status(200);
+    const plant_id = req.params.id;
+    repo.get(plant_id)
+        .then((plantVariety) => {
+        res.send(plantVariety).status(200).end();
+    })
+        .catch((err) => {
+        console.log(err);
+        res.status(404).end();
+    });
 });
 app.post(`${SERVICE}`, (req, res) => {
-    console.log("Successfully hit the /plant endpoint");
+    // repo.insert();
     let user = req.body;
     console.log("Request body:", user);
     res.status(200);
