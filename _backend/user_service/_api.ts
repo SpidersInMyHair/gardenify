@@ -7,7 +7,7 @@ import {GardenifyRequest} from "../_common/GardenifyRequest";
 const app = express();
 const SERVICE = '/user';
 
-class CreateUserRequest extends GardenifyRequest{
+class CreateUserRequest extends GardenifyRequest {
     body: User.AsObject;
 }
 
@@ -21,7 +21,7 @@ app.get(`${SERVICE}/:id`, (req: NextApiRequest, res: NextApiResponse) => {
 });
 
 app.post(`${SERVICE}`, (req: CreateUserRequest, res: NextApiResponse) => {
-    console.log("Successfully hiy the /user/ endpoint");
+    console.log("Successfully hit the /user/ endpoint");
 
     let user = req.body;
     console.log("Request body:", user);

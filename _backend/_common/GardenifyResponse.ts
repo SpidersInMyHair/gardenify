@@ -1,4 +1,3 @@
 import {NextApiResponse} from "next";
 
-export class GardenifyResponse implements NextApiResponse {
-}
+export declare type GardenifyResponse<T = any> = NextApiResponse;
