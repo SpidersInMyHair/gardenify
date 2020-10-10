@@ -17,11 +17,11 @@ app.get(`${SERVICE}/:id`, (req: GetPlantRequest, res: GetPlantResponse) => {
 
   repo.get(plant_id)
   .then((plantVariety: PlantVariety) => {
-    res.sendStatus(200).send(plantVariety);
+    res.send(plantVariety).status(200).end();
   })
   .catch((err: any) => {
     console.log(err);
-    res.status(404);
+    res.status(404).end();
   })
 });
 

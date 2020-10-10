@@ -15,11 +15,11 @@ app.get(`${SERVICE}/:id`, (req, res) => {
     const plant_id = req.params.id;
     repo.get(plant_id)
         .then((plantVariety) => {
-        res.sendStatus(200).send(plantVariety);
+        res.send(plantVariety).status(200).end();
     })
         .catch((err) => {
         console.log(err);
-        res.status(404);
+        res.status(404).end();
     });
 });
 app.post(`${SERVICE}`, (req, res) => {
