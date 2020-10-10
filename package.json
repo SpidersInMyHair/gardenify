@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "tsc": "tsc",
-    "ci": "tsc && ENV=ci node server.js",
+    "ci": "tsc",
     "dev": "git init -q && tsc && RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
     "build": "tsc && next build",
     "start": "tsc && next build && ENV=production node server.js"

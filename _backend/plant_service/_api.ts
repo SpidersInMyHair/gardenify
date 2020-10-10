@@ -14,9 +14,8 @@ import {GetPlantRequest, GetPlantResponse} from "./_messages";
 
 app.get(`${SERVICE}/:id`, (req: GetPlantRequest, res: GetPlantResponse) => {
   const plant_id: string = req.params.id;
-  const promise: Promise<PlantVariety> = repo.get(plant_id);
 
-  promise
+  repo.get(plant_id)
   .then((plantVariety: PlantVariety) => {
     res.sendStatus(200).send(plantVariety);
   })

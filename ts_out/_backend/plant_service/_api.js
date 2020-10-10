@@ -5,19 +5,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = module.exports = express_1.default();
-const SERVICE = '/plant';
 const repo = require('./_database/_repo');
+const SERVICE = '/plant';
+/* --------------------------- SERVICE ENDPOINTS --------------------------- */
+// GET  /plant/:id           Get the summary of a plant variety given an id.
+// POST /plant/              Create a new plant variety.
+/* ------------------------------------------------------------------------- */
 app.get(`${SERVICE}/:id`, (req, res) => {
     const plant_id = req.params.id;
-    const promise = repo.get(plant_id);
-    promise
-        .then((value) => {
-        res.plantVariety = value;
-        res.sendStatus(200);
+    repo.get(plant_id)
+        .then((plantVariety) => {
+        res.sendStatus(200).send(plantVariety);
     })
         .catch((err) => {
         console.log(err);
-        res.status(404).send("Error");
+        res.status(404);
     });
 });
 app.post(`${SERVICE}`, (req, res) => {
