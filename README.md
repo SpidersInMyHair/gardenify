@@ -6,17 +6,21 @@ npm install
 ```
 
 Then, install and setup MySQL locally:
+
 1. Ensure you have mysql 8.0 installed. Run
 ```bash
 mysql
 ```
 and ensure that it is installed.
+
 2. Start the mysql service on your local machine.
+
 3. Login to the root user on mysql on your local machine.
 ```bash
 mysql -u root -p
 ```
 You will be prompted for the root password. 
+
 4. Create the mysql account that will be used in this project.
 ```bash
 CREATE USER 'gardenify'@'localhost' IDENTIFIED BY 'h5a!uEkaKD69A92%rrEdbD';
@@ -24,6 +28,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'gardenify'@'localhost';
 ALTER USER 'gardenify'@'localhost' IDENTIFIED WITH mysql_native_password BY 'h5a!uEkaKD69A92%rrEdbD';
 FLUSH PRIVILEGES;
 ```
+
 5. Exit the MySQL command line interface.
 ```bash
 exit
