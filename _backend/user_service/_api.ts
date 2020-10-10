@@ -1,13 +1,10 @@
 import express from 'express';
 const app = module.exports = express();
+
 const SERVICE = '/user';
 
-import { User } from '../../protos/_backend/user_service/protos/user_pb';
+import {User} from '../../protos/_backend/user_service/protos/user_pb';
 import {GardenifyRequest} from "../_common/GardenifyRequest";
-
-class CreateUserRequest extends GardenifyRequest {
-    body: User.AsObject;
-}
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /user/:id           Get an user with the given id.
@@ -15,14 +12,14 @@ class CreateUserRequest extends GardenifyRequest {
 /* ------------------------------------------------------------------------- */
 
 app.get(`${SERVICE}/:id`, (req, res) => {
-    res.status(200);
+  res.status(200);
 });
 
 app.post(`${SERVICE}`, (req, res) => {
-    console.log("Successfully hit the /user/ endpoint");
+  console.log("Successfully hit the /user/ endpoint");
 
-    let user = req.body;
-    console.log("Request body:", user);
+  let user = req.body;
+  console.log("Request body:", user);
 
-    res.status(200);
+  res.status(200);
 });

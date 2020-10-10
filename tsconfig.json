@@ -15,9 +15,10 @@
     }
   },
   "include": [
-    "_backend/_common/*",
-    "_backend/home_service/*",
-    "_backend/plant_service/*",
-    "_backend/user_service/*"
+    "_repository/**/*",
+    "_backend/_common/**/*",
+    "_backend/home_service/**/*",
+    "_backend/plant_service/**/*",
+    "_backend/user_service/**/*"
   ]
 }

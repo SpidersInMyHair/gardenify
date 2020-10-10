@@ -1,9 +1,7 @@
-const express = require('express');
+express = require('express');
 module.exports = express();
-
-const connection = require('../../../_repository/_config').connection;
-
-connection.query(`                                                \
+connection = require('../../../_repository/_config').connection;
+connection.query(`                                                    \
   DROP DATABASE IF EXISTS plant;                                      \
   CREATE DATABASE IF NOT EXISTS plant;                                \
   USE plant;                                                          \
@@ -13,11 +11,12 @@ connection.query(`                                                \
     id          char(12)      UNIQUE     NOT NULL,                    \
     genus       varchar(255)  NOT NULL,                               \
     species     varchar(255)  NOT NULL,                               \
-    description varchar(255),                                         \
+    description varchar(1024),                                        \
     PRIMARY KEY (_id),                                                \
     UNIQUE (genus, species)
-  );`
-, (err) => {
-  if (err) throw err;
-  console.log('> MySQL: Created plant database');
+  );`, (err) => {
+    if (err)
+        throw err;
+    console.log('> MySQL: Created DATABASE plant');
 });
+//# sourceMappingURL=_create.js.map
