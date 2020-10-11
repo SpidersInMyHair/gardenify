@@ -68,13 +68,13 @@ function getScientificDetails(id) {
         connection.query(`                                                  \
       USE plant;                                                        \
       SELECT *                                                          \
-      FROM plant_instructions                                           \
+      FROM plant_scientific_details                                     \
       WHERE plant_variety_id=\"${id}\"                                  \
-      ORDER BY step_number ASC;                                         \
+      LIMIT 1;                                                          \
     `, (err, results) => {
             if (err)
                 reject(err);
-            resolve(results[1].length > 0 ? results[1] : []);
+            resolve(results[1].length > 0 ? results[1][0] : undefined);
         });
     });
 }

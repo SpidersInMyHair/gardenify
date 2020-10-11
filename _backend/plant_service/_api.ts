@@ -40,7 +40,7 @@ app.get(`${SERVICE}/:id`, (req: GetPlantRequest, res: GetPlantResponse) => {
   })
   .catch((err: any) => {
     console.log(err);
-    res.sendStatus(404);
+    res.sendStatus(500);
   });
 });
 
@@ -67,7 +67,7 @@ app.get(`${SERVICE}/items/:id`, (req: GetPlantItemsRequest, res: GetPlantItemsRe
   })
   .catch((err: any) => {
     console.log(err);
-    res.sendStatus(404);
+    res.sendStatus(500);
   });
 });
 
@@ -79,7 +79,7 @@ app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: G
   })
   .catch((err: any) => {
     console.log(err);
-    res.sendStatus(404);
+    res.sendStatus(500);
   });
 });
 
@@ -91,7 +91,7 @@ app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res
   })
   .catch((err: any) => {
     console.log(err);
-    res.sendStatus(404);
+    res.sendStatus(500);
   });
 });
 

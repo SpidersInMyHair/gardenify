@@ -67,8 +67,7 @@ proto.User.prototype.toObject = function(opt_includeInstance) {
 proto.User.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 3, "")
+    email: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -113,10 +112,6 @@ proto.User.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setEmail(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -160,13 +155,6 @@ proto.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPassword();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
 };
 
 
@@ -203,24 +191,6 @@ proto.User.prototype.getEmail = function() {
  */
 proto.User.prototype.setEmail = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string password = 3;
- * @return {string}
- */
-proto.User.prototype.getPassword = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.User} returns this
- */
-proto.User.prototype.setPassword = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

@@ -32,6 +32,7 @@ const IdGenerator = __importStar(require("./util/IdGenerator"));
 // POST /plant/                   Create a new plant variety.
 // GET  /plant/items/:id          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
+// GET  /plant/scientific/:id     Get the scientific details of the plant variety with the given id.
 /* ------------------------------------------------------------------------- */
 // GET  /plant/:id
 app.get(`${SERVICE}/:id`, (req, res) => {
@@ -41,7 +42,7 @@ app.get(`${SERVICE}/:id`, (req, res) => {
     })
         .catch((err) => {
         console.log(err);
-        res.sendStatus(404);
+        res.sendStatus(500);
     });
 });
 // POST /plant
@@ -66,7 +67,7 @@ app.get(`${SERVICE}/items/:id`, (req, res) => {
     })
         .catch((err) => {
         console.log(err);
-        res.sendStatus(404);
+        res.sendStatus(500);
     });
 });
 // GET  /plant/instructions/:id
@@ -77,7 +78,18 @@ app.get(`${SERVICE}/instructions/:id`, (req, res) => {
     })
         .catch((err) => {
         console.log(err);
-        res.sendStatus(404);
+        res.sendStatus(500);
+    });
+});
+//GET /plant/scientific/:id
+app.get(`${SERVICE}/scientific/:id`, (req, res) => {
+    repo.getScientificDetails(req.params.id)
+        .then((plantScientificDetails) => {
+        res.send(plantScientificDetails).status(200).end();
+    })
+        .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
     });
 });
 //# sourceMappingURL=_api.js.map
