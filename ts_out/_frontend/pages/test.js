@@ -20,14 +20,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
+const thing_1 = require("../components/thing");
 class default_1 extends react_1.Component {
     constructor(props) {
         super(props);
     }
+    // Ensure that an API call is successful.
+    testBackendService() {
+        fetch('/home/test')
+            .then(res => console.log(res))
+            .catch(rej => console.log(rej));
+    }
+    componentDidMount() {
+        this.testBackendService();
+    }
     render() {
-        return (react_1.default.createElement("div", null,
-            react_1.default.createElement("p", null, "Home")));
+        return (react_1.default.createElement("div", { className: 'center' },
+            react_1.default.createElement(thing_1.Thing, null)));
     }
 }
 exports.default = default_1;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=test.js.map
