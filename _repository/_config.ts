@@ -23,6 +23,10 @@ module.exports.connection = connection;
 // Run the Create and Init Scripts.
 const plant_create = require('../_backend/plant_service/_database/_create');
 const plant_init = require('../_backend/plant_service/_database/_init');
+const user_create = require('../_backend/user_service/_database/_create');
+const user_init = require('../_backend/user_service/_database/_init');
 
 app.use(plant_create);
 app.use(plant_init);
+app.use(user_create);
+app.use(user_init);
