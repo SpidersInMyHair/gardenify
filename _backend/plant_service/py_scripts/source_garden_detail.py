@@ -36,14 +36,12 @@ def set_growth_att(growth, key, value):
         growth.set_temp_min(value['deg_c'])
     elif key == 'maximum_temperature':
         growth.set_temp_max(value['deg_c'])
-    elif key == 'minimum_ph':
+    elif key == 'ph_maximum':
         growth.set_ph_min(value)
-    elif key == 'maximum_ph':
+    elif key == 'ph_minimum':
         growth.set_ph_max(value)
     elif key == 'light':
         growth.set_light(value)
-    elif key == 'average_height':
-        growth.set_avg_height(value)
     return growth
 
 # Returns formatted JSON object
@@ -65,7 +63,7 @@ def get_all_plants():
 
 # GET a plant's info using its Trefle id
 def get_plant_using_id(id):
-    response = get_response(species_end+'/' + str(id) + '?token=')
+    response = get_response(species_endpoint+'/' + str(id) + '?token=')
     data_res = response.json()['data']
     plant_growth = Growth()
     for key, value in data_res['growth'].items():
@@ -74,24 +72,27 @@ def get_plant_using_id(id):
                 data_res['image_url'])
     plant.set_growth(plant_growth)
     # Uncomment below line to pretty print the plant information
-    #print(ppretty(plant, seq_length=20))
+    print(ppretty(plant, seq_length=20))
 
 # Search for a plant using a keyword
 def search_plant(keyword):
-    response = get_response(species_end+'/search?q=' + keyword + '&token=')
+    response = get_response(species_endpoint+'/search?q=' + keyword + '&token=')
     num_search_res = response.json()['meta']['total']
     print('GET status code for searching "' + keyword + '": ' +str(response.status_code))
     if num_search_res == 0:
         print('No results found for "' + keyword + '"...')
+    elif num_search_res == 1:
+        id = response.json()['data']['id']
+        get_plant_using_id(id)
     else:
-        for i in range(num_search_res):
+        for i in range(num_search_res-1):
             id = response.json()['data'][i]['id']
             get_plant_using_id(id)
 
 # Main
 def main():
     #get_all_plants()
-    search_plant('hell')
+    search_plant('banana')
 
 
 # Start of program

@@ -18,7 +18,7 @@
 class Growth:
     def __init__(self, description='NOT_SET', days_to_harvest='NOT_SET', growth_months='NOT_SET', 
                 precip_min='NOT_SET', precip_max='NOT_SET', temp_min='NOT_SET', temp_max='NOT_SET', 
-                ph_min='NOT_SET', ph_max='NOT_SET', light='NOT_SET', avg_height='NOT_SET', toxic='NOT_SET'):
+                ph_min='NOT_SET', ph_max='NOT_SET', light='NOT_SET'):
         self.description = description
         self.days_to_harvest = days_to_harvest
         self.growth_months = growth_months
@@ -29,8 +29,6 @@ class Growth:
         self.ph_min = ph_min
         self.ph_max = ph_max
         self.light = light
-        self.avg_height = avg_height
-        self.toxic = toxic
     
     def set_desc(self, desc):
         self.description = desc
@@ -61,9 +59,3 @@ class Growth:
     
     def set_light(self, light):
         self.light = light
-    
-    def set_avg_height(self, avg_height):
-        self.avg_height = avg_height
-    
-    def set_toxic(self, avg_height):
-        self.avg_height = avg_height
