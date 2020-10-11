@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message GetPlantApiRequest {
+  string id = 1;
+}
+
+message GetPlantApiResponse {
+  string id = 1;
+  string genus = 2;
+  string species = 3;
+  string description = 4;
+}
+
+message CreatePlantApiRequest {
+  string genus = 1;
+  string species = 2;
+  string description = 3;
+}
+
+message CreatePlantApiResponse {
+  // Empty
+}

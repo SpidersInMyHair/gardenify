@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Path to this plugin
 PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 

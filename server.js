@@ -8,7 +8,7 @@ const ci = process.env.ENV === 'ci';
 const dev = process.env.ENV !== 'production';
 const port = process.env.PORT || 3000;
 
-const app = next({ dev, dir: './_frontend' });
+const app = next({ dev, dir: './ts_out/_frontend' });
 const handle = app.getRequestHandler();
 
 app.prepare()
@@ -25,8 +25,8 @@ app.prepare()
     server.use(repo);
 
     const home = require('./ts_out/_backend/home_service/_api');
-    const plant = require('./ts_out/_backend/plant_service/_api');
-    const user = require('./ts_out/_backend/user_service/_api');
+    const plant = require('./ts_out/_backend/plant_service/server');
+    const user = require('./ts_out/_backend/user_service/server');
     server.use(home);
     server.use(plant);
     server.use(user);
