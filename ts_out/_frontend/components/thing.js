@@ -21,14 +21,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Thing = void 0;
 const react_1 = __importStar(require("react"));
-const plant_1 = require("../../_api/plant");
+const plant_api_1 = require("../../_api/plant_api");
 class Thing extends react_1.Component {
     componentDidMount() {
         const getPlantReq = {
             id: "test-plant1"
         };
-        plant_1.getPlantVariety(getPlantReq)
+        plant_api_1.getPlantVariety(getPlantReq)
             .then((res) => console.log(res.description));
+        const getPlantItemsReq = {
+            id: "test-plant1"
+        };
+        plant_api_1.getPlantItems(getPlantItemsReq)
+            .then((res) => console.log(res));
     }
     render() {
         return (react_1.default.createElement("div", { className: 'center' },
