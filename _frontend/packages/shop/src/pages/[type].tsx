@@ -110,7 +110,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { type: 'grocery' } },
+      { params: { type: 'home' } },
       { params: { type: 'makeup' } },
       { params: { type: 'bags' } },
       { params: { type: 'book' } },

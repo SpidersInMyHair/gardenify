@@ -1,4 +1,4 @@
-export const HOME_PAGE = '/';
+export const HOME_PAGE = '/home';
 export const GROCERY_PAGE = '/grocery';
 export const GROCERY_PAGE_TWO = '/grocery-two';
 export const BAKERY_PAGE = '/bakery';
@@ -16,7 +16,7 @@ export const CHECKOUT_PAGE_TWO = '/checkout-alternative';
 export const PROFILE_PAGE = '/profile';
 export const YOUR_ORDER_PAGE = '/order';
 export const ORDER_RECEIVED_PAGE = '/order-received';
-export const OFFER_PAGE = '/offer';
+export const ABOUT_PAGE = '/about';
 export const HELP_PAGE = '/help';
 export const TERMS_AND_SERVICES_PAGE = '/terms';
 export const PRIVACY_POLICY_PAGE = '/privacy';
@@ -33,10 +33,10 @@ export const HELP_MENU_ITEM = {
   defaultMessage: 'Help',
   href: HELP_PAGE,
 };
-export const OFFER_MENU_ITEM = {
-  id: 'nav.offer',
-  defaultMessage: 'Offer',
-  href: OFFER_PAGE,
+export const ABOUT_MENU_ITEM = {
+  id: 'nav.about',
+  defaultMessage: 'About',
+  href: ABOUT_PAGE,
 };
 export const ORDER_MENU_ITEM = {
   id: 'nav.order',
@@ -166,7 +166,7 @@ export const MOBILE_DRAWER_MENU = [
   HOME_MENU_ITEM,
   ...AUTHORIZED_MENU_ITEMS,
   HELP_MENU_ITEM,
-  OFFER_MENU_ITEM,
+  ABOUT_MENU_ITEM,
 ];
 
 export const PROFILE_SIDEBAR_TOP_MENU = [ORDER_MENU_ITEM, HELP_MENU_ITEM];

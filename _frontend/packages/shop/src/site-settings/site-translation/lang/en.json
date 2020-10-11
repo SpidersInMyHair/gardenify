@@ -34,7 +34,7 @@
 
   "searchPlaceholder": "Search our index of flora from here",
   "searchButtonText": "Search",
-  "mobileSignInButtonText": "Join In",
+  "mobileSignInButtonText": "Login",
   "navlinkAccountSettings": "Your Account Settings",
   "cartItems": "Items",
   "cartItem": "Item",
@@ -139,7 +139,7 @@
   "intlOrderCardTitleText": "Order",
   "intlOrderCardDateText": "Order Date",
   "intlOrderCardTotalText": "Total Price",
-  "joinButton": "Join",
+  "joinButton": "Login",
   "ar": "Arabic",
   "zh": "Chinese",
   "en": "English",
