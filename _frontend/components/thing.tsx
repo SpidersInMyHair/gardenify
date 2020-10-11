@@ -1,15 +1,18 @@
-import React, { Component } from 'react'
-import {getPlantVariety} from "../../_api/plant";
-import {GetPlantApiRequest, GetPlantApiResponse} from "../../protos/_api/protos/plant_pb";
+import React, {Component} from 'react'
+import {
+  GetPlantApiRequest,
+  GetPlantApiResponse,
+  getPlantVariety
+} from "../../_api/plant_api";
 
 
 export class Thing extends Component {
   componentDidMount() {
-    const getPlantReq: GetPlantApiRequest.AsObject = {
+    const getPlantReq: GetPlantApiRequest = {
       id: "test-plant1"
     };
     getPlantVariety(getPlantReq)
-    .then((res: GetPlantApiResponse.AsObject) => console.log(res.description));
+    .then((res: GetPlantApiResponse) => console.log(res.description));
   }
 
   render() {
