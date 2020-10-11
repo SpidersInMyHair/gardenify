@@ -4,11 +4,11 @@
   "authors": "Taylor Swift",
   "main": "server.js",
   "scripts": {
-    "tsc": "tsc",
-    "ci": "tsc && ENV=ci node server.js",
-    "dev": "git init -q && tsc && RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
-    "build": "tsc && next build",
-    "start": "tsc && next build && ENV=production node server.js"
+    "tsc": "./bin/copy_css.sh && tsc",
+    "ci": "./bin/copy_css.sh && tsc && ENV=ci node server.js",
+    "dev": "git init -q && ./bin/copy_css.sh && tsc && RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
+    "build": "./bin/copy_css.sh && tsc && next build",
+    "start": "./bin/copy_css.sh && tsc && next build && ENV=production node server.js"
   },
   "dependencies": {
     "@types/google-protobuf": "^3.7.3",
