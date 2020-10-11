@@ -20,6 +20,14 @@ message PlantInstruction {
   string instruction = 3;
 }
 
+message PlantScientificDetails {
+  string plant_variety_id = 1;
+  float ph_low = 2;
+  float ph_high = 3;
+  float temperature_low = 4;
+  float temperature_high = 5;
+}
+
 enum Unit {
   GRAM = 0;
   LITER = 1;

@@ -39,6 +39,12 @@ connection.query('                                                            \
     "test-plant1",                                                            \
     3,                                                                        \
     "Success!"                                                                \
+  );                                                                          \
+  INSERT INTO plant_scientific_details (plant_variety_id, ph_low, ph_high)    \
+  VALUES (                                                                    \
+    "test-plant1",                                                            \
+    7.5,                                                                      \
+    8.5                                                                       \
   );', (err) => {
     if (err)
         throw err;

@@ -1,6 +1,6 @@
 import {
   PlantInstruction,
-  PlantItem,
+  PlantItem, PlantScientificDetails,
   PlantVariety
 } from "../../../protos/_backend/plant_service/protos/plant_pb";
 
@@ -68,9 +68,25 @@ function getInstructions(id: string): Promise<Array<PlantInstruction>> {
   });
 }
 
+function getScientificDetails(id: string): Promise<PlantScientificDetails> {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      USE plant;                                                        \
+      SELECT *                                                          \
+      FROM plant_scientific_details                                     \
+      WHERE plant_variety_id=\"${id}\"                                  \
+      LIMIT 1;                                                          \
+    `, (err: any, results: Array<PlantScientificDetails[]>) => {
+      if (err) reject(err);
+      resolve(results[1].length > 0 ? results[1][0] : undefined);
+    });
+  });
+}
+
 module.exports = {
   get,
   insert,
   getItems,
-  getInstructions
+  getInstructions,
+  getScientificDetails,
 }

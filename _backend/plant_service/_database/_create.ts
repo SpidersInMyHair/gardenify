@@ -32,6 +32,15 @@ connection.query(`                                                    \
     instruction       VARCHAR(1024) NOT NULL,                         \
     FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id),    \
     UNIQUE (plant_variety_id, step_number)                            \
+  );
+  DROP TABLE IF EXISTS plant_scientific_details;                      \
+  CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
+    plant_variety_id  char(12)      NOT NULL,                         \
+    ph_low            float,                                          \
+    ph_high           float,                                          \
+    temperature_low   float,                                          \
+    temperature_high  float,                                          \
+    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id)     \
   );`
 , (err: any) => {
   if (err) throw err;

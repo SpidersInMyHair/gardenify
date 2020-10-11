@@ -8,6 +8,7 @@ import * as IdGenerator from './util/IdGenerator';
 import {
   PlantInstruction,
   PlantItem,
+  PlantScientificDetails,
   PlantVariety
 } from '../../protos/_backend/plant_service/protos/plant_pb';
 import {
@@ -18,7 +19,9 @@ import {
   GetPlantItemsRequest,
   GetPlantItemsResponse,
   GetPlantRequest,
-  GetPlantResponse
+  GetPlantResponse,
+  GetPlantScientificDetailsRequest,
+  GetPlantScientificDetailsResponse
 } from "./_messages";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
@@ -26,6 +29,7 @@ import {
 // POST /plant/                   Create a new plant variety.
 // GET  /plant/items/:id          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
+// GET  /plant/scientific/:id     Get the scientific details of the plant variety with the given id.
 /* ------------------------------------------------------------------------- */
 
 // GET  /plant/:id
@@ -43,10 +47,10 @@ app.get(`${SERVICE}/:id`, (req: GetPlantRequest, res: GetPlantResponse) => {
 // POST /plant
 app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
   repo.insert( //
-    IdGenerator.generate(req.body), //
-    req.body.getGenus(), //
-    req.body.getSpecies(), //
-    req.body.getDescription() //
+  IdGenerator.generate(req.body), //
+  req.body.getGenus(), //
+  req.body.getSpecies(), //
+  req.body.getDescription() //
   )
   .then(() => res.sendStatus(200))
   .catch((err: any) => {
@@ -78,3 +82,16 @@ app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: G
     res.sendStatus(404);
   });
 });
+
+//GET /plant/scientific/:id
+app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
+  repo.getScientificDetails(req.params.id)
+  .then((plantScientificDetails: PlantScientificDetails) => {
+    res.send(plantScientificDetails).status(200).end();
+  })
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(404);
+  });
+});
+

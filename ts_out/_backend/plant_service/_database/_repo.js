@@ -63,10 +63,26 @@ function getInstructions(id) {
         });
     });
 }
+function getScientificDetails(id) {
+    return new Promise((resolve, reject) => {
+        connection.query(`                                                  \
+      USE plant;                                                        \
+      SELECT *                                                          \
+      FROM plant_instructions                                           \
+      WHERE plant_variety_id=\"${id}\"                                  \
+      ORDER BY step_number ASC;                                         \
+    `, (err, results) => {
+            if (err)
+                reject(err);
+            resolve(results[1].length > 0 ? results[1] : []);
+        });
+    });
+}
 module.exports = {
     get,
     insert,
     getItems,
-    getInstructions
+    getInstructions,
+    getScientificDetails,
 };
 //# sourceMappingURL=_repo.js.map

@@ -95,6 +95,42 @@ export namespace PlantInstruction {
   }
 }
 
+export class PlantScientificDetails extends jspb.Message {
+  getPlantVarietyId(): string;
+  setPlantVarietyId(value: string): void;
+
+  getPhLow(): number;
+  setPhLow(value: number): void;
+
+  getPhHigh(): number;
+  setPhHigh(value: number): void;
+
+  getTemperatureLow(): number;
+  setTemperatureLow(value: number): void;
+
+  getTemperatureHigh(): number;
+  setTemperatureHigh(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlantScientificDetails.AsObject;
+  static toObject(includeInstance: boolean, msg: PlantScientificDetails): PlantScientificDetails.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlantScientificDetails, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlantScientificDetails;
+  static deserializeBinaryFromReader(message: PlantScientificDetails, reader: jspb.BinaryReader): PlantScientificDetails;
+}
+
+export namespace PlantScientificDetails {
+  export type AsObject = {
+    plantVarietyId: string,
+    phLow: number,
+    phHigh: number,
+    temperatureLow: number,
+    temperatureHigh: number,
+  }
+}
+
 export interface UnitMap {
   GRAM: 0;
   LITER: 1;
