@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 connection = require('./../../../_repository/_config').connection;
 function get(id) {
     return new Promise((resolve, reject) => {
-        connection.query(` \
-      USE plant;
+        connection.query(`                                                  \
+      USE plant;                                                        \
       SELECT id, genus, species, description                            \
       FROM plant_varieties                                              \
       WHERE id=\"${id}\"                                                \
@@ -18,8 +18,8 @@ function get(id) {
 }
 function insert(id, genus, species, description) {
     return new Promise((resolve, reject) => {
-        connection.query(` \
-      USE plant;
+        connection.query(`                                                  \
+      USE plant;                                                        \
       INSERT INTO plant_varieties (id, genus, species, description)     \
       VALUES (                                                          \
         \"${id}\",                                                      \
@@ -34,8 +34,39 @@ function insert(id, genus, species, description) {
         });
     });
 }
+function getItems(id) {
+    return new Promise((resolve, reject) => {
+        connection.query(`                                                  \
+      USE plant;                                                        \
+      SELECT *                                                          \
+      FROM plant_items                                                  \
+      WHERE plant_variety_id=\"${id}\";                                 \
+    `, (err, results) => {
+            if (err)
+                reject(err);
+            resolve(results[1].length > 0 ? results[1] : []);
+        });
+    });
+}
+function getInstructions(id) {
+    return new Promise((resolve, reject) => {
+        connection.query(`                                                  \
+      USE plant;                                                        \
+      SELECT *                                                          \
+      FROM plant_instructions                                           \
+      WHERE plant_variety_id=\"${id}\"                                  \
+      ORDER BY step_number ASC;                                         \
+    `, (err, results) => {
+            if (err)
+                reject(err);
+            resolve(results[1].length > 0 ? results[1] : []);
+        });
+    });
+}
 module.exports = {
     get,
-    insert
+    insert,
+    getItems,
+    getInstructions
 };
 //# sourceMappingURL=_repo.js.map

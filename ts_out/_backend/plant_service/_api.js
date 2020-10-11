@@ -28,9 +28,12 @@ const repo = require('./_database/_repo');
 const SERVICE = '/plant';
 const IdGenerator = __importStar(require("./util/IdGenerator"));
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
-// GET  /plant/:id           Get the summary of a plant variety given an id.
-// POST /plant/              Create a new plant variety.
+// GET  /plant/:id                Get the summary of a plant variety given an id.
+// POST /plant/                   Create a new plant variety.
+// GET  /plant/items/:id          Get the items listed for a given plant variety.
+// GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
 /* ------------------------------------------------------------------------- */
+// GET  /plant/:id
 app.get(`${SERVICE}/:id`, (req, res) => {
     repo.get(req.params.id)
         .then((plantVariety) => {
@@ -41,6 +44,7 @@ app.get(`${SERVICE}/:id`, (req, res) => {
         res.sendStatus(404);
     });
 });
+// POST /plant
 app.post(`${SERVICE}`, (req, res) => {
     repo.insert(//
     IdGenerator.generate(req.body), //
@@ -52,6 +56,28 @@ app.post(`${SERVICE}`, (req, res) => {
         .catch((err) => {
         console.log(err);
         res.sendStatus(500);
+    });
+});
+// GET  /plant/items/:id
+app.get(`${SERVICE}/items/:id`, (req, res) => {
+    repo.getItems(req.params.id)
+        .then((plantItems) => {
+        res.send(plantItems).status(200).end();
+    })
+        .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+    });
+});
+// GET  /plant/instructions/:id
+app.get(`${SERVICE}/instructions/:id`, (req, res) => {
+    repo.getInstructions(req.params.id)
+        .then((plantInstructions) => {
+        res.send(plantInstructions).status(200).end();
+    })
+        .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
     });
 });
 //# sourceMappingURL=_api.js.map
