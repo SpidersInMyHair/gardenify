@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+message PlantVariety {
+  string id = 1;
+  string genus = 2;
+  string species = 3;
+  string description = 4;
+}
+
+message PlantItem {
+  string plant_variety_id = 1;
+  string item_name = 2;
+  uint32 quantity = 3;
+  Unit unit = 4;
+}
+
+message PlantInstruction {
+  string plant_variety_id = 1;
+  uint32 step_number = 2;
+  string instruction = 3;
+}
+
+enum Unit {
+  GRAM = 0;
+  LITER = 1;
+}

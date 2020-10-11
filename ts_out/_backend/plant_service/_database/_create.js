@@ -13,7 +13,23 @@ connection.query(`                                                    \
     species     varchar(255)  NOT NULL,                               \
     description varchar(1024),                                        \
     PRIMARY KEY (_id),                                                \
-    UNIQUE (genus, species)
+    UNIQUE (genus, species)                                           \
+  );                                                                  \
+  DROP TABLE IF EXISTS plant_items;                                   \
+  CREATE TABLE IF NOT EXISTS plant_items (                            \
+    plant_variety_id  char(12)      NOT NULL,                         \
+    item_name         varchar(255)  NOT NULL,                         \
+    quantity          int,                                            \
+    unit              ENUM('gram', 'liter'),                          \
+    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id)     \
+  );                                                                  \
+  DROP TABLE IF EXISTS plant_instructions;                            \
+  CREATE TABLE IF NOT EXISTS plant_instructions (                     \
+    plant_variety_id  char(12)      NOT NULL,                         \
+    step_number       int           NOT NULL,                         \
+    instruction       VARCHAR(1024) NOT NULL,                         \
+    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id),    \
+    UNIQUE (plant_variety_id, step_number)                            \
   );`, (err) => {
     if (err)
         throw err;
