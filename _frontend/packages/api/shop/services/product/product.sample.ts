@@ -13,7 +13,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The lemon/lime, Citrus limon Osbeck, is a species of small evergreen tree in the flowering plant family Rutaceae, native to South Asia, primarily North eastern India.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/GreenLimes_jrodle.jpg',
       gallery: [
@@ -61,7 +61,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The lemon/lime, Citrus limon Osbeck, is a species of small evergreen tree in the flowering plant family Rutaceae, native to South Asia, primarily North eastern India.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/Yellow_Limes_y0lbyo.jpg',
       gallery: [
@@ -109,7 +109,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A cherry is the fruit of many plants of the genus Prunus, and is a fleshy drupe. Commercial cherries are obtained from cultivars of several species, such as the sweet Prunus avium and the sour Prunus cerasus',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/RedCherries_zylnoo.jpg',
       gallery: [
@@ -157,7 +157,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'celery stick - celery stalks cut into small sticks. crudites - raw vegetables cut into bite-sized strips and served with a dip. celery - stalks eaten raw or cooked or used as seasoning.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/CelerySticks_ulljfz.jpg',
       gallery: [
@@ -205,7 +205,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Spinach (Spinacia oleracea) is a leafy green flowering plant native to central and western Asia. It is of the order Caryophyllales, family Amaranthaceae, subfamily Chenopodioideae. Its leaves are a common edible vegetable consumed either fresh.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/BabySpinach_xronqz.jpg',
       gallery: [
@@ -253,7 +253,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Spinach (Spinacia oleracea) is a leafy green flowering plant native to central and western Asia. It is of the order Caryophyllales, family Amaranthaceae, subfamily Chenopodioideae. Its leaves are a common edible vegetable consumed either fresh.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/VeggiePlatter_ztcg0m.jpg',
       gallery: [
@@ -301,7 +301,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Green beans are the unripe, young fruit and protective pods of various cultivars of the common bean. Immature or young pods of the runner bean, yardlong bean, and hyacinth bean are used in a similar way.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/FrenchGreenBeans_azivow.jpg',
       gallery: [
@@ -349,7 +349,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago. The leafy stalk of the plant produces pollen inflorescences and separate ovuliferous inflorescences called ears that yield kernels or seeds, which are fruits.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/Corn_dlrtbv.jpg',
       gallery: [
@@ -397,7 +397,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cucumber is a widely cultivated plant in the gourd family, Cucurbitaceae. It is a creeping vine that bears cucumiform fruits that are used as vegetables. There are three main varieties of cucumber: slicing, pickling, and seedless. Within these varieties, several cultivars have been created.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/Cucumber_w6hlxr.jpg',
       gallery: [
@@ -445,7 +445,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Black pepper is a flowering vine in the family Piperaceae, cultivated for its fruit, known as a peppercorn, which is usually dried and used as a spice and seasoning. When fresh and fully mature, it is about 5 mm in diameter and dark red, and contains a single seed, like all drupes',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/MiniPeppers_iydh8m.jpg',
       gallery: [
@@ -493,7 +493,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Green beans are the unripe, young fruit and protective pods of various cultivars of the common bean. Immature or young pods of the runner bean, yardlong bean, and hyacinth bean are used in a similar way.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/GreenBeans_fwddsr.jpg',
       gallery: [
@@ -541,7 +541,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The Brussels sprout is a member of the Gemmifera Group of cabbages, grown for its edible buds. The leaf vegetables are typically 1.5–4.0 cm in diameter and look like miniature cabbages. The Brussels sprout has long been popular in Brussels, Belgium, and may have gained its name there.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/BrusselsSprouts_adwhet.jpg',
       gallery: [
@@ -589,7 +589,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The carrot is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. They are a domesticated form of the wild carrot, Daucus carota, native to Europe and Southwestern Asia. The plant probably originated in Persia and was originally cultivated for its leaves and seeds.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/Peeled_Carrots_xx7mjo.jpg',
       gallery: [
@@ -636,7 +636,7 @@ export function createProductSamples() {
       discountInPercent: 50,
       description:
         'The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/strawberry_d4lzfz.jpg',
       gallery: [
@@ -684,7 +684,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Blueberries are perennial flowering plants with blue or purple berries. They are classified in the section Cyanococcus within the genus Vaccinium. Vaccinium also includes cranberries, bilberries, huckleberries and Madeira blueberries. Commercial blueberries—both wild and cultivated —are all native to North America.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614570/pickbazar/grocery/blueberries_relyfn.jpg',
       gallery: [
@@ -732,7 +732,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         ' clementine is a tangor, a citrus fruit hybrid between a willowleaf mandarin orange and a sweet orange, named for its late 19th-century discoverer. The exterior is a deep orange colour with a smooth, glossy appearance.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614568/pickbazar/grocery/clementines_h74qrp.jpg',
       gallery: [
@@ -779,7 +779,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'An apple is a sweet, edible fruit produced by an apple tree (Malus domestica). Apple trees are ... The skin of ripe apples is generally red, yellow, green, pink, or russetted, though many bi- or tri-colored cultivars may be found.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/Apples_dmwvrq.jpg',
       gallery: [
@@ -826,7 +826,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The pear tree and shrub are a species of genus Pyrus, in the family Rosaceae, bearing the pomaceous fruit of the same name. Several species of pear are valued for their edible fruit and juices while others are cultivated as trees.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/pears_ukyxdh.jpg',
       gallery: [
@@ -874,7 +874,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A mango is a juicy stone fruit produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit. Most of these species are found in nature as wild mangoes. The genus belongs to the cashew family Anacardiaceae.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/Mangoes_ruaapa.jpg',
       gallery: [
@@ -922,7 +922,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Phoenix dactylifera, commonly known as date or date palm, is a flowering plant species in the palm family, Arecaceae, cultivated for its edible sweet fruit.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589614569/pickbazar/grocery/Dates_pq4oad.jpg',
       gallery: [
@@ -969,7 +969,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Salmon is a common food classified as an oily fish with a rich content of protein and omega-3 fatty acids',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/SignatureSalmon_fstp4m.jpg',
       gallery: [
@@ -1017,7 +1017,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae. Cod is also used as part of the common name for a number of other fish species, and some species suggested to belong to genus Gadus are not called cod.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/codfillet_u0mti1.jpg',
       gallery: [
@@ -1065,7 +1065,7 @@ export function createProductSamples() {
       discountInPercent: 15,
       description:
         'The swordfish meat has a very delicate flavour, meaty and mild. Swordfish, also known as broadbills, is an oily fish similar to tuna, chunky meat without bones.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/swordfish_smniuv.jpg',
       gallery: [
@@ -1113,7 +1113,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Hippoglossus stenolepis, the Pacific halibut, is a species of righteye flounder. This very large species of flatfish is native to the North Pacific and is fished by commercial fisheries, sport fishers, and subsistence fishers.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/halibut_jaz7ju.jpg',
       gallery: [
@@ -1161,7 +1161,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Tilapia is the common name for nearly a hundred species of cichlid fish from the coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine and tilapiine tribes, with the economically most important species placed in Coptodonini and Oreochromini.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/TilapiaFillet_a2urhk.jpg',
       gallery: [
@@ -1209,7 +1209,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Meat is animal flesh that is eaten as food. Humans have hunted and killed animals for meat since prehistoric times. The advent of civilization allowed the domestication of animals such as chickens, sheep, rabbits, pigs and cattle.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/beef_xkxhnb.jpg',
       gallery: [
@@ -1257,7 +1257,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Meat is animal flesh that is eaten as food. Humans have hunted and killed animals for meat since prehistoric times. The advent of civilization allowed the domestication of animals such as chickens, sheep, rabbits, pigs and cattle.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/sliced_turkey_breast_szb8jg.jpg',
       gallery: [
@@ -1305,7 +1305,7 @@ export function createProductSamples() {
       discountInPercent: 30,
       description:
         'Meat is animal flesh that is eaten as food. Humans have hunted and killed animals for meat since prehistoric times. The advent of civilization allowed the domestication of animals such as chickens, sheep, rabbits, pigs and cattle.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/chicken_thigh_yrdfwh.jpg',
       gallery: [
@@ -1353,7 +1353,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Meat is animal flesh that is eaten as food. Humans have hunted and killed animals for meat since prehistoric times. The advent of civilization allowed the domestication of animals such as chickens, sheep, rabbits, pigs and cattle.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/chicken_brest_ribcxo.jpg',
       gallery: [
@@ -1401,7 +1401,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Meat is animal flesh that is eaten as food. Humans have hunted and killed animals for meat since prehistoric times. The advent of civilization allowed the domestication of animals such as chickens, sheep, rabbits, pigs and cattle.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://res.cloudinary.com/redq-inc/image/upload/c_fit,q_auto:best,w_300/v1589736058/pickbazar/grocery/steak_okxpjo.jpg',
       gallery: [
@@ -4404,7 +4404,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/belmont_custard_cream.jpg',
       gallery: [
@@ -4452,7 +4452,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crawford_digestives.jpg',
       gallery: [
@@ -4499,7 +4499,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crawford_shortie.jpg',
       gallery: [
@@ -4546,7 +4546,7 @@ export function createProductSamples() {
       discountInPercent: 5,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Hill_Biscuits_Mini_Pack_Mix_.jpg',
       gallery: [
@@ -4593,7 +4593,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Jammie_Dodgers.jpg',
       gallery: [
@@ -4641,7 +4641,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/julis_cheese_crackers.jpg',
       gallery: [
@@ -4688,7 +4688,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/khong_guan_orange_cream.jpg',
       gallery: [
@@ -4735,7 +4735,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/khong_guan_premium_marie.jpg',
       gallery: [
@@ -4782,7 +4782,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A biscuit is a flour-based baked food product. This article covers the type of biscuit found in Africa, Asia, and Europe, which is typically hard, flat, and unleavened.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/lotus_biscoff.jpg',
       gallery: [
@@ -4829,7 +4829,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/artiach_filipino.jpg',
       gallery: [
@@ -4876,7 +4876,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cadbury_dairy_milk_crispello.jpg',
       gallery: [
@@ -4924,7 +4924,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/cadbury_zip.jpg',
       gallery: [
         {
@@ -4970,7 +4970,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cadbury-dairy-milk-reclose.jpg',
       gallery: [
@@ -5017,7 +5017,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/cloetta.jpg',
       gallery: [
         {
@@ -5059,7 +5059,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cloetta_sprinkle.jpg',
       gallery: [
@@ -5106,7 +5106,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/hershey_symphony.jpg',
       gallery: [
@@ -5154,7 +5154,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/hersheys_kisses.jpg',
       gallery: [
@@ -5201,7 +5201,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/m&m_funsize.jpg',
       gallery: [
         {
@@ -5247,7 +5247,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nestle_butterfinger.jpg',
       gallery: [
@@ -5294,7 +5294,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nestle_kitkat.jpg',
       gallery: [
@@ -5341,7 +5341,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/snikers_slice.jpg',
       gallery: [
@@ -5388,7 +5388,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Chocolate is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/snikers_snacksize.jpg',
       gallery: [
@@ -5436,7 +5436,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/cottage_bbq.jpg',
       gallery: [
         {
@@ -5482,7 +5482,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crisps-puzzle.jpg',
       gallery: [
@@ -5529,7 +5529,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/doritos.jpg',
       gallery: [
         {
@@ -5571,7 +5571,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/lays_baked.jpg',
       gallery: [
         {
@@ -5613,7 +5613,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/lays_sea_salted.jpg',
       gallery: [
@@ -5660,7 +5660,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/lays-kettle-cooked.jpg',
       gallery: [
@@ -5707,7 +5707,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/lays-sour-cream.jpg',
       gallery: [
@@ -5754,7 +5754,7 @@ export function createProductSamples() {
       discountInPercent: 15,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nims_apple_fruit.jpg',
       gallery: [
@@ -5801,7 +5801,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Ready-Salted-Crisps.jpg',
       gallery: [
@@ -5848,7 +5848,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/Roysters_6pk.jpg',
       gallery: [
         {
@@ -5894,7 +5894,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/snackrite_bags.jpg',
       gallery: [
@@ -5941,7 +5941,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tayto_cheese_onion.jpg',
       gallery: [
@@ -5988,7 +5988,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tayto_pickled_onion.jpg',
       gallery: [
@@ -6035,7 +6035,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Potato chips (often just chips), or crisps, are thin slices of potato that have been deep fried or baked until crunchy. They are commonly served as a snack, side dish, or appetizer. The basic chips are cooked and salted; additional varieties are manufactured using various flavorings and ingredients including herbs, spices, cheeses, other natural flavors, artificial flavors, and additives.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/walkers_cheese_onion.jpg',
       gallery: [
@@ -6082,7 +6082,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cintan_chicken.jpg',
       gallery: [
@@ -6129,7 +6129,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/indomie_special_chicken.jpg',
       gallery: [
@@ -6176,7 +6176,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kame_stir_fry.jpg',
       gallery: [
@@ -6223,7 +6223,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use..',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/koka_curry.jpg',
       gallery: [
         {
@@ -6265,7 +6265,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use..',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/maggi_bbq.jpg',
       gallery: [
         {
@@ -6307,7 +6307,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use..',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/maggi_beef.jpg',
       gallery: [
         {
@@ -6349,7 +6349,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use..',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/maggi_biriyani.jpg',
       gallery: [
@@ -6396,7 +6396,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Noodles are a type of food made from unleavened dough which is rolled flat and cut, or extruded, into long strips or strings. Noodles can be refrigerated for short-term storage or dried and stored for future use..',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/maggi_chicken.jpg',
       gallery: [
@@ -6444,7 +6444,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/badia_pinenuts.jpg',
       gallery: [
@@ -6492,7 +6492,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/cacao_cashew.jpg',
       gallery: [
         {
@@ -6538,7 +6538,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/fisher_peanut.jpg',
       gallery: [
@@ -6585,7 +6585,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Fruits-And-Nuts-Full-Meal-Bottle-Front.jpg',
       gallery: [
@@ -6632,7 +6632,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Fruits-And-Nuts-Full-Meal-Packet.jpg',
       gallery: [
@@ -6679,7 +6679,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/ivory_cashewnut.jpg',
       gallery: [
@@ -6726,7 +6726,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/jaybee_whole_cashewnut.jpg',
       gallery: [
@@ -6773,7 +6773,7 @@ export function createProductSamples() {
       discountInPercent: 15,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kirkland_mixed_nuts.jpg',
       gallery: [
@@ -6820,7 +6820,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/natural_cashewnut.jpg',
       gallery: [
@@ -6867,7 +6867,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/planter_cashewnut.jpg',
       gallery: [
@@ -6914,7 +6914,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/planters_dry_roasted.jpg',
       gallery: [
@@ -6961,7 +6961,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A nut is a fruit composed of an inedible hard shell and a seed, which is generally edible. In general usage, a wide variety of dried seeds are called nuts, but in a botanical context nut implies that the shell does not open to release the seed.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/planters_honey_roasted.jpg',
       gallery: [
@@ -7008,7 +7008,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/bambino_macaroni.jpg',
       gallery: [
@@ -7055,7 +7055,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/bambino_premium_pasta.jpg',
       gallery: [
@@ -7102,7 +7102,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/batchelors_pasta_sauce.jpg',
       gallery: [
@@ -7149,7 +7149,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/borges-pasta.jpg',
       gallery: [
         {
@@ -7196,7 +7196,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Cheese-&-Broccoli-Pasta-&-Sauce.jpg',
       gallery: [
@@ -7244,7 +7244,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/sunremo_chicken_curry_pasta.jpg',
       gallery: [
@@ -7291,7 +7291,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pasta is a type of food typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/knorr_pastaria.jpg',
       gallery: [
@@ -7338,7 +7338,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/allegro_bbq_sauce.jpg',
       gallery: [
@@ -7385,7 +7385,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/asain_zing_chili.jpg',
       gallery: [
@@ -7432,7 +7432,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crunch_hot_chili_sauce.jpg',
       gallery: [
@@ -7479,7 +7479,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/felix_chili_sauce.jpg',
       gallery: [
@@ -7526,7 +7526,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/heinz_chili_sauce.jpg',
       gallery: [
@@ -7573,7 +7573,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/kosmos_bbq.jpg',
       gallery: [
         {
@@ -7615,7 +7615,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/taco_bell_diablo_sauce.jpg',
       gallery: [
@@ -7662,7 +7662,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'In cooking, a sauce is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/taco_bell_fire_sauce.jpg',
       gallery: [
@@ -7709,7 +7709,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Soup is a primarily liquid food, generally served warm or hot (but may be cool or cold), that is made by combining ingredients of meat or vegetables with stock, or water. Hot soups are additionally characterized by boiling solid ingredients in liquids in a pot until the flavors are extracted, forming a broth.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/bak_kuh_teh.jpg',
       gallery: [
         {
@@ -7755,7 +7755,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Soup is a primarily liquid food, generally served warm or hot (but may be cool or cold), that is made by combining ingredients of meat or vegetables with stock, or water. Hot soups are additionally characterized by boiling solid ingredients in liquids in a pot until the flavors are extracted, forming a broth.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/chings_mixvegsoup.jpg',
       gallery: [
@@ -7802,7 +7802,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Soup is a primarily liquid food, generally served warm or hot (but may be cool or cold), that is made by combining ingredients of meat or vegetables with stock, or water. Hot soups are additionally characterized by boiling solid ingredients in liquids in a pot until the flavors are extracted, forming a broth.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dashi_chicken_corn.jpg',
       gallery: [
@@ -7849,7 +7849,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Soup is a primarily liquid food, generally served warm or hot (but may be cool or cold), that is made by combining ingredients of meat or vegetables with stock, or water. Hot soups are additionally characterized by boiling solid ingredients in liquids in a pot until the flavors are extracted, forming a broth.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/knorr_thai_vegetable.jpg',
       gallery: [
@@ -7896,7 +7896,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Soup is a primarily liquid food, generally served warm or hot (but may be cool or cold), that is made by combining ingredients of meat or vegetables with stock, or water. Hot soups are additionally characterized by boiling solid ingredients in liquids in a pot until the flavors are extracted, forming a broth.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/rempah_sup.jpg',
       gallery: [
         {
@@ -7938,7 +7938,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/grain_free.jpg',
       gallery: [
         {
@@ -7980,7 +7980,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/hills_science_diet.jpg',
       gallery: [
@@ -8027,7 +8027,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/instinct_the_raw.jpg',
       gallery: [
@@ -8074,7 +8074,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/natural_balance.jpg',
       gallery: [
@@ -8121,7 +8121,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/prescription_diet.jpg',
       gallery: [
@@ -8168,7 +8168,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/pro_diet.jpg',
       gallery: [
         {
@@ -8210,7 +8210,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/purina_pro_plan.jpg',
       gallery: [
@@ -8257,7 +8257,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cat food is food specifically formulated and intended for consumption by cats and other related canines. Like all carnivores, cats have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/special_kitty.jpg',
       gallery: [
@@ -8304,7 +8304,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_black_hawk_adult_all_breeds_lamb&rice.jpg',
       gallery: [
@@ -8351,7 +8351,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_black_hawk_puppy_all_breeds_lamb&rice.jpg',
       gallery: [
@@ -8398,7 +8398,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_black_hawk_puppy_large_breedchicken&rice.jpg',
       gallery: [
@@ -8445,7 +8445,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_blain's_farm&fleet.jpg",
       gallery: [
@@ -8493,7 +8493,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_blue_wilderness.jpg',
       gallery: [
@@ -8540,7 +8540,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_whole_hearted_beef&pea.jpg',
       gallery: [
@@ -8587,7 +8587,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_whole_hearted_salmon&pea.jpg',
       gallery: [
@@ -8634,7 +8634,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Dog food is food specifically formulated and intended for consumption by dogs and other related canines. Like all carnivores, dogs have sharp, pointed teeth, and have short gastrointestinal tracts better suited for the consumption of meat than of vegetable substances.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dog_food_zenith.jpg',
       gallery: [
@@ -8681,7 +8681,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_applaws_adult_cat_chicken.jpg',
       gallery: [
@@ -8728,7 +8728,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_authority_real_chicken.jpg',
       gallery: [
@@ -8775,7 +8775,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_blue_wilderness_chicken.jpg',
       gallery: [
@@ -8822,7 +8822,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_hill's_ideal_balance_over1year_kitten.jpg",
       gallery: [
@@ -8869,7 +8869,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_hill's_science_diet_upto1year_kitten.jpg",
       gallery: [
@@ -8916,7 +8916,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_iamso_upto1year.jpg',
       gallery: [
@@ -8963,7 +8963,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_instinct_chicken.jpg',
       gallery: [
@@ -9010,7 +9010,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_merrick.jpg',
       gallery: [
@@ -9057,7 +9057,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_merrick.jpg',
       gallery: [
@@ -9105,7 +9105,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_purina_one.jpg',
       gallery: [
@@ -9152,7 +9152,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_purina_proplan.jpg',
       gallery: [
@@ -9199,7 +9199,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_wellness.jpg',
       gallery: [
@@ -9246,7 +9246,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitten food is food for consumption by kitten. Kittens have specific requirements for their dietary nutrients. Certain nutrients, including many vitamins and amino acids, are degraded by the temperatures, pressures and chemical treatments used during manufacture, and hence must be added after manufacture to avoid nutritional deficiency.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitten_food_whiskas_real_chicken.jpg',
       gallery: [
@@ -9293,7 +9293,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_black_winter_cap.jpg',
       gallery: [
@@ -9340,7 +9340,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_brown&white_winter_cap.jpg',
       gallery: [
@@ -9387,7 +9387,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_brown&white_winter_cap.jpg',
       gallery: [
@@ -9434,7 +9434,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_costume1.jpg',
       gallery: [
@@ -9482,7 +9482,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_costume2.jpg',
       gallery: [
@@ -9530,7 +9530,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_jacket_ash.jpg',
       gallery: [
@@ -9578,7 +9578,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_jacket_red.jpg',
       gallery: [
@@ -9625,7 +9625,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_pet_bed1.jpg',
       gallery: [
@@ -9672,7 +9672,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_pet_bed2.jpg',
       gallery: [
@@ -9720,7 +9720,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_pet_bed4.jpg',
       gallery: [
@@ -9767,7 +9767,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_red&white_christmas_sweater.jpg',
       gallery: [
@@ -9814,7 +9814,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_red&white_jumper1.jpg',
       gallery: [
@@ -9862,7 +9862,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_red_crhistmas_winter_cap.jpg',
       gallery: [
@@ -9909,7 +9909,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pet_accessories_tie.jpg',
       gallery: [
@@ -9956,7 +9956,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_acana_ozmo.jpg',
       gallery: [
@@ -10003,7 +10003,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_air_wick_essential_oils.jpg',
       gallery: [
@@ -10051,7 +10051,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_ambipur_air_sweet_citrus&zest.jpg',
       gallery: [
@@ -10099,7 +10099,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_boardwalk_mango.jpg',
       gallery: [
@@ -10147,7 +10147,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_febreze_air_bora_bora.jpg',
       gallery: [
@@ -10195,7 +10195,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_febreze_air_effects.jpg',
       gallery: [
@@ -10243,7 +10243,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_febreze_air_hawaiian.jpg',
       gallery: [
@@ -10290,7 +10290,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_sc_johnson_glade_blue_odyssey.jpg',
       gallery: [
@@ -10337,7 +10337,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_sc_johnson_glade_clean_linen.jpg',
       gallery: [
@@ -10384,7 +10384,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Air fresheners are consumer products that typically emit fragrance and are used in homes or commercial interiors such as restrooms, foyers, hallways, vestibules and other smaller indoor areas, as well as larger areas such as hotel lobbies, auto dealerships, medical facilities, public arenas and other large interior spaces.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/air_freshner_vibrant_linen.jpg',
       gallery: [
@@ -10431,7 +10431,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_ajax.jpg',
       gallery: [
@@ -10479,7 +10479,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_astonish.jpg',
       gallery: [
@@ -10527,7 +10527,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_bio.jpg',
       gallery: [
@@ -10575,7 +10575,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_bona.jpg',
       gallery: [
@@ -10623,7 +10623,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_ever_spring.jpg',
       gallery: [
@@ -10671,7 +10671,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_glitz_glass_cleaner.jpg',
       gallery: [
@@ -10719,7 +10719,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_glitz_steel_cleaner.jpg',
       gallery: [
@@ -10766,7 +10766,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/cleaning_supply_method.jpg',
       gallery: [
@@ -10813,7 +10813,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_dawn_la_faune.jpg',
       gallery: [
@@ -10860,7 +10860,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_dawn_new_zealand_spring_scent.jpg',
       gallery: [
@@ -10907,7 +10907,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_fairy_lemon.jpg',
       gallery: [
@@ -10954,7 +10954,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_finish.jpg',
       gallery: [
@@ -11001,7 +11001,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_lemi_shine.jpg',
       gallery: [
@@ -11048,7 +11048,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_seventh_generation_free&clear.jpg',
       gallery: [
@@ -11096,7 +11096,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cleaning liquid (BrE: washing-up liquid), known as cleaning soap, cleaning detergent and dish soap, is a detergent or liquid used to assist in cleaning. It is usually a highly-foaming mixture of surfactants with low skin irritation',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/dishwasher_winni's_fiori_bianchi.jpg",
       gallery: [
@@ -11143,7 +11143,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_camp_cutlery.jpg',
       gallery: [
@@ -11190,7 +11190,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_dinner_spoons.jpg',
       gallery: [
@@ -11237,7 +11237,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_ice_cream_scoop.jpg',
       gallery: [
@@ -11284,7 +11284,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_kitchen_tools.jpg',
       gallery: [
@@ -11331,7 +11331,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_mash_strainers.jpg',
       gallery: [
@@ -11378,7 +11378,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_skimmer.jpg',
       gallery: [
@@ -11425,7 +11425,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Kitchen accessories are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food.Kitchen accessories can also be used to hold or store food before or after preparation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kitchen_accessories_solid_turner.jpg',
       gallery: [
@@ -11472,7 +11472,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_woolite.jpg',
       gallery: [
@@ -11519,7 +11519,7 @@ export function createProductSamples() {
       discountInPercent: 30,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_tide.jpg',
       gallery: [
@@ -11566,7 +11566,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_seventh_generation.jpg',
       gallery: [
@@ -11613,7 +11613,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_safe_wash.jpg',
       gallery: [
@@ -11660,7 +11660,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_purex.jpg',
       gallery: [
@@ -11707,7 +11707,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_persil.jpg',
       gallery: [
@@ -11754,7 +11754,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_home_made_simple.jpg',
       gallery: [
@@ -11801,7 +11801,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_ecos.jpg',
       gallery: [
@@ -11848,7 +11848,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_daz.jpg',
       gallery: [
@@ -11895,7 +11895,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_chomel.jpg',
       gallery: [
@@ -11942,7 +11942,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_chicco.jpg',
       gallery: [
@@ -11989,7 +11989,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Laundry detergent, or washing powder, is a type of detergent (cleaning agent) that is added for cleaning laundry. While detergent is still sold in powdered form, liquid detergents have been taking major market shares in many countries since their introduction in the 1950s.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/laundry_products_babyhug.jpg',
       gallery: [
@@ -12036,7 +12036,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_doff.jpg',
       gallery: [
@@ -12083,7 +12083,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_eco_deffence_home_pest_control.jpg',
       gallery: [
@@ -12131,7 +12131,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_kritterkill.jpg',
       gallery: [
@@ -12178,7 +12178,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_naturally_green.jpg',
       gallery: [
@@ -12225,7 +12225,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_sc_johnson_raid.jpg',
       gallery: [
@@ -12272,7 +12272,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Pest control is the regulation or management of a species defined as a pest, a member of the animal kingdom that impacts adversely on human activities. The human response depends on the importance of the damage done, and will range from tolerance, through deterrence and management, to attempts to completely eradicate the pest.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pest_control_wondercide_indoor_pest_control.jpg',
       gallery: [
@@ -12319,7 +12319,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/butter_barney.jpg',
       gallery: [
@@ -12366,7 +12366,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/butter_kirkland.jpg',
       gallery: [
@@ -12413,7 +12413,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/butter_nature's_tattva.jpg",
       gallery: [
@@ -12460,7 +12460,7 @@ export function createProductSamples() {
       discountInPercent: 30,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/butter_nikki's.jpg",
       gallery: [
@@ -12507,7 +12507,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/butter_tnuva.jpg',
       gallery: [
         {
@@ -12553,7 +12553,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/butter_tru_nut.jpg',
       gallery: [
@@ -12600,7 +12600,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Butter is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/butter_whole_earth.jpg',
       gallery: [
@@ -12647,7 +12647,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_cavanagh.jpg',
       gallery: [
         {
@@ -12693,7 +12693,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_clarenece_court.jpg',
       gallery: [
@@ -12740,7 +12740,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_cp.jpg',
       gallery: [
         {
@@ -12782,7 +12782,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_freshlay_golden_yolks.jpg',
       gallery: [
@@ -12829,7 +12829,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_gold_hen.jpg',
       gallery: [
         {
@@ -12875,7 +12875,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_happy_egg_organic.jpg',
       gallery: [
@@ -12922,7 +12922,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_morrisons.jpg',
       gallery: [
@@ -12969,7 +12969,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg results from fertilization of an egg cell. Most arthropods, vertebrates (excluding mammals), and mollusks lay eggs, although some, such as scorpions, do not.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/egg_nutri_plus_telur_kampang_omega3.jpg',
       gallery: [
@@ -13016,7 +13016,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_arla_lacto_free.jpg',
       gallery: [
@@ -13063,7 +13063,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_arla_low_fat1.5.jpg',
       gallery: [
@@ -13110,7 +13110,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_f&n_magnolia.jpg',
       gallery: [
@@ -13158,7 +13158,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_greenfields_choco_malt_flavoured.jpg',
       gallery: [
@@ -13205,7 +13205,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_heritage.jpg',
       gallery: [
@@ -13252,7 +13252,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_lactaid.jpg',
       gallery: [
         {
@@ -13298,7 +13298,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Milk is a nutrient-rich, white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for infant mammals (including humans who are breastfed) before they are able to digest other types of food.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_living_planet.jpg',
       gallery: [
@@ -13345,7 +13345,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Cream is a dairy product composed of the higher-fat layer skimmed from the top of milk before homogenization. In un-homogenized milk, the fat, which is less dense, eventually rises to the top.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_cream_califia_farms.jpg',
       gallery: [
@@ -13392,7 +13392,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cream is a dairy product composed of the higher-fat layer skimmed from the top of milk before homogenization. In un-homogenized milk, the fat, which is less dense, eventually rises to the top.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_cream_clover.jpg',
       gallery: [
@@ -13439,7 +13439,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Cream is a dairy product composed of the higher-fat layer skimmed from the top of milk before homogenization. In un-homogenized milk, the fat, which is less dense, eventually rises to the top.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_cream_fernleaf.jpg',
       gallery: [
@@ -13486,7 +13486,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_scape.jpg',
       gallery: [
@@ -13533,7 +13533,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_z_natural_foods.jpg',
       gallery: [
@@ -13580,7 +13580,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_param.jpg',
       gallery: [
@@ -13627,7 +13627,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_nestle_nido_900gram.jpg',
       gallery: [
@@ -13674,7 +13674,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_milgro.jpg',
       gallery: [
@@ -13721,7 +13721,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_lifestyle_food.jpg',
       gallery: [
@@ -13768,7 +13768,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Powdered milk or dried milk is a manufactured dairy product made by evaporating milk to dryness. One purpose of drying milk is to preserve it; milk powder has a far longer shelf life than liquid milk and does not need to be refrigerated, due to its low moisture content. Another purpose is to reduce its bulk for economy of transportation.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/powder_milk_goldmilys.jpg',
       gallery: [
@@ -13815,7 +13815,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/milk_cream_nammilk.jpg',
       gallery: [
@@ -13862,7 +13862,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_astro_balkan.jpg',
       gallery: [
@@ -13909,7 +13909,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_astro_bio_best.jpg',
       gallery: [
@@ -13956,7 +13956,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_chobani_plain_non_fat.jpg',
       gallery: [
@@ -14003,7 +14003,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_chobani_vanilla.jpg',
       gallery: [
@@ -14050,7 +14050,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_dannon_strawberry.jpg',
       gallery: [
@@ -14097,7 +14097,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_dannon_vanilla.jpg',
       gallery: [
@@ -14144,7 +14144,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_marigold.jpg',
       gallery: [
@@ -14191,7 +14191,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'yoghurt, yogourt or yoghourt, is a food produced by bacterial fermentation of milk.[1] The bacteria used to make yogurt are known as yogurt cultures.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/yogourt_stony_field_vanilla_fudge_swirl.jpg',
       gallery: [
@@ -14238,7 +14238,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_1_2_3_vegitable.jpg',
       gallery: [
@@ -14285,7 +14285,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_clover_valley.jpg',
       gallery: [
@@ -14332,7 +14332,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_daisy.jpg',
       gallery: [
         {
@@ -14374,7 +14374,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_eva.jpg',
       gallery: [
         {
@@ -14416,7 +14416,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_goya.jpg',
       gallery: [
         {
@@ -14458,7 +14458,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_natural.jpg',
       gallery: [
         {
@@ -14504,7 +14504,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_san_lucas.jpg',
       gallery: [
@@ -14551,7 +14551,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An oil is any nonpolar chemical substance that is a viscous liquid at ambient temperatures and is both hydrophobic (does not mix with water, literally water fearing) and lipophilic (mixes with other oils, literally fat loving). Oils have a high carbon and hydrogen content and are usually flammable and surface active.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/oil_sunfoil.jpg',
       gallery: [
         {
@@ -14597,7 +14597,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/chefa_choice_bamboo_rice.jpg',
       gallery: [
@@ -14644,7 +14644,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/everyday_essentials_Golden_Vegetable_Savoury_Rice.jpg',
       gallery: [
@@ -14691,7 +14691,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/hulas_premium_basmati_rice.jpg',
       gallery: [
@@ -14738,7 +14738,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Iberia_Long_Grain_Enriched_Fragrant_Rice_18_lbs.jpg',
       gallery: [
@@ -14785,7 +14785,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/india_gate_basmati_rice.jpg',
       gallery: [
@@ -14832,7 +14832,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/nature's_gift_basmati_rice.jpg",
       gallery: [
@@ -14879,7 +14879,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/seeds_of_change_brown_basmati_rice.jpg',
       gallery: [
@@ -14926,7 +14926,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). As a cereal grain, it is the most widely consumed staple food for a large part of the world's human population, especially in Asia.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tai_ping_Sushi_Rice_1kg.jpg',
       gallery: [
@@ -14973,7 +14973,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/clover_valley_sea_salt_grinder.jpg',
       gallery: [
@@ -15020,7 +15020,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/gathering_place_sea_salt_100g_grinder.jpg',
       gallery: [
@@ -15067,7 +15067,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/herbivore_Calm_deadsea_soaking_salt.jpg',
       gallery: [
@@ -15114,7 +15114,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nomu_atlantic_Sea_Salt_Grinder.jpg',
       gallery: [
@@ -15161,7 +15161,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tasteology_chili_salt.jpg',
       gallery: [
@@ -15208,7 +15208,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt .',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_spice_house_white_Truffle_Salt.jpg',
       gallery: [
@@ -15255,7 +15255,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/gula_aromatic_brown_sugar.jpg',
       gallery: [
@@ -15302,7 +15302,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/sis_white_sugar.jpg',
       gallery: [
@@ -15349,7 +15349,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/tate_sugar.jpg',
       gallery: [
         {
@@ -15391,7 +15391,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_pantry_icing_Sugar.jpg',
       gallery: [
@@ -15438,7 +15438,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/whitworths_sugar.jpg',
       gallery: [
@@ -15485,7 +15485,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Sugar is the generic name for sweet-tasting, soluble carbohydrates, many of which are used in food. Simple sugars, also called monosaccharides, include glucose, fructose, and galactose.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Wholesome_Organic_Cane_Sugar_2LB.jpg',
       gallery: [
@@ -15532,7 +15532,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/club_house_la_grille_smouldering_smoked_applewood_seasoning.jpg',
       gallery: [
@@ -15579,7 +15579,7 @@ export function createProductSamples() {
       discountInPercent: 5,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crispy_chill_flakes.jpg',
       gallery: [
@@ -15626,7 +15626,7 @@ export function createProductSamples() {
       discountInPercent: 5,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Dell_Cove_Spices_Spicy_Chipotle_Seasoning.jpg',
       gallery: [
@@ -15673,7 +15673,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Frontier_Curry_Powder.jpg',
       gallery: [
@@ -15720,7 +15720,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/mccormic_chilli_flakes.jpg',
       gallery: [
@@ -15767,7 +15767,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/redman_red_chilli_powder.jpg',
       gallery: [
@@ -15814,7 +15814,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tajin_clasico_seasoning.jpg',
       gallery: [
@@ -15861,7 +15861,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A spice is a seed, fruit, root, bark, or other plant substance primarily used for flavoring, coloring or preserving food. Spices are distinguished from herbs, which are the leaves, flowers, or stems of plants used for flavoring or as a garnish.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/weber_all_natural.jpg',
       gallery: [
@@ -15908,7 +15908,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/best_taste_Bread_garry.jpg',
       gallery: [
@@ -15956,7 +15956,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Everyday_Essentials_Wholemeal_Bread.jpg',
       gallery: [
@@ -16003,7 +16003,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Farmhouse_Multigrain_Batch_loaf_purple_pack.jpg',
       gallery: [
@@ -16051,7 +16051,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/roberts_Seriously_Seeded_Bloomer.jpg',
       gallery: [
@@ -16099,7 +16099,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_village_bakery_Both_In_One_Loaf_white_wholemeal.jpg',
       gallery: [
@@ -16147,7 +16147,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_village_bakery_danish_low_fat.jpg',
       gallery: [
@@ -16194,7 +16194,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_village_bakery_danish_Soft_White_Toastie.jpg',
       gallery: [
@@ -16242,7 +16242,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_village_bakery_Soft_Wholemeal_Bread.jpg',
       gallery: [
@@ -16289,7 +16289,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been a prominent food in large parts of the world and is one of the oldest man-made foods, having been of significant importance since the dawn of agriculture.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Warburtons_Wholemeal_mild_soft.jpg',
       gallery: [
@@ -16336,7 +16336,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A cereal is any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/fibre1_crunchy_original.jpg',
       gallery: [
@@ -16384,7 +16384,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A cereal is any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/general_mills_with_whole_grain_first_ingredient_trix_wildberry_red_swirls.jpg',
       gallery: [
@@ -16431,7 +16431,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A cereal is any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/general_mills_with_whole_grain_guaranted_fiber_one_honey_clusters.jpg',
       gallery: [
@@ -16478,7 +16478,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A cereal is any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nestle_made_with_whole_grain_corn_flakes.jpg',
       gallery: [
@@ -16525,7 +16525,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A cereal is any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/post_honey_comb_cereal_12.5oz.jpg',
       gallery: [
@@ -16572,7 +16572,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Honey is a sweet, viscous food substance made by bees and some related insects. Bees produce honey from the sugary secretions of plants (floral nectar) or from secretions of other insects (such as honeydew), by regurgitation, enzymatic activity, and water evaporation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/beechworth_honey_bee_creamy_creamy_honey.jpg',
       gallery: [
@@ -16619,7 +16619,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Honey is a sweet, viscous food substance made by bees and some related insects. Bees produce honey from the sugary secretions of plants (floral nectar) or from secretions of other insects (such as honeydew), by regurgitation, enzymatic activity, and water evaporation',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/beekeeper's_naturals_wildflower_raw_honey.jpg",
       gallery: [
@@ -16666,7 +16666,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Honey is a sweet, viscous food substance made by bees and some related insects. Bees produce honey from the sugary secretions of plants (floral nectar) or from secretions of other insects (such as honeydew), by regurgitation, enzymatic activity, and water evaporation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/coffee_blossom_honey.jpg',
       gallery: [
@@ -16713,7 +16713,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Honey is a sweet, viscous food substance made by bees and some related insects. Bees produce honey from the sugary secretions of plants (floral nectar) or from secretions of other insects (such as honeydew), by regurgitation, enzymatic activity, and water evaporation',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Urban_Bee_Honey_fireweed.jpg',
       gallery: [
@@ -16760,7 +16760,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Jam typically contains both the juice and flesh of a fruit or vegetable, although one cookbook defines it as a cooked and jelled puree. The term jam refers to a product made of whole fruit cut into pieces or crushed, then heated with water and sugar to activate its pectin before being put into containers:',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/chivers_mixed_fruit_jam.jpg',
       gallery: [
@@ -16807,7 +16807,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Jam typically contains both the juice and flesh of a fruit or vegetable, although one cookbook defines it as a cooked and jelled puree. The term jam refers to a product made of whole fruit cut into pieces or crushed, then heated with water and sugar to activate its pectin before being put into containers:',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/red_jacket_raspberry_jam.jpg',
       gallery: [
@@ -16854,7 +16854,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Jam typically contains both the juice and flesh of a fruit or vegetable, although one cookbook defines it as a cooked and jelled puree. The term jam refers to a product made of whole fruit cut into pieces or crushed, then heated with water and sugar to activate its pectin before being put into containers:',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/Gin_Jam.jpg',
       gallery: [
         {
@@ -16896,7 +16896,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Mayonnaise , informally mayo  is a thick cold condiment or dressing commonly used in sandwiches and composed salads or on chips (French fries)',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/best_foods_mayonnaise1.jpg',
       gallery: [
@@ -16943,7 +16943,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Mayonnaise , informally mayo  is a thick cold condiment or dressing commonly used in sandwiches and composed salads or on chips (French fries)',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Ballymaloe_Mayonnaise_240g.jpg',
       gallery: [
@@ -16990,7 +16990,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Mayonnaise , informally mayo  is a thick cold condiment or dressing commonly used in sandwiches and composed salads or on chips (French fries)',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Heinz_Mayonnaise.jpg',
       gallery: [
@@ -17037,7 +17037,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Mayonnaise , informally mayo  is a thick cold condiment or dressing commonly used in sandwiches and composed salads or on chips (French fries)',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/kraft_mayonnaise1.jpg',
       gallery: [
@@ -17084,7 +17084,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Oats are any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/FITWELL_OAT_ENRICH.jpg',
       gallery: [
@@ -17131,7 +17131,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Oats are any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/quaker_large_flake_oats.jpg',
       gallery: [
@@ -17178,7 +17178,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Oats are any grass cultivated for the edible components of its grain, composed of the endosperm, germ, and bran. The term may also refer to the resulting grain itself.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/mornflake_jumbo_oats.jpg',
       gallery: [
@@ -17225,7 +17225,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/javarama_classic.jpg',
       gallery: [
@@ -17272,7 +17272,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/starbucks_house_blend.jpg',
       gallery: [
@@ -17319,7 +17319,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/starbucks_vanilla_latte.jpg',
       gallery: [
@@ -17366,7 +17366,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/teeccino_herbal_coffee_alternative_almond_amaretto.jpg',
       gallery: [
@@ -17413,7 +17413,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An energy drink is a type of drink containing sugar and stimulant compounds, usually caffeine, which is marketed as providing mental and physical stimulation (marketed as energy, but distinct from food energy).',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/dragon.jpg',
       gallery: [
         {
@@ -17455,7 +17455,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An energy drink is a type of drink containing sugar and stimulant compounds, usually caffeine, which is marketed as providing mental and physical stimulation (marketed as energy, but distinct from food energy).',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/Monster.jpg',
       gallery: [
         {
@@ -17497,7 +17497,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An energy drink is a type of drink containing sugar and stimulant compounds, usually caffeine, which is marketed as providing mental and physical stimulation (marketed as energy, but distinct from food energy).',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/Quake.jpg',
       gallery: [
         {
@@ -17539,7 +17539,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'An energy drink is a type of drink containing sugar and stimulant compounds, usually caffeine, which is marketed as providing mental and physical stimulation (marketed as energy, but distinct from food energy).',
-      type: 'grocery',
+      type: 'home',
       image: 'https://s3.amazonaws.com/redqteam.com/pickbazar/red_bull.jpg',
       gallery: [
         {
@@ -17581,7 +17581,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/iceland_tropical_juice_drink.jpg',
       gallery: [
@@ -17628,7 +17628,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/minute_maid_orange.jpg',
       gallery: [
@@ -17675,7 +17675,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nongmo_simply_apple.jpg',
       gallery: [
@@ -17722,7 +17722,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tropicana_apple.jpg',
       gallery: [
@@ -17769,7 +17769,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/tropicana_orange_no_pulp.jpg',
       gallery: [
@@ -17816,7 +17816,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/7up_lemon_lime_355ml.jpg',
       gallery: [
@@ -17863,7 +17863,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Coca_Cola_200ml_Bottle.jpg',
       gallery: [
@@ -17910,7 +17910,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/coca_cola_zero.jpg',
       gallery: [
@@ -17957,7 +17957,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/coke_diet_355ml.jpg',
       gallery: [
@@ -18004,7 +18004,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dr_pepper_diet.jpg',
       gallery: [
@@ -18051,7 +18051,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Fanta_orange_can_250ml.jpg',
       gallery: [
@@ -18098,7 +18098,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/mountain_dew_diet.jpg',
       gallery: [
@@ -18145,7 +18145,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/aunt_jemima_original_syrup.jpg',
       gallery: [
@@ -18192,7 +18192,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/canadian_maple_syrup.jpg',
       gallery: [
@@ -18239,7 +18239,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/canadian_maple_syrup.jpg',
       gallery: [
@@ -18286,7 +18286,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/gatorade_thirst_quencher_powder_packs_orange.jpg',
       gallery: [
@@ -18333,7 +18333,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/horlicks_classic_malt.jpg',
       gallery: [
@@ -18380,7 +18380,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A soft drink is a drink that usually contains carbonated water, a sweetener, and a natural or artificial flavoring. The sweetener may be a sugar, high-fructose corn syrup, fruit juice, a sugar substitute, or some combination of these.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/servivita_chocolate_syrup.jpg',
       gallery: [
@@ -18427,7 +18427,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Tea is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub native to East Asia. After water, it is the most widely consumed drink in the world.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/ava_juice_Detox_Matcha.jpg',
       gallery: [
@@ -18474,7 +18474,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Tea is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub native to East Asia. After water, it is the most widely consumed drink in the world.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/boh_3in1_instant_tea_mix.jpg',
       gallery: [
@@ -18521,7 +18521,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Tea is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub native to East Asia. After water, it is the most widely consumed drink in the world.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/crystal_light_lemon_iced_tea.jpg',
       gallery: [
@@ -18568,7 +18568,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Tea is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub native to East Asia. After water, it is the most widely consumed drink in the world.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/imperial_tea_longjing_tea.jpg',
       gallery: [
@@ -18615,7 +18615,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Tea is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub native to East Asia. After water, it is the most widely consumed drink in the world.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/luzianne_iced_tea.jpg',
       gallery: [
@@ -18663,7 +18663,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital for all known forms of life, even though it provides no calories or organic nutrients.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Elkali_natural_alkaline_spring_water.jpg',
       gallery: [
@@ -18710,7 +18710,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital for all known forms of life, even though it provides no calories or organic nutrients.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/glaceau_smart_water.jpg',
       gallery: [
@@ -18757,7 +18757,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital for all known forms of life, even though it provides no calories or organic nutrients.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/glastonbury_still_spring_water.jpg',
       gallery: [
@@ -18804,7 +18804,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital for all known forms of life, even though it provides no calories or organic nutrients.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/poland_spring_natural_spring_water.jpg',
       gallery: [
@@ -18851,7 +18851,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital for all known forms of life, even though it provides no calories or organic nutrients.",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/westfield_pure_spring_water_300ml.jpg',
       gallery: [
@@ -18898,7 +18898,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/attitude_night_bubble_bath.jpg',
       gallery: [
@@ -18945,7 +18945,7 @@ export function createProductSamples() {
       discountInPercent: 50,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/aveeno_baby_shampoo.jpg',
       gallery: [
@@ -18992,7 +18992,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/moisturizing_hair_bath_g.jpg',
       gallery: [
@@ -19039,7 +19039,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/neutrogena_Body_Oil.jpg',
       gallery: [
@@ -19086,7 +19086,7 @@ export function createProductSamples() {
       discountInPercent: 20,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/eo_body_lotion.jpg',
       gallery: [
@@ -19133,7 +19133,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/gnc_aloe_vera_moisturizing_cream.jpg',
       gallery: [
@@ -19180,7 +19180,7 @@ export function createProductSamples() {
       discountInPercent: 25,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/loreal_paris_age_perfect.jpg',
       gallery: [
@@ -19227,7 +19227,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/waso_shiseido_mega_hydrating_cream.jpg',
       gallery: [
@@ -19274,7 +19274,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Bath gel is a specialized liquid product used for cleaning the body during baths. Not to be confused with liquid soaps, bath gels, in fact, do not contain saponified oil. Instead, it uses synthetic detergents derived from either petroleum or plant sources.',
-      type: 'grocery',
+      type: 'home',
       image:
         "https://s3.amazonaws.com/redqteam.com/pickbazar/gnc_women's_progesterone_cream.jpg",
       gallery: [
@@ -19321,7 +19321,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/bionsen_DEO_ROLL_ON.jpg',
       gallery: [
@@ -19368,7 +19368,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/vichy_deodorant.jpg',
       gallery: [
@@ -19415,7 +19415,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/type_A_ashley_graham_deodorant.jpg',
       gallery: [
@@ -19462,7 +19462,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/the_post_deodorant.jpg',
       gallery: [
@@ -19509,7 +19509,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/taoasis_baldini_bio_deo_sauge_et_orange.jpg',
       gallery: [
@@ -19556,7 +19556,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'A deodorant is a substance applied to the body to prevent or mask (hide) body odor due to bacterial breakdown of perspiration in the armpits, groin, and feet, and in some cases vaginal secretions. A subclass of deodorants, called antiperspirants,',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/spadet_Deodorant.jpg',
       gallery: [
@@ -19603,7 +19603,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The term cleanser refers to a product that cleans or removes dirt or other substances. A cleanser could be a detergent, and there are many types of cleansers that are produced with a specific objective or focus.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/face_republic_Sun_gel.jpg',
       gallery: [
@@ -19650,7 +19650,7 @@ export function createProductSamples() {
       discountInPercent: 10,
       description:
         'The term cleanser refers to a product that cleans or removes dirt or other substances. A cleanser could be a detergent, and there are many types of cleansers that are produced with a specific objective or focus.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/frei_ol_urea2in1.jpg',
       gallery: [
@@ -19697,7 +19697,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The term cleanser refers to a product that cleans or removes dirt or other substances. A cleanser could be a detergent, and there are many types of cleansers that are produced with a specific objective or focus.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/garnier_pure_active.jpg',
       gallery: [
@@ -19744,7 +19744,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'The term cleanser refers to a product that cleans or removes dirt or other substances. A cleanser could be a detergent, and there are many types of cleansers that are produced with a specific objective or focus.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nuage_men_facial_wash.jpg',
       gallery: [
@@ -19791,7 +19791,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Oral hygiene is the practice of keeping one's mouth clean and free of disease and other problems (e.g. bad breath) by regular brushing of the teeth (dental hygiene) and cleaning between the teeth. It is important that oral hygiene be carried out on a regular basis to enable prevention of dental disease and bad breath. ",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/absolute_plus_Meat_Dental_Set_.jpg',
       gallery: [
@@ -19838,7 +19838,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Oral hygiene is the practice of keeping one's mouth clean and free of disease and other problems (e.g. bad breath) by regular brushing of the teeth (dental hygiene) and cleaning between the teeth. It is important that oral hygiene be carried out on a regular basis to enable prevention of dental disease and bad breath. ",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/dentek_professional_oral_care_kit1.jpg',
       gallery: [
@@ -19885,7 +19885,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         "Oral hygiene is the practice of keeping one's mouth clean and free of disease and other problems (e.g. bad breath) by regular brushing of the teeth (dental hygiene) and cleaning between the teeth. It is important that oral hygiene be carried out on a regular basis to enable prevention of dental disease and bad breath. ",
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/gum_oral_care_cleaning_kit.jpg',
       gallery: [
@@ -19932,7 +19932,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Duke_Cannon_SHAVE_CREAM.jpg',
       gallery: [
@@ -19979,7 +19979,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/nair_hair_remover.jpg',
       gallery: [
@@ -20026,7 +20026,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/Longmarket_Barber_Aftershave_Balm.jpg',
       gallery: [
@@ -20073,7 +20073,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/espa_men_dual_action_shave_mud.jpg',
       gallery: [
@@ -20120,7 +20120,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/human_nature_shaving_cream.jpg',
       gallery: [
@@ -20167,7 +20167,7 @@ export function createProductSamples() {
       discountInPercent: 0,
       description:
         'Shaving is the removal of hair, by using a razor or any other kind of bladed implement, to slice it down—to the level of the skin or otherwise. Shaving is most commonly practiced by men to remove their facial hair and by women to remove their leg and underarm hair.',
-      type: 'grocery',
+      type: 'home',
       image:
         'https://s3.amazonaws.com/redqteam.com/pickbazar/pacific_shaving_co._natural_shaving_cream.jpg',
       gallery: [

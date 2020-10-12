@@ -54,11 +54,11 @@ const CategoryPage: React.FC<any> = ({ deviceType }) => {
             intlDescriptionId={page?.banner_description_id}
             imageUrl={page?.banner_image_url}
           />
-          <OfferSection>
+          {/* <OfferSection>
             <div style={{ margin: '0 -10px' }}>
               <Carousel deviceType={deviceType} data={siteOffers} />
             </div>
-          </OfferSection>
+          </OfferSection> */}
           <MobileCarouselDropdown>
             <Sidebar type={PAGE_TYPE} deviceType={deviceType} />
           </MobileCarouselDropdown>
@@ -111,12 +111,6 @@ export async function getStaticPaths() {
   return {
     paths: [
       { params: { type: 'home' } },
-      { params: { type: 'makeup' } },
-      { params: { type: 'bags' } },
-      { params: { type: 'book' } },
-      { params: { type: 'medicine' } },
-      { params: { type: 'furniture' } },
-      { params: { type: 'clothing' } },
     ],
     fallback: false,
   };
