@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from 'site-settings/site-theme/default';
 import { AppProvider } from 'contexts/app/app.provider';

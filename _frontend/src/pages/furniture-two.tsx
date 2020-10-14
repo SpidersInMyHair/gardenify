@@ -1,3 +1,4 @@
+import React from 'react';
 import { ProductGrid } from 'components/product-grid/product-grid';
 import { Modal } from '@redq/reuse-modal';
 import dynamic from 'next/dynamic';

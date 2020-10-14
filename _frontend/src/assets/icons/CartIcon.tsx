@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Svg } from 'components/svg';
 export const CartIcon = (props) => (
   <Svg {...props} width="14.4" height="12" viewBox="0 0 14.4 12">

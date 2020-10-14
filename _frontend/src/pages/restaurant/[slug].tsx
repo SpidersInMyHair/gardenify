@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import ProductDetailsFood from 'components/product-details/product-details-three/product-details-three';

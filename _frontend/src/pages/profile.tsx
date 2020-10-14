@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextPage } from 'next';
 import { Modal } from '@redq/reuse-modal';
 import { ProfileProvider } from 'contexts/profile/profile.provider';

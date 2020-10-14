@@ -8,7 +8,7 @@ const ci = process.env.ENV === 'ci';
 const dev = process.env.ENV !== 'production';
 const port = process.env.PORT || 3000;
 
-const app = next({ dev, dir: './ts_out/_frontend/packages/shop-rest' });
+const app = next({ dev, dir: './_frontend' });
 const handle = app.getRequestHandler();
 
 app.prepare()

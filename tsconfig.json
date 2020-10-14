@@ -3,17 +3,19 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
-    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "ts_out",
     "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    },
-    "jsx": "react"
+    // "paths": {
+    //   "*": [
+    //     "node_modules/*",
+    //     "_frontend/*"
+    //   ]
+    // },
+    "types": ["react"],
+    "jsx": "react",
+    "resolveJsonModule": true,
   },
   "include": [
     "_repository/**/*",
@@ -21,7 +23,9 @@
     "_backend/home_service/**/*",
     "_backend/plant_service/**/*",
     "_backend/user_service/**/*",
-    "_frontend/components/**/*",
-    "_frontend/pages/**/*"
+    // "_frontend/src/**/*.ts",
+    // "_frontend/src/**/*.tsx",
+    // "_frontend/custom-types.d.ts",
+    // "_frontend/next-env.d.ts"
   ]
 }

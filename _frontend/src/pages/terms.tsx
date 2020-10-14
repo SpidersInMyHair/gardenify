@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextPage } from 'next';
 import Sticky from 'react-stickynode';
 import {

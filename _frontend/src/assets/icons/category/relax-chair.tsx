@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const RelaxChair = ({
   color = 'currentColor',
   width = '18px',
