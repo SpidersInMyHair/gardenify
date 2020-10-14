@@ -59,3 +59,26 @@ class Growth:
     
     def set_light(self, light):
         self.light = light
+
+def set_growth_att(growth, key, value):
+    if key == 'description':
+        growth.set_desc(value)
+    elif key == 'days_to_harvest':
+        growth.set_days_to_harv(value)
+    elif key == 'growth_months':
+        growth.set_growth_months(value)
+    elif key == 'minimum_precipitation':
+        growth.set_precip_min(value['mm'])
+    elif key == 'maximum_precipitation':
+        growth.set_precip_max(value['mm'])
+    elif key == 'minimum_temperature':
+        growth.set_temp_min(value['deg_c'])
+    elif key == 'maximum_temperature':
+        growth.set_temp_max(value['deg_c'])
+    elif key == 'ph_maximum':
+        growth.set_ph_min(value)
+    elif key == 'ph_minimum':
+        growth.set_ph_max(value)
+    elif key == 'light':
+        growth.set_light(value)
+    return growth

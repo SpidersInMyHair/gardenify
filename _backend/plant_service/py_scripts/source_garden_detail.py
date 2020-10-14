@@ -9,40 +9,21 @@
         'common_name' field. 
 
     Regarding 'varieties' of plants, the above search endpoint will return all varieties of that plant.
+
+    Perhaps, when a user searched for plants that are not in the database, this script is activated and populates
+    it...
 '''
 
 import requests
 import json
 from ppretty import ppretty
-from growth import Growth
-from plant import Plant
+import plant
+import growth
+import spec  
 
 trefle_token = "dpOhO85-PpBjecAitIqybBGWuwUvOoPLiJmvj_LypVM"
 species_endpoint = "https://trefle.io/api/v1/species"
 plants_endpoint = "https://trefle.io/api/v1/plants"
-
-def set_growth_att(growth, key, value):
-    if key == 'description':
-        growth.set_desc(value)
-    elif key == 'days_to_harvest':
-        growth.set_days_to_harv(value)
-    elif key == 'growth_months':
-        growth.set_growth_months(value)
-    elif key == 'minimum_precipitation':
-        growth.set_precip_min(value['mm'])
-    elif key == 'maximum_precipitation':
-        growth.set_precip_max(value['mm'])
-    elif key == 'minimum_temperature':
-        growth.set_temp_min(value['deg_c'])
-    elif key == 'maximum_temperature':
-        growth.set_temp_max(value['deg_c'])
-    elif key == 'ph_maximum':
-        growth.set_ph_min(value)
-    elif key == 'ph_minimum':
-        growth.set_ph_max(value)
-    elif key == 'light':
-        growth.set_light(value)
-    return growth
 
 # Returns formatted JSON object
 def format_json(obj):
@@ -65,35 +46,44 @@ def get_all_plants():
 def get_plant_using_id(id):
     response = get_response(species_endpoint+'/' + str(id) + '?token=')
     data_res = response.json()['data']
-    plant_growth = Growth()
+
+    pt = plant.Plant()
+    pt_gr = growth.Growth()
+    pt_sp = spec.Spec()
+
+    for key, value in data_res.items():
+        pt = plant.set_plant_att(pt, key, value)
     for key, value in data_res['growth'].items():
-        plant_growth = set_growth_att(plant_growth, key, value)
-    plant = Plant(data_res['common_name'], data_res['vegetable'], data_res['observations'], 
-                data_res['image_url'])
-    plant.set_growth(plant_growth)
+        pt_gr = growth.set_growth_att(pt_gr, key, value)
+    for key, value in data_res['specifications'].items():
+        pt_sp = spec.set_spec_att(pt_sp, key, value)
+    
+    pt.set_growth(pt_gr)
+    pt.set_spec(pt_sp)
+
     # Uncomment below line to pretty print the plant information
-    print(ppretty(plant, seq_length=20))
+    #print(ppretty(pt, seq_length=30))
 
 # Search for a plant using a keyword
 def search_plant(keyword):
     response = get_response(species_endpoint+'/search?q=' + keyword + '&token=')
-    num_search_res = response.json()['meta']['total']
+    num_search_res = len(response.json()['data'])
     print('GET status code for searching "' + keyword + '": ' +str(response.status_code))
     if num_search_res == 0:
         print('No results found for "' + keyword + '"...')
-    elif num_search_res == 1:
-        id = response.json()['data']['id']
-        get_plant_using_id(id)
     else:
-        for i in range(num_search_res-1):
+        print('Retrieving results, may take a while...')
+        for i in range(num_search_res):
+            if (i+1) % 5 == 0:
+                print(str(i+1) + ' results processed...')
             id = response.json()['data'][i]['id']
             get_plant_using_id(id)
+        print(str(num_search_res) + ' results found for "' + keyword + '"...')
 
 # Main
 def main():
     #get_all_plants()
-    search_plant('banana')
-
+    search_plant('fig')
 
 # Start of program
 main()
