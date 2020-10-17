@@ -21,7 +21,7 @@ import plant
 import growth
 import spec  
 
-trefle_token = "dpOhO85-PpBjecAitIqybBGWuwUvOoPLiJmvj_LypVM"
+trefle_token = "TT0YMVWeTRKWrzxRsmJ1Xs2E02HvnQpfZZ7UN3BOqKg"
 species_endpoint = "https://trefle.io/api/v1/species"
 plants_endpoint = "https://trefle.io/api/v1/plants"
 
@@ -32,15 +32,19 @@ def format_json(obj):
 
 # Returns repsonse from GET request
 def get_response(url):
+    # print(url+trefle_token)
     return requests.get(url+trefle_token)
 
 # GET all species
 def get_all_plants():
-    response = get_response(species_end+'?token=')
-    num_plants = response.json()['meta']['total']
-    for i in range(num_plants):
-        data_res = response.json()['data'][i]
-        print(format_json(data_res))
+    response = get_response(species_endpoint+'?token=')
+    # num_plants = response.json()['meta']['total']
+    f = open("species.json", "w")
+    f.write(format_json(response.json()['data']))
+    f.close()
+    # for i in range(num_plants):
+    #     data_res = response.json()['data'][i]
+    #     print(format_json(data_res))
 
 # GET a plant's info using its Trefle id
 def get_plant_using_id(id):
@@ -82,8 +86,8 @@ def search_plant(keyword):
 
 # Main
 def main():
-    #get_all_plants()
-    search_plant('fig')
+    get_all_plants()
+    # search_plant('fig')
 
 # Start of program
 main()

@@ -28,10 +28,12 @@ export class PlantVariety extends jspb.Message {
 
 export namespace PlantVariety {
   export type AsObject = {
-    id: string,
+    slug: string,
+    name: string,
+    common_name: string,
     genus: string,
-    species: string,
-    description: string,
+    family: string,
+    img_url: string
   }
 }
 

@@ -1,12 +1,20 @@
 let express = require('express');
 const app = module.exports = express();
 const mysql = require('mysql');
+const con = mysql.createConnection({
+    host: process.env.RDS_HOSTNAME,
+    user: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT,
+});
+con.query(`CREATE DATABASE IF NOT EXISTS gardenify;`);
 // Establish the database connection.
 let connection = mysql.createConnection({
     host: process.env.RDS_HOSTNAME,
     user: process.env.RDS_USERNAME,
     password: process.env.RDS_PASSWORD,
     port: process.env.RDS_PORT,
+    database: 'gardenify',
     multipleStatements: true
 });
 connection.connect((err) => {
