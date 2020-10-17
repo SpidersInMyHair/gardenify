@@ -6,7 +6,7 @@ import {
 
 connection = require('./../../../_repository/_config').connection;
 
-function get(slug: string): Promise<PlantVariety> {
+function getPlant(slug: string): Promise<PlantVariety> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
@@ -19,6 +19,20 @@ function get(slug: string): Promise<PlantVariety> {
     });
   })
 }
+
+function getPlants(): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      SELECT slug, name, common_name, genus, family, img_url            \
+      FROM plant_varieties                                              \
+      LIMIT 20;                                                          \
+    `, (err: any, results: Array<PlantVariety>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results : undefined);
+    });
+  })
+}
+
 
 function insert(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
@@ -81,7 +95,8 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
 }
 
 module.exports = {
-  get,
+  getPlant,
+  getPlants,
   insert,
   getItems,
   getInstructions,

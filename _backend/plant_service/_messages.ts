@@ -9,11 +9,15 @@ import {
 
 export interface GetPlantRequest extends Request {
   params: {
-    id: string,
+    slug: string,
   };
 }
 
 export interface GetPlantResponse<ResBody = PlantVariety> extends Response {
+  send: Send<ResBody, this>;
+}
+
+export interface GetPlantsResponse<ResBody = Array<PlantVariety>> extends Response {
   send: Send<ResBody, this>;
 }
 
