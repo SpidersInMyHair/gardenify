@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "clean": "lerna clean --yes && rimraf node_modules",
-    "tsc": "tsc",
+    "tsc": "rimraf ts_out && tsc",
     "ci": "tsc && cross-env ENV=ci node server.js",
     "dev:frontend": "yarn workspace @gardenify/frontend dev",
     "dev": "tsc && cross-env RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",

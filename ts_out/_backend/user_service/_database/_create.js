@@ -2,9 +2,7 @@ express = require('express');
 module.exports = express();
 connection = require('../../../_repository/_config').connection;
 connection.query(`                                                    \
-  DROP DATABASE IF EXISTS gardenify_user;                             \
-  CREATE DATABASE IF NOT EXISTS gardenify_user;                       \
-  USE gardenify_user;                                                 \
+  DROP TABLE IF EXISTS sessions;                                      \    
   DROP TABLE IF EXISTS users;                                         \
   CREATE TABLE IF NOT EXISTS users (                                  \
     _id         int           NOT NULL   AUTO_INCREMENT,              \
@@ -13,7 +11,6 @@ connection.query(`                                                    \
     password    char(64)      NOT NULL,                               \
     PRIMARY KEY (_id)                                                 \
   );                                                                  \
-  DROP TABLE IF EXISTS sessions;                                      \    
   CREATE TABLE IF NOT EXISTS sessions (                               \
     user_id     int           NOT NULL,                               \
     session_key char(64),                                             \
@@ -21,6 +18,6 @@ connection.query(`                                                    \
   );`, (err) => {
     if (err)
         throw err;
-    console.log('> MySQL: Created DATABASE gardenify_user');
+    console.log('> MySQL: Created user tables');
 });
 //# sourceMappingURL=_create.js.map

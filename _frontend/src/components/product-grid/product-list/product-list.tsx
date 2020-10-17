@@ -95,7 +95,7 @@ export const Products: React.FC<ProductsProps> = ({
             data={props}
             deviceType={deviceType}
             onClick={() => {
-              router.push('/product/[slug]', `/product/${props.slug}`);
+              router.push('/plant/[slug]', `/plant/${props.slug}`);
               if (typeof window !== 'undefined') {
                 window.scrollTo(0, 0);
               }

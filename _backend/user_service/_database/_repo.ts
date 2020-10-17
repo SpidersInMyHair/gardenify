@@ -3,7 +3,6 @@ import {User} from "../../../protos/_backend/user_service/protos/user_pb";
 function get(id: string): Promise<User> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE gardenify_user;                                               \
       SELECT id, email                                                  \
         FROM users                                                      \
       WHERE id=\"${id}\"                                                \
@@ -18,7 +17,6 @@ function get(id: string): Promise<User> {
 function create(id: string, email: string, password: string): Promise<any> {
   return new Promise((resolve, reject) => {
     connection.query(`
-      USE gardenify_user;
       INSERT INTO users (id, email, password) 
       VALUES (
         \"${id}\",

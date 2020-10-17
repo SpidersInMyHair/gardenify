@@ -1,8 +1,7 @@
 express = require('express');
 module.exports = express();
-connection = require('../../../_repository/_config').connection;
+require('../../../_repository/_config').connection;
 connection.query(`                                                            \
-  USE gardenify_user;                                                         \
   INSERT INTO users (id, email, password)                                     \
   VALUES (                                                                    \
     "root",                                                                   \
@@ -11,6 +10,6 @@ connection.query(`                                                            \
   );`, (err) => {
     if (err)
         throw err;
-    console.log('> MySQL: Initialized DATABASE users');
+    console.log('> MySQL: Initialized users tables');
 });
 //# sourceMappingURL=_init.js.map

@@ -24,10 +24,8 @@ app.prepare()
     const repo = require('./ts_out/_repository/_config');
     server.use(repo);
 
-    const home = require('./ts_out/_backend/home_service/_api');
     const plant = require('./ts_out/_backend/plant_service/server');
     const user = require('./ts_out/_backend/user_service/server');
-    server.use(home);
     server.use(plant);
     server.use(user);
   }

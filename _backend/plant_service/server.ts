@@ -2,7 +2,7 @@ import express from 'express';
 
 const app = module.exports = express();
 const repo = require('./_database/_repo');
-const SERVICE = '/plant';
+const SERVICE = '/api/plant';
 
 import * as IdGenerator from './util/IdGenerator';
 import {

@@ -1,31 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 connection = require('./../../../_repository/_config').connection;
-function get(id) {
+function get(slug) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
-      USE plant;                                                        \
-      SELECT id, genus, species, description                            \
+      SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      WHERE id=\"${id}\"                                                \
+      WHERE slug=\"${slug}\"                                                \
       LIMIT 1;                                                          \
     `, (err, results) => {
             if (err)
                 reject(err);
-            resolve(results[1].length > 0 ? results[1][0] : undefined);
+            resolve(results.length > 0 ? results[0] : undefined);
         });
     });
 }
-function insert(id, genus, species, description) {
+function insert(slug, name, common_name, genus, family, img_url) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
-      USE plant;                                                        \
-      INSERT INTO plant_varieties (id, genus, species, description)     \
+      INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
       VALUES (                                                          \
-        \"${id}\",                                                      \
+        \"${slug}\",                                                    \
+        \"${name}\",                                                    \
+        \"${common_name}\",                                             \
         \"${genus}\",                                                   \
-        \"${species}\",                                                 \
-        \"${description}\",                                             \
+        \"${family}\",                                                  \
+        \"${img_url}\",                                                 \
       );                                                                \
     `, (err, results) => {
             if (err)
@@ -37,7 +37,6 @@ function insert(id, genus, species, description) {
 function getItems(id) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_items                                                  \
       WHERE plant_variety_id=\"${id}\";                                 \
@@ -51,7 +50,6 @@ function getItems(id) {
 function getInstructions(id) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_instructions                                           \
       WHERE plant_variety_id=\"${id}\"                                  \
@@ -66,7 +64,6 @@ function getInstructions(id) {
 function getScientificDetails(id) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_scientific_details                                     \
       WHERE plant_variety_id=\"${id}\"                                  \

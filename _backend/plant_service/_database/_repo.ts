@@ -6,31 +6,31 @@ import {
 
 connection = require('./../../../_repository/_config').connection;
 
-function get(id: string): Promise<PlantVariety> {
+function get(slug: string): Promise<PlantVariety> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE plant;                                                        \
-      SELECT id, genus, species, description                            \
+      SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      WHERE id=\"${id}\"                                                \
+      WHERE slug=\"${slug}\"                                                \
       LIMIT 1;                                                          \
-    `, (err: any, results: Array<PlantVariety[]>) => {
+    `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[0] : undefined);
     });
   })
 }
 
-function insert(id: string, genus: string, species: string, description: string) {
+function insert(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE plant;                                                        \
-      INSERT INTO plant_varieties (id, genus, species, description)     \
+      INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
       VALUES (                                                          \
-        \"${id}\",                                                      \
+        \"${slug}\",                                                    \
+        \"${name}\",                                                    \
+        \"${common_name}\",                                             \
         \"${genus}\",                                                   \
-        \"${species}\",                                                 \
-        \"${description}\",                                             \
+        \"${family}\",                                                  \
+        \"${img_url}\",                                                 \
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
@@ -42,7 +42,6 @@ function insert(id: string, genus: string, species: string, description: string)
 function getItems(id: string): Promise<Array<PlantItem>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_items                                                  \
       WHERE plant_variety_id=\"${id}\";                                 \
@@ -56,7 +55,6 @@ function getItems(id: string): Promise<Array<PlantItem>> {
 function getInstructions(id: string): Promise<Array<PlantInstruction>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_instructions                                           \
       WHERE plant_variety_id=\"${id}\"                                  \
@@ -71,7 +69,6 @@ function getInstructions(id: string): Promise<Array<PlantInstruction>> {
 function getScientificDetails(id: string): Promise<PlantScientificDetails> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      USE plant;                                                        \
       SELECT *                                                          \
       FROM plant_scientific_details                                     \
       WHERE plant_variety_id=\"${id}\"                                  \

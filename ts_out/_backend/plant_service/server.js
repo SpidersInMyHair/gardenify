@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = module.exports = express_1.default();
 const repo = require('./_database/_repo');
-const SERVICE = '/plant';
+const SERVICE = '/api/plant';
 const IdGenerator = __importStar(require("./util/IdGenerator"));
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /plant/:id                Get the summary of a plant variety given an id.
