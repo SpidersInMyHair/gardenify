@@ -28,17 +28,28 @@ const repo = require('./_database/_repo');
 const SERVICE = '/api/plant';
 const IdGenerator = __importStar(require("./util/IdGenerator"));
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
-// GET  /plant/:id                Get the summary of a plant variety given an id.
+// GET  /plant/:slug                Get the summary of a plant variety given an slug.
 // POST /plant/                   Create a new plant variety.
 // GET  /plant/items/:id          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
 // GET  /plant/scientific/:id     Get the scientific details of the plant variety with the given id.
 /* ------------------------------------------------------------------------- */
 // GET  /plant/:id
-app.get(`${SERVICE}/:id`, (req, res) => {
-    repo.get(req.params.id)
+app.get(`${SERVICE}/:slug`, (req, res) => {
+    repo.getPlant(req.params.slug)
         .then((plantVariety) => {
         res.send(plantVariety).status(200).end();
+    })
+        .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    });
+});
+// GET  /plant
+app.get(`${SERVICE}`, (req, res) => {
+    repo.getPlants()
+        .then((plantVarieties) => {
+        res.send(plantVarieties).status(200).end();
     })
         .catch((err) => {
         console.log(err);

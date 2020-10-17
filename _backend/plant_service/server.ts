@@ -20,12 +20,13 @@ import {
   GetPlantItemsResponse,
   GetPlantRequest,
   GetPlantResponse,
+  GetPlantsResponse,
   GetPlantScientificDetailsRequest,
   GetPlantScientificDetailsResponse
 } from "./_messages";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
-// GET  /plant/:id                Get the summary of a plant variety given an id.
+// GET  /plant/:slug                Get the summary of a plant variety given an slug.
 // POST /plant/                   Create a new plant variety.
 // GET  /plant/items/:id          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
@@ -33,10 +34,22 @@ import {
 /* ------------------------------------------------------------------------- */
 
 // GET  /plant/:id
-app.get(`${SERVICE}/:id`, (req: GetPlantRequest, res: GetPlantResponse) => {
-  repo.get(req.params.id)
+app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
+  repo.getPlant(req.params.slug)
   .then((plantVariety: PlantVariety) => {
     res.send(plantVariety).status(200).end();
+  })
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});
+
+// GET  /plant
+app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
+  repo.getPlants()
+  .then((plantVarieties: Array<PlantVariety>) => {
+    res.send(plantVarieties).status(200).end();
   })
   .catch((err: any) => {
     console.log(err);

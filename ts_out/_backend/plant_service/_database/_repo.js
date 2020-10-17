@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 connection = require('./../../../_repository/_config').connection;
-function get(slug) {
+function getPlant(slug) {
     return new Promise((resolve, reject) => {
         connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
@@ -12,6 +12,19 @@ function get(slug) {
             if (err)
                 reject(err);
             resolve(results.length > 0 ? results[0] : undefined);
+        });
+    });
+}
+function getPlants() {
+    return new Promise((resolve, reject) => {
+        connection.query(`                                                  \
+      SELECT slug, name, common_name, genus, family, img_url            \
+      FROM plant_varieties                                              \
+      LIMIT 20;                                                          \
+    `, (err, results) => {
+            if (err)
+                reject(err);
+            resolve(results.length > 0 ? results : undefined);
         });
     });
 }
@@ -76,7 +89,8 @@ function getScientificDetails(id) {
     });
 }
 module.exports = {
-    get,
+    getPlant,
+    getPlants,
     insert,
     getItems,
     getInstructions,
