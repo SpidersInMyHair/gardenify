@@ -57,8 +57,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
   const handleQuickViewModal = () => {
     const { pathname, query } = router;
-    const as = `/product/${data.slug}`;
-    if (pathname === '/product/[slug]') {
+    const as = `/plant/${data.slug}`;
+    if (pathname === '/plant/[slug]') {
       router.push(pathname, as);
       if (typeof window !== 'undefined') {
         window.scrollTo(0, 0);

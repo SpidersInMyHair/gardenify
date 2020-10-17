@@ -14,9 +14,11 @@ import {
 export type GetPlantApiRequest = GetPlantRequest["params"];
 export type GetPlantApiResponse = PlantVariety.AsObject;
 
+const baseURL = "/api/plant"
+
 export function getPlantVariety(req: GetPlantApiRequest): Promise<GetPlantApiResponse> {
   return new Promise((resolve, reject) => {
-    fetch(`/plant/${req.id}`)
+    fetch(`${baseURL}/${req.id}`)
     .then((res: Response) => res.json())
     .then(res => resolve(res))
     .catch((rej: any) => reject(rej));
@@ -28,7 +30,7 @@ export type CreatePlantApiResponse = CreatePlantResponse;
 
 export function createPlantVariety(req: CreatePlantApiRequest): Promise<CreatePlantApiResponse> {
   return new Promise((resolve, reject) => {
-    fetch('/plant/', {
+    fetch(baseURL, {
       method: 'POST',
       body: JSON.stringify(req),
       headers: {
@@ -45,7 +47,7 @@ export type GetPlantItemsApiResponse = Array<PlantItem.AsObject>;
 
 export function getPlantItems(req: GetPlantItemsApiRequest): Promise<GetPlantItemsApiResponse> {
   return new Promise((resolve, reject) => {
-    fetch(`/plant/items/${req.id}`)
+    fetch(`${baseURL}/items/${req.id}`)
     .then((res: Response) => res.json())
     .then(res => resolve(res))
     .catch((rej: any) => reject(rej));
@@ -57,7 +59,7 @@ export type GetPlantInstructionsApiResponse = Array<PlantInstruction.AsObject>;
 
 export function getPlantInstructions(req: GetPlantInstructionsApiRequest): Promise<GetPlantInstructionsApiResponse> {
   return new Promise((resolve, reject) => {
-    fetch(`/plant/instructions/${req.id}`)
+    fetch(`${baseURL}/instructions/${req.id}`)
     .then((res: Response) => res.json())
     .then(res => resolve(res))
     .catch((rej: any) => reject(rej));
@@ -69,7 +71,7 @@ export type GetPlantScientificDetailsApiResponse = PlantScientificDetails.AsObje
 
 export function getPlantScientificDetails(req: GetPlantScientificDetailsApiRequest): Promise<GetPlantScientificDetailsApiResponse> {
   return new Promise((resolve, reject) => {
-    fetch(`/plant/scientific/${req.id}`)
+    fetch(`${baseURL}/scientific/${req.id}`)
     .then((res: Response) => res.json())
     .then(res => resolve(res))
     .catch((rej: any) => reject(rej));
