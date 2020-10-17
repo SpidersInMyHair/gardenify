@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Modal } from '@redq/reuse-modal';
@@ -20,10 +21,29 @@ const Sidebar = dynamic(() => import('layouts/sidebar/sidebar'));
 const Products = dynamic(() =>
   import('components/product-grid/product-list/product-list')
 );
+import { getAllPlants } from 'utils/api/plant';
 
 const PAGE_TYPE = 'book'; //remove this when backend shit is working
 
-const HomePage = ({ deviceType }) => {
+type Props = {
+  deviceType?: {
+    mobile: any;
+    tablet: any;
+    desktop: boolean;
+  };
+  data: any;
+};
+
+export async function getStaticProps() {
+  const data = await getAllPlants();
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+const HomePage: NextPage<Props> = ({ deviceType, data }) => {
   const { query } = useRouter();
   const { elRef: targetRef, scroll } = useRefScroll({
     percentOfElement: 0,
@@ -56,9 +76,8 @@ const HomePage = ({ deviceType }) => {
             <ContentSection>
               <div ref={targetRef}>
                 <Products
-                  type={PAGE_TYPE}
                   deviceType={deviceType}
-                  fetchLimit={20}
+                  data={data}
                 />
               </div>
             </ContentSection>

@@ -33,6 +33,7 @@ const MedicineCard = dynamic(
 );
 
 type ProductsProps = {
+  data: any;
   deviceType?: {
     mobile: boolean;
     tablet: boolean;
@@ -43,22 +44,13 @@ type ProductsProps = {
   type?: string;
 };
 export const Products: React.FC<ProductsProps> = ({
+  data,
   deviceType,
-  fetchLimit = 20,
   loadMore = true,
   type,
 }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const { data, error } = useProducts({
-    type,
-    text: router.query.text,
-    category: router.query.category,
-    offset: 0,
-    limit: fetchLimit,
-  });
-
-  if (error) return <ErrorMessage message={error.message} />;
   if (!data) {
     return (
       <LoaderWrapper>
@@ -126,16 +118,17 @@ export const Products: React.FC<ProductsProps> = ({
       default:
         return (
           <GeneralCard
-            title={props.title}
+            title={props.common_name}
             description={props.description}
-            image={props.image}
-            weight={props.unit}
-            currency={CURRENCY}
-            price={props.price}
-            salePrice={props.salePrice}
-            discountInPercent={props.discountInPercent}
+            image={props.img_url}
             data={props}
             deviceType={deviceType}
+            onClick={() => {
+              router.push('/plant/[slug]', `/plant/${props.slug}`);
+              if (typeof window !== 'undefined') {
+                window.scrollTo(0, 0);
+              }
+            }}
           />
         );
     }

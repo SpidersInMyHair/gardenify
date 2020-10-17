@@ -32,13 +32,6 @@ import {
   RelatedItems,
 } from './product-details-two.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
-import { CartIcon } from 'assets/icons/CartIcon';
-import { InkPen } from 'assets/icons/InkPen';
-import { AdobeIcon } from 'assets/icons/AdobeIcon';
-import { Facebook } from 'assets/icons/Facebook';
-import { GooglePlus } from 'assets/icons/GooglePlus';
-import { Twitter } from 'assets/icons/Twitter';
-import { Linkedin } from 'assets/icons/Linkedin';
 import { CURRENCY } from 'utils/constant';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
@@ -109,20 +102,21 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           </BackButton>
 
           <img
-            src={product.gallery[0].url}
-            alt={product.title}
+            src={product.img_url}
+            alt={product.common_name}
             className="product-image"
+            style={{ maxHeight:  "500px"}}
           />
         </ProductPreview>
 
         <ProductInfo>
-          <BookTitle>{product.title}</BookTitle>
+          <BookTitle>{product.common_name}</BookTitle>
           <AuthorName>
-            <InkPen /> {product.author.name}
+            {product.name}
           </AuthorName>
           <BookDescriptionWrapper>
             <BookDescription>
-              {product.description.substring(0, 600)}
+              {product.genus.substring(0, 600)}
               <a
                 href="#"
                 onClick={scrollToDiv}
@@ -131,106 +125,20 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                 Read More
               </a>
             </BookDescription>
-            <BookMetaTable>
-              {product.meta
-                ? Object.entries(product.meta).map(([item], i, arr): any =>
-                    i !== arr.length - 1 && i !== arr.length - 2 ? (
-                      <BookMetaTableRow key={i}>
-                        <BookMetaItem>
-                          {item.replace(/^[a-z]|[A-Z]/g, function (v, i) {
-                            return i === 0
-                              ? v.toUpperCase()
-                              : ' ' + v.toLowerCase();
-                          })}
-                        </BookMetaItem>
-                        <BookMetaItem>
-                          {item === 'languages'
-                            ? product.meta[item].map(
-                                (lang, i, arr): any =>
-                                  lang.charAt(0).toUpperCase() +
-                                  lang.slice(1) +
-                                  (i !== arr.length - 1 ? ', ' : '')
-                              )
-                            : product.meta[item]}
-                        </BookMetaItem>
-                      </BookMetaTableRow>
-                    ) : (
-                      ''
-                    )
-                  )
-                : ''}
-            </BookMetaTable>
           </BookDescriptionWrapper>
-
-          <ProductCartWrapper>
-            <ProductPriceWrapper>
-              {product.discountInPercent ? (
-                <SalePrice>
-                  {CURRENCY}
-                  {product.price}
-                </SalePrice>
-              ) : null}
-
-              <ProductPrice>
-                {CURRENCY}
-                {product.salePrice ? product.salePrice : product.price}
-              </ProductPrice>
-            </ProductPriceWrapper>
-
-            <ProductCartBtn>
-              {!isInCart(data.id) ? (
-                <Button
-                  className="cart-button"
-                  variant="secondary"
-                  borderRadius={100}
-                  onClick={handleAddClick}
-                >
-                  <CartIcon mr={2} />
-                  <ButtonText>
-                    <FormattedMessage
-                      id="addCartButton"
-                      defaultMessage="Cart"
-                    />
-                  </ButtonText>
-                </Button>
-              ) : (
-                <Counter
-                  value={getItem(data.id).quantity}
-                  onDecrement={handleRemoveClick}
-                  onIncrement={handleAddClick}
-                />
-              )}
-
-              {product.meta && product.meta.samplePDF.length !== 0 ? (
-                <Button
-                  title="Read Free Sample"
-                  intlButtonId="readFreeSampleButton"
-                  iconPosition="left"
-                  size="small"
-                  variant="outlined"
-                  className="outline-button"
-                  icon={<AdobeIcon />}
-                />
-              ) : null}
-            </ProductCartBtn>
-          </ProductCartWrapper>
 
           <ProductMeta>
             <MetaSingle>
-              {product.categories
-                ? product.categories.map((item: any) => (
-                    <Link
-                      href={`/${product.type}?category=${item.slug}`}
-                      key={`link-${item.id}`}
-                    >
-                      {
-                        <a>
-                          <MetaItem>{item.title}</MetaItem>
-                        </a>
-                      }
-                    </Link>
-                  ))
-                : ''}
+              <Link href={`/?family=${product.family}`} >
+                <a>
+                  <MetaItem>Family: {product.family}</MetaItem>
+                </a>
+              </Link>
+              <Link href={`/?genus=${product.genus}`} >
+                <a>
+                  <MetaItem>Genus: {product.genus}</MetaItem>
+                </a>
+              </Link>
             </MetaSingle>
           </ProductMeta>
         </ProductInfo>
@@ -243,53 +151,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
             defaultMessage="About The Book"
           />
         </DetailsTitle>
-        <Description>{product.description}</Description>
-      </DetailsWrapper>
-
-      <DetailsWrapper>
-        <DetailsTitle>
-          <FormattedMessage
-            id="authorSectionTitle"
-            defaultMessage="About The Author"
-          />
-        </DetailsTitle>
-        <AuthorName>
-          {product.author.avatar && product.author.avatar.length !== 0 ? (
-            <Avatar>
-              <img src={product.author.avatar} alt={product.author.name} />
-            </Avatar>
-          ) : (
-            <InkPen />
-          )}
-
-          {product.author.name}
-        </AuthorName>
-
-        <Description>{product.author.bio}</Description>
-        <SocialNetworks>
-          {product.author &&
-            product.author.socials.map((item) =>
-              item.profileLink.length !== 0 ? (
-                <SocialIcon>
-                  <a key={item.id} href={item.profileLink} target="_blank">
-                    {item.media === 'facebook' ? (
-                      <Facebook color="#3b5999" />
-                    ) : item.media === 'twitter' ? (
-                      <Twitter color="#55acee" />
-                    ) : item.media === 'google' ? (
-                      <GooglePlus color="#dd4b39" />
-                    ) : item.media === 'linkedin' ? (
-                      <Linkedin color="#0077B5" />
-                    ) : (
-                      ''
-                    )}
-                  </a>
-                </SocialIcon>
-              ) : (
-                ''
-              )
-            )}
-        </SocialNetworks>
+        {/* <Description>{product.description}</Description> */}
       </DetailsWrapper>
 
       <RelatedItems>
@@ -300,7 +162,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           />
         </h2>
         <Products
-          type={product.type.toLowerCase()}
           deviceType={deviceType}
           loadMore={false}
           fetchLimit={10}
