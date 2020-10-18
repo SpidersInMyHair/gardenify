@@ -99,8 +99,12 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
     connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      WHERE family=\"${keyword}\"                                       \
-      LIMIT 20;                                                          \
+      WHERE slug        LIKE \"%${keyword}%\"                           \
+      OR    name        LIKE \"%${keyword}%\"                           \
+      OR    common_name LIKE \"%${keyword}%\"                           \
+      OR    genus       LIKE \"%${keyword}%\"                           \
+      OR    family      LIKE \"%${keyword}%\"                           \
+      LIMIT 100;                                                        \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
       resolve(results.length > 0 ? results : undefined);
