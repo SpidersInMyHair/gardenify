@@ -22,6 +22,7 @@
     "_backend/_common/**/*",
     "_backend/home_service/**/*",
     "_backend/plant_service/**/*",
+    "_backend/plant_service/**/*.py",
     "_backend/user_service/**/*",
     // "_frontend/src/**/*.ts",
     // "_frontend/src/**/*.tsx",
