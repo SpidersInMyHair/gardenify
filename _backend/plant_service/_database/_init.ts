@@ -66,3 +66,9 @@ connection.query('                                                              
   if (err) throw err;
   console.log('> MySQL: Initialized plant tables');
 });
+
+let {PythonShell} = require('python-shell');
+PythonShell.run('../plant_service/py_scripts/sqlcreate.py',null,function (err) {
+  if (err) throw err;
+  console.log('finished');
+});
