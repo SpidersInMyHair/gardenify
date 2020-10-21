@@ -1,8 +1,11 @@
+let repo = require('./_repo');
+
 express = require('express');
 module.exports = express();
 
 connection = require('../../../_repository/_config').connection;
 
+/*
 connection.query('                                                              \
   INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url) \
   VALUES                                                                        \
@@ -66,9 +69,26 @@ connection.query('                                                              
   if (err) throw err;
   console.log('> MySQL: Initialized plant tables');
 });
+*/
 
+// Make a call to Python -- data can be returned in json format 
 let {PythonShell} = require('python-shell');
-PythonShell.run('_backend/plant_service/py_scripts/sqlcreate.py',null,function (err) {
-  if (err) throw err;
-  console.log('finished');
+
+let options = {
+  mode: 'json',
+  //pythonOptions: ['-u'], // get print results in real-time
+  scriptPath: '_backend/plant_service/py_scripts/',
+  //args: ['value1', 'value2', 'value3']
+};
+
+let pyshell = new PythonShell('sqlcreate.py',options);
+
+pyshell.on('message', async function (response) {
+  for (const i of response){
+      let x = repo.insert(i.slug, i.scientific_name, i.common_name, i.genus, i.family, i.image_url); 
+      await x;
+  }
+  console.log('> MySQL: Initialized plant variety tables')
 });
+
+//import species = require("_backend/plant_service/py_scripts/species.json");
