@@ -1,8 +1,11 @@
 import json
+import os
+import pathlib
 
 query = "VALUES"
 
-with open('species.json') as json_file:
+species_json = os.path.join(pathlib.Path(__file__).parent.absolute(),'species.json')
+with open(species_json) as json_file:
     data = json.load(json_file)
     for plant in data:
         query += """\n("{}", "{}", "{}", "{}", "{}", "{}"),""".format(
