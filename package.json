@@ -12,7 +12,7 @@
     "tsc": "rimraf ts_out && tsc",
     "ci": "tsc && cross-env ENV=ci node server.js",
     "dev:frontend": "yarn workspace @gardenify/frontend dev",
-    "dev": "tsc && cross-env RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
+    "dev": "tsc && /bin/bash bin/copy_scripts.sh && cross-env RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
     "build": "tsc && next build",
     "start": "tsc && next build cross-env && ENV=production node server.js"
   },
