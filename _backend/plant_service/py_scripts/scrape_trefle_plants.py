@@ -34,16 +34,14 @@ if __name__ == '__main__':
 
         # Response code is > 400, something is probably wrong ...
         if not resp:
-           print("Error retrieving {}:".format(page))
-           exit()
-           break
+           print("Error retrieving {}:".format(page),file=sys.stderr)
+           exit(1)
 
         # Get the json data and perform some sanity checks
         json_data = resp.json()
         if 'links' not in json_data:
-           print("Error retrieving {}:".format(page))
-           exit()
-           break
+           print("Error retrieving {}:".format(page),sys.stderr)
+           exit(1)
 
         # One of init of tqdm so we can have a pretty loading bar  
         if pbar is None:
