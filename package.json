@@ -16,6 +16,7 @@
     "build": "tsc && next build",
     "start": "tsc && next build cross-env && ENV=production node server.js",
     "scrape:plant_varieties": "python3 _backend/plant_service/py_scripts/scrape_trefle_plants.py"
+    "scrape:plant_details": "python3 _backend/plant_service/py_scripts/scrape_trefle_details.py"
   },
   "dependencies": {
     "@types/google-protobuf": "^3.7.3",
