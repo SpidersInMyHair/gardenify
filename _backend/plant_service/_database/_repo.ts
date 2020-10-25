@@ -37,6 +37,7 @@ function getPlants(): Promise<PlantVariety[]> {
 function insert(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     
+    /*
     console.log(`
       INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)\n
       VALUES (\n
@@ -48,6 +49,7 @@ function insert(slug: string, name: string, common_name: string, genus: string, 
         \"${img_url}\",\n
       );\n
     `);
+    */
     connection.query(`                                                  \
       INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
       VALUES (                                                          \
