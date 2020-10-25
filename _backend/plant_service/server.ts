@@ -55,7 +55,7 @@ app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
   if(req.query['offset'] !== ''){
     offset = req.query.offset;
   }  
-  console.log(req.query)
+  //console.log(req.query)
   repo.getPlants(0,limit)
   .then((plantVarieties: Array<PlantVariety>) => {
     res.send(plantVarieties).status(200).end();
