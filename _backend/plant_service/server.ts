@@ -47,7 +47,16 @@ app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
 
 // GET  /plant
 app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
-  repo.getPlants()
+  let limit = 20;
+  let offset = 0;
+  if(req.query['limit'] !== ''){
+    limit = req.query.limit;
+  }  
+  if(req.query['offset'] !== ''){
+    offset = req.query.offset;
+  }  
+  console.log(req.query)
+  repo.getPlants(0,limit)
   .then((plantVarieties: Array<PlantVariety>) => {
     res.send(plantVarieties).status(200).end();
   })

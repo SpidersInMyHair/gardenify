@@ -20,12 +20,12 @@ function getPlant(slug: string): Promise<PlantVariety> {
   })
 }
 
-function getPlants(): Promise<PlantVariety[]> {
+function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      LIMIT 20;                                                          \
+      LIMIT ${offset},${limit};                                                          \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
       resolve(results.length > 0 ? results : undefined);
