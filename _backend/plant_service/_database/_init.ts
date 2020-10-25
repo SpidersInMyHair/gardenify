@@ -81,7 +81,7 @@ let options = {
   //args: ['value1', 'value2', 'value3']
 };
 
-let pyshell = new PythonShell('sqlcreate.py',options);
+let pyshell = new PythonShell('get_plant_varieties.py',options);
 
 pyshell.on('message', async function (response) {
   for (const i of response){
