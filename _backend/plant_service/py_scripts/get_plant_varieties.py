@@ -20,11 +20,14 @@ query = "["
 # api call ...
 plant_varieties_json = os.path.join(pathlib.Path(__file__).parent.absolute(),'../data/plant_varieties.json.gz')
 
+max_len = 0
 with gzip.open(plant_varieties_json) as json_file:
     data = json.load(json_file)
     for plant in data:
         key_pairs = ['"'+ k + '":"' + str(plant[k]) + '"' for k in export_keys]
         query += '{' +','.join(key_pairs) +  '},'
+        key_pairs = ['"'+ k + '":"' + str(plant[k]) + '"' for k in export_keys]
+        #max_len = max(max_len,max([len(str(plant[k])) for k in export_keys]))
 query = query[:-1] + "]"
 
 print(query)
