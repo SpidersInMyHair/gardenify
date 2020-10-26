@@ -25,7 +25,7 @@ plants_endpoint = "https://trefle.io/api/v1/plants"
 # These are to be changed if we decide to go for more information aout the plant
 
 plant_att =     ['common_name', 'scientific_name', 'slug', 'vegetable', 'observations',
-                    'image_url', 'edible']
+                    'image_url', 'edible', 'genus', 'family']
 
 growth_att =    ['description', 'days_to_harvest', 'growth_months', 'precip_min', 'precip_max',
                 'temp_min', 'temp_max', 'ph_min', 'ph_max', 'light']
