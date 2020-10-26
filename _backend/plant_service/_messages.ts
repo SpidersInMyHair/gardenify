@@ -27,6 +27,12 @@ export interface CreatePlantRequest<ReqBody = PlantVariety> extends Request {
 
 export type CreatePlantResponse = Response;
 
+export interface CreateScientificDetailsRequest<ReqBody = PlantScientificDetails> extends Request {
+  body: ReqBody;
+}
+
+export type CreateScientificDetailsResponse = Response;
+
 export interface GetPlantItemsRequest extends Request {
   params: {
     id: string,

@@ -14,6 +14,8 @@ import {
 import {
   CreatePlantRequest,
   CreatePlantResponse,
+  CreateScientificDetailsRequest,
+  CreateScientificDetailsResponse,
   GetPlantInstructionsRequest,
   GetPlantInstructionsResponse,
   GetPlantItemsRequest,
@@ -62,11 +64,27 @@ app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
 
 // POST /plant
 app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
-  repo.insert( //
-  IdGenerator.generate(req.body), //
-  req.body.getGenus(), //
-  req.body.getSpecies(), //
-  req.body.getDescription() //
+  repo.insertPlant( //
+    IdGenerator.generate(req.body), //
+    req.body.getGenus(), //
+    req.body.getSpecies(), //
+    req.body.getDescription() //
+  )
+  .then(() => res.sendStatus(200))
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});
+
+// POST /scientificInfo
+app.post(`${SERVICE}`, (req: CreateScientificDetailsRequest, res: CreateScientificDetailsResponse) => {
+  repo.insertSciInfo( //
+    req.body.getPlantVarietyId(), //
+    req.body.getPhLow(), //
+    req.body.getPhHigh(), //
+    req.body.getTemperatureLow(), //
+    req.body.getTemperatureHigh()
   )
   .then(() => res.sendStatus(200))
   .catch((err: any) => {
@@ -118,7 +136,15 @@ app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetP
     res.send(plantVarieties).status(200).end();
   })
   .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    // Call python script to activiate Trefle API using keyword
+    repo.postGardenSourceDetails(req.params.keyword);
+    repo.getPlantsByKeyword(req.params.keyword)
+    .then((plantVarieties: Array<PlantVariety>) => {
+      res.send(plantVarieties).status(200).end();
+    })
+    // If this happens, then the keyword isn't a plant and then send error
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
