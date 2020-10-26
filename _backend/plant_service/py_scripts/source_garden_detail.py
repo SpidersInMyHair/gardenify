@@ -66,7 +66,7 @@ def get_plant_using_id(id):
     pt.set_spec(pt_sp)
 
     # Uncomment below line to pretty print the plant information
-    #print(ppretty(pt, seq_length=30))
+    print(ppretty(pt, seq_length=30))
 
 # Search for a plant using a keyword
 def search_plant(keyword):
@@ -87,7 +87,7 @@ def search_plant(keyword):
 # Main
 def main():
     get_all_plants()
-    # search_plant('fig')
+    #search_plant('fig')
 
 # Start of program
 main()
