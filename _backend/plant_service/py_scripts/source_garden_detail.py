@@ -41,7 +41,8 @@ def set_dict_att(dict, set_of_att):
 
 # Returns formatted JSON object
 def format_json(obj):
-    text = json.dumps(obj, sort_keys=True, indent=4)
+    #text = json.dumps(obj, sort_keys=True, indent=4)
+    text = json.dumps(obj, sort_keys=True)
     return text
 
 # Returns repsonse from GET request
