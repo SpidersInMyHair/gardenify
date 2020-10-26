@@ -20,6 +20,23 @@ function getPlant(slug: string): Promise<PlantVariety> {
   })
 }
 
+function getPlantId(slug: string, common_name: string, genus: string, family: string): Promise<number> {
+  return new Promise((resolve, reject) => {
+    connection.query(`                      \
+      SELECT id                             \
+      FROM plant_varieties                  \
+      WHERE slug=\"${slug}\"                \
+      AND   common_name=\"${common_name}\"  \
+      AND   genus=\"${genus}\"  \
+      AND   family=\"${family}\"  \
+      LIMIT 1;                              \
+    `, (err: any, results: Array<number>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results[0] : undefined);
+    });
+  })
+}
+
 function getPlants(): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
@@ -34,7 +51,7 @@ function getPlants(): Promise<PlantVariety[]> {
 }
 
 
-function insert(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
+function insertPlant(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
@@ -45,6 +62,24 @@ function insert(slug: string, name: string, common_name: string, genus: string, 
         \"${genus}\",                                                   \
         \"${family}\",                                                  \
         \"${img_url}\",                                                 \
+      );                                                                \
+    `, (err: any, results: any) => {
+      if (err) reject(err);
+      resolve(results);
+    });
+  })
+}
+
+function insertSciInfo(plant_variety_id: number, ph_low: number, ph_high: number, temperature_low: number, temperature_high: number) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      INSERT INTO plant_scientific_details (plant_variety_id, ph_low, ph_high, temperature_low, temperature_high)     \
+      VALUES (                                                          \
+        \"${plant_variety_id}\",                                        \
+        \"${ph_low}\",                                                  \
+        \"${ph_high}\",                                                 \
+        \"${temperature_low}\",                                         \
+        \"${temperature_high}\",                                        \
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
@@ -94,6 +129,28 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
   });
 }
 
+function postGardenSourceDetails(keyword: string): void {
+  let {PythonShell} = require('python-shell');
+
+  let options = {
+    mode: 'json',
+    //pythonOptions: ['-u'], // get print results in real-time
+    scriptPath: '_backend/plant_service/py_scripts/',
+    args: [keyword]
+  };
+
+  let pyshell = new PythonShell('source_garden_details.py',options);
+
+  pyshell.on('message', async function (response) {
+    for (const i of response){
+        let x = insertPlant(i.slug, i.scientific_name, i.common_name, i.genus, i.family, i.image_url);
+        let id = getPlantId(i.slug, i.common_name, i.genus, i.family);
+        let y = insertSciInfo((await id).valueOf(), i.ph_low, i.ph_high, i.temp_low, i.temp_high,  )
+        await x;
+    }
+  });
+}
+
 function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
@@ -116,9 +173,11 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
 module.exports = {
   getPlant,
   getPlants,
-  insert,
+  insertPlant,
+  insertSciInfo,
   getItems,
   getInstructions,
   getScientificDetails,
+  postGardenSourceDetails,
   getPlantsByKeyword,
 }

@@ -1,29 +1,43 @@
 '''
-    Script to access the Trefle API that returns general and scientific information about plants and species.
+    Usage: python source_garden_details.py PLANT_NAME
+    Prints out the plant variety and scientific information relating to the passed in parameter PLANT_NAME in JSON foramt
+
+    This script needs to be called by our system when the user promts for a plant that does not exist in our database.
+    thius cript will return the JSON needed to update the database
+
+    Matches against 'common-name', 'slug' and 'scientific_name' are returned 
+
     Currently, the Trefle 'species' endpoint is used, as only 'species' provides scientific info regarding 
     the plant.
 
-    So far, using this script you can:
-        * get all plants/species listed on in the Trefle database
-        * search for a plant using a keyword (eg. banana), will return all plants that contain 'banana' in the 
-        'common_name' field. 
-
     Regarding 'varieties' of plants, the above search endpoint will return all varieties of that plant.
-
-    Perhaps, when a user searched for plants that are not in the database, this script is activated and populates
-    it...
 '''
 
 import requests
 import json
 from ppretty import ppretty
-import plant
-import growth
-import spec  
+import sys
 
 trefle_token = "TT0YMVWeTRKWrzxRsmJ1Xs2E02HvnQpfZZ7UN3BOqKg"
 species_endpoint = "https://trefle.io/api/v1/species"
 plants_endpoint = "https://trefle.io/api/v1/plants"
+
+# These are to be changed if we decide to go for more information aout the plant
+
+plant_att =     ['common_name', 'scientific_name', 'slug', 'vegetable', 'observations',
+                    'image_url', 'edible']
+
+growth_att =    ['description', 'days_to_harvest', 'growth_months', 'precip_min', 'precip_max',
+                'temp_min', 'temp_max', 'ph_min', 'ph_max', 'light']
+
+spec_att =      ['growth_habit', 'growth_rate', 'avg_height', 'shape', 'toxic']
+
+def set_dict_att(dict, set_of_att):
+    temp_dict = {}
+    for key, value in dict.items():
+        if key in set_of_att:
+            temp_dict[key] = value if value != None else 'N/A' 
+    return temp_dict
 
 # Returns formatted JSON object
 def format_json(obj):
@@ -32,62 +46,49 @@ def format_json(obj):
 
 # Returns repsonse from GET request
 def get_response(url):
-    # print(url+trefle_token)
     return requests.get(url+trefle_token)
-
-# GET all species
-def get_all_plants():
-    response = get_response(species_endpoint+'?token=')
-    # num_plants = response.json()['meta']['total']
-    f = open("species.json", "w")
-    f.write(format_json(response.json()['data']))
-    f.close()
-    # for i in range(num_plants):
-    #     data_res = response.json()['data'][i]
-    #     print(format_json(data_res))
 
 # GET a plant's info using its Trefle id
 def get_plant_using_id(id):
     response = get_response(species_endpoint+'/' + str(id) + '?token=')
     data_res = response.json()['data']
 
-    pt = plant.Plant()
-    pt_gr = growth.Growth()
-    pt_sp = spec.Spec()
+    plant_dict = set_dict_att(data_res, plant_att)
+    grow_dict = set_dict_att(data_res['growth'], growth_att)
+    spec_dict = set_dict_att(data_res['specifications'], spec_att)
 
-    for key, value in data_res.items():
-        pt = plant.set_plant_att(pt, key, value)
-    for key, value in data_res['growth'].items():
-        pt_gr = growth.set_growth_att(pt_gr, key, value)
-    for key, value in data_res['specifications'].items():
-        pt_sp = spec.set_spec_att(pt_sp, key, value)
+    plant_dict.update(grow_dict)
+    plant_dict.update(spec_dict)
     
-    pt.set_growth(pt_gr)
-    pt.set_spec(pt_sp)
-
     # Uncomment below line to pretty print the plant information
-    #print(ppretty(pt, seq_length=30))
+    #print(format_json(plant_dict))
+    return(format_json(plant_dict))
 
 # Search for a plant using a keyword
 def search_plant(keyword):
     response = get_response(species_endpoint+'/search?q=' + keyword + '&token=')
     num_search_res = len(response.json()['data'])
-    print('GET status code for searching "' + keyword + '": ' +str(response.status_code))
+    #print('GET status code for searching "' + keyword + '": ' +str(response.status_code))
+    res_json = ''
     if num_search_res == 0:
-        print('No results found for "' + keyword + '"...')
+        res_json = 'N'
+        #print('No results found for "' + keyword + '"...')
     else:
-        print('Retrieving results, may take a while...')
+        #print('Retrieving results, may take a while...')
         for i in range(num_search_res):
-            if (i+1) % 5 == 0:
-                print(str(i+1) + ' results processed...')
+            #if (i+1) % 5 == 0:
+                #print(str(i+1) + ' results processed...')
             id = response.json()['data'][i]['id']
-            get_plant_using_id(id)
-        print(str(num_search_res) + ' results found for "' + keyword + '"...')
+            res_json += get_plant_using_id(id) + ','
+        #print(str(num_search_res) + ' results found for "' + keyword + '"...')
+    return res_json
 
 # Main
 def main():
-    get_all_plants()
-    # search_plant('fig')
+    res_json = '['
+    res_json += search_plant(sys.argv[1])
+    res_json = res_json[:-1] + ']'
+    print(res_json)
 
 # Start of program
 main()
