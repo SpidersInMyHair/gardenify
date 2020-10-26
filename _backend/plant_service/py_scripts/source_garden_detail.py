@@ -61,12 +61,8 @@ def get_plant_using_id(id):
     plant_dict.update(spec_dict)
     
     # Uncomment below line to pretty print the plant information
-<<<<<<< HEAD
-    print(ppretty(pt, seq_length=30))
-=======
-    #print(format_json(plant_dict))
+    #print(ppretty(pt, seq_length=30))
     return(format_json(plant_dict))
->>>>>>> 5576faf66a6b8635babcc572da51a981d15b4530
 
 # Search for a plant using a keyword
 def search_plant(keyword):
