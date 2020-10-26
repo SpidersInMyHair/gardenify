@@ -139,7 +139,7 @@ function postGardenSourceDetails(keyword: string): void {
     args: [keyword]
   };
 
-  let pyshell = new PythonShell('source_garden_details.py',options);
+  let pyshell = new PythonShell('source_garden_detail.py',options);
 
   pyshell.on('message', async function (response) {
     for (const i of response){
