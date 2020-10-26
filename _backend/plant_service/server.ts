@@ -133,19 +133,20 @@ app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res
 app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetPlantsByKeywordResponse) => {
   repo.getPlantsByKeyword(req.params.keyword)
   .then((plantVarieties: Array<PlantVariety>) => {
-    res.send(plantVarieties).status(200).end();
+    if(typeof plantVarieties !== 'undefined'){
+       console.log(plantVarieties)
+       res.send(plantVarieties).status(200).end();
+    }else{
+      // Call python script to activiate Trefle API using keyword
+      repo.postGardenSourceDetails(req.params.keyword);
+      repo.getPlantsByKeyword(req.params.keyword)
+      .then((plantVarieties2: Array<PlantVariety>) => {
+        res.send(plantVarieties2).status(200).end();
+      })
+    }
   })
   .catch((err: any) => {
-    // Call python script to activiate Trefle API using keyword
-    repo.postGardenSourceDetails(req.params.keyword);
-    repo.getPlantsByKeyword(req.params.keyword)
-    .then((plantVarieties: Array<PlantVariety>) => {
-      res.send(plantVarieties).status(200).end();
-    })
-    // If this happens, then the keyword isn't a plant and then send error
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
+    console.log(err);
+    res.sendStatus(500);
   });
 });
