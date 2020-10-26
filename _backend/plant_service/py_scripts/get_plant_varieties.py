@@ -11,7 +11,7 @@ import os
 import pathlib
 
 
-export_keys = ['slug','scientific_name','common_name','genus','family','image_url']
+export_keys = ['id', 'slug','scientific_name','common_name','family_common_name','genus','family','image_url']
 
 query = "["
 
@@ -24,9 +24,10 @@ max_len = 0
 with gzip.open(plant_varieties_json) as json_file:
     data = json.load(json_file)
     for plant in data:
+        if plant['rank'] != 'species':
+            continue
         key_pairs = ['"'+ k + '":"' + str(plant[k]) + '"' for k in export_keys]
         query += '{' +','.join(key_pairs) +  '},'
-        key_pairs = ['"'+ k + '":"' + str(plant[k]) + '"' for k in export_keys]
         #max_len = max(max_len,max([len(str(plant[k])) for k in export_keys]))
 query = query[:-1] + "]"
 

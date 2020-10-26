@@ -4,12 +4,14 @@ import {
   PlantVariety
 } from "../../../protos/_backend/plant_service/protos/plant_pb";
 
+let {PythonShell} = require('python-shell');
+
 connection = require('./../../../_repository/_config').connection;
 
 function getPlant(slug: string): Promise<PlantVariety> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      SELECT slug, name, common_name, genus, family, img_url            \
+      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       WHERE slug=\"${slug}\"                                                \
       LIMIT 1;                                                          \
@@ -23,7 +25,7 @@ function getPlant(slug: string): Promise<PlantVariety> {
 function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      SELECT slug, name, common_name, genus, family, img_url            \
+      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       LIMIT ${offset},${limit};                                                          \
     `, (err: any, results: Array<PlantVariety>) => {
@@ -34,7 +36,7 @@ function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
 }
 
 
-function insert(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
+function insert(trefle_id:string, slug: string, name: string, common_name: string, family_common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     
     /*
@@ -51,11 +53,13 @@ function insert(slug: string, name: string, common_name: string, genus: string, 
     `);
     */
     connection.query(`                                                  \
-      INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
+      INSERT INTO plant_varieties (trefle_id, slug, name, common_name, family_common_name, genus, family, img_url)     \
       VALUES (                                                          \
+        \"${trefle_id}\",                                                   \
         \"${slug}\",                                                    \
         \"${name}\",                                                    \
         \"${common_name}\",                                             \
+        \"${family_common_name}\",                                      \
         \"${genus}\",                                                   \
         \"${family}\",                                                  \
         \"${img_url}\"                                                  \
@@ -103,10 +107,44 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
       LIMIT 1;                                                          \
     `, (err: any, results: Array<PlantScientificDetails[]>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      //resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[1][0] : undefined);
     });
   });
 }
+
+function addScientificDetails(id: string) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      SELECT trefle_id                                                          \
+      FROM plant_varieties                                     \
+      WHERE id=\"${id}\"                                  \
+      LIMIT 1;                                                          \
+    `, (err: any, results) => {
+      if (err) reject(err);
+      if(typeof results[0] !== 'undefined'){
+         // insert into the database if there's a match ...
+         //console.log(results[0].trefle_id);
+         let options = {
+           //mode: 'json',
+           //pythonOptions: ['-u'], // get print results in real-time
+           scriptPath: '_backend/plant_service/py_scripts/',
+           args: [results[0].trefle_id]
+         };
+
+         let pyshell = new PythonShell('get_scientific_details.py',options);
+
+         pyshell.on('message', async function (response) {
+           //let x = repo.insert_scientific(response.id, response.ph_low, response.ph_high);
+           //await x;
+           console.log(response);
+        });
+       
+      }
+    });
+  });
+}
+
 
 module.exports = {
   getPlant,
@@ -115,4 +153,5 @@ module.exports = {
   getItems,
   getInstructions,
   getScientificDetails,
+  addScientificDetails,
 }

@@ -85,7 +85,9 @@ let pyshell = new PythonShell('get_plant_varieties.py',options);
 
 pyshell.on('message', async function (response) {
   for (const i of response){
-      let x = repo.insert(i.slug, i.scientific_name, i.common_name, i.genus, i.family, i.image_url); 
+      let x = repo.insert(i.id, i.slug, i.scientific_name, 
+                          i.common_name, i.family_common_name, 
+                          i.genus, i.family, i.image_url); 
       await x;
   }
   console.log('> MySQL: Initialized plant variety tables')

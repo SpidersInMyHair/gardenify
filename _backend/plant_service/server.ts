@@ -109,7 +109,15 @@ app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: G
 app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
   repo.getScientificDetails(req.params.id)
   .then((plantScientificDetails: PlantScientificDetails) => {
-    res.send(plantScientificDetails).status(200).end();
+    if(typeof plantScientificDetails !== 'undefined'){
+       res.send(plantScientificDetails).status(200).end();
+    }else{
+       repo.addScientificDetails(req.params.id);
+       repo.getScientificDetails(req.params.id)
+       .then((resp_final: PlantScientificDetails) => {
+          res.send(resp_final).status(200).end();
+       });
+    }
   })
   .catch((err: any) => {
     console.log(err);

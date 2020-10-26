@@ -10,9 +10,11 @@ connection.query(`                                                    \
   DROP TABLE IF EXISTS plant_varieties;                               \
   CREATE TABLE IF NOT EXISTS plant_varieties (                        \
     id          int           NOT NULL   AUTO_INCREMENT,              \
+    trefle_id   varchar(32)            UNIQUE     NOT NULL,                    \
     slug        varchar(256)   UNIQUE     NOT NULL,                    \
     name        varchar(256)   NOT NULL,                               \
     common_name varchar(256)   NOT NULL,                               \
+    family_common_name         varchar(256),                           \
     genus       varchar(256)   NOT NULL,                               \
     family      varchar(256)   NOT NULL,                               \
     img_url     varchar(256) CHARACTER SET 'ascii' COLLATE 'ascii_general_ci' NOT NULL, \
