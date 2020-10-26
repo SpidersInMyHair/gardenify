@@ -53,6 +53,8 @@ function getPlants(): Promise<PlantVariety[]> {
 
 function insertPlant(slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
+    //console.log(genus);
+    //console.log(family);
     connection.query(`                                                  \
       INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)     \
       VALUES (                                                          \
@@ -145,10 +147,10 @@ function postGardenSourceDetails(keyword: string): void {
     for (const i of response){
         console.log(i)
         let x = insertPlant(i.slug, i.scientific_name, i.common_name, i.genus, i.family, i.image_url);
-        let id = getPlantId(i.slug, i.common_name, i.genus, i.family);
-        let y = insertSciInfo((await id).valueOf(), i.ph_low, i.ph_high, i.temp_low, i.temp_high)
+        //let id = getPlantId(i.slug, i.common_name, i.genus, i.family);
+        //let y = insertSciInfo((await id).valueOf(), i.ph_low, i.ph_high, i.temp_low, i.temp_high)
         await x;
-        await y;
+        //await y;
     }
   });
 }
