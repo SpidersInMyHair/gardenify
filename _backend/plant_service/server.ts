@@ -22,7 +22,9 @@ import {
   GetPlantResponse,
   GetPlantsResponse,
   GetPlantScientificDetailsRequest,
-  GetPlantScientificDetailsResponse
+  GetPlantScientificDetailsResponse,
+  GetPlantsByKeywordRequest,
+  GetPlantsByKeywordResponse
 } from "./_messages";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
@@ -31,6 +33,7 @@ import {
 // GET  /plant/items/:id          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
 // GET  /plant/scientific/:id     Get the scientific details of the plant variety with the given id.
+// GET /plant/search/:keyword     Get the summary of all plants matching the keyword
 /* ------------------------------------------------------------------------- */
 
 // GET  /plant/:id
@@ -108,3 +111,14 @@ app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res
   });
 });
 
+// GET  /plant/search/:keyword
+app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetPlantsByKeywordResponse) => {
+  repo.getPlantsByKeyword(req.params.keyword)
+  .then((plantVarieties: Array<PlantVariety>) => {
+    res.send(plantVarieties).status(200).end();
+  })
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});

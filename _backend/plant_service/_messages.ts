@@ -56,3 +56,14 @@ export interface GetPlantScientificDetailsRequest extends Request {
 export interface GetPlantScientificDetailsResponse<ResBody = PlantScientificDetails> extends Response {
   send: Send<ResBody, this>;
 }
+
+export interface GetPlantsByKeywordRequest extends Request {
+  params: {
+    keyword: string,
+  };
+}
+
+export interface GetPlantsByKeywordResponse<ResBody = Array<PlantVariety>> extends Response {
+  send: Send<ResBody, this>;
+}
+

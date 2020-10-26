@@ -94,6 +94,25 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
   });
 }
 
+function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      SELECT slug, name, common_name, genus, family, img_url            \
+      FROM plant_varieties                                              \
+      WHERE slug        LIKE \"%${keyword}%\"                           \
+      OR    name        LIKE \"%${keyword}%\"                           \
+      OR    common_name LIKE \"%${keyword}%\"                           \
+      OR    genus       LIKE \"%${keyword}%\"                           \
+      OR    family      LIKE \"%${keyword}%\"                           \
+      LIMIT 100;                                                        \
+    `, (err: any, results: Array<PlantVariety>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results : undefined);
+    });
+  })
+}
+
+
 module.exports = {
   getPlant,
   getPlants,
@@ -101,4 +120,5 @@ module.exports = {
   getItems,
   getInstructions,
   getScientificDetails,
+  getPlantsByKeyword,
 }
