@@ -77,6 +77,22 @@ app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
   });
 });
 
+// POST /scientificInfo
+app.post(`${SERVICE}`, (req: CreateScientificDetailsRequest, res: CreateScientificDetailsResponse) => {
+  repo.insertSciInfo( //
+    req.body.getPlantVarietyId(), //
+    req.body.getPhLow(), //
+    req.body.getPhHigh(), //
+    req.body.getTemperatureLow(), //
+    req.body.getTemperatureHigh()
+  )
+  .then(() => res.sendStatus(200))
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});
+
 // GET  /plant/items/:id
 app.get(`${SERVICE}/items/:id`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
   repo.getItems(req.params.id)
