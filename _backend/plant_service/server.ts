@@ -147,4 +147,5 @@ app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetP
       console.log(err);
       res.sendStatus(500);
     });
+  });
 });
