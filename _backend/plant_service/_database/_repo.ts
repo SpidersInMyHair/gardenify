@@ -71,7 +71,7 @@ function insert(trefle_id:string, slug: string, name: string, common_name: strin
   })
 }
 
-function insert_scientific(slug: string, ph_low: number, ph_high: number, temperature_low: number, temperature_high: number){ 
+function insert_scientific(slug: string, ph_low: number, ph_high: number, temperature_low: number, temperature_high: number):Promise<number>{ 
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
@@ -85,7 +85,7 @@ function insert_scientific(slug: string, ph_low: number, ph_high: number, temper
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
-      resolve(results);
+      resolve(typeof results === 'undefined' ? 0 : 1);
     });
   })
 }
@@ -132,15 +132,16 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
   });
 }
 
-function addScientificDetails(id: string) {
+function addScientificDetails(id: string): Promise<PlantScientificDetails> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT trefle_id                                                          \
       FROM plant_varieties                                     \
       WHERE slug=\"${id}\"                                  \
       LIMIT 1;                                                          \
-    `, (err: any, results) => {
+    `, async (err: any, results) => {
       if (err) reject(err);
+      let x = undefined;
       if(typeof results[0] !== 'undefined'){
          // insert into the database if there's a match ...
          //console.log(results[0].trefle_id);
@@ -154,14 +155,18 @@ function addScientificDetails(id: string) {
          //let pyshell = new PythonShell('get_scientific_details.py',options);
          let pyshell = new PythonShell('source_garden_detail.py',options);
 
-         pyshell.on('message', function (response) {
-           let x = insert_scientific(response.slug, response.ph_minimum, 
-                    response.ph_maximum, response.minimum_temperature.deg_c,
-                    response.maximum_temperature.deg_c);
-           //await x;
+         x= await new Promise((resolve2,reject2) => {
+           pyshell.on('message', function (response) {
+             resolve2(insert_scientific(response.slug, response.ph_minimum, 
+                   response.ph_maximum, response.minimum_temperature.deg_c,
+                   response.maximum_temperature.deg_c));
+           //Promise.resolve(x)
            //console.log(response);
-        });
+        })});
+        //console.log(x);
       }
+      //console.log(x);
+      resolve(typeof x !== 'undefined' ? getScientificDetails(id) : undefined);
     });
   });
 }
