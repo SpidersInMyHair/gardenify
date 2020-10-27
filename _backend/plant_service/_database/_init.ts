@@ -5,6 +5,16 @@ module.exports = express();
 
 connection = require('../../../_repository/_config').connection;
 
+connection.query(`LOAD DATA LOCAL INFILE "_backend/plant_service/data/plant_varieties.csv" INTO TABLE plant_varieties \
+                 FIELDS TERMINATED BY ',' \
+                 OPTIONALLY ENCLOSED BY '"' \
+                 LINES TERMINATED BY '\n' \
+                 IGNORE 1 LINES;`
+    , (err: any) => {
+      if (err) throw err;
+      console.log('> MySQL: Initialized plant tables');
+    });
+
 /*
 connection.query('                                                              \
   INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url) \
@@ -71,6 +81,7 @@ connection.query('                                                              
 });
 */
 
+/*
 // Make a call to Python -- data can be returned in json format 
 let {PythonShell} = require('python-shell');
 
@@ -92,5 +103,6 @@ pyshell.on('message', async function (response) {
   }
   console.log('> MySQL: Initialized plant variety tables')
 });
+*/
 
 //import species = require("_backend/plant_service/py_scripts/species.json");

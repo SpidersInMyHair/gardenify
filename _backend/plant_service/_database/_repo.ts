@@ -118,7 +118,7 @@ function addScientificDetails(id: string) {
     connection.query(`                                                  \
       SELECT trefle_id                                                          \
       FROM plant_varieties                                     \
-      WHERE id=\"${id}\"                                  \
+      WHERE slug=\"${id}\"                                  \
       LIMIT 1;                                                          \
     `, (err: any, results) => {
       if (err) reject(err);
@@ -143,6 +143,7 @@ function addScientificDetails(id: string) {
       }
     });
   });
+}
 
 function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
