@@ -50,7 +50,16 @@ app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
 
 // GET  /plant
 app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
-  repo.getPlants()
+  let limit = 20;
+  let offset = 0;
+  if(req.query['limit'] !== ''){
+    limit = req.query.limit;
+  }  
+  if(req.query['offset'] !== ''){
+    offset = req.query.offset;
+  }  
+  //console.log(req.query)
+  repo.getPlants(offset,limit)
   .then((plantVarieties: Array<PlantVariety>) => {
     res.send(plantVarieties).status(200).end();
   })
@@ -103,7 +112,15 @@ app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: G
 app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
   repo.getScientificDetails(req.params.id)
   .then((plantScientificDetails: PlantScientificDetails) => {
-    res.send(plantScientificDetails).status(200).end();
+    if(typeof plantScientificDetails !== 'undefined'){
+       res.send(plantScientificDetails).status(200).end();
+    }else{
+       repo.addScientificDetails(req.params.id);
+       repo.getScientificDetails(req.params.id)
+       .then((resp_final: PlantScientificDetails) => {
+          res.send(resp_final).status(200).end();
+       });
+    }
   })
   .catch((err: any) => {
     console.log(err);

@@ -9,13 +9,15 @@ connection.query(`                                                    \
   DROP TABLE IF EXISTS plant_scientific_details;                      \
   DROP TABLE IF EXISTS plant_varieties;                               \
   CREATE TABLE IF NOT EXISTS plant_varieties (                        \
+    common_name varchar(256)   NOT NULL,                               \
+    family      varchar(256)   NOT NULL,                               \
+    family_common_name         varchar(256),                           \
+    genus       varchar(256)   NOT NULL,                               \
+    trefle_id   varchar(32)            UNIQUE     NOT NULL,                    \
+    img_url     varchar(256) CHARACTER SET 'ascii' COLLATE 'ascii_general_ci' NOT NULL, \
+    name        varchar(256)   NOT NULL,                               \
+    slug        varchar(256)   UNIQUE     NOT NULL,                    \
     id          int           NOT NULL   AUTO_INCREMENT,              \
-    slug        varchar(50)   UNIQUE     NOT NULL,                    \
-    name        varchar(50)   NOT NULL,                               \
-    common_name varchar(50)   NOT NULL,                               \
-    genus       varchar(50)   NOT NULL,                               \
-    family      varchar(50)   NOT NULL,                               \
-    img_url     varchar(512) CHARACTER SET 'ascii' COLLATE 'ascii_general_ci' NOT NULL, \
     PRIMARY KEY (id)                                                  \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_items (                            \
@@ -33,12 +35,12 @@ connection.query(`                                                    \
     UNIQUE (plant_variety_id, step_number)                            \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
-    plant_variety_id  int           NOT NULL,                         \
+    slug        varchar(256)   UNIQUE     NOT NULL,                    \
     ph_low            float,                                          \
     ph_high           float,                                          \
     temperature_low   float,                                          \
     temperature_high  float,                                          \
-    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id)     \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug)     \
   );`
 , (err: any) => {
   if (err) throw err;

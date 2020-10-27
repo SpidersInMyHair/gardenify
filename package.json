@@ -14,7 +14,10 @@
     "dev:frontend": "yarn workspace @gardenify/frontend dev",
     "dev": "tsc && cross-env RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
     "build": "tsc && next build",
-    "start": "tsc && next build cross-env && ENV=production node server.js"
+    "start": "tsc && next build cross-env && ENV=production node server.js",
+    "scrape:plant_varieties": "python3 _backend/plant_service/py_scripts/scrape_trefle_plants.py",
+    "scrape:plant_details": "python3 _backend/plant_service/py_scripts/scrape_trefle_details.py",
+    "scrape:plant_varieties:json_to_csv": "python3 _backend/plant_service/py_scripts/get_plant_varieties.py|jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv'> _backend/plant_service/data/plant_varieties.csv"
   },
   "dependencies": {
     "@types/google-protobuf": "^3.7.3",
@@ -30,6 +33,7 @@
     "next": "^9.5.5",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",
+    "python-shell": "2.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
