@@ -115,8 +115,8 @@ app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res
     if(typeof plantScientificDetails !== 'undefined'){
        res.send(plantScientificDetails).status(200).end();
     }else{
-       repo.addScientificDetails(req.params.id);
-       repo.getScientificDetails(req.params.id)
+       //repo.getScientificDetails(req.params.id)
+       repo.addScientificDetails(req.params.id)
        .then((resp_final: PlantScientificDetails) => {
           res.send(resp_final).status(200).end();
        });
