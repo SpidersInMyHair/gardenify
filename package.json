@@ -16,7 +16,8 @@
     "build": "tsc && next build",
     "start": "tsc && next build cross-env && ENV=production node server.js",
     "scrape:plant_varieties": "python3 _backend/plant_service/py_scripts/scrape_trefle_plants.py",
-    "scrape:plant_details": "python3 _backend/plant_service/py_scripts/scrape_trefle_details.py"
+    "scrape:plant_details": "python3 _backend/plant_service/py_scripts/scrape_trefle_details.py",
+    "scrape:plant_varieties:json_to_csv": "python3 _backend/plant_service/py_scripts/get_plant_varieties.py|jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv'> _backend/plant_service/data/plant_varieties.csv"
   },
   "dependencies": {
     "@types/google-protobuf": "^3.7.3",
