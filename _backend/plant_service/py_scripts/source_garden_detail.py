@@ -23,8 +23,9 @@ plants_endpoint = "https://trefle.io/api/v1/plants"
 plant_att =     ['common_name', 'scientific_name', 'slug', 'vegetable', 'observations',
                     'image_url', 'edible', 'genus', 'family']
 
-growth_att =    ['description', 'days_to_harvest', 'growth_months', 'precip_min', 'precip_max',
-                'temp_min', 'temp_max', 'ph_min', 'ph_max', 'light']
+growth_att =    ['description', 'days_to_harvest', 'bloom_months', 'row_spacing', 'spread', 'growth_months', 'maximum_precipitation', 'minimum_precipitation',
+                'maximum_temperature', 'minimum_temperature', 'ph_maximum', 'ph_minimum', 'light',"soil_nutriments",
+                "soil_salinity","soil_texture","soil_humidity"]
 
 spec_att =      ['growth_habit', 'growth_rate', 'avg_height', 'shape', 'toxic']
 
@@ -82,9 +83,7 @@ def search_plant(keyword):
 
 # Main
 def main():
-    res_json = '['
-    res_json += search_plant(sys.argv[1])
-    res_json = res_json[:-1] + ']'
+    res_json = get_plant_using_id(sys.argv[1])
     print(res_json)
 
 # Start of program

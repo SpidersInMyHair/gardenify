@@ -35,12 +35,12 @@ connection.query(`                                                    \
     UNIQUE (plant_variety_id, step_number)                            \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
-    plant_variety_id  int           NOT NULL,                         \
+    slug        varchar(256)   UNIQUE     NOT NULL,                    \
     ph_low            float,                                          \
     ph_high           float,                                          \
     temperature_low   float,                                          \
     temperature_high  float,                                          \
-    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id)     \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug)     \
   );`
 , (err: any) => {
   if (err) throw err;

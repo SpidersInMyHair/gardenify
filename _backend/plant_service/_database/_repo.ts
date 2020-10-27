@@ -71,6 +71,25 @@ function insert(trefle_id:string, slug: string, name: string, common_name: strin
   })
 }
 
+function insert_scientific(slug: string, ph_low: number, ph_high: number, temperature_low: number, temperature_high: number){ 
+  return new Promise((resolve, reject) => {
+    
+    connection.query(`                                                  \
+      INSERT INTO plant_scientific_details (slug, ph_low, ph_high, temperature_low, temperature_high) \
+      VALUES (                                                          \
+        \"${slug}\",                                                    \
+        ${ph_low}, \
+        ${ph_high}, \
+        ${temperature_low}, \
+        ${temperature_high} \
+      );                                                                \
+    `, (err: any, results: any) => {
+      if (err) reject(err);
+      resolve(results);
+    });
+  })
+}
+
 function getItems(id: string): Promise<Array<PlantItem>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
@@ -103,12 +122,12 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
     connection.query(`                                                  \
       SELECT *                                                          \
       FROM plant_scientific_details                                     \
-      WHERE plant_variety_id=\"${id}\"                                  \
+      WHERE slug=\"${id}\"                                  \
       LIMIT 1;                                                          \
-    `, (err: any, results: Array<PlantScientificDetails[]>) => {
+    `, (err: any, results) => {
       if (err) reject(err);
       //resolve(results[1].length > 0 ? results[1][0] : undefined);
-      resolve(results.length > 0 ? results[1][0] : undefined);
+      resolve(typeof results !== 'undefined' ? results[0] : undefined);
     });
   });
 }
@@ -126,20 +145,22 @@ function addScientificDetails(id: string) {
          // insert into the database if there's a match ...
          //console.log(results[0].trefle_id);
          let options = {
-           //mode: 'json',
+           mode: 'json',
            //pythonOptions: ['-u'], // get print results in real-time
            scriptPath: '_backend/plant_service/py_scripts/',
            args: [results[0].trefle_id]
          };
 
-         let pyshell = new PythonShell('get_scientific_details.py',options);
+         //let pyshell = new PythonShell('get_scientific_details.py',options);
+         let pyshell = new PythonShell('source_garden_detail.py',options);
 
-         pyshell.on('message', async function (response) {
-           //let x = repo.insert_scientific(response.id, response.ph_low, response.ph_high);
+         pyshell.on('message', function (response) {
+           let x = insert_scientific(response.slug, response.ph_minimum, 
+                    response.ph_maximum, response.minimum_temperature.deg_c,
+                    response.maximum_temperature.deg_c);
            //await x;
-           console.log(response);
+           //console.log(response);
         });
-       
       }
     });
   });
@@ -168,8 +189,10 @@ module.exports = {
   getPlant,
   getPlants,
   insert,
+  insert_scientific,
   getItems,
   getInstructions,
+  getScientificDetails,
   addScientificDetails,
   getPlantsByKeyword,
 }
