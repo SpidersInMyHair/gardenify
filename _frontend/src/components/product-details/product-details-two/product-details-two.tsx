@@ -36,10 +36,10 @@ import { CURRENCY } from 'utils/constant';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
 import { useCart } from 'contexts/cart/use-cart';
-import { Counter } from 'components/counter/counter';
 
 type ProductDetailsProps = {
-  product: any;
+  general: any;
+  scientific: any;
   deviceType: {
     mobile: boolean;
     tablet: boolean;
@@ -48,11 +48,10 @@ type ProductDetailsProps = {
 };
 
 const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
-  product,
+  general,
+  scientific,
   deviceType,
 }) => {
-  const { addItem, removeItem, getItem, isInCart } = useCart();
-  const data = product;
 
   const scrollRef = useRef(null);
 
@@ -63,16 +62,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
         scrollRef.current.getBoundingClientRect().top + window.pageYOffset - 65,
       behavior: 'smooth',
     });
-  };
-
-  const handleAddClick = (e) => {
-    e.stopPropagation();
-    addItem(data);
-  };
-
-  const handleRemoveClick = (e) => {
-    e.stopPropagation();
-    removeItem(data);
   };
 
   useEffect(() => {
@@ -102,21 +91,21 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           </BackButton>
 
           <img
-            src={product.img_url}
-            alt={product.common_name}
+            src={general.img_url}
+            alt={general.common_name}
             className="product-image"
             style={{ maxHeight:  "500px"}}
           />
         </ProductPreview>
 
         <ProductInfo>
-          <BookTitle>{product.common_name}</BookTitle>
+          <BookTitle>{general.common_name}</BookTitle>
           <AuthorName>
-            {product.name}
+            {general.name}
           </AuthorName>
           <BookDescriptionWrapper>
             <BookDescription>
-              {product.genus.substring(0, 600)}
+              {general.genus.substring(0, 600)}
               <a
                 href="#"
                 onClick={scrollToDiv}
@@ -125,18 +114,30 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                 Read More
               </a>
             </BookDescription>
+            {scientific.ph_low &&
+            <div>
+              <h4>pH</h4>
+              {scientific.ph_low}
+              <div className="d-inline-block">
+                <span>Low</span>
+                <span></span>
+                <span>High</span>
+              </div>
+              {scientific.ph_high}
+            </div>
+            }
           </BookDescriptionWrapper>
 
           <ProductMeta>
             <MetaSingle>
-              <Link href={`/?family=${product.family}`} >
+              <Link href={`/?family=${general.family}`} >
                 <a>
-                  <MetaItem>Family: {product.family}</MetaItem>
+                  <MetaItem>Family: {general.family}</MetaItem>
                 </a>
               </Link>
-              <Link href={`/?genus=${product.genus}`} >
+              <Link href={`/?genus=${general.genus}`} >
                 <a>
-                  <MetaItem>Genus: {product.genus}</MetaItem>
+                  <MetaItem>Genus: {general.genus}</MetaItem>
                 </a>
               </Link>
             </MetaSingle>
@@ -151,7 +152,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
             defaultMessage="About The Book"
           />
         </DetailsTitle>
-        {/* <Description>{product.description}</Description> */}
+        {/* <Description>{general.description}</Description> */}
       </DetailsWrapper>
 
       <RelatedItems>
