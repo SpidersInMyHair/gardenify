@@ -118,7 +118,7 @@ export const Products: React.FC<ProductsProps> = ({
       default:
         return (
           <GeneralCard
-            title={props.common_name}
+            title={props.common_name === 'None' ? props.name : props.common_name}
             description={props.description}
             image={props.img_url}
             data={props}

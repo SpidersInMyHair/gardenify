@@ -39,103 +39,103 @@ import {
 // GET  /plant/:id
 app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
   repo.getPlant(req.params.slug)
-  .then((plantVariety: PlantVariety) => {
-    res.send(plantVariety).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantVariety: PlantVariety) => {
+      res.send(plantVariety).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // GET  /plant
 app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
   let limit = 20;
   let offset = 0;
-  if(req.query['limit'] !== ''){
+  if (req.query['limit'] !== '') {
     limit = req.query.limit;
-  }  
-  if(req.query['offset'] !== ''){
+  }
+  if (req.query['offset'] !== '') {
     offset = req.query.offset;
-  }  
+  }
   //console.log(req.query)
-  repo.getPlants(offset,limit)
-  .then((plantVarieties: Array<PlantVariety>) => {
-    res.send(plantVarieties).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+  repo.getPlants(offset, limit)
+    .then((plantVarieties: Array<PlantVariety>) => {
+      res.send(plantVarieties).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // POST /plant
 app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
   repo.insert( //
-  IdGenerator.generate(req.body), //
-  req.body.getGenus(), //
-  req.body.getSpecies(), //
-  req.body.getDescription() //
+    IdGenerator.generate(req.body), //
+    req.body.getGenus(), //
+    req.body.getSpecies(), //
+    req.body.getDescription() //
   )
-  .then(() => res.sendStatus(200))
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then(() => res.sendStatus(200))
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // GET  /plant/items/:id
 app.get(`${SERVICE}/items/:id`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
   repo.getItems(req.params.id)
-  .then((plantItems: Array<PlantItem>) => {
-    res.send(plantItems).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantItems: Array<PlantItem>) => {
+      res.send(plantItems).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // GET  /plant/instructions/:id
 app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: GetPlantInstructionsResponse) => {
   repo.getInstructions(req.params.id)
-  .then((plantInstructions: Array<PlantInstruction>) => {
-    res.send(plantInstructions).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantInstructions: Array<PlantInstruction>) => {
+      res.send(plantInstructions).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 //GET /plant/scientific/:id
 app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
   repo.getScientificDetails(req.params.id)
-  .then((plantScientificDetails: PlantScientificDetails) => {
-    if(typeof plantScientificDetails !== 'undefined'){
-       res.send(plantScientificDetails).status(200).end();
-    }else{
-       //repo.getScientificDetails(req.params.id)
-       repo.addScientificDetails(req.params.id)
-       .then((resp_final: PlantScientificDetails) => {
-          res.send(resp_final).status(200).end();
-       });
-    }
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantScientificDetails: PlantScientificDetails) => {
+      if (typeof plantScientificDetails !== 'undefined') {
+        res.send(plantScientificDetails).status(200).end();
+      } else {
+        //repo.getScientificDetails(req.params.id)
+        repo.addScientificDetails(req.params.id)
+          .then((resp_final: PlantScientificDetails) => {
+            res.send(resp_final).status(200).end();
+          });
+      }
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // GET  /plant/search/:keyword
 app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetPlantsByKeywordResponse) => {
   repo.getPlantsByKeyword(req.params.keyword)
-  .then((plantVarieties: Array<PlantVariety>) => {
-    res.send(plantVarieties).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantVarieties: Array<PlantVariety>) => {
+      res.send(plantVarieties).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
