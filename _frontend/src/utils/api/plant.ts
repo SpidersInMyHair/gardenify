@@ -4,7 +4,13 @@ export async function getAllPlants() {
   const plants = await fetch(`${url}/plant`);
   return await plants.json();
 }
+
 export async function getPlantBySlug(slug) {
   const plant = await fetch(`${url}/plant/${slug}`);
   return plant.json()
+}
+
+export async function getPlantsByKeyword(text) {
+  const plants = await fetch(`${url}/plant/search/${text}`);
+  return plants.json();
 }
