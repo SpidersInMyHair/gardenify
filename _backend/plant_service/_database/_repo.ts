@@ -13,7 +13,21 @@ function getPlant(slug: string): Promise<PlantVariety> {
     connection.query(`                                                  \
       SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      WHERE slug=\"${slug}\"                                                \
+      WHERE slug=${connection.escape(slug)}                                               \
+      LIMIT 1;                                                          \
+    `, (err: any, results: Array<PlantVariety>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results[0] : undefined);
+    });
+  })
+}
+
+function getPlantInfo(slug: string): Promise<PlantVariety> {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                  \
+      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
+      FROM plant_varieties                                              \
+      WHERE slug=${connection.escape(slug)}                                                \
       LIMIT 1;                                                          \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
@@ -39,19 +53,6 @@ function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
 function insert(trefle_id:string, slug: string, name: string, common_name: string, family_common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     
-    /*
-    console.log(`
-      INSERT INTO plant_varieties (slug, name, common_name, genus, family, img_url)\n
-      VALUES (\n
-        \"${slug}\",\n
-        \"${name}\",\n
-        \"${common_name}\",\n
-        \"${genus}\",\n
-        \"${family}\",\n
-        \"${img_url}\",\n
-      );\n
-    `);
-    */
     connection.query(`                                                  \
       INSERT INTO plant_varieties (trefle_id, slug, name, common_name, family_common_name, genus, family, img_url)     \
       VALUES (                                                          \
@@ -90,12 +91,12 @@ function insert_scientific(slug: string, ph_low: number, ph_high: number, temper
   })
 }
 
-function getItems(id: string): Promise<Array<PlantItem>> {
+function getItems(slug: string): Promise<Array<PlantItem>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT *                                                          \
       FROM plant_items                                                  \
-      WHERE plant_variety_id=\"${id}\";                                 \
+      WHERE slug=${connection.escape(slug)};                                 \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
       resolve(results[1].length > 0 ? results[1] : []);
@@ -103,12 +104,12 @@ function getItems(id: string): Promise<Array<PlantItem>> {
   });
 }
 
-function getInstructions(id: string): Promise<Array<PlantInstruction>> {
+function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT *                                                          \
       FROM plant_instructions                                           \
-      WHERE plant_variety_id=\"${id}\"                                  \
+      WHERE slug=${connection.escape(slug)}                                  \
       ORDER BY step_number ASC;                                         \
     `, (err: any, results: Array<Array<PlantInstruction>>) => {
       if (err) reject(err);
@@ -117,12 +118,12 @@ function getInstructions(id: string): Promise<Array<PlantInstruction>> {
   });
 }
 
-function getScientificDetails(id: string): Promise<PlantScientificDetails> {
+function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT *                                                          \
       FROM plant_scientific_details                                     \
-      WHERE slug=\"${id}\"                                  \
+      WHERE slug=${connection.escape(slug)}                                  \
       LIMIT 1;                                                          \
     `, (err: any, results) => {
       if (err) reject(err);
@@ -132,12 +133,12 @@ function getScientificDetails(id: string): Promise<PlantScientificDetails> {
   });
 }
 
-function addScientificDetails(id: string): Promise<PlantScientificDetails> {
+function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT trefle_id                                                          \
       FROM plant_varieties                                     \
-      WHERE slug=\"${id}\"                                  \
+      WHERE slug=\"${slug}\"                                  \
       LIMIT 1;                                                          \
     `, async (err: any, results) => {
       if (err) reject(err);
@@ -166,21 +167,22 @@ function addScientificDetails(id: string): Promise<PlantScientificDetails> {
         //console.log(x);
       }
       //console.log(x);
-      resolve(typeof x !== 'undefined' ? getScientificDetails(id) : undefined);
+      resolve(typeof x !== 'undefined' ? getScientificDetails(slug) : undefined);
     });
   });
 }
 
 function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
+  const sanitizedKeyword = connection.escape('%' + keyword + '%');
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      WHERE slug        LIKE \"%${keyword}%\"                           \
-      OR    name        LIKE \"%${keyword}%\"                           \
-      OR    common_name LIKE \"%${keyword}%\"                           \
-      OR    genus       LIKE \"%${keyword}%\"                           \
-      OR    family      LIKE \"%${keyword}%\"                           \
+      WHERE slug        LIKE ${sanitizedKeyword}                        \
+      OR    name        LIKE ${sanitizedKeyword}                        \
+      OR    common_name LIKE ${sanitizedKeyword}                        \
+      OR    genus       LIKE ${sanitizedKeyword}                        \
+      OR    family      LIKE ${sanitizedKeyword}                        \
       LIMIT 100;                                                        \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);

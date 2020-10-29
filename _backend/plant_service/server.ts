@@ -30,13 +30,13 @@ import {
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /plant/:slug                Get the summary of a plant variety given an slug.
 // POST /plant/                   Create a new plant variety.
-// GET  /plant/items/:id          Get the items listed for a given plant variety.
-// GET  /plant/instructions/:id   Get the ordered instructions listed for a given plant variety.
-// GET  /plant/scientific/:id     Get the scientific details of the plant variety with the given id.
+// GET  /plant/items/:slug          Get the items listed for a given plant variety.
+// GET  /plant/instructions/:slug   Get the ordered instructions listed for a given plant variety.
+// GET  /plant/scientific/:slug     Get the scientific details of the plant variety with the given slug.
 // GET /plant/search/:keyword     Get the summary of all plants matching the keyword
 /* ------------------------------------------------------------------------- */
 
-// GET  /plant/:id
+// GET  /plant/:slug
 app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
   repo.getPlant(req.params.slug)
   .then((plantVariety: PlantVariety) => {
@@ -84,9 +84,9 @@ app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
   });
 });
 
-// GET  /plant/items/:id
-app.get(`${SERVICE}/items/:id`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
-  repo.getItems(req.params.id)
+// GET  /plant/items/:slug
+app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
+  repo.getItems(req.params.slug)
   .then((plantItems: Array<PlantItem>) => {
     res.send(plantItems).status(200).end();
   })
@@ -96,9 +96,9 @@ app.get(`${SERVICE}/items/:id`, (req: GetPlantItemsRequest, res: GetPlantItemsRe
   });
 });
 
-// GET  /plant/instructions/:id
-app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: GetPlantInstructionsResponse) => {
-  repo.getInstructions(req.params.id)
+// GET  /plant/instructions/:slug
+app.get(`${SERVICE}/instructions/:slug`, (req: GetPlantInstructionsRequest, res: GetPlantInstructionsResponse) => {
+  repo.getInstructions(req.params.slug)
   .then((plantInstructions: Array<PlantInstruction>) => {
     res.send(plantInstructions).status(200).end();
   })
@@ -108,15 +108,15 @@ app.get(`${SERVICE}/instructions/:id`, (req: GetPlantInstructionsRequest, res: G
   });
 });
 
-//GET /plant/scientific/:id
-app.get(`${SERVICE}/scientific/:id`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
-  repo.getScientificDetails(req.params.id)
+//GET /plant/scientific/:slug
+app.get(`${SERVICE}/scientific/:slug`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
+  repo.getScientificDetails(req.params.slug)
   .then((plantScientificDetails: PlantScientificDetails) => {
     if(typeof plantScientificDetails !== 'undefined'){
        res.send(plantScientificDetails).status(200).end();
     }else{
-       //repo.getScientificDetails(req.params.id)
-       repo.addScientificDetails(req.params.id)
+       //repo.getScientificDetails(req.params.slug)
+       repo.addScientificDetails(req.params.slug)
        .then((resp_final: PlantScientificDetails) => {
           res.send(resp_final).status(200).end();
        });
