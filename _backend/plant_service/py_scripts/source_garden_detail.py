@@ -33,7 +33,7 @@ def set_dict_att(dict, set_of_att):
     temp_dict = {}
     for key, value in dict.items():
         if key in set_of_att:
-            temp_dict[key] = value if value != None else 'N/A' 
+            temp_dict[key] = value 
     return temp_dict
 
 # Returns formatted JSON object

@@ -35,7 +35,8 @@ connection.query(`                                                    \
     UNIQUE (plant_variety_id, step_number)                            \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
-    slug        varchar(256)   UNIQUE     NOT NULL,                    \
+    slug        varchar(256)   UNIQUE     NOT NULL,                   \
+    description        text,                                          \
     ph_low            float,                                          \
     ph_high           float,                                          \
     temperature_low   float,                                          \

@@ -72,17 +72,18 @@ function insert(trefle_id:string, slug: string, name: string, common_name: strin
   })
 }
 
-function insert_scientific(slug: string, ph_low: number, ph_high: number, temperature_low: number, temperature_high: number):Promise<number>{ 
+function insert_scientific(data):Promise<number>{ 
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_scientific_details (slug, ph_low, ph_high, temperature_low, temperature_high) \
+      INSERT INTO plant_scientific_details (slug, description, ph_low, ph_high, temperature_low, temperature_high) \
       VALUES (                                                          \
-        \"${slug}\",                                                    \
-        ${ph_low}, \
-        ${ph_high}, \
-        ${temperature_low}, \
-        ${temperature_high} \
+        ${connection.escape(data.slug)},                                \
+        ${connection.escape(data.description)},
+        ${data.ph_minimum}, \
+        ${data.ph_maximum}, \
+        ${data.minimum_temperature.deg_c}, \
+        ${data.maximum_temperature.deg_c} \
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
@@ -134,42 +135,20 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
 }
 
 function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
-  return new Promise((resolve, reject) => {
-    connection.query(`                                                  \
-      SELECT trefle_id                                                          \
-      FROM plant_varieties                                     \
-      WHERE slug=\"${slug}\"                                  \
-      LIMIT 1;                                                          \
-    `, async (err: any, results) => {
-      if (err) reject(err);
-      let x = undefined;
-      if(typeof results[0] !== 'undefined'){
-         // insert into the database if there's a match ...
-         //console.log(results[0].trefle_id);
-         let options = {
-           mode: 'json',
-           //pythonOptions: ['-u'], // get print results in real-time
-           scriptPath: '_backend/plant_service/py_scripts/',
-           args: [results[0].trefle_id]
-         };
-
-         //let pyshell = new PythonShell('get_scientific_details.py',options);
-         let pyshell = new PythonShell('source_garden_detail.py',options);
-
-         x= await new Promise((resolve2,reject2) => {
-           pyshell.on('message', function (response) {
-             resolve2(insert_scientific(response.slug, response.ph_minimum, 
-                   response.ph_maximum, response.minimum_temperature.deg_c,
-                   response.maximum_temperature.deg_c));
-           //Promise.resolve(x)
-           //console.log(response);
-        })});
-        //console.log(x);
-      }
-      //console.log(x);
-      resolve(typeof x !== 'undefined' ? getScientificDetails(slug) : undefined);
-    });
+  const  pyshell = new PythonShell('source_garden_detail.py',{
+    mode: 'json',
+    //pythonOptions: ['-u'], // get print results in real-time
+    scriptPath: '_backend/plant_service/py_scripts/',
+    args: slug
   });
+
+  return new Promise((resolve, reject) => {
+    pyshell.on('message', function (response) {
+      return insert_scientific(response).then(() => {
+        resolve(getScientificDetails(slug))
+      });
+    })
+  })
 }
 
 function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
