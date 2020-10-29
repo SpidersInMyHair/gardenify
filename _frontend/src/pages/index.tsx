@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -21,7 +21,7 @@ const Sidebar = dynamic(() => import('layouts/sidebar/sidebar'));
 const Products = dynamic(() =>
   import('components/product-grid/product-list/product-list')
 );
-import { getAllPlants } from 'utils/api/plant';
+import { getAllPlants, getPlantsByKeyword } from 'utils/api/plant';
 
 const PAGE_TYPE = 'book'; //remove this when backend shit is working
 
@@ -43,6 +43,11 @@ export async function getStaticProps() {
   };
 }
 
+export async function getKeywordPlants(text) {
+  const data = await getPlantsByKeyword(text);
+  return data;
+}
+
 const HomePage: NextPage<Props> = ({ deviceType, data }) => {
   const { query } = useRouter();
   const { elRef: targetRef, scroll } = useRefScroll({
@@ -50,9 +55,15 @@ const HomePage: NextPage<Props> = ({ deviceType, data }) => {
     percentOfContainer: 0,
     offsetPX: -110,
   });
+  const [plants, setPlants] = useState(data);
+
   React.useEffect(() => {
     if (query.text || query.category) {
       scroll();
+    }
+
+    if (query.text) {
+      getKeywordPlants(query.text).then((data) => setPlants(data))
     }
   }, [query.text, query.category]);
   return (
@@ -77,7 +88,7 @@ const HomePage: NextPage<Props> = ({ deviceType, data }) => {
               <div ref={targetRef}>
                 <Products
                   deviceType={deviceType}
-                  data={data}
+                  data={plants}
                 />
               </div>
             </ContentSection>
