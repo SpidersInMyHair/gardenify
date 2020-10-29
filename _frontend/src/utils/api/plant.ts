@@ -5,9 +5,13 @@ export async function getAllPlants() {
   return await plants.json();
 }
 
-export async function getPlantBySlug(slug) {
-  const plant = await fetch(`${url}/plant/${slug}`);
-  return plant.json()
+export async function getPlant(slug) {
+  const plant = await (await fetch(`${url}/plant/${slug}`)).json();
+  const scientific = await (await fetch(`${url}/plant/scientific/${slug}`)).json();
+  return {
+    general: plant,
+    scientific: scientific
+  }
 }
 
 export async function getPlantsByKeyword(text) {

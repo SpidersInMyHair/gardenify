@@ -7,7 +7,7 @@ import { Modal } from '@redq/reuse-modal';
 import ProductSingleWrapper, {
   ProductSingleContainer,
 } from 'assets/styles/product-single.style';
-import { getAllPlants, getPlantBySlug } from 'utils/api/plant';
+import { getAllPlants, getPlant } from 'utils/api/plant';
 
 const ProductDetails = dynamic(() =>
   import('components/product-details/product-details-one/product-details-one')
@@ -44,7 +44,7 @@ const ProductPage: NextPage<Props> = ({ data, deviceType }) => {
       <Modal>
         <ProductSingleWrapper>
           <ProductSingleContainer>
-            <ProductDetailsBook product={data} deviceType={deviceType} />;
+            <ProductDetailsBook {...data} deviceType={deviceType} />;
           </ProductSingleContainer>
         </ProductSingleWrapper>
       </Modal>
@@ -52,7 +52,7 @@ const ProductPage: NextPage<Props> = ({ data, deviceType }) => {
   );
 };
 export async function getStaticProps({ params }) {
-  const data = await getPlantBySlug(params.slug);
+  const data = await getPlant(params.slug);
   return {
     props: {
       data,
