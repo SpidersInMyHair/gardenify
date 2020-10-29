@@ -13,6 +13,7 @@
     "ci": "tsc && cross-env ENV=ci node server.js",
     "dev:frontend": "yarn workspace @gardenify/frontend dev",
     "dev": "tsc && cross-env RDS_HOSTNAME=localhost RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
+    "dev:remote": "tsc && cross-env RDS_HOSTNAME=220.238.31.220 RDS_USERNAME=gardenify RDS_PASSWORD=h5a!uEkaKD69A92%rrEdbD RDS_PORT=3306 ENV=dev node server.js",
     "build": "tsc && next build",
     "start": "tsc && next build cross-env && ENV=production node server.js",
     "scrape:plant_varieties": "python3 _backend/plant_service/py_scripts/scrape_trefle_plants.py",
