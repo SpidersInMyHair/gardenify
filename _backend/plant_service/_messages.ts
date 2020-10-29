@@ -29,7 +29,7 @@ export type CreatePlantResponse = Response;
 
 export interface GetPlantItemsRequest extends Request {
   params: {
-    id: string,
+    slug: string,
   };
 }
 
@@ -39,7 +39,7 @@ export interface GetPlantItemsResponse<ResBody = Array<PlantItem>> extends Respo
 
 export interface GetPlantInstructionsRequest extends Request {
   params: {
-    id: string,
+    slug: string,
   };
 }
 
@@ -49,7 +49,7 @@ export interface GetPlantInstructionsResponse<ResBody = Array<PlantInstruction>>
 
 export interface GetPlantScientificDetailsRequest extends Request {
   params: {
-    id: string,
+    slug: string,
   };
 }
 
