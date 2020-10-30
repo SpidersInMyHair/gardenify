@@ -36,6 +36,7 @@ connection.query(`                                                    \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
     slug        varchar(256)   UNIQUE     NOT NULL,                   \
+    wiki        varchar(256),                                         \
     description        text,                                          \
     ph_low            float,                                          \
     ph_high           float,                                          \

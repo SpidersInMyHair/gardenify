@@ -76,10 +76,11 @@ function insert_scientific(data):Promise<number>{
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_scientific_details (slug, description, ph_low, ph_high, temperature_low, temperature_high) \
+      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high) \
       VALUES (                                                          \
         ${connection.escape(data.slug)},                                \
-        ${connection.escape(data.description)},
+        ${connection.escape(data.wiki)},                                \
+        ${connection.escape(data.description)},                          \
         ${data.ph_minimum}, \
         ${data.ph_maximum}, \
         ${data.minimum_temperature.deg_c}, \
