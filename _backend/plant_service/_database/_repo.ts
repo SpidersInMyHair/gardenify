@@ -22,26 +22,45 @@ function getPlant(slug: string): Promise<PlantVariety> {
   })
 }
 
-function getPlantInfo(slug: string): Promise<PlantVariety> {
-  return new Promise((resolve, reject) => {
-    connection.query(`                                                  \
-      SELECT slug, name, common_name, genus, family, img_url            \
-      FROM plant_varieties                                              \
-      WHERE slug=${connection.escape(slug)}                                                \
-      LIMIT 1;                                                          \
-    `, (err: any, results: Array<PlantVariety>) => {
-      if (err) reject(err);
-      resolve(results.length > 0 ? results[0] : undefined);
-    });
-  })
-}
 
-function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
+
+function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantVariety[]> {
+  if (query && query.search) {
+    const sanitizedKeyword = connection.escape('%' + query.search + '%');
+    delete query.search;
+    return new Promise((resolve, reject) => {
+      connection.query(`                                                  \
+        SELECT slug, name, common_name, genus, family, img_url            \
+        FROM plant_varieties                                              \
+        WHERE (slug       LIKE ${sanitizedKeyword}                        \
+        OR    name        LIKE ${sanitizedKeyword}                        \
+        OR    common_name LIKE ${sanitizedKeyword}                        \
+        OR    genus       LIKE ${sanitizedKeyword}                        \
+        OR    family      LIKE ${sanitizedKeyword})                       \
+        ${Object.keys(query).map((param) => (
+          `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}`
+        )).join(" ")}
+        LIMIT ${offset},${limit};                                         \
+        `, (err: any, results: Array<PlantVariety>) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+      });
+    })  
+  }
+
+  let first = true;
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
-      LIMIT ${offset},${limit};                                                          \
+      ${Object.keys(query).map((param) => {
+        if (first) {
+          first = false;
+          return `WHERE ${connection.escapeId(param)}=${connection.escape(query[param])}`
+        }
+        return `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}`
+      }).join(" ")}
+      LIMIT ${offset},${limit};                                         \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
       resolve(results.length > 0 ? results : undefined);
