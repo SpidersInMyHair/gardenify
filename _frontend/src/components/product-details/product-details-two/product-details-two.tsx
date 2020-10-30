@@ -105,16 +105,16 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           </AuthorName>
           <BookDescriptionWrapper>
             <BookDescription>
-              {general.genus.substring(0, 600)}
+              {general.description && general.description}
               <a
-                href="#"
-                onClick={scrollToDiv}
+                href={scientific.wiki}
+                target="_blank"
                 style={{ color: '#009e7f', fontWeight: 'bold' }}
               >
                 Read More
               </a>
             </BookDescription>
-            {scientific.ph_low &&
+            {/* {scientific.ph_low &&
             <div>
               <h4>pH</h4>
               {scientific.ph_low}
@@ -125,7 +125,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               </div>
               {scientific.ph_high}
             </div>
-            }
+            } */}
           </BookDescriptionWrapper>
 
           <ProductMeta>

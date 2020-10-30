@@ -5,14 +5,23 @@ module.exports = express();
 
 connection = require('../../../_repository/_config').connection;
 
-connection.query(`LOAD DATA LOCAL INFILE "_backend/plant_service/data/plant_varieties.csv" INTO TABLE plant_varieties \
+connection.query(`LOAD DATA LOCAL INFILE "_backend/plant_service/data/families.csv" INTO TABLE plant_families \
                  FIELDS TERMINATED BY ',' \
                  OPTIONALLY ENCLOSED BY '"' \
                  LINES TERMINATED BY '\r\n' \
                  IGNORE 1 LINES;`
     , (err: any) => {
       if (err) throw err;
-      console.log('> MySQL: Initialized plant tables');
+      console.log('> MySQL: Initialized plant-family tables');
+      connection.query(`LOAD DATA LOCAL INFILE "_backend/plant_service/data/plant_varieties.csv" INTO TABLE plant_varieties \
+                 FIELDS TERMINATED BY ',' \
+                 OPTIONALLY ENCLOSED BY '"' \
+                 LINES TERMINATED BY '\r\n' \
+                 IGNORE 1 LINES;`
+        , (err: any) => {
+          if (err) throw err;
+          console.log('> MySQL: Initialized plant tables');
+        });
     });
 
 /*

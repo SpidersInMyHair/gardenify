@@ -11,7 +11,7 @@ connection = require('./../../../_repository/_config').connection;
 function getPlant(slug: string): Promise<PlantVariety> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
+      SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       WHERE slug=${connection.escape(slug)}                                               \
       LIMIT 1;                                                          \
@@ -25,7 +25,7 @@ function getPlant(slug: string): Promise<PlantVariety> {
 function getPlantInfo(slug: string): Promise<PlantVariety> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
+      SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       WHERE slug=${connection.escape(slug)}                                                \
       LIMIT 1;                                                          \
@@ -39,7 +39,7 @@ function getPlantInfo(slug: string): Promise<PlantVariety> {
 function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
-      SELECT slug, name, common_name, family_common_name, genus, family, img_url            \
+      SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       LIMIT ${offset},${limit};                                                          \
     `, (err: any, results: Array<PlantVariety>) => {
@@ -50,17 +50,16 @@ function getPlants(offset:number=0, limit:number=20): Promise<PlantVariety[]> {
 }
 
 
-function insert(trefle_id:string, slug: string, name: string, common_name: string, family_common_name: string, genus: string, family: string, img_url: string) {
+function insert(trefle_id:string, slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_varieties (trefle_id, slug, name, common_name, family_common_name, genus, family, img_url)     \
+      INSERT INTO plant_varieties (trefle_id, slug, name, common_name, genus, family, img_url)     \
       VALUES (                                                          \
         \"${trefle_id}\",                                                   \
         \"${slug}\",                                                    \
         \"${name}\",                                                    \
         \"${common_name}\",                                             \
-        \"${family_common_name}\",                                      \
         \"${genus}\",                                                   \
         \"${family}\",                                                  \
         \"${img_url}\"                                                  \
@@ -76,10 +75,11 @@ function insert_scientific(data):Promise<number>{
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_scientific_details (slug, description, ph_low, ph_high, temperature_low, temperature_high) \
+      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high) \
       VALUES (                                                          \
         ${connection.escape(data.slug)},                                \
-        ${connection.escape(data.description)},
+        ${connection.escape(data.wiki)},                                \
+        ${connection.escape(data.description)},                          \
         ${data.ph_minimum}, \
         ${data.ph_maximum}, \
         ${data.minimum_temperature.deg_c}, \

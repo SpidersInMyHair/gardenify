@@ -57,6 +57,8 @@ def get_plant_using_id(id):
 
     plant_dict.update(grow_dict)
     plant_dict.update(spec_dict)
+
+    plant_dict.update({"wiki": next((x['url'] for x in data_res['sources'] if x['name'] == "Wikipedia"), None).replace(" ", "_")})
     
     # Uncomment below line to pretty print the plant information
     #print(ppretty(pt, seq_length=30))
