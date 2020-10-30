@@ -8,17 +8,23 @@ connection.query(`                                                    \
   DROP TABLE IF EXISTS plant_instructions;                            \
   DROP TABLE IF EXISTS plant_scientific_details;                      \
   DROP TABLE IF EXISTS plant_varieties;                               \
+  DROP TABLE IF EXISTS plant_families;                                \
+  CREATE TABLE IF NOT EXISTS plant_families (                         \
+    name        varchar(256)   UNIQUE     NOT NULL,                   \
+    common_name varchar(256)  NOT NULL,                               \
+    PRIMARY KEY (name)                                                \
+  );                                                                  \ 
   CREATE TABLE IF NOT EXISTS plant_varieties (                        \
-    common_name varchar(256)   NOT NULL,                               \
-    family      varchar(256)   NOT NULL,                               \
-    family_common_name         varchar(256),                           \
-    genus       varchar(256)   NOT NULL,                               \
-    trefle_id   varchar(32)            UNIQUE     NOT NULL,                    \
+    common_name varchar(256)   NOT NULL,                              \
+    family      varchar(256)   NOT NULL,                              \
+    genus       varchar(256)   NOT NULL,                              \
+    trefle_id   varchar(32)            UNIQUE     NOT NULL,           \
     img_url     varchar(256) CHARACTER SET 'ascii' COLLATE 'ascii_general_ci' NOT NULL, \
-    name        varchar(256)   NOT NULL,                               \
-    slug        varchar(256)   UNIQUE     NOT NULL,                    \
+    name        varchar(256)   NOT NULL,                              \
+    slug        varchar(256)   UNIQUE     NOT NULL,                   \
     id          int           NOT NULL   AUTO_INCREMENT,              \
-    PRIMARY KEY (id)                                                  \
+    PRIMARY KEY (id),                                                 \
+    FOREIGN KEY (family) REFERENCES plant_families(name)              \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_items (                            \
     plant_variety_id  int           NOT NULL,                         \
