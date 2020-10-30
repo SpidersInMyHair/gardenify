@@ -7,7 +7,7 @@ import { Modal } from '@redq/reuse-modal';
 import ProductSingleWrapper, {
   ProductSingleContainer,
 } from 'assets/styles/product-single.style';
-import { getAllPlants, getPlant } from 'utils/api/plant';
+import { getPlants, getPlant } from 'utils/api/plant';
 
 const ProductDetails = dynamic(() =>
   import('components/product-details/product-details-one/product-details-one')
@@ -60,7 +60,7 @@ export async function getStaticProps({ params }) {
   };
 }
 export async function getStaticPaths() {
-  const products = await getAllPlants();
+  const products = await getPlants();
   return {
     paths: products.slice(0, 10).map(({ slug }) => ({ params: { slug } })),
     fallback: true,
