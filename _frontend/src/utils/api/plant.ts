@@ -8,9 +8,21 @@ export async function getAllPlants() {
 export async function getPlant(slug) {
   const plant = await (await fetch(`${url}/plant/${slug}`)).json();
   const scientific = await (await fetch(`${url}/plant/scientific/${slug}`)).json();
+  
+
+  if (scientific.wiki) {
+    const wikiUrl = scientific.wiki.replace("wiki/", "w/api.php?action=query&format=json&prop=extracts&exchars=600&explaintext=1&formatversion=2&titles=")
+    const wikiInfo = await (await fetch(wikiUrl)).json();
+    if (wikiInfo.query.pages && wikiInfo.query.pages.length) {
+      return {
+        general: {...plant, description: wikiInfo.query.pages[0].extract},
+        scientific: scientific
+      }
+    }
+  }
   return {
     general: plant,
-    scientific: scientific
+    scientific: scientific,
   }
 }
 
