@@ -29,17 +29,17 @@ const Search: React.FC<Props> = ({ onSubmit, ...props }) => {
       router.push(
         {
           pathname,
-          query: { ...rest, text: searchTerm },
+          query: { ...rest, search: searchTerm },
         },
         {
           pathname: `/${type}`,
-          query: { ...rest, text: searchTerm },
+          query: { ...rest, search: searchTerm },
         }
       );
     } else {
       router.push({
         pathname,
-        query: { ...rest, text: searchTerm },
+        query: { ...rest, search: searchTerm },
       });
     }
     dispatch({ type: 'SET_SEARCH_TERM', payload: '' });

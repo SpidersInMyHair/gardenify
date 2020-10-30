@@ -1,7 +1,6 @@
 // product card for general
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
 import Image from 'components/image/image';
 import { Button } from 'components/button/button';
 import {
@@ -14,12 +13,6 @@ import {
   ProductName,
   AuthorInfo,
 } from '../product-card.style';
-import { useCart } from 'contexts/cart/use-cart';
-import { Counter } from 'components/counter/counter';
-import { cartAnimation } from 'utils/cart-animation';
-import { FormattedMessage } from 'react-intl';
-import { CartIcon } from 'assets/icons/CartIcon';
-import { useModal } from 'contexts/modal/use-modal';
 const QuickViewMobile = dynamic(() =>
   import('features/quick-view/quick-view-mobile')
 );

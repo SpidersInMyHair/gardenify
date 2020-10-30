@@ -38,7 +38,7 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
         OR    genus       LIKE ${sanitizedKeyword}                        \
         OR    family      LIKE ${sanitizedKeyword})                       \
         ${Object.keys(query).map((param) => (
-          `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}`
+          query[param] ? `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}` : ''
         )).join(" ")}
         LIMIT ${offset},${limit};                                         \
         `, (err: any, results: Array<PlantVariety>) => {
@@ -54,6 +54,7 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
       SELECT slug, name, common_name, genus, family, img_url            \
       FROM plant_varieties                                              \
       ${Object.keys(query).map((param) => {
+        if (!query[param]) return
         if (first) {
           first = false;
           return `WHERE ${connection.escapeId(param)}=${connection.escape(query[param])}`

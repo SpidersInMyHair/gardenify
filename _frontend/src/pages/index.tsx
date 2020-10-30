@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
 import { Modal } from '@redq/reuse-modal';
 import { Banner } from 'components/banner/banner';
 import { MobileBanner } from 'components/banner/mobile-banner';
@@ -21,7 +20,7 @@ const Sidebar = dynamic(() => import('layouts/sidebar/sidebar'));
 const Products = dynamic(() =>
   import('components/product-grid/product-list/product-list')
 );
-import { getAllPlants, getPlantsByKeyword } from 'utils/api/plant';
+import { getPlants, getPlantsByKeyword } from 'utils/api/plant';
 
 const PAGE_TYPE = 'book'; //remove this when backend shit is working
 
@@ -32,13 +31,18 @@ type Props = {
     desktop: boolean;
   };
   data: any;
+  query: string;
 };
 
-export async function getStaticProps() {
-  const data = await getAllPlants();
+export async function getServerSideProps({query}) {
+  const queryString = Object.keys(query).map((key) => {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(query[key])
+  }).join('&');
+  const data = await getPlants(queryString);
   return {
     props: {
       data,
+      query: queryString
     },
   };
 }
@@ -48,24 +52,17 @@ export async function getKeywordPlants(text) {
   return data;
 }
 
-const HomePage: NextPage<Props> = ({ deviceType, data }) => {
-  const { query } = useRouter();
+const HomePage: NextPage<Props> = ({ deviceType, data, query }) => {
+  // const { query } = useRouter();
   const { elRef: targetRef, scroll } = useRefScroll({
     percentOfElement: 0,
     percentOfContainer: 0,
     offsetPX: -110,
   });
-  const [plants, setPlants] = useState(data);
 
   React.useEffect(() => {
-    if (query.text || query.category) {
-      scroll();
-    }
-
-    if (query.text) {
-      getKeywordPlants(query.text).then((data) => setPlants(data))
-    }
-  }, [query.text, query.category]);
+    if (query) scroll();
+  }, [query]);
   return (
     <>
       <SEO title="Gardenify" description="Search our index of flora for all your gardening needs" />
@@ -88,7 +85,7 @@ const HomePage: NextPage<Props> = ({ deviceType, data }) => {
               <div ref={targetRef}>
                 <Products
                   deviceType={deviceType}
-                  data={plants}
+                  data={data}
                 />
               </div>
             </ContentSection>
