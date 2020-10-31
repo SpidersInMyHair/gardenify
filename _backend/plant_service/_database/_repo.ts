@@ -118,7 +118,23 @@ function insert_scientific(data):Promise<number>{
   })
 }
 
-function getItems(slug: string): Promise<Array<PlantItem>> {
+function insert_item(data):Promise<number>{ 
+  return new Promise((resolve, reject) => {
+    
+    connection.query(`                                                  \
+      INSERT INTO plant_items (slug, item_name)             \
+      VALUES (                                                          \
+        ${connection.escape(data.slug)},                    \
+        ${connection.escape(data.item_name)}                            \
+      );                                                                \
+    `, (err: any, results: any) => {
+      if (err) reject(err);
+      resolve(typeof results === 'undefined' ? 0 : 1);
+    });
+  })
+}
+
+function getItems(slug: string): Promise<Array<Array<PlantItem>>> {
   return new Promise((resolve, reject) => {
     connection.query(`                                                  \
       SELECT *                                                          \
@@ -126,10 +142,12 @@ function getItems(slug: string): Promise<Array<PlantItem>> {
       WHERE slug=${connection.escape(slug)};                                 \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
-      resolve(typeof results !== 'undefined' ? results[1] : []);
+      resolve(results.length > 0 ? results : []);
     });
   });
 }
+
+
 
 function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
   return new Promise((resolve, reject) => {
@@ -150,7 +168,7 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
     connection.query(`                                                  \
       SELECT *                                                          \
       FROM plant_scientific_details                                     \
-      WHERE slug=${connection.escape(slug)}                                  \
+      WHERE slug=${connection.escape(slug)}                             \
       LIMIT 1;                                                          \
     `, (err: any, results) => {
       if (err) reject(err);
@@ -159,6 +177,37 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
     });
   });
 }
+
+function addItems(slug: string): Promise<number> {
+  
+  return new Promise((resolve) => {
+    getScientificDetails(slug)
+      .then((plantScientificDetails: any) => {
+        if(typeof plantScientificDetails !== 'undefined'){
+          let item1 = 'Water hose';
+          if( plantScientificDetails.precipitation_low < 5) {
+            item1 = 'Watering can or natural rain';
+          } else if(plantScientificDetails.precipitation_low > 10) {
+            item1 = 'Sprinkler';
+          }
+          let item2 = 'Loam soil';
+          if( plantScientificDetails.soil_texture < 5) {
+            item2 = 'Clay based soil';
+          } else {
+            item2 = 'Rock based soil';
+          }
+          let item3 = 'No fertilizers required';
+          if( plantScientificDetails.ph_high < 6) {
+            item3 = 'Nitrogenous fertilizers (eg Ammonium Nitrate)';
+          };
+          insert_item({'slug' : slug, 'item_name':item1});
+          insert_item({'slug' : slug, 'item_name':item2});
+          insert_item({'slug' : slug, 'item_name':item3});
+          resolve(1);
+      }});
+    }) 
+}
+
 
 function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
   const  pyshell = new PythonShell('source_garden_detail.py',{
@@ -196,13 +245,13 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
   })
 }
 
-
 module.exports = {
   getPlant,
   getPlants,
   insert,
   insert_scientific,
   getItems,
+  addItems,
   getInstructions,
   getScientificDetails,
   addScientificDetails,

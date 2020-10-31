@@ -88,13 +88,23 @@ app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
 // GET  /plant/items/:slug
 app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
   repo.getItems(req.params.slug)
-  .then((plantItems: Array<PlantItem>) => {
-    res.send(plantItems).status(200).end();
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
-  });
+    .then((plantItems: Array<Array<PlantItem>>) => {
+      if(plantItems.length > 0){
+        res.send(plantItems).status(200).end();
+      }else{
+        console.log('adding items');
+        //repo.getScientificDetails(req.params.slug)
+        repo.addItems(req.params.slug).then(() => {
+          repo.getItems(req.params.slug)
+            .then((plantItems: Array<Array<PlantItem>>) => {
+          res.send(plantItems).status(200).end()})
+        })
+      }
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 // GET  /plant/instructions/:slug
@@ -128,6 +138,7 @@ app.get(`${SERVICE}/scientific/:slug`, (req: GetPlantScientificDetailsRequest, r
     res.sendStatus(500);
   });
 });
+
 
 // GET  /plant/search/:keyword
 app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetPlantsByKeywordResponse) => {

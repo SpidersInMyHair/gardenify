@@ -10,8 +10,6 @@ message PlantVariety {
 message PlantItem {
   string plant_variety_id = 1;
   string item_name = 2;
-  uint32 quantity = 3;
-  Unit unit = 4;
 }
 
 message PlantInstruction {

@@ -33,7 +33,7 @@ export interface GetPlantItemsRequest extends Request {
   };
 }
 
-export interface GetPlantItemsResponse<ResBody = Array<PlantItem>> extends Response {
+export interface GetPlantItemsResponse<ResBody = Array<Array<PlantItem>>> extends Response {
   send: Send<ResBody, this>;
 }
 
