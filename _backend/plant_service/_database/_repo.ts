@@ -95,7 +95,7 @@ function insert_scientific(data):Promise<number>{
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high) \
+      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity) \
       VALUES (                                                          \
         ${connection.escape(data.slug)},                                \
         ${connection.escape(data.wiki)},                                \
@@ -103,7 +103,13 @@ function insert_scientific(data):Promise<number>{
         ${data.ph_minimum}, \
         ${data.ph_maximum}, \
         ${data.minimum_temperature.deg_c}, \
-        ${data.maximum_temperature.deg_c} \
+        ${data.maximum_temperature.deg_c}, \
+        ${data.minimum_precipitation.mm}, \
+        ${data.maximum_precipitation.mm}, \
+        ${data.light}, \
+        ${data.soil_salinity}, \
+        ${data.soil_texture}, \
+        ${data.soil_humidity} \
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
