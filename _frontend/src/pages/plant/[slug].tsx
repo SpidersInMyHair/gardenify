@@ -8,6 +8,7 @@ import ProductSingleWrapper, {
   ProductSingleContainer,
 } from 'assets/styles/product-single.style';
 import { getPlants, getPlant } from 'utils/api/plant';
+import NotFoundPage from 'pages/404';
 
 const ProductDetails = dynamic(() =>
   import('components/product-details/product-details-one/product-details-one')
@@ -33,12 +34,13 @@ const ProductPage: NextPage<Props> = ({ data, deviceType }) => {
   const router = useRouter();
 
   if (router.isFallback) return <p>Loading...</p>;
-
+  if (!data) return <NotFoundPage/>;
+  
   return (
     <>
       <SEO
-        title={`${data.common_name} - Gardenify`}
-        description={`${data.common_name} Details`}
+        title={`${data.general.common_name || data.general.name} - Gardenify`}
+        description={`${data.general.common_name || data.general.name} Details`}
       />
 
       <Modal>
