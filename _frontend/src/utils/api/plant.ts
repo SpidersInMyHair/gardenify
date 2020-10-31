@@ -7,7 +7,13 @@ export async function getPlants(query?: string) {
 }
 
 export async function getPlant(slug) {
-  const plant = await (await fetch(`${url}/plant/${slug}`)).json();
+  let plant;
+  try {
+    plant = await (await fetch(`${url}/plant/${slug}`)).json();
+  } catch {
+    return null;
+  }
+  
   const scientific = await (await fetch(`${url}/plant/scientific/${slug}`)).json();
   
 

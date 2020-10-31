@@ -106,6 +106,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           <BookDescriptionWrapper>
             <BookDescription>
               {general.description && general.description}
+              <p>(source: Wikipedia)</p>
               <a
                 href={scientific.wiki}
                 target="_blank"
