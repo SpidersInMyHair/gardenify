@@ -120,7 +120,7 @@ function getItems(slug: string): Promise<Array<PlantItem>> {
       WHERE slug=${connection.escape(slug)};                                 \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
-      resolve(typeof results !== 'undefined' ? results[1] : []);
+      resolve(results[1].length > 0 ? results[1] : []);
     });
   });
 }
@@ -134,7 +134,7 @@ function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
       ORDER BY step_number ASC;                                         \
     `, (err: any, results: Array<Array<PlantInstruction>>) => {
       if (err) reject(err);
-      resolve(typeof results !== 'undefined' ? results[1] : []);
+      resolve(results[1].length > 0 ? results[1] : []);
     });
   });
 }
@@ -164,9 +164,9 @@ function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
 
   return new Promise((resolve, reject) => {
     pyshell.on('message', function (response) {
-      typeof response.slug !== 'undefined' ? insert_scientific(response).then(() => {
+      return insert_scientific(response).then(() => {
         resolve(getScientificDetails(slug))
-      }) : resolve(undefined);
+      });
     })
   })
 }
