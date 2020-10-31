@@ -48,6 +48,12 @@ connection.query(`                                                    \
     ph_high           float,                                          \
     temperature_low   float,                                          \
     temperature_high  float,                                          \
+    precipitation_low  float,                                        \
+    precipitation_high  float,                                         \
+    light int,                                                        \
+    soil_salinity int,                                                \
+    soil_texture int,                                                 \
+    soil_humidity int,                                                \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug)     \
   );`
 , (err: any) => {
