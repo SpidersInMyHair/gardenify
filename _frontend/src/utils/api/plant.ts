@@ -1,14 +1,19 @@
 const url = process.env.NEXT_PUBLIC_REST_API_ENDPOINT;
 
 export async function getPlants(query?: string) {
-  console.log(`${url}/plant?${query ? query : ''}`)
   const plants = await fetch(`${url}/plant?${query ? query : ''}`);
   if (plants) return await plants.json();
   return [];
 }
 
 export async function getPlant(slug) {
-  const plant = await (await fetch(`${url}/plant/${slug}`)).json();
+  let plant;
+  try {
+    plant = await (await fetch(`${url}/plant/${slug}`)).json();
+  } catch {
+    return null;
+  }
+  
   const scientific = await (await fetch(`${url}/plant/scientific/${slug}`)).json();
   
 
