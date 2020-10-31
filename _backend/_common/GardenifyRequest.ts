@@ -1,7 +1,7 @@
-import {NextApiRequest} from "next";
-import {Socket} from "net";
+import { NextApiRequest } from "next";
+import { Socket } from "net";
 import { Env } from '@next/env';
-import {IncomingHttpHeaders} from "http2";
+import { IncomingHttpHeaders } from "http2";
 
 export class GardenifyRequest implements NextApiRequest {
     body: any;
