@@ -120,7 +120,7 @@ function getItems(slug: string): Promise<Array<PlantItem>> {
       WHERE slug=${connection.escape(slug)};                                 \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1] : []);
+      resolve(typeof results !== 'undefined' ? results[1] : []);
     });
   });
 }
@@ -134,7 +134,7 @@ function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
       ORDER BY step_number ASC;                                         \
     `, (err: any, results: Array<Array<PlantInstruction>>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1] : []);
+      resolve(typeof results !== 'undefined' ? results[1] : []);
     });
   });
 }
