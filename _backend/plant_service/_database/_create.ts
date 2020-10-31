@@ -27,18 +27,18 @@ connection.query(`                                                    \
     FOREIGN KEY (family) REFERENCES plant_families(name)              \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_items (                            \
-    plant_variety_id  int           NOT NULL,                         \
+    slug        varchar(256)   UNIQUE     NOT NULL,                   \
     item_name         varchar(255)  NOT NULL,                         \
     quantity          int,                                            \
     unit              ENUM('gram', 'liter'),                          \
-    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id)     \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug)     \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_instructions (                     \
-    plant_variety_id  int           NOT NULL,                         \
+    slug        varchar(256)   NOT NULL,                   \
     step_number       int           NOT NULL,                         \
     instruction       VARCHAR(1024) NOT NULL,                         \
-    FOREIGN KEY (plant_variety_id) REFERENCES plant_varieties(id),    \
-    UNIQUE (plant_variety_id, step_number)                            \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug),     \
+    UNIQUE (slug, step_number)                            \
   );                                                                  \
   CREATE TABLE IF NOT EXISTS plant_scientific_details (               \
     slug        varchar(256)   UNIQUE     NOT NULL,                   \

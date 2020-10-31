@@ -49,6 +49,8 @@ def get_response(url):
 # GET a plant's info using its Trefle id
 def get_plant_using_id(id):
     response = get_response(species_endpoint+'/' + str(id) + '?token=')
+    if not response:
+        return '{}'
     data_res = response.json()['data']
 
     plant_dict = set_dict_att(data_res, plant_att)
