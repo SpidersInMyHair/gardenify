@@ -32,14 +32,13 @@ import {
   RelatedItems,
 } from './product-details-two.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
-import { CURRENCY } from 'utils/constant';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
-import { useCart } from 'contexts/cart/use-cart';
 
 type ProductDetailsProps = {
   general: any;
   scientific: any;
+  relatedPlants: any;
   deviceType: {
     mobile: boolean;
     tablet: boolean;
@@ -50,7 +49,8 @@ type ProductDetailsProps = {
 const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   general,
   scientific,
-  deviceType,
+  relatedPlants,
+  deviceType
 }) => {
 
   const scrollRef = useRef(null);
@@ -106,7 +106,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           <BookDescriptionWrapper>
             <BookDescription>
               {general.description && general.description}
-              <p>(source: Wikipedia)</p>
+              <br/>
+              (source: Wikipedia)
               <a
                 href={scientific.wiki}
                 target="_blank"
@@ -164,6 +165,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           />
         </h2>
         <Products
+          data={relatedPlants}
           deviceType={deviceType}
           loadMore={false}
           fetchLimit={10}

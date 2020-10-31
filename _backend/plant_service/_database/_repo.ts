@@ -40,6 +40,7 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
         ${Object.keys(query).map((param) => (
           query[param] ? `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}` : ''
         )).join(" ")}
+        ORDER BY img_url                                                  \
         LIMIT ${offset},${limit};                                         \
         `, (err: any, results: Array<PlantVariety>) => {
         if (err) reject(err);
@@ -61,6 +62,7 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
         }
         return `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}`
       }).join(" ")}
+      ORDER BY img_url                                                  \
       LIMIT ${offset},${limit};                                         \
     `, (err: any, results: Array<PlantVariety>) => {
       if (err) reject(err);
