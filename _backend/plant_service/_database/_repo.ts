@@ -164,9 +164,9 @@ function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
 
   return new Promise((resolve, reject) => {
     pyshell.on('message', function (response) {
-      return insert_scientific(response).then(() => {
+      typeof response.slug !== 'undefined' ? insert_scientific(response).then(() => {
         resolve(getScientificDetails(slug))
-      });
+      }) : resolve(undefined);
     })
   })
 }
