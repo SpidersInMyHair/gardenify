@@ -16,9 +16,6 @@ const ProductDetails = dynamic(() =>
 const ProductDetailsBook = dynamic(() =>
   import('components/product-details/product-details-two/product-details-two')
 );
-const CartPopUp = dynamic(() => import('features/carts/cart-popup'), {
-  ssr: false,
-});
 
 type Props = {
   deviceType?: {
@@ -30,7 +27,7 @@ type Props = {
   [key: string]: any;
 };
 
-const ProductPage: NextPage<Props> = ({ data, deviceType }) => {
+const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   const router = useRouter();
 
   if (router.isFallback) return <p>Loading...</p>;
@@ -46,26 +43,23 @@ const ProductPage: NextPage<Props> = ({ data, deviceType }) => {
       <Modal>
         <ProductSingleWrapper>
           <ProductSingleContainer>
-            <ProductDetailsBook {...data} deviceType={deviceType} />;
+            <ProductDetailsBook {...data} relatedPlants={relatedPlants} deviceType={deviceType} />;
           </ProductSingleContainer>
         </ProductSingleWrapper>
       </Modal>
     </>
   );
 };
-export async function getStaticProps({ params }) {
+
+export async function getServerSideProps ({ params }) {
   const data = await getPlant(params.slug);
+  const relatedPlants = await getPlants('genus=' + encodeURIComponent(data.general.genus) + "&limit=5")
   return {
     props: {
       data,
+      relatedPlants
     },
   };
 }
-export async function getStaticPaths() {
-  const products = await getPlants();
-  return {
-    paths: products.slice(0, 10).map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
-  };
-}
+
 export default ProductPage;
