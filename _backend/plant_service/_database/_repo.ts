@@ -38,7 +38,7 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
         OR    genus       LIKE ${sanitizedKeyword}                        \
         OR    family      LIKE ${sanitizedKeyword})                       \
         ${Object.keys(query).map((param) => (
-          query[param] ? `AND  ${connection.escapeId(param)} LIKE ${connection.escape(query[param])}` : ''
+          query[param] ? `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}` : ''
         )).join(" ")}
         ORDER BY img_url                                                  \
         LIMIT ${offset},${limit};                                         \
@@ -58,9 +58,9 @@ function getPlants(offset:number=0, limit:number=20, query: any): Promise<PlantV
         if (!query[param]) return
         if (first) {
           first = false;
-          return `WHERE ${connection.escapeId(param)} LIKE ${connection.escape(query[param])}`
+          return `WHERE ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
         }
-        return `AND  ${connection.escapeId(param)} LIKE ${connection.escape(query[param])}`
+        return `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
       }).join(" ")}
       ORDER BY img_url                                                  \
       LIMIT ${offset},${limit};                                         \
