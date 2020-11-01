@@ -4,9 +4,6 @@ import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
 import Sticky from 'react-stickynode';
 import { Scrollbar } from 'components/scrollbar/scrollbar';
-import Popover from 'components/popover/popover';
-import { ArrowDropDown } from 'assets/icons/ArrowDropDown';
-import { CategoryIcon } from 'assets/icons/CategoryIcon';
 import { useLocale } from 'contexts/language/language.provider';
 import { useAppState } from 'contexts/app/app.provider';
 import {
@@ -16,7 +13,6 @@ import {
 import {
   CategoryWrapper,
   TreeWrapper,
-  PopoverHandler,
   PopoverWrapper,
   SidebarWrapper,
   RequestMedicine,
