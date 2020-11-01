@@ -55,7 +55,7 @@ connection.query(` \
     soil_humidity int, \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \
   );`
-  , (err: any) => {
-    if (err) throw err;
-    console.log('> MySQL: Created plant tables');
-  });
+, (err: any) => {
+  if (err) throw err;
+  console.log('> MySQL: Created plant tables');
+});
