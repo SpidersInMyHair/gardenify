@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Button } from 'components/button/button';
@@ -34,6 +34,7 @@ import {
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
+import { getPlantItems } from 'utils/api/plant';
 
 type ProductDetailsProps = {
   general: any;
@@ -52,6 +53,9 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   relatedPlants,
   deviceType
 }) => {
+  const [items, useItems] = useState([]);
+  getPlantItems(general.name).then((res) => useItems(res)); //TODO: FIX
+
 
   const scrollRef = useRef(null);
 
@@ -69,6 +73,10 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
       window.scrollTo(0, 0);
     }, 500);
   }, []);
+
+  useEffect(() => {
+    console.log(items);
+  }, [items])
 
   return (
     <>
@@ -94,7 +102,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
             src={general.img_url}
             alt={general.common_name}
             className="product-image"
-            style={{ maxHeight:  "500px"}}
+            style={{ maxHeight: "500px" }}
           />
         </ProductPreview>
 
@@ -106,7 +114,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           <BookDescriptionWrapper>
             <BookDescription>
               {general.description && general.description}
-              <br/>
+              <br />
               (source: Wikipedia)
               <a
                 href={scientific.wiki}
@@ -115,6 +123,17 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               >
                 Read More
               </a>
+              <br />
+              <AuthorName>Recommended Items</AuthorName>
+              <BookMetaTable>
+                {items && items.map((item) => {
+                  return (
+                    <BookMetaTableRow>
+                      <BookMetaItem><i>{item.item_name}</i></BookMetaItem>
+                    </BookMetaTableRow>
+                  );
+                })}
+              </BookMetaTable>
             </BookDescription>
             {/* {scientific.ph_low &&
             <div>
@@ -154,7 +173,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
             defaultMessage="About The Book"
           />
         </DetailsTitle>
-        {/* <Description>{general.description}</Description> */}
       </DetailsWrapper>
 
       <RelatedItems>
