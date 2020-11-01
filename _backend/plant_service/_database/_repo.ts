@@ -120,7 +120,23 @@ function insert_scientific(data): Promise<number> {
   })
 }
 
-function getItems(slug: string): Promise<Array<PlantItem>> {
+function insert_item(data):Promise<number>{ 
+  return new Promise((resolve, reject) => {
+    
+    connection.query(`                                                  \
+      INSERT INTO plant_items (slug, item_name)             \
+      VALUES (                                                          \
+        ${connection.escape(data.slug)},                    \
+        ${connection.escape(data.item_name)}                            \
+      );                                                                \
+    `, (err: any, results: any) => {
+      if (err) reject(err);
+      resolve(typeof results === 'undefined' ? 0 : 1);
+    });
+  })
+}
+
+function getItems(slug: string): Promise<Array<Array<PlantItem>>> {
   return new Promise((resolve, reject) => {
     connection.query(` \
       SELECT * \
@@ -128,10 +144,12 @@ function getItems(slug: string): Promise<Array<PlantItem>> {
       WHERE slug=${connection.escape(slug)}; \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
-      resolve(typeof results !== 'undefined' ? results[1] : []);
+      resolve(results.length > 0 ? results : []);
     });
   });
 }
+
+
 
 function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
   return new Promise((resolve, reject) => {
@@ -160,6 +178,46 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
       });
   });
 }
+
+// 3 items are given to every plant based on their scientific information
+function addItems(slug: string): Promise<number> {
+  
+  return new Promise((resolve) => {
+    getScientificDetails(slug)
+      .then((plantScientificDetails: any) => {
+        if(typeof plantScientificDetails !== 'undefined'){
+          let items = [];
+          // Item for watering
+          let temp = 'Water hose';
+          console.log(plantScientificDetails.precipitation_low)
+          if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low < 5) {
+            temp = 'Watering can or natural rain';
+          } else if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low > 10) {
+            temp = 'Sprinkler';
+          }
+          items.push(temp);
+          // Item for soil type
+          temp = 'Loam soil';
+          if(plantScientificDetails.soil_texture != undefined && plantScientificDetails.soil_texture < 5) {
+            temp = 'Clay based soil';
+          } else if (plantScientificDetails.soil_texture != undefined && plantScientificDetails.soil_texture > 5){
+            temp = 'Rock based soil';
+          }
+          items.push(temp);
+          // Item for fertilizer
+          temp = 'No fertilizers required';
+          if(plantScientificDetails.ph_high != undefined && plantScientificDetails.ph_high < 6) {
+            temp = 'Nitrogenous fertilizers (eg Ammonium Nitrate)';
+          };
+          items.push(temp);
+          for (let i = 0; i < items.length; i++) {
+            insert_item({'slug' : slug, 'item_name':items[i]});
+          }
+          resolve(1);
+      }});
+    }) 
+}
+
 
 function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
   const pyshell = new PythonShell('source_garden_detail.py', {
@@ -197,13 +255,13 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
   })
 }
 
-
 module.exports = {
   getPlant,
   getPlants,
   insert,
   insert_scientific,
   getItems,
+  addItems,
   getInstructions,
   getScientificDetails,
   addScientificDetails,
