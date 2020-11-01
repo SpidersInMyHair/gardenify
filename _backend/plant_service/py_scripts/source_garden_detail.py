@@ -16,7 +16,6 @@
 
 import requests
 import json
-from ppretty import ppretty
 import sys
 
 trefle_token = 'TT0YMVWeTRKWrzxRsmJ1Xs2E02HvnQpfZZ7UN3BOqKg'
