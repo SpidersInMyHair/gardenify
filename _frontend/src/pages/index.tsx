@@ -20,7 +20,7 @@ const Sidebar = dynamic(() => import('layouts/sidebar/sidebar'));
 const Products = dynamic(() =>
   import('components/product-grid/product-list/product-list')
 );
-import { getPlants, getPlantsByKeyword } from 'utils/api/plant';
+import { getPlants } from 'utils/api/plant';
 
 const PAGE_TYPE = 'book'; //remove this when backend shit is working
 
@@ -34,7 +34,7 @@ type Props = {
   query: string;
 };
 
-export async function getServerSideProps({query}) {
+export async function getServerSideProps({ query }) {
   const queryString = Object.keys(query).map((key) => {
     return encodeURIComponent(key) + '=' + encodeURIComponent(query[key])
   }).join('&');
@@ -45,11 +45,6 @@ export async function getServerSideProps({query}) {
       query: queryString
     },
   };
-}
-
-export async function getKeywordPlants(text) {
-  const data = await getPlantsByKeyword(text);
-  return data;
 }
 
 const HomePage: NextPage<Props> = ({ deviceType, data, query }) => {
