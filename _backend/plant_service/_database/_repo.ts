@@ -178,31 +178,40 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
   });
 }
 
+// 3 items are given to every plant based on their scientific information
 function addItems(slug: string): Promise<number> {
   
   return new Promise((resolve) => {
     getScientificDetails(slug)
       .then((plantScientificDetails: any) => {
         if(typeof plantScientificDetails !== 'undefined'){
-          let item1 = 'Water hose';
-          if( plantScientificDetails.precipitation_low < 5) {
-            item1 = 'Watering can or natural rain';
-          } else if(plantScientificDetails.precipitation_low > 10) {
-            item1 = 'Sprinkler';
+          let items = [];
+          // Item for watering
+          let temp = 'Water hose';
+          console.log(plantScientificDetails.precipitation_low)
+          if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low < 5) {
+            temp = 'Watering can or natural rain';
+          } else if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low > 10) {
+            temp = 'Sprinkler';
           }
-          let item2 = 'Loam soil';
-          if( plantScientificDetails.soil_texture < 5) {
-            item2 = 'Clay based soil';
-          } else {
-            item2 = 'Rock based soil';
+          items.push(temp);
+          // Item for soil type
+          temp = 'Loam soil';
+          if(plantScientificDetails.soil_texture != undefined && plantScientificDetails.soil_texture < 5) {
+            temp = 'Clay based soil';
+          } else if (plantScientificDetails.soil_texture != undefined && plantScientificDetails.soil_texture > 5){
+            temp = 'Rock based soil';
           }
-          let item3 = 'No fertilizers required';
-          if( plantScientificDetails.ph_high < 6) {
-            item3 = 'Nitrogenous fertilizers (eg Ammonium Nitrate)';
+          items.push(temp);
+          // Item for fertilizer
+          temp = 'No fertilizers required';
+          if(plantScientificDetails.ph_high != undefined && plantScientificDetails.ph_high < 6) {
+            temp = 'Nitrogenous fertilizers (eg Ammonium Nitrate)';
           };
-          insert_item({'slug' : slug, 'item_name':item1});
-          insert_item({'slug' : slug, 'item_name':item2});
-          insert_item({'slug' : slug, 'item_name':item3});
+          items.push(temp);
+          for (let i = 0; i < items.length; i++) {
+            insert_item({'slug' : slug, 'item_name':items[i]});
+          }
           resolve(1);
       }});
     }) 

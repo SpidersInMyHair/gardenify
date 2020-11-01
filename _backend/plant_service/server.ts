@@ -89,16 +89,32 @@ app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
 app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
   repo.getItems(req.params.slug)
     .then((plantItems: Array<Array<PlantItem>>) => {
-      if(plantItems.length > 0){
-        res.send(plantItems).status(200).end();
-      }else{
-        console.log('adding items');
-        //repo.getScientificDetails(req.params.slug)
-        repo.addItems(req.params.slug).then(() => {
-          repo.getItems(req.params.slug)
-            .then((plantItems: Array<Array<PlantItem>>) => {
-          res.send(plantItems).status(200).end()})
+      if(plantItems.length <= 0){
+        repo.getScientificDetails(req.params.slug)
+        .then((plantScientificDetails: PlantScientificDetails) => {
+          if(typeof plantScientificDetails !== 'undefined'){
+            repo.addItems(req.params.slug).then(() => {
+              repo.getItems(req.params.slug)
+                .then((plantItems: Array<Array<PlantItem>>) => {
+                  res.send(plantItems).status(200).end()})
+            })
+          }else{
+            console.log('getting sci details then adding items')
+            //repo.getScientificDetails(req.params.slug)
+            repo.addScientificDetails(req.params.slug)
+            .then((resp_final: PlantScientificDetails) => {
+              repo.addItems(req.params.slug).then(() => {
+                repo.getItems(req.params.slug)
+                  .then((plantItems: Array<Array<PlantItem>>) => {
+                    res.send(plantItems).status(200).end()})
+              })
+            });
+          }
         })
+      }else {
+        repo.getItems(req.params.slug)
+          .then((plantItems: Array<Array<PlantItem>>) => {
+            res.send(plantItems).status(200).end()})
       }
     })
     .catch((err: any) => {
