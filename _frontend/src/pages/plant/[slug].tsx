@@ -31,8 +31,8 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   const router = useRouter();
 
   if (router.isFallback) return <p>Loading...</p>;
-  if (!data) return <NotFoundPage/>;
-  
+  if (!data) return <NotFoundPage />;
+
   return (
     <>
       <SEO
@@ -51,7 +51,7 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   );
 };
 
-export async function getServerSideProps ({ params }) {
+export async function getServerSideProps({ params }) {
   const data = await getPlant(params.slug);
   const relatedPlants = await getPlants('genus=' + encodeURIComponent(data.general.genus) + "&limit=5")
   return {
