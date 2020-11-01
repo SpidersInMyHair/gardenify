@@ -1,17 +1,18 @@
 '''
-    Spec class to store the information relating to a Species's main characteristics
-    
-    growth_habit:   The general appearance, growth form, or architecture of the plant
+    Stores the information relating to a species's main characteristics.
+
+    growth_habit:   The plant's appearance, growth form, or architecture
     growth_rate:    The relative growth speed of the plant
     avg_height:     The average height of the species, in centimeters
     shape:          The predominant shape of the species
     toxic:          Relative toxicity of the species for humans or animals
                     Can be: none, low, medium, and high.
-    
 '''
+
+
 class Spec:
-    def __init__(self, growth_habit='NOT_SET', growth_rate='NOT_SET', avg_height='NOT_SET',
-                 shape='NOT_SET', toxic='NOT_SET'):
+    def __init__(self, growth_habit='NOT_SET', growth_rate='NOT_SET',
+                 avg_height='NOT_SET', shape='NOT_SET', toxic='NOT_SET'):
         self.growth_habit = growth_habit
         self.growth_rate = growth_rate
         self.avg_height = avg_height
@@ -32,6 +33,7 @@ class Spec:
 
     def set_toxic(self, toxic_inst):
         self.toxic = toxic_inst
+
 
 def set_spec_att(spec, key, value):
     if key == 'growth_habit':

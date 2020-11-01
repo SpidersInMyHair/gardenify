@@ -38,15 +38,15 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
         OR    genus       LIKE ${sanitizedKeyword} \
         OR    family      LIKE ${sanitizedKeyword}) \
         ${Object.keys(query).map((param) => (
-        query[param] ? `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}` : ''
-      )).join(" ")}
-        ORDER BY img_url \
-        LIMIT ${offset},${limit};`
-        , (err: any, results: Array<PlantVariety>) => {
+          query[param] ? `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}` : ''
+        )).join(" ")}
+        ORDER BY img_url                                                  \
+        LIMIT ${offset},${limit};                                         \
+        `, (err: any, results: Array<PlantVariety>) => {
           if (err) reject(err);
           resolve(results.length > 0 ? results : undefined);
-        });
-    })
+      });
+    })  
   }
 
   let first = true;
@@ -55,19 +55,19 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
       SELECT slug, name, common_name, genus, family, img_url \
       FROM plant_varieties \
       ${Object.keys(query).map((param) => {
-      if (!query[param]) return
-      if (first) {
-        first = false;
-        return `WHERE ${connection.escapeId(param)}=${connection.escape(query[param])}`
-      }
-      return `AND  ${connection.escapeId(param)}=${connection.escape(query[param])}`
-    }).join(" ")}
-      ORDER BY img_url \
-      LIMIT ${offset},${limit};`
-      , (err: any, results: Array<PlantVariety>) => {
+        if (!query[param]) return
+        if (first) {
+          first = false;
+          return `WHERE ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
+        }
+        return `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
+      }).join(" ")}
+      ORDER BY img_url                                                  \
+      LIMIT ${offset},${limit};                                         \
+      `, (err: any, results: Array<PlantVariety>) => {
         if (err) reject(err);
         resolve(results.length > 0 ? results : undefined);
-      });
+    });
   })
 }
 
