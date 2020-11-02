@@ -53,6 +53,7 @@ connection.query(`                                                    \
     soil_salinity int,                                                \
     soil_texture int,                                                 \
     soil_humidity int,                                                \
+    soil_nutriments int,                                              \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug)     \
   );`
 , (err: any) => {

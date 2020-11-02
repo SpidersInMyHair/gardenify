@@ -95,7 +95,7 @@ function insert_scientific(data):Promise<number>{
   return new Promise((resolve, reject) => {
     
     connection.query(`                                                  \
-      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity) \
+      INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity, soil_nutriments) \
       VALUES (                                                          \
         ${connection.escape(data.slug)},                                \
         ${connection.escape(data.wiki)},                                \
@@ -109,7 +109,8 @@ function insert_scientific(data):Promise<number>{
         ${data.light}, \
         ${data.soil_salinity}, \
         ${data.soil_texture}, \
-        ${data.soil_humidity} \
+        ${data.soil_humidity}, \
+        ${data.soil_nutriments} \
       );                                                                \
     `, (err: any, results: any) => {
       if (err) reject(err);
@@ -205,10 +206,35 @@ function addItems(slug: string): Promise<number> {
           items.push(temp);
           // Item for fertilizer
           temp = 'No fertilizers required';
-          if(plantScientificDetails.ph_high != undefined && plantScientificDetails.ph_high < 6) {
-            temp = 'Nitrogenous fertilizers (eg Ammonium Nitrate)';
-          };
+          if(plantScientificDetails.ph_high != undefined && plantScientificDetails.ph_high < 7) {
+            temp = 'Nitrogenous fertilizers (eg Ammonium Nitrate, elemental sulphur, sphagum peat moss)';
+          } else if (plantScientificDetails.ph_high != undefined && plantScientificDetails.ph_high > 7){
+            temp = 'Basic fertilizers (eg Calcium carbonate, Dolomite Lime, Oyster shell Flower)';
+          }
           items.push(temp);
+          if(plantScientificDetails.soil_texture != undefined && plantScientificDetails.soil_humidity != undefined){ 
+            if( plantScientificDetails.soil_texture < 4 && plantScientificDetails.soil_texture > 1 &&
+                plantScientificDetails.soil_humidity > 5) {
+              temp = 'Peat Moss';
+              items.push(temp);
+            } else if (plantScientificDetails.soil_texture < 7 && plantScientificDetails.soil_texture > 3 &&
+                       plantScientificDetails.soil_humidity < 6){
+              temp = 'Sand';
+              items.push(temp);
+            }
+          }
+
+          if(slug.includes('orchid')) {
+            temp = 'Orchid potting mix';
+            items.push(temp);
+          } else if(slug.includes('azalea') || slug.includes('bluberry') || slug.includes('hododendrons')){
+            temp = 'Azalea potting mix';
+            items.push(temp);
+          } else if(slug.includes('citrus') || slug.includes('succulent') || slug.includes('cactus') || slug.includes('palm')){
+            temp = 'Potting mix';
+            items.push(temp);
+          }
+
           for (let i = 0; i < items.length; i++) {
             insert_item({'slug' : slug, 'item_name':items[i]});
           }
