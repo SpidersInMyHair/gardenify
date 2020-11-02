@@ -113,7 +113,7 @@ function insert_scientific(data): Promise<number> {
         ${data.soil_texture}, \
         ${data.soil_humidity}, \
         ${data.soil_nutriments} \
-      );                                                                \
+      ); \
     `, (err: any, results: any) => {
       if (err) reject(err);
       resolve(typeof results === 'undefined' ? 0 : 1);
