@@ -96,12 +96,12 @@ function insert(trefle_id: string, slug: string, name: string, common_name: stri
 function insert_scientific(data): Promise<number> {
   return new Promise((resolve, reject) => {
     
-    connection.query(`                                                  \
+    connection.query(` \
       INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity, soil_nutriments) \
-      VALUES (                                                          \
-        ${connection.escape(data.slug)},                                \
-        ${connection.escape(data.wiki)},                                \
-        ${connection.escape(data.description)},                          \
+      VALUES ( \
+        ${connection.escape(data.slug)}, \
+        ${connection.escape(data.wiki)}, \
+        ${connection.escape(data.description)}, \
         ${data.ph_minimum}, \
         ${data.ph_maximum}, \
         ${data.minimum_temperature.deg_c}, \
