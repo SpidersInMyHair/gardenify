@@ -1,7 +1,9 @@
 '''
-    Plant class to store the information relating to a plant's general information plus its growth information
-    
-    name:               The usual common name, in english, of the species (if any).
+    Plant class to store the information relating to a plant's general
+    information plus its growth information.
+
+    name:               The usual common name, in english, of the species
+                        (if any).
     species:            The scientific name of the species family
     genus:              The scientific name of the species genus
     vegetable:          Is the species a vegetable?
@@ -11,9 +13,13 @@
     spec:               Species's main characteristics
 
 '''
+
+
 class Plant:
-    def __init__(self, name='NOT_SET', species='NOT_SET', genus='NOT_SET', vegetable='NOT_SET', observations='NOT_SET',
-                 image_url='NOT_SET', edible='NOT_SET', growth=None, spec=None):
+    def __init__(self, name='NOT_SET', species='NOT_SET',
+                 genus='NOT_SET', vegetable='NOT_SET',
+                 observations='NOT_SET', image_url='NOT_SET',
+                 edible='NOT_SET', growth=None, spec=None):
 
         self.name = name
         self.species = species
@@ -45,12 +51,13 @@ class Plant:
 
     def set_edible(self, edible_inst):
         self.edible = edible_inst
-        
+
     def set_growth(self, growth_inst):
         self.growth = growth_inst
 
     def set_spec(self, spec_inst):
         self.spec = spec_inst
+
 
 def set_plant_att(plant, key, value):
     if key == 'common_name':

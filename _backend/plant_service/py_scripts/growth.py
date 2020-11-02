@@ -1,24 +1,30 @@
 '''
-    Growth class to store the information relating to a plantt's optimal growth.
-    
+    Growth class to store the information relating to a plant's optimal growth.
+
     description:      A description on how the plant usually grows
-    days_to_harvest:  The average numbers of days required to from planting to harvest
-    growth_month:     The most active growth months of the species (usually all year round for perennial plants)
+    days_to_harvest:  The average numbers of days required before harvesting
+    growth_month:     The most active growth months of the species
+                      (usually all year round for perennial plants)
     min_precip:       Minimum rain (precipitation) per year, in mm/year
     max_precip:       Maximum rain (precipitation) per year, in mm/year
-    min_temp:         Minimum tolerable temperature for the species, in degrees celsius
-    max_temp:         Maximum tolerable temperature for the species, in degrees celsius
-    min_ph:           The minimum acceptable soil pH (of the top 30 centimeters of soil) for the plant
-    max_ph:           The maximum acceptable soil pH (of the top 30 centimeters of soil) for the plant
-    light:            Required amount of light, on a scale from 0 (no light, <= 10 lux) to 10 
-                        (very intensive insolation, >= 100 000 lux)
+    min_temp:         Minimum tolerable temperature for the species (in °C)
+    max_temp:         Maximum tolerable temperature for the species (in °C)
+    min_ph:           The minimum acceptable soil pH (of the top 30cm of soil)
+    max_ph:           The maximum acceptable soil pH (of the top 30cm of soil)
+    light:            Required amount of light, on a scale from 0 (no light,
+                      <= 10 lux) to 10 (intensive insolation, >= 100000 lux)
     average_height:   The average height of the species (cm)
-    toxic:            Relative toxicity of the species for humans or animals, can be: none, low, medium, or high
+    toxic:            Relative toxicity of the species for humans or animals,
+                      can be: none, low, medium, or high
 '''
+
+
 class Growth:
-    def __init__(self, description='NOT_SET', days_to_harvest='NOT_SET', growth_months='NOT_SET', 
-                precip_min='NOT_SET', precip_max='NOT_SET', temp_min='NOT_SET', temp_max='NOT_SET', 
-                ph_min='NOT_SET', ph_max='NOT_SET', light='NOT_SET'):
+    def __init__(self, description='NOT_SET', days_to_harvest='NOT_SET',
+                 growth_months='NOT_SET', precip_min='NOT_SET',
+                 precip_max='NOT_SET', temp_min='NOT_SET',
+                 temp_max='NOT_SET', ph_min='NOT_SET', ph_max='NOT_SET',
+                 light='NOT_SET'):
         self.description = description
         self.days_to_harvest = days_to_harvest
         self.growth_months = growth_months
@@ -29,7 +35,7 @@ class Growth:
         self.ph_min = ph_min
         self.ph_max = ph_max
         self.light = light
-    
+
     def set_desc(self, desc):
         self.description = desc
 
@@ -38,7 +44,7 @@ class Growth:
 
     def set_growth_months(self, gm):
         self.growth_months = gm
-    
+
     def set_precip_min(self, precip_min):
         self.precip_min = precip_min
 
@@ -53,12 +59,13 @@ class Growth:
 
     def set_ph_min(self, ph_min):
         self.ph_min = ph_min
-    
+
     def set_ph_max(self, ph_max):
         self.ph_max = ph_max
-    
+
     def set_light(self, light):
         self.light = light
+
 
 def set_growth_att(growth, key, value):
     if key == 'description':
