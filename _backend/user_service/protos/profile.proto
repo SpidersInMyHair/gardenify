@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message Profile {
+  string name = 1;
+  string about_me = 2;
+  string brief_desc = 3;
+}

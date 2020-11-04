@@ -17,6 +17,13 @@ connection.query(` \
     user_id     int           NOT NULL, \
     session_key char(64), \
     FOREIGN KEY (user_id) REFERENCES users(_id) \
+  );
+  CREATE TABLE IF NOT EXISTS profiles ( \
+    user_id     int             UNIQUE      NOT NULL,   \
+    name        varchar(64),                            \
+    about_me    varchar(1024),                          \
+    brief_desc  varchar(128),                           \
+    FOREIGN KEY (user_id) REFERENCES users(_id),        \
   );`
   , (err: any) => {
     if (err) throw err;
