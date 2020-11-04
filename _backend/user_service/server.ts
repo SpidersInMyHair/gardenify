@@ -11,9 +11,14 @@ import {
   CreateUserRequest,
   CreateUserResponse,
   GetUserRequest,
-  GetUserResponse
+  GetUserResponse,
+  CreateProfileRequest,
+  CreateProfileResponse,
+  GetProfileRequest,
+  GetProfileResponse
 } from "./_messages";
 import { User } from "../../protos/_backend/user_service/protos/user_pb";
+import { Profile } from "../../protos/_backend/user_service/protos/profile_pb";
 
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
@@ -50,7 +55,7 @@ app.post(`${SERVICE}`, (req: CreateUserRequest, res: CreateUserResponse) => {
 // GET  /profile/:id
 app.get(`${SERVICE}/:id`, (req: GetProfileRequest, res: GetProfileResponse) => {
   repo.get_profile(req.params.id)
-    .then((user: User) => res.send(user).status(200).end())
+    .then((user: Profile) => res.send(user).status(200).end())
     .catch((err: any) => {
       console.log(err);
       res.sendStatus(500);
@@ -58,18 +63,18 @@ app.get(`${SERVICE}/:id`, (req: GetProfileRequest, res: GetProfileResponse) => {
 });
 
 // POST /profile/:id
-app.post(`${SERVICE}`, (req: CreateProfileRequest, res: CreatePorfileResponse) => {
+app.post(`${SERVICE}`, async (req: CreateProfileRequest, res: CreateProfileResponse) => {
   const id: string = req.params.id;
-  const session: string = req.query['session'];
-  const session = await repo.get_session(id);
+  const session: string = req.body.session;
+  const valid_session = await repo.get_session(id);
   // return error if session/user_id isn't a valid pair
-  if(typeof session === 'undefined'){
+  if(typeof valid_session === 'undefined'){
     res.sendStatus(500);
     return;
   }
 
   let profile = repo.get_profile(req.params.id);
-  let found: bool = typeof profile !== 'undefined';
+  let found: boolean = typeof profile !== 'undefined';
   // I'd like to avoid too much much nesting
   // ... initialize to profile 
   let name: string = found ? profile.name : '';

@@ -1,4 +1,5 @@
 import { User } from "../../../protos/_backend/user_service/protos/user_pb";
+import { Profile } from "../../../protos/_backend/user_service/protos/profile_pb";
 
 function get(id: string): Promise<User> {
   return new Promise((resolve, reject) => {

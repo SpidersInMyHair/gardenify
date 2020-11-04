@@ -3,6 +3,9 @@ import {Send} from "express-serve-static-core";
 import {
   User
 } from "../../protos/_backend/user_service/protos/user_pb";
+import {
+  Profile
+} from "../../protos/_backend/user_service/protos/profile_pb";
 
 export interface GetUserRequest extends Request {
   params: {
@@ -22,11 +25,17 @@ export interface CreateUserResponse<ResBody = User> extends Response {
   send: Send<ResBody, this>;
 }
 
+export interface GetProfileRequest extends Request {
+  params: {
+    id: string,
+  };
+}
+
 export interface GetProfileResponse<ResBody = Profile> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface CreateProfileRequest<ReqBody = { id: int, name: string ,about_me: string, brief_desc: string}> extends Request {
+export interface CreateProfileRequest<ReqBody = { id: number, name: string ,about_me: string, brief_desc: string, session: string}> extends Request {
   body: ReqBody;
 }
 
