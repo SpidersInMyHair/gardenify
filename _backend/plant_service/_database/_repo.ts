@@ -1,7 +1,10 @@
 import {
   PlantInstruction,
-  PlantItem, PlantScientificDetails,
-  PlantVariety
+  PlantItem, 
+  PlantScientificDetails,
+  PlantVariety,
+  Comments,
+  Ratings
 } from "../../../protos/_backend/plant_service/protos/plant_pb";
 
 let { PythonShell } = require('python-shell');
@@ -22,8 +25,6 @@ function getPlant(slug: string): Promise<PlantVariety> {
   })
 }
 
-
-
 function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<PlantVariety[]> {
   if (query && query.search) {
     const sanitizedKeyword = connection.escape('%' + query.search + '%');
@@ -40,8 +41,8 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
         ${Object.keys(query).map((param) => (
           query[param] ? `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}` : ''
         )).join(" ")}
-        ORDER BY img_url                                                  \
-        LIMIT ${offset},${limit};                                         \
+        ORDER BY img_url \
+        LIMIT ${offset},${limit}; \
         `, (err: any, results: Array<PlantVariety>) => {
           if (err) reject(err);
           resolve(results.length > 0 ? results : undefined);
@@ -62,15 +63,14 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
         }
         return `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
       }).join(" ")}
-      ORDER BY img_url                                                  \
-      LIMIT ${offset},${limit};                                         \
+      ORDER BY img_url \
+      LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {
         if (err) reject(err);
         resolve(results.length > 0 ? results : undefined);
     });
   })
 }
-
 
 function insert(trefle_id: string, slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
@@ -124,12 +124,12 @@ function insert_scientific(data): Promise<number> {
 function insert_item(data):Promise<number>{ 
   return new Promise((resolve, reject) => {
     
-    connection.query(`                                                  \
-      INSERT INTO plant_items (slug, item_name)             \
-      VALUES (                                                          \
-        ${connection.escape(data.slug)},                    \
-        ${connection.escape(data.item_name)}                            \
-      );                                                                \
+    connection.query(` \
+      INSERT INTO plant_items (slug, item_name) \
+      VALUES ( \
+        ${connection.escape(data.slug)}, \
+        ${connection.escape(data.item_name)} \
+      ); \
     `, (err: any, results: any) => {
       if (err) reject(err);
       resolve(typeof results === 'undefined' ? 0 : 1);
@@ -149,8 +149,6 @@ function getItems(slug: string): Promise<Array<Array<PlantItem>>> {
     });
   });
 }
-
-
 
 function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
   return new Promise((resolve, reject) => {
@@ -180,7 +178,6 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
   });
 }
 
-// 3 items are given to every plant based on their scientific information
 function addItems(slug: string): Promise<number> {
   
   return new Promise((resolve) => {
@@ -190,7 +187,6 @@ function addItems(slug: string): Promise<number> {
           let items = [];
           // Item for watering
           let temp = 'Water hose';
-          console.log(plantScientificDetails.precipitation_low)
           if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low < 5) {
             temp = 'Watering can or natural rain';
           } else if(plantScientificDetails.precipitation_low != undefined && plantScientificDetails.precipitation_low > 10) {
@@ -244,7 +240,6 @@ function addItems(slug: string): Promise<number> {
     }) 
 }
 
-
 function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
   const pyshell = new PythonShell('source_garden_detail.py', {
     mode: 'json',
@@ -281,6 +276,68 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
   })
 }
 
+function getComments(slug: string): Promise<Array<Array<Comments>>> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT * \
+      FROM comments \
+      WHERE slug=${connection.escape(slug)}; \
+    `, (err: any, results: Array<Array<Comments>>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results : []);
+    });
+  });
+}
+
+function insertComment(slug: string, user_id: number, comment_description: string) {
+  return new Promise((resolve, reject) => {
+
+    connection.query(` \
+      INSERT INTO comments (slug, user_id, date, comment_description) \
+      VALUES ( \
+        \"${slug}\", \
+        \"${user_id}\", \
+        \'${new Date().toISOString().slice(0, 19).replace('T', ' ')}\', \
+        \"${comment_description}\" \
+      );`
+      , (err: any, results: any) => {
+        if (err) reject(err);
+        resolve(results);
+      });
+  })
+}
+
+function getRatings(slug: string): Promise<Array<Array<Ratings>>> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT * \
+      FROM ratings \
+      WHERE slug=${connection.escape(slug)}; \
+    `, (err: any, results: Array<Array<Ratings>>) => {
+      if (err) reject(err);
+      resolve(results.length > 0 ? results : []);
+    });
+  });
+}
+
+function insertRating(slug: string, user_id: number, rating: Number) {
+  return new Promise((resolve, reject) => {
+
+    connection.query(` \
+      INSERT INTO ratings (slug, user_id, date, rating) \
+      VALUES ( \
+        \"${slug}\", \
+        \"${user_id}\", \
+        \'${new Date().toISOString().slice(0, 19).replace('T', ' ')}\', \
+        \"${rating}\" \
+      );`
+      , (err: any, results: any) => {
+        if (err) reject(err);
+        resolve(results);
+      });
+  })
+}
+
 module.exports = {
   getPlant,
   getPlants,
@@ -292,4 +349,8 @@ module.exports = {
   getScientificDetails,
   addScientificDetails,
   getPlantsByKeyword,
+  insertComment,
+  getComments,
+  insertRating,
+  getRatings
 }

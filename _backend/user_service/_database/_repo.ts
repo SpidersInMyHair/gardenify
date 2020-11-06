@@ -10,9 +10,9 @@ function getUserById(id: string): Promise<User> {
       FROM users                              \
       WHERE id=\"${id}\"                      \
       LIMIT 1;`
-    , (err: any, results: Array<User[]>) => {
+    , (err: any, results: Array<User>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[0] : undefined);
     });
   })
 }
@@ -25,9 +25,9 @@ function getUser(email: string, password: string): Promise<User> {
       WHERE email=\"${email}\"                \
       AND password=\"${password}\"            \
       LIMIT 1;`
-    , (err: any, results: Array<User[]>) => {
+    , (err: any, results: Array<User>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[0] : undefined);
     });
   })
 }
@@ -65,9 +65,9 @@ function getSession(id: string, session_key: string) {
       WHERE user_id=\"${id}\"               \
       AND session_key=\"${session_key}\"    \
       LIMIT 1;`
-    , (err: any, results: Array<User[]>) => {
+    , (err: any, results: Array<User>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[0] : undefined);
     });
   })
 }
@@ -106,9 +106,9 @@ function getProfile(id: string): Promise<Profile> {
       FROM profiles                         \
       WHERE user_id=\"${id}\"               \
       LIMIT 1;`
-    , (err: any, results: Array<Profile[]>) => {
+    , (err: any, results: Array<Profile>) => {
       if (err) reject(err);
-      resolve(results[1].length > 0 ? results[1][0] : undefined);
+      resolve(results.length > 0 ? results[0] : undefined);
     });
   })
 }

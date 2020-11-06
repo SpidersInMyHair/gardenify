@@ -4,6 +4,8 @@ module.exports = express();
 connection = require('../../../_repository/_config').connection;
 
 connection.query(` \
+  DROP TABLE IF EXISTS ratings; \
+  DROP TABLE IF EXISTS comments; \
   DROP TABLE IF EXISTS plant_items; \
   DROP TABLE IF EXISTS plant_instructions; \
   DROP TABLE IF EXISTS plant_scientific_details; \
@@ -55,6 +57,22 @@ connection.query(` \
     soil_humidity int, \
     soil_nutriments int, \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \
+  ); \
+  CREATE TABLE IF NOT EXISTS comments ( \
+    id         int           NOT NULL AUTO_INCREMENT, \
+    slug       varchar(256)  NOT NULL, \
+    user_id    int           NOT NULL, \
+    date       datetime      NOT NULL, \
+    comment_description varchar(1024) NOT NULL, \
+    PRIMARY KEY (id) \
+  ); \
+  CREATE TABLE IF NOT EXISTS ratings ( \
+    id         int           NOT NULL AUTO_INCREMENT, \
+    slug       varchar(256)  NOT NULL, \
+    user_id    int           NOT NULL, \
+    date       datetime      NOT NULL, \
+    rating     int           NOT NULL, \
+    PRIMARY KEY (id) \
   );`
 , (err: any) => {
   if (err) throw err;

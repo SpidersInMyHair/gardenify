@@ -4,7 +4,9 @@ import {
   PlantInstruction,
   PlantItem,
   PlantVariety,
-  PlantScientificDetails
+  PlantScientificDetails,
+  Comments,
+  Ratings
 } from "../../protos/_backend/plant_service/protos/plant_pb";
 
 export interface GetPlantRequest extends Request {
@@ -67,3 +69,34 @@ export interface GetPlantsByKeywordResponse<ResBody = Array<PlantVariety>> exten
   send: Send<ResBody, this>;
 }
 
+export interface GetCommentsRequest extends Request {
+  params: {
+    slug: string,
+  };
+}
+
+export interface GetCommentsResponse<ResBody = Array<Comments>> extends Response {
+  send: Send<ResBody, this>;
+}
+
+export interface CreateCommentsRequest<ReqBody = Comments> extends Request {
+  body: ReqBody;
+}
+
+export type CreateCommentsResponse = Response;
+
+export interface GetRatingsRequest extends Request {
+  params: {
+    slug: string,
+  };
+}
+
+export interface GetRatingsResponse<ResBody = Array<Ratings>> extends Response {
+  send: Send<ResBody, this>;
+}
+
+export interface CreateRatingsRequest<ReqBody = Ratings> extends Request {
+  body: ReqBody;
+}
+
+export type CreateRatingsResponse = Response;
