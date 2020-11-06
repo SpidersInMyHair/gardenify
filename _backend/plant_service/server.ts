@@ -29,11 +29,11 @@ import {
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /plant/:slug                Get the summary of a plant variety given an slug.
-// POST /plant/                   Create a new plant variety.
+// POST /plant/                     Create a new plant variety.
 // GET  /plant/items/:slug          Get the items listed for a given plant variety.
 // GET  /plant/instructions/:slug   Get the ordered instructions listed for a given plant variety.
 // GET  /plant/scientific/:slug     Get the scientific details of the plant variety with the given slug.
-// GET /plant/search/:keyword     Get the summary of all plants matching the keyword
+// GET  /plant/search/:keyword      Get the summary of all plants matching the keyword
 /* ------------------------------------------------------------------------- */
 
 // GET  /plant/:slug
@@ -89,16 +89,16 @@ app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
 app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItemsResponse) => {
   repo.getItems(req.params.slug)
     .then((plantItems: Array<Array<PlantItem>>) => {
-      if(plantItems.length <= 0){
+      if (plantItems.length <= 0) {
         repo.getScientificDetails(req.params.slug)
         .then((plantScientificDetails: PlantScientificDetails) => {
-          if(typeof plantScientificDetails !== 'undefined'){
+          if (typeof plantScientificDetails !== 'undefined') {
             repo.addItems(req.params.slug).then(() => {
               repo.getItems(req.params.slug)
                 .then((plantItems: Array<Array<PlantItem>>) => {
                   res.send(plantItems).status(200).end()})
             })
-          }else{
+          } else {
             console.log('getting sci details then adding items')
             //repo.getScientificDetails(req.params.slug)
             repo.addScientificDetails(req.params.slug)
@@ -111,7 +111,7 @@ app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItems
             });
           }
         })
-      }else {
+      } else {
         repo.getItems(req.params.slug)
           .then((plantItems: Array<Array<PlantItem>>) => {
             res.send(plantItems).status(200).end()})
