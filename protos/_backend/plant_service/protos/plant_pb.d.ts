@@ -28,12 +28,10 @@ export class PlantVariety extends jspb.Message {
 
 export namespace PlantVariety {
   export type AsObject = {
-    slug: string,
-    name: string,
-    common_name: string,
+    id: string,
     genus: string,
-    family: string,
-    img_url: string
+    species: string,
+    description: string,
   }
 }
 
@@ -43,12 +41,6 @@ export class PlantItem extends jspb.Message {
 
   getItemName(): string;
   setItemName(value: string): void;
-
-  getQuantity(): number;
-  setQuantity(value: number): void;
-
-  getUnit(): UnitMap[keyof UnitMap];
-  setUnit(value: UnitMap[keyof UnitMap]): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlantItem.AsObject;
@@ -64,8 +56,6 @@ export namespace PlantItem {
   export type AsObject = {
     plantVarietyId: string,
     itemName: string,
-    quantity: number,
-    unit: UnitMap[keyof UnitMap],
   }
 }
 
@@ -130,6 +120,70 @@ export namespace PlantScientificDetails {
     phHigh: number,
     temperatureLow: number,
     temperatureHigh: number,
+  }
+}
+
+export class Comments extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getPlantVarietyId(): string;
+  setPlantVarietyId(value: string): void;
+
+  getUserId(): string;
+  setUserId(value: string): void;
+
+  getCommentDescription(): string;
+  setCommentDescription(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Comments.AsObject;
+  static toObject(includeInstance: boolean, msg: Comments): Comments.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Comments, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Comments;
+  static deserializeBinaryFromReader(message: Comments, reader: jspb.BinaryReader): Comments;
+}
+
+export namespace Comments {
+  export type AsObject = {
+    id: number,
+    plantVarietyId: string,
+    userId: string,
+    commentDescription: string,
+  }
+}
+
+export class Ratings extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getPlantVarietyId(): string;
+  setPlantVarietyId(value: string): void;
+
+  getUserId(): string;
+  setUserId(value: string): void;
+
+  getRating(): number;
+  setRating(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Ratings.AsObject;
+  static toObject(includeInstance: boolean, msg: Ratings): Ratings.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Ratings, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Ratings;
+  static deserializeBinaryFromReader(message: Ratings, reader: jspb.BinaryReader): Ratings;
+}
+
+export namespace Ratings {
+  export type AsObject = {
+    id: number,
+    plantVarietyId: string,
+    userId: string,
+    rating: number,
   }
 }
 
