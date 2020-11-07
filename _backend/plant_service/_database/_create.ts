@@ -62,17 +62,20 @@ connection.query(` \
     id         int           NOT NULL AUTO_INCREMENT, \
     slug       varchar(256)  NOT NULL, \
     user_id    int           NOT NULL, \
-    date       datetime      NOT NULL, \
+    date       TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP, \
     comment_description varchar(1024) NOT NULL, \
-    PRIMARY KEY (id) \
+    PRIMARY KEY (id), \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \
   ); \
   CREATE TABLE IF NOT EXISTS ratings ( \
     id         int           NOT NULL AUTO_INCREMENT, \
     slug       varchar(256)  NOT NULL, \
     user_id    int           NOT NULL, \
-    date       datetime      NOT NULL, \
+    date       TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP, \
     rating     int           NOT NULL, \
-    PRIMARY KEY (id) \
+    PRIMARY KEY (id), \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug), \
+    UNIQUE (slug, user_id) \
   );`
 , (err: any) => {
   if (err) throw err;

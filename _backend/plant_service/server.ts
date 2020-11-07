@@ -214,19 +214,28 @@ app.get(`${SERVICE}/rating/:slug`, (req: GetRatingsRequest, res: GetRatingsRespo
 
 // POST /plant/rating
 app.post(`${SERVICE}/rating`, (req: any, res: any) => {
-  if (req.body.rating < 0 || req.body.rating > 5) {
-    console.log('Invalid Rating; must be an integer between 0 and 5 inclusive');
+  if (req.body.rating < 1 || req.body.rating > 5) {
+    console.log('Invalid Rating; must be an integer between 1 and 5 inclusive');
     res.sendStatus(500);
-  } else{
-    repo.insertRating(
+  } else {
+    repo.getRatingByUser(
       req.body.plant_variety_id,
-      req.body.user_id,
-      req.body.rating
-    )
-      .then(() => res.sendStatus(200))
-      .catch((err: any) => {
-        console.log(err);
+      req.body.user_id
+    ).then((rating: Ratings) => {
+      if(typeof rating !== 'undefined') {
+        console.log('Rating by this user for this plant already exists');
         res.sendStatus(500);
-      });
+      } else {
+        repo.insertRating(
+          req.body.plant_variety_id,
+          req.body.user_id,
+          req.body.rating
+        ) .then(() => res.sendStatus(200))
+          .catch((err: any) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      }
+    })
   }
 });

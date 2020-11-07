@@ -74,7 +74,6 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
 
 function insert(trefle_id: string, slug: string, name: string, common_name: string, genus: string, family: string, img_url: string) {
   return new Promise((resolve, reject) => {
-
     connection.query(` \
       INSERT INTO plant_varieties (trefle_id, slug, name, common_name, genus, family, img_url) \
       VALUES ( \
@@ -95,7 +94,6 @@ function insert(trefle_id: string, slug: string, name: string, common_name: stri
 
 function insert_scientific(data): Promise<number> {
   return new Promise((resolve, reject) => {
-    
     connection.query(` \
       INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity, soil_nutriments) \
       VALUES ( \
@@ -123,7 +121,6 @@ function insert_scientific(data): Promise<number> {
 
 function insert_item(data):Promise<number>{ 
   return new Promise((resolve, reject) => {
-    
     connection.query(` \
       INSERT INTO plant_items (slug, item_name) \
       VALUES ( \
@@ -220,7 +217,6 @@ function addItems(slug: string): Promise<number> {
               items.push(temp);
             }
           }
-
           if(slug.includes('orchid')) {
             temp = 'Orchid potting mix';
             items.push(temp);
@@ -231,7 +227,6 @@ function addItems(slug: string): Promise<number> {
             temp = 'Potting mix';
             items.push(temp);
           }
-
           for (let i = 0; i < items.length; i++) {
             insert_item({'slug' : slug, 'item_name':items[i]});
           }
@@ -291,13 +286,11 @@ function getComments(slug: string): Promise<Array<Array<Comments>>> {
 
 function insertComment(slug: string, user_id: number, comment_description: string) {
   return new Promise((resolve, reject) => {
-
     connection.query(` \
-      INSERT INTO comments (slug, user_id, date, comment_description) \
+      INSERT INTO comments (slug, user_id, comment_description) \
       VALUES ( \
         \"${slug}\", \
         \"${user_id}\", \
-        \'${new Date().toISOString().slice(0, 19).replace('T', ' ')}\', \
         \"${comment_description}\" \
       );`
       , (err: any, results: any) => {
@@ -320,15 +313,29 @@ function getRatings(slug: string): Promise<Array<Array<Ratings>>> {
   });
 }
 
+function getRatingByUser(slug: string, user_id: number): Promise<Ratings> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT * \
+      FROM ratings \
+      WHERE slug=${connection.escape(slug)} \
+      AND user_id=${connection.escape(user_id)}
+      LIMIT 1; \
+    `, (err: any, results: any) => {
+      if (err) reject(err);
+      console.log(results);
+      resolve(typeof results !== 'undefined' ? results[0] : undefined);
+    });
+  });
+}
+
 function insertRating(slug: string, user_id: number, rating: Number) {
   return new Promise((resolve, reject) => {
-
     connection.query(` \
-      INSERT INTO ratings (slug, user_id, date, rating) \
+      INSERT INTO ratings (slug, user_id, rating) \
       VALUES ( \
         \"${slug}\", \
         \"${user_id}\", \
-        \'${new Date().toISOString().slice(0, 19).replace('T', ' ')}\', \
         \"${rating}\" \
       );`
       , (err: any, results: any) => {
@@ -352,5 +359,6 @@ module.exports = {
   insertComment,
   getComments,
   insertRating,
-  getRatings
+  getRatings,
+  getRatingByUser
 }
