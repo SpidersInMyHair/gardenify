@@ -36,8 +36,8 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   return (
     <>
       <SEO
-        title={`${data.general.common_name || data.general.name} - Gardenify`}
-        description={`${data.general.common_name || data.general.name} Details`}
+        title={`${data.general.common_name === 'None' ? data.general.name : data.general.common_name} - Gardenify`}
+        description={`${data.general.common_name === 'None' ? data.general.name : data.general.common_name} Details`}
       />
 
       <Modal>

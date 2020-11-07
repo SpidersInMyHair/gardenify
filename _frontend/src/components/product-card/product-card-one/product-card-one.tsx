@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <ProductCardWrapper onClick={onClick} className="product-card">
       <ProductImageWrapper>
         <Image
-          url={image}
+          url={image !== 'None' && image}
           className="product-image"
           style={{ position: 'relative' }}
           alt={title}

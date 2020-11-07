@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Button } from 'components/button/button';
+import Image from 'components/image/image';
 import {
   ProductDetailsWrapper,
   ProductPreview,
@@ -34,7 +35,6 @@ import {
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
-import { getPlantItems } from 'utils/api/plant';
 
 type ProductDetailsProps = {
   general: any;
@@ -73,10 +73,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
     }, 500);
   }, []);
 
-  useEffect(() => {
-    console.log(items);
-  }, [items])
-
   return (
     <>
       <ProductDetailsWrapper className="product-card">
@@ -96,24 +92,27 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               <FormattedMessage id="backBtn" defaultMessage="Back" />
             </Button>
           </BackButton>
-          {general.img_url &&
-          <img
-            src={general.img_url}
-            alt={general.common_name}
+          <Image
+            url={general.img_url !== 'None' && general.img_url}
+            alt={general.common_name === 'None' ? general.name : general.common_name}
             className="product-image"
             style={{ maxHeight: "500px" }}
-          />}
+          />
         </ProductPreview>
 
-        <ProductInfo>
-          <BookTitle>{general.common_name}</BookTitle>
-          <AuthorName>
-            {general.name}
-          </AuthorName>
+        <ProductInfo> 
+          { general.common_name === 'None' ? 
+          <BookTitle>{general.name}</BookTitle> :
+          <>
+            <BookTitle>{general.common_name}</BookTitle>
+            <AuthorName>
+              {general.name}
+            </AuthorName>
+          </>
+          }
           <BookDescriptionWrapper>
             <BookDescription>
-              {general.description && general.description}
-              <br />
+              {general.description && <> {general.description} <br />
               (source: Wikipedia)
               <a
                 href={scientific.wiki}
@@ -122,12 +121,12 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               >
                 Read More
               </a>
-              <br />
+              <br /></>}
               <AuthorName>Recommended Items</AuthorName>
               <BookMetaTable>
-                {items && items.map((item) => {
+                {items && items.map((item, i) => {
                   return (
-                    <BookMetaTableRow>
+                    <BookMetaTableRow key={i}>
                       <BookMetaItem><i>{item}</i></BookMetaItem>
                     </BookMetaTableRow>
                   );

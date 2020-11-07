@@ -17,7 +17,7 @@ export default function Image({
   className?: string;
   style?: any;
 }) {
-  return (
+  if (url) return (
     <Img
       draggable={false}
       style={style}
@@ -28,4 +28,8 @@ export default function Image({
       className={className}
     />
   );
+
+  return (
+    <Placeholder />
+  )
 }

@@ -20,7 +20,7 @@ export async function getPlant(slug) {
 
   const scientific = await (await fetch(`${url}/plant/scientific/${slug}`)).json();
 
-  // const items = await (await fetch(`${url}/plant/items/${slug}`)).json();
+  const items = await (await fetch(`${url}/plant/items/${slug}`)).json();
 
   if (scientific.wiki) {
     const wikiUrl = scientific.wiki.replace("wiki/", "w/api.php?action=query&format=json&prop=extracts&exchars=600&explaintext=1&formatversion=2&titles=")
@@ -28,14 +28,14 @@ export async function getPlant(slug) {
     if (wikiInfo.query.pages && wikiInfo.query.pages.length && wikiInfo.query.pages[0].extract) {
       return {
         general: { ...plant, description: wikiInfo.query.pages[0].extract },
-        // items: items,
+        items: items,
         scientific: scientific
       }
     }
   }
   return {
     general: { ...plant },
-    // items: items,
+    items: items,
     scientific: scientific
   }
 }
