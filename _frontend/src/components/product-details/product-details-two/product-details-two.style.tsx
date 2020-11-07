@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
+export const Table = styled.table`
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  * {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+`;
+
 export const ProductDetailsWrapper = styled.div`
   background-color: ${themeGet('colors.white', '#ffffff')};
   position: relative;

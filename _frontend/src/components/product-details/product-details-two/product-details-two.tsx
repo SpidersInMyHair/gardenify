@@ -29,7 +29,7 @@ import {
   Description,
   Avatar,
   SocialNetworks,
-  SocialIcon,
+  Table,
   RelatedItems,
 } from './product-details-two.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
@@ -121,30 +121,51 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               >
                 Read More
               </a>
-              <br /></>}
-              <AuthorName>Recommended Items</AuthorName>
-              <BookMetaTable>
-                {items && items.map((item, i) => {
-                  return (
-                    <BookMetaTableRow key={i}>
-                      <BookMetaItem><i>{item}</i></BookMetaItem>
-                    </BookMetaTableRow>
-                  );
-                })}
-              </BookMetaTable>
+              </>}
             </BookDescription>
-            {/* {scientific.ph_low &&
-            <div>
-              <h4>pH</h4>
-              {scientific.ph_low}
-              <div className="d-inline-block">
-                <span>Low</span>
-                <span></span>
-                <span>High</span>
-              </div>
-              {scientific.ph_high}
-            </div>
-            } */}
+            <AuthorName>Scientific Information</AuthorName>
+            <Table>
+              <thead>
+                <tr>
+                  <th colSpan={2}>pH</th>
+                  <th colSpan={2}>Temperature (°C)</th>
+                  <th colSpan={2}>Precipitation (mm)</th>
+                  <th rowSpan={2}>Light (/10)</th>
+                  <th colSpan={3}>Soil (/10)</th>
+                </tr>
+                <tr>
+                  <th>Low</th><th>High</th>
+                  <th>Low</th><th>High</th>
+                  <th>Low</th><th>High</th>
+                  <th>Salinity</th><th>Texture</th><th>Humidity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{scientific.ph_low}</td>
+                  <td>{scientific.ph_high}</td>
+                  <td>{scientific.temperature_low}</td>
+                  <td>{scientific.temperature_high}</td>
+                  <td>{scientific.temperature_low}</td>
+                  <td>{scientific.temperature_high}</td>
+                  <td>{scientific.light}</td>
+                  <td>{scientific.soil_salinity}</td>
+                  <td>{scientific.soil_texture}</td>
+                  <td>{scientific.soil_humidity}</td>
+                </tr>
+              </tbody>
+            </Table>
+            <br />
+            <AuthorName>Recommended Items</AuthorName>
+            <BookMetaTable>
+              {items && items.map((item, i) => {
+                return (
+                  <BookMetaTableRow key={i}>
+                    <BookMetaItem><i>{item}</i></BookMetaItem>
+                  </BookMetaTableRow>
+                );
+              })}
+            </BookMetaTable>
           </BookDescriptionWrapper>
 
           <ProductMeta>
@@ -164,14 +185,11 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
         </ProductInfo>
       </ProductDetailsWrapper>
 
-      <DetailsWrapper ref={scrollRef}>
+      {/* <DetailsWrapper ref={scrollRef}>
         <DetailsTitle>
-          <FormattedMessage
-            id="bookSectionTitle"
-            defaultMessage="About The Book"
-          />
+          About The Plant
         </DetailsTitle>
-      </DetailsWrapper>
+      </DetailsWrapper> */}
 
       <RelatedItems>
         <h2>
