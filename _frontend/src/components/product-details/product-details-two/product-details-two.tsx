@@ -7,28 +7,16 @@ import {
   ProductDetailsWrapper,
   ProductPreview,
   ProductInfo,
-  BookTitle,
+  Title,
   BackButton,
-  AuthorName,
-  BookDescriptionWrapper,
-  BookDescription,
-  BookMetaTable,
-  BookMetaTableRow,
-  BookMetaItem,
+  SubTitle,
+  DescriptionWrapper,
+  Description,
+  MetaTable,
+  MetaTableRow,
   ProductMeta,
-  ButtonText,
-  ProductCartWrapper,
-  ProductPriceWrapper,
-  ProductPrice,
-  SalePrice,
-  ProductCartBtn,
   MetaSingle,
   MetaItem,
-  DetailsWrapper,
-  DetailsTitle,
-  Description,
-  Avatar,
-  SocialNetworks,
   Table,
   RelatedItems,
 } from './product-details-two.style';
@@ -102,16 +90,16 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
 
         <ProductInfo> 
           { general.common_name === 'None' ? 
-          <BookTitle>{general.name}</BookTitle> :
+          <Title>{general.name}</Title> :
           <>
-            <BookTitle>{general.common_name}</BookTitle>
-            <AuthorName>
+            <Title>{general.common_name}</Title>
+            <SubTitle>
               {general.name}
-            </AuthorName>
+            </SubTitle>
           </>
           }
-          <BookDescriptionWrapper>
-            <BookDescription>
+          <DescriptionWrapper>
+            <Description>
               {general.description && <> {general.description} <br />
               (source: Wikipedia)
               <a
@@ -122,8 +110,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                 Read More
               </a>
               </>}
-            </BookDescription>
-            <AuthorName>Scientific Information</AuthorName>
+            </Description>
+            <SubTitle>Scientific Information</SubTitle>
             <Table>
               <thead>
                 <tr>
@@ -156,17 +144,17 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               </tbody>
             </Table>
             <br />
-            <AuthorName>Recommended Items</AuthorName>
-            <BookMetaTable>
+            <SubTitle>Recommended Items</SubTitle>
+            <MetaTable>
               {items && items.map((item, i) => {
                 return (
-                  <BookMetaTableRow key={i}>
-                    <BookMetaItem><i>{item}</i></BookMetaItem>
-                  </BookMetaTableRow>
+                  <MetaTableRow key={i}>
+                    <i>{item}</i>
+                  </MetaTableRow>
                 );
               })}
-            </BookMetaTable>
-          </BookDescriptionWrapper>
+            </MetaTable>
+          </DescriptionWrapper>
 
           <ProductMeta>
             <MetaSingle>

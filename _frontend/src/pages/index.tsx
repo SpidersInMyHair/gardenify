@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { Modal } from '@redq/reuse-modal';
@@ -17,12 +17,10 @@ import { SEO } from 'components/seo';
 import { useRefScroll } from 'utils/use-ref-scroll';
 import { ModalProvider } from 'contexts/modal/modal.provider';
 const Sidebar = dynamic(() => import('layouts/sidebar/sidebar'));
-const Products = dynamic(() =>
+const Plants = dynamic(() =>
   import('components/product-grid/product-list/product-list')
 );
 import { getPlants } from 'utils/api/plant';
-
-const PAGE_TYPE = 'book'; //remove this when backend shit is working
 
 type Props = {
   deviceType?: {
@@ -63,22 +61,22 @@ const HomePage: NextPage<Props> = ({ deviceType, data, query }) => {
       <SEO title="Gardenify" description="Search our index of flora for all your gardening needs" />
       <ModalProvider>
         <Modal>
-          <MobileBanner intlTitleId="home.title" type={PAGE_TYPE} />
+          <MobileBanner intlTitleId="home.title" />
           <Banner
             intlTitleId="home.title"
             intlDescriptionId="home.subtitle"
             imageUrl={bannerImage}
           />
           <MobileCarouselDropdown>
-            <Sidebar type={PAGE_TYPE} deviceType={deviceType} />
+            <Sidebar />
           </MobileCarouselDropdown>
           <MainContentArea>
             <SidebarSection>
-              <Sidebar type={PAGE_TYPE} deviceType={deviceType} />
+              <Sidebar />
             </SidebarSection>
             <ContentSection>
               <div ref={targetRef}>
-                <Products
+                <Plants
                   deviceType={deviceType}
                   data={data}
                 />

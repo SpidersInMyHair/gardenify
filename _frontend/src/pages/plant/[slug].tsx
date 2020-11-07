@@ -10,10 +10,8 @@ import ProductSingleWrapper, {
 import { getPlants, getPlant } from 'utils/api/plant';
 import NotFoundPage from 'pages/404';
 
-const ProductDetails = dynamic(() =>
-  import('components/product-details/product-details-one/product-details-one')
-);
-const ProductDetailsBook = dynamic(() =>
+
+const PlantDetails = dynamic(() =>
   import('components/product-details/product-details-two/product-details-two')
 );
 
@@ -43,7 +41,7 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
       <Modal>
         <ProductSingleWrapper>
           <ProductSingleContainer>
-            <ProductDetailsBook {...data} relatedPlants={relatedPlants} deviceType={deviceType} />;
+            <PlantDetails {...data} relatedPlants={relatedPlants} deviceType={deviceType} />;
           </ProductSingleContainer>
         </ProductSingleWrapper>
       </Modal>
