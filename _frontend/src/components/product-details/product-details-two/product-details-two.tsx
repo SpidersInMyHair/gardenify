@@ -39,6 +39,7 @@ import { getPlantItems } from 'utils/api/plant';
 type ProductDetailsProps = {
   general: any;
   scientific: any;
+  items: Array<String>;
   relatedPlants: any;
   deviceType: {
     mobile: boolean;
@@ -49,13 +50,11 @@ type ProductDetailsProps = {
 
 const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   general,
+  items,
   scientific,
   relatedPlants,
   deviceType
 }) => {
-  const [items, useItems] = useState([]);
-  getPlantItems(general.name).then((res) => useItems(res)); //TODO: FIX
-
 
   const scrollRef = useRef(null);
 
@@ -97,13 +96,13 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               <FormattedMessage id="backBtn" defaultMessage="Back" />
             </Button>
           </BackButton>
-
+          {general.img_url &&
           <img
             src={general.img_url}
             alt={general.common_name}
             className="product-image"
             style={{ maxHeight: "500px" }}
-          />
+          />}
         </ProductPreview>
 
         <ProductInfo>
@@ -129,7 +128,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                 {items && items.map((item) => {
                   return (
                     <BookMetaTableRow>
-                      <BookMetaItem><i>{item.item_name}</i></BookMetaItem>
+                      <BookMetaItem><i>{item}</i></BookMetaItem>
                     </BookMetaTableRow>
                   );
                 })}
