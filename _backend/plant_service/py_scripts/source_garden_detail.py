@@ -16,7 +16,6 @@
 
 import requests
 import json
-from ppretty import ppretty
 import sys
 
 trefle_token = 'TT0YMVWeTRKWrzxRsmJ1Xs2E02HvnQpfZZ7UN3BOqKg'
@@ -60,7 +59,7 @@ def get_response(url):
 
 # GET a plant's info using its Trefle id
 def get_plant_using_id(id):
-    response = get_response(f'{species_endpoint}/{str(id)}?token=')
+    response = get_response(species_endpoint + '/' + str(id) + '?token=')
     if not response:
         return '{}'
     data_res = response.json()['data']
@@ -84,7 +83,7 @@ def get_plant_using_id(id):
 
 # Search for a plant using a keyword
 def search_plant(keyword):
-    response = get_response(f'{species_endpoint}/search?q={keyword}&token=')
+    response = get_response(species_endpoint + '/search?q=' + keyword + '&token=')
     num_search_res = len(response.json()['data'])
     res_json = ''
     if num_search_res == 0:
