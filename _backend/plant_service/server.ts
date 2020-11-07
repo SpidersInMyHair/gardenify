@@ -47,6 +47,7 @@ import {
 
 // GET  /plant/:slug
 app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
+  console.log(req.params.slug)
   repo.getPlant(req.params.slug)
     .then((plantVariety: PlantVariety) => {
       res.send(plantVariety).status(200).end();

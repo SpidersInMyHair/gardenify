@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
+export const Table = styled.table`
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  * {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+`;
+
 export const ProductDetailsWrapper = styled.div`
   background-color: ${themeGet('colors.white', '#ffffff')};
   position: relative;
@@ -135,7 +144,7 @@ export const DiscountPercent = styled.span`
   }
 `;
 
-export const BookTitle = styled.h1`
+export const Title = styled.h1`
   font-family: ${themeGet('fonts.heading', 'sans-serif')};
   font-size: ${themeGet('fontSizes.lg', '21')}px;
   font-weight: ${themeGet('fontWeights.semiBold', '600')};
@@ -144,7 +153,7 @@ export const BookTitle = styled.h1`
   margin-bottom: 15px;
 `;
 
-export const AuthorName = styled.div`
+export const SubTitle = styled.div`
   font-family: ${themeGet('fonts.body', 'Lato')};
   font-size: ${themeGet('fontSizes.base', '15')}px;
   font-weight: ${themeGet('fontWeights.bold', '700')};
@@ -157,12 +166,12 @@ export const AuthorName = styled.div`
   }
 `;
 
-export const BookDescriptionWrapper = styled.div`
+export const DescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const BookDescription = styled.p`
+export const Description = styled.p`
   font-family: ${themeGet('fonts.body', 'Lato')};
   font-size: ${themeGet('fontSizes.base', '15')}px;
   font-weight: ${themeGet('fontWeights.regular', '400')};
@@ -174,35 +183,19 @@ export const BookDescription = styled.p`
   flex-direction: column;
 `;
 
-export const BookMetaTable = styled.div`
+export const MetaTable = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 `;
 
-export const BookMetaTableRow = styled.div`
+export const MetaTableRow = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 
   &:last-child {
     margin-bottom: 0;
-  }
-`;
-
-export const BookMetaItem = styled.span`
-  font-family: ${themeGet('fonts.body', 'Lato')};
-  font-size: ${themeGet('fontSizes.base', '15')}px;
-  font-weight: ${themeGet('fontWeights.regular', '400')};
-  color: ${themeGet('colors.text.medium', '#424561')};
-
-  &:first-child {
-    width: 200px;
-    flex-shrink: 0;
-  }
-
-  &:last-child {
-    width: 100%;
   }
 `;
 
@@ -335,7 +328,7 @@ export const DetailsWrapper = styled.div`
     box-sizing: border-box;
   }
 
-  ${AuthorName} {
+  ${SubTitle} {
     margin-bottom: 20px;
   }
 
@@ -351,14 +344,6 @@ export const DetailsTitle = styled.h3`
   color: ${themeGet('colors.text.bold', '#0D1136')};
   line-height: 1.2;
   margin-bottom: 20px;
-`;
-
-export const Description = styled.p`
-  font-family: ${themeGet('fonts.body', 'Lato')};
-  font-size: ${themeGet('fontSizes.base', '15')}px;
-  font-weight: ${themeGet('fontWeights.regular', '400')};
-  color: ${themeGet('colors.text.medium', '#424561')};
-  line-height: 2;
 `;
 
 export const Avatar = styled.div`

@@ -10,10 +10,8 @@ import ProductSingleWrapper, {
 import { getPlants, getPlant } from 'utils/api/plant';
 import NotFoundPage from 'pages/404';
 
-const ProductDetails = dynamic(() =>
-  import('components/product-details/product-details-one/product-details-one')
-);
-const ProductDetailsBook = dynamic(() =>
+
+const PlantDetails = dynamic(() =>
   import('components/product-details/product-details-two/product-details-two')
 );
 
@@ -31,19 +29,19 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   const router = useRouter();
 
   if (router.isFallback) return <p>Loading...</p>;
-  if (!data) return <NotFoundPage/>;
-  
+  if (!data) return <NotFoundPage />;
+
   return (
     <>
       <SEO
-        title={`${data.general.common_name || data.general.name} - Gardenify`}
-        description={`${data.general.common_name || data.general.name} Details`}
+        title={`${data.general.common_name === 'None' ? data.general.name : data.general.common_name} - Gardenify`}
+        description={`${data.general.common_name === 'None' ? data.general.name : data.general.common_name} Details`}
       />
 
       <Modal>
         <ProductSingleWrapper>
           <ProductSingleContainer>
-            <ProductDetailsBook {...data} relatedPlants={relatedPlants} deviceType={deviceType} />;
+            <PlantDetails {...data} relatedPlants={relatedPlants} deviceType={deviceType} />;
           </ProductSingleContainer>
         </ProductSingleWrapper>
       </Modal>
@@ -51,7 +49,7 @@ const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   );
 };
 
-export async function getServerSideProps ({ params }) {
+export async function getServerSideProps({ params }) {
   const data = await getPlant(params.slug);
   const relatedPlants = await getPlants('genus=' + encodeURIComponent(data.general.genus) + "&limit=5")
   return {

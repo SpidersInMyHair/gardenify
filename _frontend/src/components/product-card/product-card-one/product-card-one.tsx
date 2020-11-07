@@ -2,20 +2,13 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'components/image/image';
-import { Button } from 'components/button/button';
 import {
   ProductCardWrapper,
   ProductImageWrapper,
-  ProductInfo,
-  DiscountPercent,
-  ButtonText,
   BookInfo,
   ProductName,
   AuthorInfo,
 } from '../product-card.style';
-const QuickViewMobile = dynamic(() =>
-  import('features/quick-view/quick-view-mobile')
-);
 type ProductCardProps = {
   title: string;
   description: string;
@@ -38,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <ProductCardWrapper onClick={onClick} className="product-card">
       <ProductImageWrapper>
         <Image
-          url={image}
+          url={image !== 'None' && image}
           className="product-image"
           style={{ position: 'relative' }}
           alt={title}

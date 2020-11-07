@@ -142,7 +142,7 @@ function getItems(slug: string): Promise<Array<Array<PlantItem>>> {
       WHERE slug=${connection.escape(slug)}; \
     `, (err: any, results: Array<Array<PlantItem>>) => {
       if (err) reject(err);
-      resolve(results.length > 0 ? results : []);
+      resolve(results.length > 0 ? results.map((a: any) => a.item_name) : []);
     });
   });
 }
