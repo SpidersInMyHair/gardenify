@@ -26,6 +26,20 @@ message PlantScientificDetails {
   float temperature_high = 5;
 }
 
+message Comments {
+  uint32 id = 1;
+  string plant_variety_id = 2;
+  string user_id = 3;
+  string comment_description = 4;
+}
+
+message Ratings {
+  uint32 id = 1;
+  string plant_variety_id = 2;
+  string user_id = 3;
+  uint32 rating = 4;
+}
+
 enum Unit {
   GRAM = 0;
   LITER = 1;

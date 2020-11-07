@@ -9,7 +9,9 @@ import {
   PlantInstruction,
   PlantItem,
   PlantScientificDetails,
-  PlantVariety
+  PlantVariety,
+  Comments,
+  Ratings
 } from '../../protos/_backend/plant_service/protos/plant_pb';
 import {
   CreatePlantRequest,
@@ -24,17 +26,24 @@ import {
   GetPlantScientificDetailsRequest,
   GetPlantScientificDetailsResponse,
   GetPlantsByKeywordRequest,
-  GetPlantsByKeywordResponse
+  GetPlantsByKeywordResponse,
+  GetCommentsRequest,
+  GetCommentsResponse,
+  GetRatingsRequest,
+  GetRatingsResponse
 } from "./_messages";
 
-/* --------------------------- SERVICE ENDPOINTS --------------------------- */
-// GET  /plant/:slug                Get the summary of a plant variety given an slug.
-// POST /plant/                     Create a new plant variety.
-// GET  /plant/items/:slug          Get the items listed for a given plant variety.
-// GET  /plant/instructions/:slug   Get the ordered instructions listed for a given plant variety.
-// GET  /plant/scientific/:slug     Get the scientific details of the plant variety with the given slug.
-// GET  /plant/search/:keyword      Get the summary of all plants matching the keyword
-/* ------------------------------------------------------------------------- */
+/* --------------------------- SERVICE ENDPOINTS --------------------------- 
+ GET  /plant/:slug                Get the summary of a plant variety given an slug.
+ POST /plant/                     Create a new plant variety.
+ GET  /plant/items/:slug          Get the items listed for a given plant variety.
+ GET  /plant/instructions/:slug   Get the ordered instructions listed for a given plant variety.
+ GET  /plant/scientific/:slug     Get the scientific details of the plant variety with the given
+                                  slug.
+ GET  /plant/search/:keyword      Get the summary of all plants matching the keyword
+ GET  /plant/comments/:slug       Get the user comments related to a particular plant (using slug)
+ POST /plant/comments/:slug       Post a user's comment about a particular plant
+------------------------------------------------------------------------- */
 
 // GET  /plant/:slug
 app.get(`${SERVICE}/:slug`, (req: GetPlantRequest, res: GetPlantResponse) => {
@@ -99,8 +108,6 @@ app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItems
                   res.send(plantItems).status(200).end()})
             })
           } else {
-            console.log('getting sci details then adding items')
-            //repo.getScientificDetails(req.params.slug)
             repo.addScientificDetails(req.params.slug)
             .then((resp_final: PlantScientificDetails) => {
               repo.addItems(req.params.slug).then(() => {
@@ -155,7 +162,6 @@ app.get(`${SERVICE}/scientific/:slug`, (req: GetPlantScientificDetailsRequest, r
     });
 });
 
-
 // GET  /plant/search/:keyword
 app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetPlantsByKeywordResponse) => {
   repo.getPlantsByKeyword(req.params.keyword)
@@ -166,4 +172,70 @@ app.get(`${SERVICE}/search/:keyword`, (req: GetPlantsByKeywordRequest, res: GetP
       console.log(err);
       res.sendStatus(500);
     });
+});
+
+// GET  /plant/comment/:slug
+app.get(`${SERVICE}/comment/:slug`, (req: GetCommentsRequest, res: GetCommentsResponse) => {
+  repo.getComments(req.params.slug)
+    .then((comments: Array<Comments>) => {
+      res.send(comments).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// POST /plant/comment
+app.post(`${SERVICE}/comment`, (req: any, res: any) => {
+  repo.insertComment( //
+    req.body.plant_variety_id, //
+    req.body.user_id, //
+    req.body.comment_description //
+  )
+    .then(() => res.sendStatus(200))
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// GET  /plant/rating:slug
+app.get(`${SERVICE}/rating/:slug`, (req: GetRatingsRequest, res: GetRatingsResponse) => {
+  repo.getRatings(req.params.slug)
+    .then((comments: Array<Ratings>) => {
+      res.send(comments).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// POST /plant/rating
+app.post(`${SERVICE}/rating`, (req: any, res: any) => {
+  if (req.body.rating < 1 || req.body.rating > 5) {
+    console.log('Invalid Rating; must be an integer between 1 and 5 inclusive');
+    res.sendStatus(500);
+  } else {
+    repo.getRatingByUser(
+      req.body.plant_variety_id,
+      req.body.user_id
+    ).then((rating: Ratings) => {
+      if(typeof rating !== 'undefined') {
+        console.log('Rating by this user for this plant already exists');
+        res.sendStatus(500);
+      } else {
+        repo.insertRating(
+          req.body.plant_variety_id,
+          req.body.user_id,
+          req.body.rating
+        ) .then(() => res.sendStatus(200))
+          .catch((err: any) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      }
+    })
+  }
 });
