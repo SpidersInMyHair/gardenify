@@ -44,17 +44,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   deviceType
 }) => {
 
-  const scrollRef = useRef(null);
-
-  const scrollToDiv = (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top:
-        scrollRef.current.getBoundingClientRect().top + window.pageYOffset - 65,
-      behavior: 'smooth',
-    });
-  };
-
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -134,8 +123,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   <td>{scientific.ph_high}</td>
                   <td>{scientific.temperature_low}</td>
                   <td>{scientific.temperature_high}</td>
-                  <td>{scientific.temperature_low}</td>
-                  <td>{scientific.temperature_high}</td>
+                  <td>{scientific.precipitation_low}</td>
+                  <td>{scientific.precipitation_high}</td>
                   <td>{scientific.light}</td>
                   <td>{scientific.soil_salinity}</td>
                   <td>{scientific.soil_texture}</td>
