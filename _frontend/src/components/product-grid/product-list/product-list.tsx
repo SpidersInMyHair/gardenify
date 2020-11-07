@@ -88,9 +88,6 @@ export const Products: React.FC<ProductsProps> = ({
             deviceType={deviceType}
             onClick={() => {
               router.push('/plant/[slug]', `/plant/${props.slug}`);
-              if (typeof window !== 'undefined') {
-                window.scrollTo(0, 0);
-              }
             }}
           />
         );
@@ -125,9 +122,6 @@ export const Products: React.FC<ProductsProps> = ({
             deviceType={deviceType}
             onClick={() => {
               router.push('/plant/[slug]', `/plant/${props.slug}`);
-              if (typeof window !== 'undefined') {
-                window.scrollTo(0, 0);
-              }
             }}
           />
         );

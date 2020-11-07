@@ -26,8 +26,8 @@ function scrollToPercent(
         ? container.innerHeight
         : container.innerWidth
       : isVertical
-      ? container.scrollHeight
-      : container.scrollWidth;
+        ? container.scrollHeight
+        : container.scrollWidth;
 
   let addOffset = (refSize * percentOfElement) / 100;
   if (offsetPX) {
