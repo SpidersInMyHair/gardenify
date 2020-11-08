@@ -3,7 +3,7 @@ import express from 'express';
 const app = module.exports = express();
 const sha256 = require('js-sha256').sha256;
 const repo = require('./_database/_repo');
-const SERVICE = '/user';
+const SERVICE = '/api/user';
 
 import * as IdGenerator from './util/IdGenerator';
 
