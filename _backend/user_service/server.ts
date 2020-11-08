@@ -21,7 +21,7 @@ import {
   UpdateUserProfileRequest,
   UpdateUserProfileResponse
 } from "./_messages";
-import { Profile, User, Session } from "../../protos/_backend/user_service/protos/user_pb";
+import { Profile, User } from "../../protos/_backend/user_service/protos/user_pb";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /user               Get if user session is valid by examining cookies.

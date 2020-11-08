@@ -1,7 +1,6 @@
 import {
   Profile,
-  User,
-  Session
+  User
 } from "../../../protos/_backend/user_service/protos/user_pb";
 
 function getUserById(id: string): Promise<User> {
