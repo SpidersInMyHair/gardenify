@@ -3,7 +3,7 @@ import express from 'express';
 const app = module.exports = express();
 const sha256 = require('js-sha256').sha256;
 const repo = require('./_database/_repo');
-const SERVICE = '/user';
+const SERVICE = '/api/user';
 
 import * as IdGenerator from './util/IdGenerator';
 
@@ -85,7 +85,10 @@ app.post(`${SERVICE}/login`, (req: LoginUserRequest, res: LoginUserResponse) => 
 
   repo.getUser(email, password)
     .then((user: User) => {
-      if (!user) res.status(403).end();
+      if (!user) {
+        res.sendStatus(403);
+        return
+      }
       const session_key: string = "CHANGE_THIS_TO_BE_GENERATED";
       repo.setSession(user.getId(), session_key)
         .then(() => res.cookie('UID', user.getId()).cookie('SID', session_key).send(user).status(200).end())
