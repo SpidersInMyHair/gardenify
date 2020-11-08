@@ -20,7 +20,7 @@ import { Facebook } from 'assets/icons/Facebook';
 import { Google } from 'assets/icons/Google';
 import { AuthContext } from 'contexts/auth/auth.context';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { registerUser } from 'utils/api/user';
+import { loginUser, registerUser } from 'utils/api/user';
 
 export default function SignOutModal() {
   const intl = useIntl();
@@ -30,7 +30,7 @@ export default function SignOutModal() {
 
   const registerCallback = () => {
     if (typeof window !== 'undefined') {
-      registerUser({ email, password });
+      registerUser({ email, password }).then(() => loginUser({ email, password }));
       // localStorage.setItem('access_token', `${email}.${password}`);
       authDispatch({ type: 'SIGNIN_SUCCESS' });
       closeModal();
