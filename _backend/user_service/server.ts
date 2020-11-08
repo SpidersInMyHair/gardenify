@@ -58,7 +58,7 @@ app.post(`${SERVICE}`, (req: CreateUserRequest, res: CreateUserResponse) => {
   const password: string = sha256(req.body.password);
 
   repo.createUser(email, password)
-    .then(() => res.sendStatus(200))
+    .then((user: any) => res.cookie('UID', user.id).cookie('SID', user.session_key).sendStatus(200))
     .catch((err: any) => {
       console.log(err);
       res.sendStatus(500);
@@ -87,7 +87,7 @@ app.post(`${SERVICE}/login`, (req: LoginUserRequest, res: LoginUserResponse) => 
         return
       }
       repo.setSession(user.id)
-        .then((session: string) => res.cookie('UID', user.id).cookie('SID', session).send(user).status(200).end())
+        .then((session: string) => res.cookie('UID', user.id).cookie('SID', session).sendStatus(200).end())
     })
     .catch((err: any) => {
       console.log(err);

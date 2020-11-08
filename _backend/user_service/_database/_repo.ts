@@ -37,6 +37,7 @@ function createUser(email: string, password: string): Promise<any> {
   return new Promise((resolve, reject) => {
     connection.query(`                        \
       SET @id = UUID_TO_BIN(UUID());          \
+      SET @session_key = UUID_TO_BIN(UUID()); \
       INSERT INTO users (id, email, password) \
       VALUES (                                \
         @id,                                  \
@@ -46,16 +47,17 @@ function createUser(email: string, password: string): Promise<any> {
       INSERT INTO sessions (user_id, session_key) \
       VALUES (                                \
         @id,                                  \
-        UUID_TO_BIN(UUID())                   \
+        @session_key                          \
       );                                      \
       INSERT INTO profiles (user_id, name)    \
       VALUES (                                \
         @id,                                  \
         \"JOHN DOE\"                          \
-      );`
+      );
+      SELECT BIN_TO_UUID(@id) id, BIN_TO_UUID(@session_key) session_key;`
     , (err: any, results: any) => {
       if (err) reject(err);
-      resolve(results);
+      resolve(results && results.length > 5 && results[5] && results[5].length ? results[5][0] : undefined);
     });
   });
 }
