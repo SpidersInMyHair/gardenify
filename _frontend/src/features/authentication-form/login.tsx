@@ -19,6 +19,7 @@ import { AuthContext } from 'contexts/auth/auth.context';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { closeModal } from '@redq/reuse-modal';
 import { Input } from 'components/forms/input';
+import { loginUser } from 'utils/api/user';
 export default function SignInModal() {
   const intl = useIntl();
   const { authDispatch } = useContext<any>(AuthContext);
@@ -39,7 +40,8 @@ export default function SignInModal() {
 
   const loginCallback = () => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('access_token', `${email}.${password}`);
+      loginUser({ email, password });
+      // localStorage.setItem('access_token', `${email}.${password}`);
       authDispatch({ type: 'SIGNIN_SUCCESS' });
       closeModal();
     }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { Input } from 'components/forms/input';
+import { closeModal } from '@redq/reuse-modal';
 import {
   Button,
   IconWrapper,
@@ -19,10 +20,22 @@ import { Facebook } from 'assets/icons/Facebook';
 import { Google } from 'assets/icons/Google';
 import { AuthContext } from 'contexts/auth/auth.context';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { registerUser } from 'utils/api/user';
 
 export default function SignOutModal() {
   const intl = useIntl();
   const { authDispatch } = useContext<any>(AuthContext);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const registerCallback = () => {
+    if (typeof window !== 'undefined') {
+      registerUser({ email, password });
+      // localStorage.setItem('access_token', `${email}.${password}`);
+      authDispatch({ type: 'SIGNIN_SUCCESS' });
+      closeModal();
+    }
+  };
 
   const toggleSignInForm = () => {
     authDispatch({
@@ -42,44 +55,53 @@ export default function SignOutModal() {
             defaultMessage='Every fill is required in sign up'
           />
         </SubHeading>
-        <Input
-          type='text'
-          placeholder={intl.formatMessage({
-            id: 'emailAddressPlaceholder',
-            defaultMessage: 'Email Address or Contact No.',
-          })}
-          height='48px'
-          backgroundColor='#F7F7F7'
-          mb='10px'
-        />
-        <Input
-          type='email'
-          placeholder={intl.formatMessage({
-            id: 'passwordPlaceholder',
-            defaultMessage: 'Password (min 6 characters)',
-          })}
-          height='48px'
-          backgroundColor='#F7F7F7'
-          mb='10px'
-        />
-        <HelperText style={{ padding: '20px 0 30px' }}>
-          <FormattedMessage
-            id='signUpText'
-            defaultMessage="By signing up, you agree to Pickbazar's"
+        <form onSubmit={registerCallback}>
+          <Input
+            type='email'
+            placeholder={intl.formatMessage({
+              id: 'emailAddressPlaceholder',
+              defaultMessage: 'Email Address.',
+            })}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            height='48px'
+            backgroundColor='#F7F7F7'
+            mb='10px'
           />
+
+          <Input
+            type='password'
+            placeholder={intl.formatMessage({
+              id: 'passwordPlaceholder',
+              defaultMessage: 'Password (min 6 characters)',
+            })}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            height='48px'
+            backgroundColor='#F7F7F7'
+            mb='10px'
+          />
+          <HelperText style={{ padding: '20px 0 30px' }}>
+            <FormattedMessage
+              id='signUpText'
+              defaultMessage="By signing up, you agree to Gardenify's"
+            />
           &nbsp;
           <Link href='/'>
-            <a>
-              <FormattedMessage
-                id='termsConditionText'
-                defaultMessage='Terms &amp; Condition'
-              />
-            </a>
-          </Link>
-        </HelperText>
-        <Button variant='primary' size='big' width='100%' type='submit'>
-          <FormattedMessage id='continueBtn' defaultMessage='Continue' />
-        </Button>
+              <a>
+                <FormattedMessage
+                  id='termsConditionText'
+                  defaultMessage='Terms &amp; Conditions'
+                />
+              </a>
+            </Link>
+          </HelperText>
+          <Button variant='primary' size='big' width='100%' type='submit'>
+            <FormattedMessage id='continueBtn' defaultMessage='Continue' />
+          </Button>
+        </form>
         <Divider>
           <span>
             <FormattedMessage id='orText' defaultMessage='or' />
