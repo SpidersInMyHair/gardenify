@@ -12,7 +12,7 @@ import {
   SearchModalClose,
 } from './header.style';
 import Search from 'features/search/search';
-import LogoImage from 'assets/images/Gardenify.svg';
+import LogoImage from 'assets/images/Gardenify.png';
 
 import { SearchIcon } from 'assets/icons/SearchIcon';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';

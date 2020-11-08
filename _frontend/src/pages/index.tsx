@@ -58,7 +58,7 @@ const HomePage: NextPage<Props> = ({ deviceType, data, query }) => {
   }, [query]);
   return (
     <>
-      <SEO title="Gardenify" description="Search our index of flora for all your gardening needs" />
+      <SEO title="Gardenify" description="Search for a plant here..." />
       <ModalProvider>
         <Modal>
           <MobileBanner intlTitleId="home.title" />
