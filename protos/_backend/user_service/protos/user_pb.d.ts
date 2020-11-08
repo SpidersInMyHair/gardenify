@@ -59,3 +59,22 @@ export namespace Profile {
   }
 }
 
+export class Session extends jspb.Message {
+  getKey(): string;
+  setKey(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Session.AsObject;
+  static toObject(includeInstance: boolean, msg: Session): Session.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Session, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Session;
+  static deserializeBinaryFromReader(message: Session, reader: jspb.BinaryReader): Session;
+}
+
+export namespace Session {
+  export type AsObject = {
+    session_key: string
+  }
+}
