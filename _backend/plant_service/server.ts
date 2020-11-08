@@ -4,7 +4,6 @@ const app = module.exports = express();
 const repo = require('./_database/_repo');
 const SERVICE = '/api/plant';
 
-import * as IdGenerator from './util/IdGenerator';
 import {
   PlantInstruction,
   PlantItem,
@@ -83,7 +82,6 @@ app.get(`${SERVICE}`, (req: any, res: GetPlantsResponse) => {
 // POST /plant
 app.post(`${SERVICE}`, (req: CreatePlantRequest, res: CreatePlantResponse) => {
   repo.insert( //
-    IdGenerator.generate(req.body), //
     req.body.getGenus(), //
     req.body.getSpecies(), //
     req.body.getDescription() //

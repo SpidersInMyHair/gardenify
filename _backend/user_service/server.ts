@@ -5,8 +5,6 @@ const sha256 = require('js-sha256').sha256;
 const repo = require('./_database/_repo');
 const SERVICE = '/api/user';
 
-import * as IdGenerator from './util/IdGenerator';
-
 import {
   CreateUserRequest,
   CreateUserResponse,
@@ -23,7 +21,7 @@ import {
   UpdateUserProfileRequest,
   UpdateUserProfileResponse
 } from "./_messages";
-import { Profile, User } from "../../protos/_backend/user_service/protos/user_pb";
+import { Profile, User, Session } from "../../protos/_backend/user_service/protos/user_pb";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /user               Get if user session is valid by examining cookies.
@@ -56,11 +54,10 @@ app.get(`${SERVICE}`, (req: GetUserRequest, res: GetUserResponse) => {
 
 // POST /user               Create a new user.
 app.post(`${SERVICE}`, (req: CreateUserRequest, res: CreateUserResponse) => {
-  const id: string = IdGenerator.generate(req.body.email);
   const email: string = req.body.email;
   const password: string = sha256(req.body.password);
 
-  repo.createUser(id, email, password)
+  repo.createUser(email, password)
     .then(() => res.sendStatus(200))
     .catch((err: any) => {
       console.log(err);
@@ -84,14 +81,13 @@ app.post(`${SERVICE}/login`, (req: LoginUserRequest, res: LoginUserResponse) => 
   const password: string = sha256(req.body.password);
 
   repo.getUser(email, password)
-    .then((user: User) => {
+    .then((user: any) => {
       if (!user) {
         res.sendStatus(403);
         return
       }
-      const session_key: string = "CHANGE_THIS_TO_BE_GENERATED";
-      repo.setSession(user.getId(), session_key)
-        .then(() => res.cookie('UID', user.getId()).cookie('SID', session_key).send(user).status(200).end())
+      repo.setSession(user.id)
+        .then((session: string) => res.cookie('UID', user.id).cookie('SID', session).send(user).status(200).end())
     })
     .catch((err: any) => {
       console.log(err);

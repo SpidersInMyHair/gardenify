@@ -6,7 +6,7 @@ require('../../../_repository/_config').connection;
 connection.query(` \
   INSERT INTO users (id, email, password) \
   VALUES ( \
-    "root", \
+    UUID_TO_BIN(UUID()), \
     "root@gardenify.com", \
     "aa1d14e95d68f8c2d5539450318d42f56ab54e396018c4197cfc88d941954cb8" \
   );`
