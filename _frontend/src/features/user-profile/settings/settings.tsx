@@ -12,6 +12,7 @@ import { Button } from 'components/button/button';
 import { Input } from 'components/forms/input';
 import { FormattedMessage } from 'react-intl';
 import { Label } from 'components/forms/label';
+import { editUser } from 'utils/api/user';
 
 type SettingsContentProps = {
   deviceType?: {
@@ -32,10 +33,7 @@ const SettingsContent: React.FC<SettingsContentProps> = ({ deviceType }) => {
     });
   };
 
-  const handleSave = async () => {
-    const { name, email } = state;
-    console.log(name, email, 'name, email');
-  };
+  const handleSave = () => editUser(state)
 
   return (
     <SettingsForm>
@@ -79,6 +77,33 @@ const SettingsContent: React.FC<SettingsContentProps> = ({ deviceType }) => {
               name='email'
               label='Email Address'
               value={state.email}
+              onChange={handleChange}
+              backgroundColor='#F7F7F7'
+            />
+          </Col>
+          <Col xs={12} sm={5} md={5} lg={5}>
+            <Label>
+              Bio
+            </Label>
+            <Input
+              type='text'
+              label='Bio'
+              name='description'
+              value={state.description}
+              onChange={handleChange}
+              backgroundColor='#F7F7F7'
+              height='48px'
+            />
+          </Col>
+
+          <Col xs={12} sm={5} md={5} lg={5}>
+            <Label>
+              Password
+            </Label>
+            <Input
+              type='password'
+              name='password'
+              label='Password'
               onChange={handleChange}
               backgroundColor='#F7F7F7'
             />

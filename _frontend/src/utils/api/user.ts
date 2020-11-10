@@ -1,4 +1,5 @@
-const url = `http://localhost:3000`;
+import { toast } from 'react-toastify';
+const url = process.env.NEXT_PUBLIC_REST_API_ENDPOINT;
 
 export async function registerUser(userInfo) {
   const settings = {
@@ -11,8 +12,9 @@ export async function registerUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user`, settings);
-    const data = await fetchResponse.json();
-    return data;
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
   } catch (e) {
     return e;
   }
@@ -29,9 +31,63 @@ export async function loginUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user/login`, settings);
-    const data = await fetchResponse.json();
-    return data;
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
   } catch (e) {
     return e;
+  }
+}
+
+export async function getUser() {
+  try {
+    const fetchResponse = await fetch(`${url}/user`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin'
+    });
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
+  } catch (e) {
+    return e;
+  }
+}
+
+export async function editUser(userInfo) {
+  try {
+    const fetchResponse = await fetch(`${url}/user/edit`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify(userInfo),  
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't update user info");
+    return fetchResponse.ok;
+  } catch (e) {
+    return e;
+  }
+}
+
+export async function getFavourites() {
+  try {
+    const fetchResponse = await fetch(`${url}/user/profile/favourites`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't get favourite plants");
+    return await fetchResponse.json();
+  } catch {
+    return null;
   }
 }

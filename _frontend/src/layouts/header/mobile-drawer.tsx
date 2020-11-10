@@ -29,6 +29,7 @@ import {
   PROFILE_PAGE,
 } from 'site-settings/site-navigation';
 import { useAppState, useAppDispatch } from 'contexts/app/app.provider';
+import { useCookies } from 'react-cookie'
 
 const MobileDrawer: React.FunctionComponent = () => {
   const isDrawerOpen = useAppState('isDrawerOpen');
@@ -44,9 +45,12 @@ const MobileDrawer: React.FunctionComponent = () => {
     });
   }, [dispatch]);
 
+  const [cookies, setCookie, removeCookie] = useCookies(['UID', 'SID']);
+
   const handleLogout = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('access_token');
+      removeCookie("UID");
+      removeCookie("SID")
       authDispatch({ type: 'SIGN_OUT' });
       Router.push('/');
     }

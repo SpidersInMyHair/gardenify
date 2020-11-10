@@ -46,7 +46,7 @@ export interface GetUserProfileResponse<ResBody = Profile> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface UpdateUserProfileRequest<ReqBody = { name: string, description: string, image_url: string }> extends Request {
+export interface UpdateUserProfileRequest<ReqBody = { email?: string, password?: string, name: string, description: string, image_url: string }> extends Request {
   body: ReqBody;
 }
 

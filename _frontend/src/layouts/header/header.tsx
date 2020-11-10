@@ -10,6 +10,7 @@ import Logo from 'layouts/logo/logo';
 import UserImage from 'assets/images/user.jpg';
 import { isCategoryPage } from '../is-home-page';
 import Search from 'features/search/search';
+import { useCookies } from 'react-cookie';
 type Props = {
   className?: string;
 };
@@ -20,9 +21,12 @@ const Header: React.FC<Props> = ({ className }) => {
     authDispatch,
   } = React.useContext<any>(AuthContext);
   const { pathname, query } = useRouter();
+  const [cookies, setCookie, removeCookie] = useCookies(['UID', 'SID']);
+
   const handleLogout = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('access_token');
+      removeCookie("UID");
+      removeCookie("SID")
       authDispatch({ type: 'SIGN_OUT' });
       Router.push('/');
     }

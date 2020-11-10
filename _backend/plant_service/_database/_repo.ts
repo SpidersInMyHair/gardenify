@@ -77,13 +77,13 @@ function insert(trefle_id: string, slug: string, name: string, common_name: stri
     connection.query(` \
       INSERT INTO plant_varieties (trefle_id, slug, name, common_name, genus, family, img_url) \
       VALUES ( \
-        \"${trefle_id}\", \
-        \"${slug}\", \
-        \"${name}\", \
-        \"${common_name}\", \
-        \"${genus}\", \
-        \"${family}\", \
-        \"${img_url}\" \
+        ${connection.escape(trefle_id)}, \
+        ${connection.escape(slug)}, \
+        ${connection.escape(name)}, \
+        ${connection.escape(common_name)}, \
+        ${connection.escape(genus)}, \
+        ${connection.escape(family)}, \
+        ${connection.escape(img_url)} \
       );`
       , (err: any, results: any) => {
         if (err) reject(err);
@@ -289,9 +289,9 @@ function insertComment(slug: string, user_id: number, comment_description: strin
     connection.query(` \
       INSERT INTO comments (slug, user_id, comment_description) \
       VALUES ( \
-        \"${slug}\", \
-        \"${user_id}\", \
-        \"${comment_description}\" \
+        ${connection.escape(slug)}, \
+        ${connection.escape(user_id)}, \
+        ${connection.escape(comment_description)} \
       );`
       , (err: any, results: any) => {
         if (err) reject(err);
@@ -323,7 +323,6 @@ function getRatingByUser(slug: string, user_id: number): Promise<Ratings> {
       LIMIT 1; \
     `, (err: any, results: any) => {
       if (err) reject(err);
-      console.log(results);
       resolve(typeof results !== 'undefined' ? results[0] : undefined);
     });
   });
@@ -334,9 +333,9 @@ function insertRating(slug: string, user_id: number, rating: Number) {
     connection.query(` \
       INSERT INTO ratings (slug, user_id, rating) \
       VALUES ( \
-        \"${slug}\", \
-        \"${user_id}\", \
-        \"${rating}\" \
+        ${connection.escape(slug)}, \
+        ${connection.escape(user_id)}, \
+        ${connection.escape(rating)} \
       );`
       , (err: any, results: any) => {
         if (err) reject(err);

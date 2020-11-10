@@ -62,9 +62,10 @@ export const ProductCardWrapper = styled.div`
 export const ProductsCol = styled.div`
   flex: 0 0 20%;
   max-width: 20%;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   .book-card {
     border-radius: 0;
   }

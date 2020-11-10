@@ -53,6 +53,7 @@ export class Profile extends jspb.Message {
 export namespace Profile {
   export type AsObject = {
     id: string,
+    email: string,
     name: string,
     description: string,
     imageUrl: string,
