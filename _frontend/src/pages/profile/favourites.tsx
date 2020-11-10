@@ -14,10 +14,8 @@ import {
 import Sidebar from 'features/user-profile/sidebar/sidebar';
 import { SEO } from 'components/seo';
 import Footer from 'layouts/footer';
-import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { AuthContext } from 'contexts/auth/auth.context';
-import Loader from 'components/loader/loader';
 import { getFavourites } from 'utils/api/user';
 const Plants = dynamic(() =>
   import('components/product-grid/product-list/product-list')
@@ -38,22 +36,17 @@ const FavouritesPage: NextPage<Props> = ({ deviceType }) => {
     authState: { isLoading, isAuthenticated }
   } = useContext<any>(AuthContext);
 
-  const router = useRouter();
   if (!isLoading && !isAuthenticated) {
     toast.error("User not logged in")
-    router.push("/");
+    window.location.href = "/"
     return null
   }
 
-  useEffect(() => async () => {
-    const data = await getFavourites()
-    setFavourites(data);
+  useEffect(() => {
+    getFavourites().then((favs) => setFavourites(favs))
   }, [])
-
-  const data = getFavourites();
-
-  if (isLoading || !favourites) return <Loader />
   
+  console.log(favourites)
   return (
     <>
       <SEO title="Favourites - gardenify" description="Favourites Details" />

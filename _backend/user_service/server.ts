@@ -120,16 +120,6 @@ app.post(`${SERVICE}/logout`, (req: LogoutUserRequest, res: LogoutUserResponse) 
     })
 });
 
-// GET  /user/profile/:id   Get the profile for the given user id.
-app.get(`${SERVICE}/profile/:id`, (req: GetUserProfileRequest, res: GetUserProfileResponse) => {
-  repo.getProfile(req.params.id)
-    .then((profile: Profile) => res.send(profile).status(200).end())
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
 // POST /user/edit Edit the user profile for the given user id
 app.post(`${SERVICE}/edit`, (req: UpdateUserProfileRequest, res: UpdateUserProfileResponse) => {
   const id = req.cookies.UID;
@@ -159,4 +149,69 @@ app.post(`${SERVICE}/edit`, (req: UpdateUserProfileRequest, res: UpdateUserProfi
     console.log(err);
     res.sendStatus(500);
   })
+});
+
+// GET  /user/profile/favourites               Get logged in users fav plants.
+app.get(`${SERVICE}/profile/favourites`, (req: GetUserRequest, res: GetUserResponse) => {
+  console.log("RIGHT FUNCTION");
+  const id = req.cookies.UID;
+  const session_key = req.cookies.SID;
+  if (!id || !session_key) {
+    res.sendStatus(401);
+    return
+  }
+
+  repo.getSession(id, session_key)
+    .then((session) => {
+      if (!session) res.sendStatus(401);
+      else {
+        repo.getFavourites(id, req.query.limit, req.query.offset)
+        .then((favourites) => res.send(favourites).status(200).end())
+        .catch((err: any) => {
+          console.log(err);
+          res.sendStatus(500);
+        });
+      }    
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    })
+});
+
+// GET  /user/profile/favourites/:slug               Sets the plant to one of the users favourites.
+app.get(`${SERVICE}/profile/favourites/:slug`, (req: GetUserRequest, res: GetUserResponse) => {
+  const id = req.cookies.UID;
+  const session_key = req.cookies.SID;
+  if (!id || !session_key) {
+    res.sendStatus(401);
+    return
+  }
+
+  repo.getSession(id, session_key)
+    .then((session) => {
+      if (!session) res.sendStatus(401);
+      else {
+        repo.setFavourites(id, req.params.slug)
+        .then((success) => success ? res.send(success).sendStatus(200) : res.sendStatus(500))
+        .catch((err: any) => {
+          console.log(err);
+          res.sendStatus(500);
+        });
+      }    
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    })
+});
+
+// GET  /user/profile/:id   Get the profile for the given user id.
+app.get(`${SERVICE}/profile/:id`, (req: GetUserProfileRequest, res: GetUserProfileResponse) => {
+  repo.getProfile(req.params.id)
+    .then((profile: Profile) => res.send(profile).status(200).end())
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });

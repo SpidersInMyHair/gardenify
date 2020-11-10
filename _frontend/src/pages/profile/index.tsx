@@ -35,7 +35,7 @@ const ProfilePage: NextPage<Props> = ({ deviceType }) => {
   const router = useRouter();
   if (!isLoading && !isAuthenticated) {
     toast.error("User not logged in")
-    router.push("/");
+    window.location.href = "/";
     return null
   }
 

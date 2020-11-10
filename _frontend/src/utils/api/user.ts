@@ -77,7 +77,7 @@ export async function editUser(userInfo) {
 
 export async function getFavourites() {
   try {
-    const fetchResponse = await fetch(`${url}/user/favourites`, {
+    const fetchResponse = await fetch(`${url}/user/profile/favourites`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
