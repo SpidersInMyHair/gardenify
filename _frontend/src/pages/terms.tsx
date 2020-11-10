@@ -27,7 +27,7 @@ const TermsPage: NextPage<{}> = () => {
 
   return (
     <>
-      <SEO title={title} description="PickBazar privacy page" />
+      <SEO title={title} description="gardenify privacy page" />
 
       <StyledContainer>
         <Heading title={title} subtitle={`Last update: ${date}`} />

@@ -78,7 +78,7 @@ export const StyledCheckBoxLabelText = styled.span<any>((props) =>
 // const CheckBoxStyle = styled.div`
 /* display: inline-flex; */
 /* Switch label default style */
-/* .pickbazar__field-label { */
+/* .gardenify__field-label { */
 /* color: ${themeGet('colors.text.regular', '#77798C')};
     font-size: ${themeGet('fontSizes.2', '14')}px;
     font-weight: 400; */
@@ -89,7 +89,7 @@ export const StyledCheckBoxLabelText = styled.span<any>((props) =>
     label { */
 /* display: flex; */
 /* align-items: center; */
-/* .pickbazar__field-label {
+/* .gardenify__field-label {
         margin-right: 10px;
       } */
 /* }
@@ -102,7 +102,7 @@ export const StyledCheckBoxLabelText = styled.span<any>((props) =>
       flex-direction: row-reverse;
       align-items: center; */
 
-/* .pickbazar__field-label {
+/* .gardenify__field-label {
         margin-left: 10px;
       } */
 // }

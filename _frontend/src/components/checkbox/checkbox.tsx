@@ -30,7 +30,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   const [checked, setChecked] = useState(isChecked);
 
   return (
-    <StyledCheckBox className={`pickbazar__checkbox ${className}`.trim()}>
+    <StyledCheckBox className={`gardenify__checkbox ${className}`.trim()}>
       <StyledCheckBoxLabel htmlFor={id} position={labelPosition}>
         {labelText && (
           <StyledCheckBoxLabelText position={labelPosition}>

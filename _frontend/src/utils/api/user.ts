@@ -1,4 +1,4 @@
-const url = `http://localhost:3000/api`;
+const url = process.env.NEXT_PUBLIC_REST_API_ENDPOINT;
 
 export async function registerUser(userInfo) {
   const settings = {
@@ -11,8 +11,7 @@ export async function registerUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user`, settings);
-    const data = await fetchResponse.json();
-    return data;
+    return fetchResponse.ok;
   } catch (e) {
     return e;
   }
@@ -29,8 +28,7 @@ export async function loginUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user/login`, settings);
-    const data = await fetchResponse.json();
-    return data;
+    return fetchResponse.ok;
   } catch (e) {
     return e;
   }

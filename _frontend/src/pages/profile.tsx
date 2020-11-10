@@ -28,7 +28,7 @@ const ProfilePage: NextPage<Props> = ({ deviceType }) => {
 
   return (
     <>
-      <SEO title="Profile - PickBazar" description="Profile Details" />
+      <SEO title="Profile - gardenify" description="Profile Details" />
       <ProfileProvider initData={user}>
         <Modal>
           <PageWrapper>
