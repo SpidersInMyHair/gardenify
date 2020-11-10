@@ -1,9 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import NavLink from 'components/nav-link/nav-link';
-import { ABOUT_MENU_ITEM, HELP_MENU_ITEM } from 'site-settings/site-navigation';
-import LanguageSwitcher from '../language-switcher/language-switcher';
-import { HelpIcon } from 'assets/icons/HelpIcon';
+import { ABOUT_MENU_ITEM } from 'site-settings/site-navigation';
 import { RightMenuBox } from './right-menu.style';
 const AuthMenu = dynamic(() => import('../auth-menu'), { ssr: false });
 
@@ -28,15 +26,6 @@ export const RightMenu: React.FC<Props> = ({
         label={ABOUT_MENU_ITEM.defaultMessage}
         intlId={ABOUT_MENU_ITEM.id}
       />
-      {/* <NavLink
-        className="menu-item"
-        href={HELP_MENU_ITEM.href}
-        label={HELP_MENU_ITEM.defaultMessage}
-        intlId={HELP_MENU_ITEM.id}
-        iconClass="menu-icon"
-        icon={<HelpIcon />}
-      />
-      <LanguageSwitcher /> */}
 
       <AuthMenu
         avatar={avatar}

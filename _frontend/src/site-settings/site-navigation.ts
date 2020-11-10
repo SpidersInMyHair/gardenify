@@ -22,11 +22,6 @@ export const HOME_MENU_ITEM = {
   href: HOME_PAGE,
 };
 
-export const HELP_MENU_ITEM = {
-  id: 'nav.help',
-  defaultMessage: 'Help',
-  href: HELP_PAGE,
-};
 export const ABOUT_MENU_ITEM = {
   id: 'nav.about',
   defaultMessage: 'About',
@@ -76,11 +71,10 @@ export const CATEGORY_MENU_ITEMS = [
 export const MOBILE_DRAWER_MENU = [
   HOME_MENU_ITEM,
   ...AUTHORIZED_MENU_ITEMS,
-  HELP_MENU_ITEM,
   ABOUT_MENU_ITEM,
 ];
 
-export const PROFILE_SIDEBAR_TOP_MENU = [HELP_MENU_ITEM];
+export const PROFILE_SIDEBAR_TOP_MENU = [];
 export const PROFILE_SIDEBAR_BOTTOM_MENU = [PROFILE_MENU_ITEM];
 
 export const LANGUAGE_MENU = [
