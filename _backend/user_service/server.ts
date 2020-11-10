@@ -130,16 +130,33 @@ app.get(`${SERVICE}/profile/:id`, (req: GetUserProfileRequest, res: GetUserProfi
     });
 });
 
-// POST /user/profile/:id   Edit the profile for the given user id.
-app.post(`${SERVICE}/profile/:id`, (req: UpdateUserProfileRequest, res: UpdateUserProfileResponse) => {
-  const name = req.body.name;
-  const description = req.body.description;
-  const image_url = req.body.image_url;
+// POST /user/edit Edit the user profile for the given user id
+app.post(`${SERVICE}/edit`, (req: UpdateUserProfileRequest, res: UpdateUserProfileResponse) => {
+  const id = req.cookies.UID;
+  const session_key = req.cookies.SID;
+  if (!id || !session_key) {
+    res.sendStatus(401);
+    return
+  }
 
-  repo.editProfile(req.params.id, name, description, image_url)
-    .then((profile: Profile) => res.send(profile).status(200).end())
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
+  const user = {email: req.body.email, password: req.body.password};
+  delete req.body.email;
+  delete req.body.password;
+
+  repo.getSession(id, session_key)
+  .then((session) => {
+    if (!session) res.sendStatus(401);
+    else {
+      repo.editProfile(id, user, req.body)
+      .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+    }    
+  })
+  .catch((err: any) => {
+    console.log(err);
+    res.sendStatus(500);
+  })
 });

@@ -9,7 +9,7 @@ import ProductSingleWrapper, {
 } from 'assets/styles/product-single.style';
 import { getPlants, getPlant } from 'utils/api/plant';
 import NotFoundPage from 'pages/404';
-
+import Loader from 'components/loader/loader'; 
 
 const PlantDetails = dynamic(() =>
   import('components/product-details/product-details-two/product-details-two')
@@ -28,7 +28,7 @@ type Props = {
 const ProductPage: NextPage<Props> = ({ data, relatedPlants, deviceType }) => {
   const router = useRouter();
 
-  if (router.isFallback) return <p>Loading...</p>;
+  if (router.isFallback) return <Loader />;
   if (!data) return <NotFoundPage />;
 
   return (

@@ -8,7 +8,7 @@ function getUserById(id: string): Promise<User> {
     connection.query(`                        \
       SELECT BIN_TO_UUID(id) id, email        \
       FROM users                              \
-      WHERE id=UUID_TO_BIN(\"${id}\")         \
+      WHERE id=UUID_TO_BIN(${connection.escape(id)})         \
       LIMIT 1;`
     , (err: any, results: Array<User>) => {
       if (err) reject(err);
@@ -22,8 +22,8 @@ function getUser(email: string, password: string): Promise<User> {
     connection.query(`                        \
       SELECT BIN_TO_UUID(id) id, email, name, description, image_url        \
       FROM users JOIN profiles ON id=user_id  \
-      WHERE email=\"${email}\"                \
-      AND password=\"${password}\"            \
+      WHERE email=${connection.escape(email)} \
+      AND password=${connection.escape(password)}            \
       LIMIT 1;`
     , (err: any, results: Array<User>) => {
       if (err) reject(err);
@@ -40,8 +40,8 @@ function createUser(email: string, password: string): Promise<any> {
       INSERT INTO users (id, email, password) \
       VALUES (                                \
         @id,                                  \
-        \"${email}\",                         \
-        \"${password}\"                       \
+        ${connection.escape(email)},          \
+        ${connection.escape(password)}        \
       );                                      \
       INSERT INTO sessions (user_id, session_key) \
       VALUES (                                \
@@ -65,8 +65,8 @@ function getSession(id: string, session_key: string) {
     connection.query(`                      \
       SELECT session_key                    \
       FROM sessions                         \
-      WHERE user_id=UUID_TO_BIN(\"${id}\")  \
-      AND session_key=UUID_TO_BIN(\"${session_key}\") \
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)})  \
+      AND session_key=UUID_TO_BIN(${connection.escape(session_key)}) \
       LIMIT 1;`
     , (err: any, results: Array<User>) => {
       if (err) reject(err);
@@ -80,7 +80,7 @@ function setSession(id: string) {
     connection.query(`                        \
       UPDATE sessions                         \
       SET session_key = @session_key := UUID_TO_BIN(UUID())     \
-      WHERE user_id=UUID_TO_BIN(\"${id}\");
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)});
       SELECT BIN_TO_UUID(@session_key) session_key;`
     , (err: any, results: Array<Array<any>>) => {
       if (err) reject(err);
@@ -94,8 +94,8 @@ function clearSession(id: string, session_key: string) {
     connection.query(`                        \
       UPDATE sessions                         \
       SET session_key=NULL                    \
-      WHERE user_id=UUID_TO_BIN(\"${id}\")    \
-      AND session_key=UUID_TO_BIN(\"${session_key}\")`
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)})    \
+      AND session_key=UUID_TO_BIN(${connection.escape(session_key)})`
     , (err: any, results: any) => {
       if (err) reject(err);
       resolve(results);
@@ -108,7 +108,7 @@ function getProfile(id: string): Promise<Profile> {
     connection.query(`                      \
       SELECT name, email, description, image_url   \
       FROM profiles JOIN users ON id=user_id       \
-      WHERE user_id=UUID_TO_BIN(\"${id}\")  \
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)})  \
       LIMIT 1;`
     , (err: any, results: Array<Profile>) => {
       if (err) reject(err);
@@ -117,17 +117,21 @@ function getProfile(id: string): Promise<Profile> {
   })
 }
 
-function editProfile(id: string, name: string, description: string, image_url: string) {
+function editProfile(id: string , user: any, profile: any) {
   return new Promise((resolve, reject) => {
     connection.query(`                        \
       UPDATE profiles                         \
-      SET name=\"${name}\",                   \
-      description=\"${description}\",         \
-      image_url=\"${image_url}\"              \
-      WHERE user_id=UUID_TO_BIN(\"${id}\")`
+      SET                                     \
+      ${Object.keys(profile).map((param) => `${connection.escapeId(param)}=${connection.escape(profile[param])}`).join("\n")}
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)});  \
+      UPDATE users                            \
+      SET                                     \
+      ${Object.keys(user).map((param) => user[param] ? `${connection.escapeId(param)}=${connection.escape(user[param])}` : '').join("\n")}
+      WHERE id=UUID_TO_BIN(${connection.escape(id)});  \
+      `
     , (err: any, results: any) => {
       if (err) reject(err);
-      resolve(results);
+      resolve(results && results.length ? true : false);
     });
   });
 }

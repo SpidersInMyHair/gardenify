@@ -14,8 +14,8 @@ import { SEO } from 'components/seo';
 import Footer from 'layouts/footer';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
-import { getUser } from 'utils/api/user';
 import { AuthContext } from 'contexts/auth/auth.context';
+import Loader from 'components/loader/loader'; 
 
 type Props = {
   deviceType?: {
@@ -29,15 +29,17 @@ type Props = {
 const ProfilePage: NextPage<Props> = ({ deviceType }) => {
   
   const {
-    authState: { isAuthenticated, user }
+    authState: { isLoading, isAuthenticated, user }
   } = useContext<any>(AuthContext);
 
   const router = useRouter();
-  if (!isAuthenticated) {
+  if (!isLoading && !isAuthenticated) {
     toast.error("User not logged in")
     router.push("/");
     return null
   }
+
+  if (isLoading) return <Loader />
   
   return (
     <>
