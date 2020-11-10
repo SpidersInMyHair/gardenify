@@ -12,9 +12,6 @@ import { Button } from 'components/button/button';
 import { Input } from 'components/forms/input';
 import { FormattedMessage } from 'react-intl';
 import { Label } from 'components/forms/label';
-import Contact from 'features/contact/contact';
-import Address from 'features/address/address';
-import Payment from 'features/payment/payment';
 
 type SettingsContentProps = {
   deviceType?: {
@@ -91,28 +88,6 @@ const SettingsContent: React.FC<SettingsContentProps> = ({ deviceType }) => {
             <Button size='big' style={{ width: '100%' }} onClick={handleSave}>
               <FormattedMessage id='profileSaveBtn' defaultMessage='Save' />
             </Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <SettingsFormContent>
-              <Contact />
-            </SettingsFormContent>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12} style={{ position: 'relative' }}>
-            <SettingsFormContent>
-              <Address />
-            </SettingsFormContent>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <SettingsFormContent>
-              <Payment deviceType={deviceType} />
-            </SettingsFormContent>
           </Col>
         </Row>
       </SettingsFormContent>

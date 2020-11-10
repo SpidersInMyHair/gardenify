@@ -1,10 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { AddItemToCart } from 'components/add-item-to-cart';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 import { Box } from 'components/box';
-import { Text } from 'components/text';
 
 const Card = styled.div({
   backgroundColor: '#fff',
@@ -130,8 +128,6 @@ export const ProductCard = ({ data }: Props) => {
               <Price>${salePrice ? salePrice : price}</Price>
               {discountInPercent ? <SalePrice>${price}</SalePrice> : null}
             </PriceWrapper>
-
-            <AddItemToCart data={data} />
           </Box>
         </Box>
       </Card>

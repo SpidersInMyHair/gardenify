@@ -125,12 +125,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   borderRadius={100}
                   onClick={handleAddClick}
                 >
-                  <ButtonText>
-                    <FormattedMessage
-                      id="addCartButton"
-                      defaultMessage="Cart"
-                    />
-                  </ButtonText>
                 </Button>
               ) : (
                   <Counter

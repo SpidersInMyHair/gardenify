@@ -8,7 +8,6 @@ import {
   ProductTitlePriceWrapper,
   ProductTitle,
   ProductDescription,
-  ButtonText,
   ProductMeta,
   ProductCartWrapper,
   ProductPriceWrapper,
@@ -106,12 +105,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   size='big'
                   onClick={handleAddClick}
                 >
-                  <ButtonText>
-                    <FormattedMessage
-                      id='addToCartButton'
-                      defaultMessage='Add to cart'
-                    />
-                  </ButtonText>
                 </Button>
               ) : (
                   <Counter

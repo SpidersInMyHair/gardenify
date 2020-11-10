@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { AddItemToCart } from 'components/add-item-to-cart';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 import { Box } from 'components/box';
@@ -123,9 +122,6 @@ export const ProductCard = ({ data }: Props) => {
     <Link href='/products/[slug]' as={`/products/${slug}`}>
       <Card>
         <Box position='relative'>
-          <CounterWrapper>
-            <AddItemToCart data={data} />
-          </CounterWrapper>
           <ImageWrapper>
             <img src={image} alt={title} />
           </ImageWrapper>

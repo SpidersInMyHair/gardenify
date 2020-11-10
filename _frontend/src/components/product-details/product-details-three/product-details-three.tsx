@@ -30,7 +30,6 @@ import {
 } from './product-details-three.style';
 import { CURRENCY } from 'utils/constant';
 import FixedCart from 'features/carts/fixed-cart';
-import FixedCartPopup from 'features/carts/fixed-cart-popup';
 import { FormattedMessage } from 'react-intl';
 import Sticky from 'react-stickynode';
 import { groupBy } from 'utils/groupBy';
@@ -194,13 +193,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               />
             </Sticky>
           </CartWrapper>
-
-          <FixedCartPopup
-            onCheckout={() => {
-              toggleRestaurant();
-              checkoutStatus.current = true;
-            }}
-          />
         </MainContent>
       </ProductDetailsWrapper>
     </>

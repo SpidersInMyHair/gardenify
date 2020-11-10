@@ -144,12 +144,6 @@ const QuickViewMobile: React.FunctionComponent<QuickViewProps> = ({
                       borderRadius={100}
                       onClick={handleAddClick}
                     >
-                      <ButtonText>
-                        <FormattedMessage
-                          id='addCartButton'
-                          defaultMessage='Cart'
-                        />
-                      </ButtonText>
                     </Button>
                   ) : (
                       <Counter
