@@ -11,7 +11,6 @@ import {
   BackButton,
   ProductWeight,
   ProductDescription,
-  ButtonText,
   ProductMeta,
   ProductCartWrapper,
   ProductPriceWrapper,
@@ -20,12 +19,10 @@ import {
   ProductCartBtn,
   MetaSingle,
   MetaItem,
-  RelatedItems,
 } from './product-details-one.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import ReadMore from 'components/truncate/truncate';
 import CarouselWithCustomDots from 'components/multi-carousel/multi-carousel';
-import Products from 'components/product-grid/product-list/product-list';
 import { CURRENCY } from 'utils/constant';
 import { FormattedMessage } from 'react-intl';
 import { useLocale } from 'contexts/language/language.provider';
@@ -179,20 +176,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           </ProductPreview>
         )}
       </ProductDetailsWrapper>
-
-      <RelatedItems>
-        <h2>
-          <FormattedMessage
-            id="intlReletedItems"
-            defaultMessage="Related Items"
-          />
-        </h2>
-        <Products
-          deviceType={deviceType}
-          loadMore={false}
-          fetchLimit={10}
-        />
-      </RelatedItems>
     </>
   );
 };

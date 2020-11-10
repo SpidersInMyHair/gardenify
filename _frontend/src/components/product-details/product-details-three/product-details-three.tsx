@@ -8,11 +8,6 @@ import {
   RestaurantNameAddress,
   RestaurantName,
   RestaurantAddress,
-  RestaurantOtherInfos,
-  InfoBlock,
-  Label,
-  Infos,
-  DeliveryOpt,
   CategoriesWrapper,
   CategoriesInner,
   MainContent,
@@ -26,10 +21,8 @@ import {
   ItemNamePricing,
   HelpText,
   ItemPrice,
-  CartWrapper,
 } from './product-details-three.style';
 import { CURRENCY } from 'utils/constant';
-import FixedCart from 'features/carts/fixed-cart';
 import { FormattedMessage } from 'react-intl';
 import Sticky from 'react-stickynode';
 import { groupBy } from 'utils/groupBy';
@@ -80,35 +73,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               <RestaurantName>{data.name}</RestaurantName>
               <RestaurantAddress>{data.address}</RestaurantAddress>
             </RestaurantNameAddress>
-
-            <RestaurantOtherInfos>
-              <InfoBlock>
-                <Label>
-                  <FormattedMessage id="cuisineText" defaultMessage="Cuisine" />
-                </Label>
-                <Infos>{data?.categories?.join(', ')}</Infos>
-              </InfoBlock>
-
-              <InfoBlock>
-                <Label>
-                  <FormattedMessage
-                    id="minOrderText"
-                    defaultMessage="Min Order"
-                  />
-                </Label>
-                <Infos>
-                  {CURRENCY}
-                  {data?.deliveryDetails?.minimumOrder}
-                </Infos>
-              </InfoBlock>
-
-              <DeliveryOpt>
-                {data?.deliveryDetails?.isFree ? '' : CURRENCY}
-                {data?.deliveryDetails?.charge}
-                <br />{' '}
-                <FormattedMessage id="deliveryText" defaultMessage="Delivery" />
-              </DeliveryOpt>
-            </RestaurantOtherInfos>
           </RestaurantMeta>
 
           <Sticky
@@ -153,17 +117,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                       <ItemDetails>{item.description}</ItemDetails>
                     </ItemNameDetails>
 
-                    <ItemNamePricing>
-                      <HelpText>
-                        <FormattedMessage id="fromText" defaultMessage="From" />
-                        &nbsp;
-                      </HelpText>
-                      <ItemPrice>
-                        {CURRENCY}
-                        {item.price}
-                      </ItemPrice>
-                    </ItemNamePricing>
-
                     <Button
                       variant="select"
                       type="button"
@@ -177,22 +130,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               </Element>
             ))}
           </MenuContainer>
-
-          <CartWrapper>
-            <Sticky top="#cart-sticky" innerZ={999}>
-              <FixedCart
-                scrollbarHeight="100vh"
-                className="fixedCartBox"
-                style={{
-                  height: `calc(100vh - 193px)`,
-                }}
-                onCheckout={() => {
-                  toggleRestaurant();
-                  checkoutStatus.current = true;
-                }}
-              />
-            </Sticky>
-          </CartWrapper>
         </MainContent>
       </ProductDetailsWrapper>
     </>
