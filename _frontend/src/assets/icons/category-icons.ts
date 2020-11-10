@@ -1,14 +1,2 @@
 export { FruitsVegetable } from './FruitsVegetable';
-export { Purse } from './Purse';
-export { ShoulderBags } from './ShoulderBags';
-export { Wallet } from './Wallet';
-export { WomenDress } from './WomenDress';
-export { OuterWear } from './OuterWear';
-export { Pants } from './Pants';
-export { Tops } from './Tops';
-export { Skirts } from './Skirts';
-export { Shirts } from './Shirts';
-export { Snacks } from './Snacks';
-export { PetCare } from './PetCare';
-export { ShavingNeeds } from './ShavingNeeds';
 export { Minus } from './Minus';
