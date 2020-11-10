@@ -26,20 +26,18 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
     pathname === '/furniture-two' ||
     pathname === '/grocery-two';
 
-  const isHomePage = isCategoryPage(query.type) || pathname === '/bakery';
+  const isHomePage = isCategoryPage(query.type);
   return (
     <LayoutWrapper className={`layoutWrapper ${className}`}>
       <Sticky enabled={isSticky} innerZ={1001}>
         <MobileHeader
-          className={`${isSticky ? 'sticky' : 'unSticky'} ${
-            isHomePage ? 'home' : ''
-          } desktop`}
+          className={`${isSticky ? 'sticky' : 'unSticky'} ${isHomePage ? 'home' : ''
+            } desktop`}
         />
 
         <Header
-          className={`${isSticky ? 'sticky' : 'unSticky'} ${
-            isHomePage ? 'home' : ''
-          }`}
+          className={`${isSticky ? 'sticky' : 'unSticky'} ${isHomePage ? 'home' : ''
+            }`}
         />
       </Sticky>
       {children}

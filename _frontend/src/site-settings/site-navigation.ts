@@ -4,7 +4,6 @@ export const GROCERY_PAGE_TWO = '/grocery-two';
 export const MAKEUP_PAGE = '/makeup';
 export const CLOTHING_PAGE = '/clothing';
 export const BAGS_PAGE = '/bags';
-export const BAKERY_PAGE = '/bakery';
 export const BOOK_PAGE = '/book';
 export const FURNITURE_PAGE = '/furniture';
 export const FURNITURE_PAGE_TWO = '/furniture-two';
@@ -96,13 +95,6 @@ export const CATEGORY_MENU_ITEMS = [
     href: GROCERY_PAGE_TWO,
     defaultMessage: 'Grocery Two',
     icon: 'FruitsVegetable',
-    dynamic: false,
-  },
-  {
-    id: 'nav.bakery',
-    href: BAKERY_PAGE,
-    defaultMessage: 'Bakery',
-    icon: 'Bakery',
     dynamic: false,
   },
   {

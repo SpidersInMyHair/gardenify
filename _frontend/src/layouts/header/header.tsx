@@ -51,8 +51,7 @@ const Header: React.FC<Props> = ({ className }) => {
   const showSearch =
     isCategoryPage(query.type) ||
     pathname === '/furniture-two' ||
-    pathname === '/grocery-two' ||
-    pathname === '/bakery';
+    pathname === '/grocery-two'
   return (
     <HeaderWrapper className={className} id="layout-header">
       <Logo

@@ -6,4 +6,3 @@ export { FurnitureIcon } from 'assets/icons/FurnitureIcon';
 export { BookIcon } from 'assets/icons/BookIcon';
 export { MedicineIcon } from 'assets/icons/MedicineIcon';
 export { Restaurant } from 'assets/icons/Restaurant';
-export { Bakery } from 'assets/icons/Bakery';
