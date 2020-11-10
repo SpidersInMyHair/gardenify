@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic'
 import { Modal } from '@redq/reuse-modal';
 import { ProfileProvider } from 'contexts/profile/profile.provider';
 import SettingsContent from 'features/user-profile/settings/settings';
@@ -11,8 +12,10 @@ import {
 import Sidebar from 'features/user-profile/sidebar/sidebar';
 import { SEO } from 'components/seo';
 import Footer from 'layouts/footer';
-import ErrorMessage from 'components/error-message/error-message';
-import useUser from 'data/use-user';
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import { getUser } from 'utils/api/user';
+import { AuthContext } from 'contexts/auth/auth.context';
 
 type Props = {
   deviceType?: {
@@ -20,12 +23,22 @@ type Props = {
     tablet: boolean;
     desktop: boolean;
   };
+  user: any;
 };
-const ProfilePage: NextPage<Props> = ({ deviceType }) => {
-  const { user, error } = useUser();
-  if (error) return <ErrorMessage message={error.message} />;
-  if (!user) return <div>loading...</div>;
 
+const ProfilePage: NextPage<Props> = ({ deviceType }) => {
+  
+  const {
+    authState: { isAuthenticated, user }
+  } = useContext<any>(AuthContext);
+
+  const router = useRouter();
+  if (!isAuthenticated) {
+    toast.error("User not logged in")
+    router.push("/");
+    return null
+  }
+  
   return (
     <>
       <SEO title="Profile - gardenify" description="Profile Details" />
@@ -47,4 +60,4 @@ const ProfilePage: NextPage<Props> = ({ deviceType }) => {
   );
 };
 
-export default ProfilePage;
+export default dynamic(() => Promise.resolve(ProfilePage), {ssr: false});

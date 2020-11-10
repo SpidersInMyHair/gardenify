@@ -20,8 +20,8 @@ function getUserById(id: string): Promise<User> {
 function getUser(email: string, password: string): Promise<User> {
   return new Promise((resolve, reject) => {
     connection.query(`                        \
-      SELECT BIN_TO_UUID(id) id, email        \
-      FROM users                              \
+      SELECT BIN_TO_UUID(id) id, email, name, description, image_url        \
+      FROM users JOIN profiles ON id=user_id  \
       WHERE email=\"${email}\"                \
       AND password=\"${password}\"            \
       LIMIT 1;`
@@ -48,10 +48,9 @@ function createUser(email: string, password: string): Promise<any> {
         @id,                                  \
         @session_key                          \
       );                                      \
-      INSERT INTO profiles (user_id, name)    \
+      INSERT INTO profiles (user_id)          \
       VALUES (                                \
-        @id,                                  \
-        \"JOHN DOE\"                          \
+        @id                                   \
       );
       SELECT BIN_TO_UUID(@id) id, BIN_TO_UUID(@session_key) session_key;`
     , (err: any, results: any) => {
@@ -67,7 +66,7 @@ function getSession(id: string, session_key: string) {
       SELECT session_key                    \
       FROM sessions                         \
       WHERE user_id=UUID_TO_BIN(\"${id}\")  \
-      AND session_key=\"${session_key}\"    \
+      AND session_key=UUID_TO_BIN(\"${session_key}\") \
       LIMIT 1;`
     , (err: any, results: Array<User>) => {
       if (err) reject(err);
@@ -96,7 +95,7 @@ function clearSession(id: string, session_key: string) {
       UPDATE sessions                         \
       SET session_key=NULL                    \
       WHERE user_id=UUID_TO_BIN(\"${id}\")    \
-      AND session_key=\"${session_key}\"`
+      AND session_key=UUID_TO_BIN(\"${session_key}\")`
     , (err: any, results: any) => {
       if (err) reject(err);
       resolve(results);
@@ -107,8 +106,8 @@ function clearSession(id: string, session_key: string) {
 function getProfile(id: string): Promise<Profile> {
   return new Promise((resolve, reject) => {
     connection.query(`                      \
-      SELECT name, description, image_url   \
-      FROM profiles                         \
+      SELECT name, email, description, image_url   \
+      FROM profiles JOIN users ON id=user_id       \
       WHERE user_id=UUID_TO_BIN(\"${id}\")  \
       LIMIT 1;`
     , (err: any, results: Array<Profile>) => {

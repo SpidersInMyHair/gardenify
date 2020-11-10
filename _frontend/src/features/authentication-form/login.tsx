@@ -41,9 +41,9 @@ export default function SignInModal() {
   const loginCallback = (e) => {
     e.preventDefault();
     if (typeof window !== 'undefined') {
-      loginUser({ email, password }).then((success) => {
-        if (success) {
-          authDispatch({ type: 'SIGNIN_SUCCESS' })
+      loginUser({ email, password }).then((user) => {
+        if (user) {
+          authDispatch({ type: 'SIGNIN_SUCCESS', user: user })
           closeModal();
         } else {
           toast.error("Couldn't Login: Invalid username or password");

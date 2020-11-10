@@ -20,7 +20,7 @@ connection.query(`                                        \
   );                                                      \
   CREATE TABLE IF NOT EXISTS profiles (                   \
     user_id     BINARY(16)      NOT NULL,                 \
-    name        varchar(64)   NOT NULL,                   \
+    name        varchar(64) ,                             \
     description varchar(256),                             \
     image_url   varchar(256),                             \
     FOREIGN KEY (user_id) REFERENCES users(id)            \

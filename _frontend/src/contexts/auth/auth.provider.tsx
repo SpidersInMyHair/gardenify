@@ -1,9 +1,12 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { AuthContext } from './auth.context';
+import { getUser } from 'utils/api/user';
+
 const isBrowser = typeof window !== 'undefined';
 const INITIAL_STATE = {
-  isAuthenticated: isBrowser && !!localStorage.getItem('access_token'),
+  isAuthenticated: false,
   currentForm: 'signIn',
+  user: undefined
 };
 
 function reducer(state: any, action: any) {
@@ -17,6 +20,7 @@ function reducer(state: any, action: any) {
       return {
         ...state,
         isAuthenticated: true,
+        user: action.user
       };
     case 'SIGN_OUT':
       return {
@@ -40,6 +44,12 @@ function reducer(state: any, action: any) {
 
 export const AuthProvider: React.FunctionComponent = ({ children }) => {
   const [authState, authDispatch] = useReducer(reducer, INITIAL_STATE);
+  useEffect(() => {
+    if (!isBrowser) return
+    getUser().then(user => {
+      if (user) authDispatch({type: "SIGNIN_SUCCESS", user: user});
+    })
+  }, [])
   return (
     <AuthContext.Provider value={{ authState, authDispatch }}>
       {children}

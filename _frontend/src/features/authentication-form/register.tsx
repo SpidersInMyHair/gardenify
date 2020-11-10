@@ -30,9 +30,9 @@ export default function SignOutModal() {
   const registerCallback = (e) => {
     e.preventDefault();
     if (typeof window !== 'undefined') {
-      registerUser({ email, password }).then((success) => {
-        if (success) {
-          authDispatch({ type: 'SIGNIN_SUCCESS' })
+      registerUser({ email, password }).then((user) => {
+        if (user) {
+          authDispatch({ type: 'SIGNIN_SUCCESS', user: {email: email} })
           closeModal();
         }
       });

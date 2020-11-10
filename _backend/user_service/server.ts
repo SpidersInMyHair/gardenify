@@ -38,13 +38,21 @@ app.get(`${SERVICE}`, (req: GetUserRequest, res: GetUserResponse) => {
   const id = req.cookies.UID;
   const session_key = req.cookies.SID;
   if (!id || !session_key) {
-    res.sendStatus(400);
+    res.sendStatus(401);
+    return
   }
 
   repo.getSession(id, session_key)
     .then((session) => {
-      if (!session) res.sendStatus(403);
-      else res.sendStatus(200);
+      if (!session) res.sendStatus(401);
+      else {
+        repo.getProfile(id)
+        .then((profile: Profile) => res.send(profile).status(200).end())
+        .catch((err: any) => {
+          console.log(err);
+          res.sendStatus(500);
+        });
+      }    
     })
     .catch((err: any) => {
       console.log(err);
@@ -83,11 +91,15 @@ app.post(`${SERVICE}/login`, (req: LoginUserRequest, res: LoginUserResponse) => 
   repo.getUser(email, password)
     .then((user: any) => {
       if (!user) {
-        res.sendStatus(403);
+        res.sendStatus(401);
         return
       }
       repo.setSession(user.id)
-        .then((session: string) => res.cookie('UID', user.id).cookie('SID', session).sendStatus(200).end())
+        .then((session: string) => res
+          .cookie('UID', user.id)
+          .cookie('SID', session)
+          .send(user)
+          .status(200).end())
     })
     .catch((err: any) => {
       console.log(err);

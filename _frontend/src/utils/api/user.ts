@@ -11,7 +11,9 @@ export async function registerUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user`, settings);
-    return fetchResponse.ok;
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
   } catch (e) {
     return e;
   }
@@ -28,7 +30,28 @@ export async function loginUser(userInfo) {
   };
   try {
     const fetchResponse = await fetch(`${url}/user/login`, settings);
-    return fetchResponse.ok;
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
+  } catch (e) {
+    return e;
+  }
+}
+
+export async function getUser() {
+  const settings = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    credentials: 'same-origin'
+  };
+  try {
+    const fetchResponse = await fetch(`${url}/user`, settings);
+    if (!fetchResponse.ok) return false
+    const user = await fetchResponse.json()
+    return user;
   } catch (e) {
     return e;
   }
