@@ -71,48 +71,6 @@ export const CATEGORY_MENU_ITEMS = [
     icon: 'FruitsVegetable',
     dynamic: false,
   },
-  {
-    id: 'nav.makeup',
-    defaultMessage: 'Makeup',
-    href: MAKEUP_PAGE,
-    icon: 'FacialCare',
-    dynamic: true,
-  },
-  {
-    id: 'nav.bags',
-    defaultMessage: 'Bags',
-    href: BAGS_PAGE,
-    icon: 'Handbag',
-    dynamic: true,
-  },
-  {
-    id: 'nav.clothing',
-    defaultMessage: 'Clothing',
-    href: CLOTHING_PAGE,
-    icon: 'DressIcon',
-    dynamic: true,
-  },
-  {
-    id: 'nav.furniture',
-    defaultMessage: 'Furniture',
-    href: FURNITURE_PAGE,
-    icon: 'FurnitureIcon',
-    dynamic: true,
-  },
-  {
-    id: 'nav.furniture-two',
-    defaultMessage: 'Furniture Two',
-    href: FURNITURE_PAGE_TWO,
-    icon: 'FurnitureIcon',
-    dynamic: false,
-  },
-  {
-    id: 'nav.medicine',
-    defaultMessage: 'Medicine',
-    href: MEDICINE_PAGE,
-    icon: 'MedicineIcon',
-    dynamic: true,
-  },
 ];
 
 export const MOBILE_DRAWER_MENU = [

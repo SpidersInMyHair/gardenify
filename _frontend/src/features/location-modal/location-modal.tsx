@@ -14,7 +14,6 @@ import {
   Button,
   Input,
 } from './location-modal.style';
-import { GiftBox } from 'assets/icons/GiftBox';
 
 export default function LocationModal() {
   const [zipcode, setZipcode] = useState('');
@@ -60,7 +59,6 @@ export default function LocationModal() {
         />
       </Container>
       <OfferSection>
-        <GiftBox />
         <Offer>
           <FormattedMessage
             id="locationModalFooter"
