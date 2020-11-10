@@ -22,7 +22,8 @@ connection.query(`                                                            \
   CREATE TABLE IF NOT EXISTS favourites (                                     \
     user_id     BINARY(16)    NOT NULL,                                       \
     plant_slug  varchar(256)  NOT NULL,                                       \
-    FOREIGN KEY (user_id) REFERENCES users(id)                                \
+    FOREIGN KEY (user_id) REFERENCES users(id),                               \
+    PRIMARY KEY (user_id, plant_slug)                                         \
   );                                                                          \
   CREATE TABLE IF NOT EXISTS profiles (                                       \
     user_id     BINARY(16)      NOT NULL,                                     \

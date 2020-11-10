@@ -23,6 +23,20 @@ import {
 } from "./_messages";
 import { Profile, User } from "../../protos/_backend/user_service/protos/user_pb";
 
+async function checkSession(id: string, session_key: string) {
+  if (!id || !session_key) {
+    return false
+  }
+
+  try {
+    const session = await repo.getSession(id, session_key)
+    return session ? true : false
+  } catch (err: any) {
+    console.log(err);
+    return false
+  }
+}
+
 /* --------------------------- SERVICE ENDPOINTS --------------------------- */
 // GET  /user               Get if user session is valid by examining cookies.
 // POST /user               Create a new user.
@@ -36,27 +50,14 @@ import { Profile, User } from "../../protos/_backend/user_service/protos/user_pb
 // GET  /user               Get if user is logged in or not given cookies.
 app.get(`${SERVICE}`, (req: GetUserRequest, res: GetUserResponse) => {
   const id = req.cookies.UID;
-  const session_key = req.cookies.SID;
-  if (!id || !session_key) {
-    res.sendStatus(401);
-    return
-  }
-
-  repo.getSession(id, session_key)
-    .then((session) => {
-      if (!session) res.sendStatus(401);
-      else {
-        repo.getProfile(id)
-        .then((profile: Profile) => res.send(profile).status(200).end())
-        .catch((err: any) => {
-          console.log(err);
-          res.sendStatus(500);
-        });
-      }    
-    })
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.getProfile(id)
+      .then((profile: Profile) => res.send(profile).status(200).end())
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });  
     })
 });
 
@@ -123,87 +124,62 @@ app.post(`${SERVICE}/logout`, (req: LogoutUserRequest, res: LogoutUserResponse) 
 // POST /user/edit Edit the user profile for the given user id
 app.post(`${SERVICE}/edit`, (req: UpdateUserProfileRequest, res: UpdateUserProfileResponse) => {
   const id = req.cookies.UID;
-  const session_key = req.cookies.SID;
-  if (!id || !session_key) {
-    res.sendStatus(401);
-    return
-  }
 
   const user = {email: req.body.email, password: req.body.password};
   delete req.body.email;
   delete req.body.password;
 
-  repo.getSession(id, session_key)
-  .then((session) => {
-    if (!session) res.sendStatus(401);
-    else {
-      repo.editProfile(id, user, req.body)
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.editProfile(id, user, req.body)
       .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
       .catch((err: any) => {
         console.log(err);
         res.sendStatus(500);
       });
-    }    
-  })
-  .catch((err: any) => {
-    console.log(err);
-    res.sendStatus(500);
   })
 });
 
 // GET  /user/profile/favourites               Get logged in users fav plants.
 app.get(`${SERVICE}/profile/favourites`, (req: GetUserRequest, res: GetUserResponse) => {
-  console.log("RIGHT FUNCTION");
   const id = req.cookies.UID;
-  const session_key = req.cookies.SID;
-  if (!id || !session_key) {
-    res.sendStatus(401);
-    return
-  }
-
-  repo.getSession(id, session_key)
-    .then((session) => {
-      if (!session) res.sendStatus(401);
-      else {
-        repo.getFavourites(id, req.query.limit, req.query.offset)
-        .then((favourites) => res.send(favourites).status(200).end())
-        .catch((err: any) => {
-          console.log(err);
-          res.sendStatus(500);
-        });
-      }    
-    })
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.getFavourites(id, req.query.limit, req.query.offset)
+    .then((favourites) => res.send(favourites).status(200).end())
     .catch((err: any) => {
       console.log(err);
       res.sendStatus(500);
-    })
+    });
+  })
 });
 
 // GET  /user/profile/favourites/:slug               Sets the plant to one of the users favourites.
 app.get(`${SERVICE}/profile/favourites/:slug`, (req: GetUserRequest, res: GetUserResponse) => {
   const id = req.cookies.UID;
-  const session_key = req.cookies.SID;
-  if (!id || !session_key) {
-    res.sendStatus(401);
-    return
-  }
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.addFavourite(id, req.params.slug)
+      .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  })
+});
 
-  repo.getSession(id, session_key)
-    .then((session) => {
-      if (!session) res.sendStatus(401);
-      else {
-        repo.setFavourites(id, req.params.slug)
-        .then((success) => success ? res.send(success).sendStatus(200) : res.sendStatus(500))
-        .catch((err: any) => {
-          console.log(err);
-          res.sendStatus(500);
-        });
-      }    
-    })
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
-    })
+// GET  /user/profile/favourites/:slug               Removes the plant from fav.
+app.get(`${SERVICE}/profile/favourites/remove/:slug`, (req: GetUserRequest, res: GetUserResponse) => {
+  const id = req.cookies.UID;
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.removeFavourite(id, req.params.slug)
+      .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  })
 });
 
 // GET  /user/profile/:id   Get the profile for the given user id.

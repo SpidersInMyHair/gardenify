@@ -144,8 +144,31 @@ function getFavourites(id: string, offset: number = 0, limit: number = 20) {
     LIMIT ${offset},${limit};`
     , (err: any, results: Array<any>) => {
       if (err) reject(err);
-      console.log(results)
       resolve(results && results.length ? results : undefined);
+    });
+  })
+}
+
+function addFavourite(id: string, slug: string) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                      \
+    INSERT INTO favourites (user_id, plant_slug)                            \
+    VALUES (UUID_TO_BIN(${connection.escape(id)}), ${connection.escape(slug)});`
+    , (err: any, results: Array<any>) => {
+      if (err) reject(err);
+      resolve(results ? true : undefined);
+    });
+  })
+}
+
+function removeFavourite(id: string, slug: string) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                          \
+    DELETE FROM favourites                                                      \
+    WHERE user_id=UUID_TO_BIN(${connection.escape(id)}) AND plant_slug=${connection.escape(slug)};`
+    , (err: any, results: Array<any>) => {
+      if (err) reject(err);
+      resolve(results ? true : undefined);
     });
   })
 }
@@ -159,5 +182,7 @@ module.exports = {
   clearSession,
   getProfile,
   editProfile,
-  getFavourites
+  getFavourites,
+  addFavourite,
+  removeFavourite
 }

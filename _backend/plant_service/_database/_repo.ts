@@ -323,7 +323,6 @@ function getRatingByUser(slug: string, user_id: number): Promise<Ratings> {
       LIMIT 1; \
     `, (err: any, results: any) => {
       if (err) reject(err);
-      console.log(results);
       resolve(typeof results !== 'undefined' ? results[0] : undefined);
     });
   });
