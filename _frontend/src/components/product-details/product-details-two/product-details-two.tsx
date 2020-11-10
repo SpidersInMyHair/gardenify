@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Button } from 'components/button/button';
@@ -23,6 +23,7 @@ import {
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
+import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
 
 type ProductDetailsProps = {
   general: any;
@@ -43,12 +44,24 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   relatedPlants,
   deviceType
 }) => {
+  const [favourite, setFavourite] = useState(false);
+
+  const toggleFavourite = () => {
+    if (favourite) {
+      removeFavourite(general.slug).then((success) => success && setFavourite(false))
+    } else {
+      addFavourite(general.slug).then((success) => success && setFavourite(true))
+    }
+  }
 
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
+    checkFavourite(general.slug).then((success) => setFavourite(success))
   }, []);
+
+  const FavouriteButton = () => <span onClick={toggleFavourite} style={{marginLeft: 10, color: "gold", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '★' : '☆'}</span>
 
   return (
     <>
@@ -79,14 +92,15 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
 
         <ProductInfo> 
           { general.common_name === 'None' ? 
-          <Title>{general.name}</Title> :
+          <Title>{general.name}<FavouriteButton/></Title> :
           <>
-            <Title>{general.common_name}</Title>
+            <Title>{general.common_name}<FavouriteButton/></Title>
             <SubTitle>
               {general.name}
             </SubTitle>
           </>
           }
+
           <DescriptionWrapper>
             <Description>
               {general.description && <> {general.description} <br />

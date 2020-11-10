@@ -91,3 +91,57 @@ export async function getFavourites() {
     return null;
   }
 }
+
+export async function checkFavourite(slug) {
+  console.log("CHECK FAVE")
+  try {
+    const fetchResponse = await fetch(`${url}/user/profile/favourites/${slug}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    });
+    const { status } = await fetchResponse.json();
+    return status;
+  } catch {
+    return null;
+  }
+}
+
+export async function addFavourite(slug) {
+  try {
+    const fetchResponse = await fetch(`${url}/user/profile/favourites/add/${slug}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't add to favourites");
+    toast.success("Added to favourites");
+    return true;
+  } catch {
+    return null;
+  }
+}
+
+export async function removeFavourite(slug) {
+  try {
+    const fetchResponse = await fetch(`${url}/user/profile/favourites/remove/${slug}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't remove from favourites");
+    toast.success("Removed from favourites");
+    return true;
+  } catch {
+    return null;
+  }
+}
