@@ -11,7 +11,6 @@ import {
   BackButton,
   ProductWeight,
   ProductDescription,
-  ButtonText,
   ProductMeta,
   ProductCartWrapper,
   ProductPriceWrapper,
@@ -20,13 +19,10 @@ import {
   ProductCartBtn,
   MetaSingle,
   MetaItem,
-  RelatedItems,
 } from './product-details-one.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
-import { CartIcon } from 'assets/icons/CartIcon';
 import ReadMore from 'components/truncate/truncate';
 import CarouselWithCustomDots from 'components/multi-carousel/multi-carousel';
-import Products from 'components/product-grid/product-list/product-list';
 import { CURRENCY } from 'utils/constant';
 import { FormattedMessage } from 'react-intl';
 import { useLocale } from 'contexts/language/language.provider';
@@ -126,21 +122,14 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   borderRadius={100}
                   onClick={handleAddClick}
                 >
-                  <CartIcon mr={2} />
-                  <ButtonText>
-                    <FormattedMessage
-                      id="addCartButton"
-                      defaultMessage="Cart"
-                    />
-                  </ButtonText>
                 </Button>
               ) : (
-                <Counter
-                  value={getItem(data.id).quantity}
-                  onDecrement={handleRemoveClick}
-                  onIncrement={handleAddClick}
-                />
-              )}
+                  <Counter
+                    value={getItem(data.id).quantity}
+                    onDecrement={handleRemoveClick}
+                    onIncrement={handleAddClick}
+                  />
+                )}
             </ProductCartBtn>
           </ProductCartWrapper>
 
@@ -187,20 +176,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           </ProductPreview>
         )}
       </ProductDetailsWrapper>
-
-      <RelatedItems>
-        <h2>
-          <FormattedMessage
-            id="intlReletedItems"
-            defaultMessage="Related Items"
-          />
-        </h2>
-        <Products
-          deviceType={deviceType}
-          loadMore={false}
-          fetchLimit={10}
-        />
-      </RelatedItems>
     </>
   );
 };
