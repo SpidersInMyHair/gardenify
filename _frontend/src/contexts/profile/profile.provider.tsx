@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 import { v4 as uuidV4 } from 'uuid';
-import schedules from 'features/checkouts/data';
 import { ProfileContext } from './profile.context';
 
 type Action =
@@ -140,7 +139,7 @@ export const ProfileProvider: React.FunctionComponent<ProfileProviderProps> = ({
   children,
   initData,
 }) => {
-  const [state, dispatch] = useReducer(reducer, { ...initData, schedules });
+  const [state, dispatch] = useReducer(reducer, { ...initData });
   // console.log(state, 'profile provider state');
 
   return (
