@@ -31,8 +31,8 @@ const Footer = () => {
         defaultMessage='gardenify is a product of'
       />
       &nbsp;
-      <a href='#' target='_blank'>
-        RedQ, Inc.
+      <a href='https://www.cse.unsw.edu.au/~cs4920/' target='_blank'>
+        SENG 4920
       </a>
     </Box>
   );
