@@ -74,3 +74,20 @@ export async function editUser(userInfo) {
     return e;
   }
 }
+
+export async function getFavourites() {
+  try {
+    const fetchResponse = await fetch(`${url}/user/favourites`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't get favourite plants");
+    return await fetchResponse.json();
+  } catch {
+    return null;
+  }
+}
