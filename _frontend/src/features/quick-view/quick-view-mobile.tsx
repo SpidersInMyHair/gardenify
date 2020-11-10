@@ -25,7 +25,6 @@ import {
   ModalClose,
 } from './quick-view.style';
 import { CloseIcon } from 'assets/icons/CloseIcon';
-import { CartIcon } from 'assets/icons/CartIcon';
 import { CURRENCY } from 'utils/constant';
 
 import ReadMore from 'components/truncate/truncate';
@@ -111,13 +110,13 @@ const QuickViewMobile: React.FunctionComponent<QuickViewProps> = ({
                 <MetaSingle>
                   {categories
                     ? categories.map((item: any) => (
-                        <MetaItem
-                          onClick={() => onCategoryClick(item.slug)}
-                          key={item.id}
-                        >
-                          {item.title}
-                        </MetaItem>
-                      ))
+                      <MetaItem
+                        onClick={() => onCategoryClick(item.slug)}
+                        key={item.id}
+                      >
+                        {item.title}
+                      </MetaItem>
+                    ))
                     : ''}
                 </MetaSingle>
               </ProductMeta>
@@ -145,7 +144,6 @@ const QuickViewMobile: React.FunctionComponent<QuickViewProps> = ({
                       borderRadius={100}
                       onClick={handleAddClick}
                     >
-                      <CartIcon mr={2} />
                       <ButtonText>
                         <FormattedMessage
                           id='addCartButton'
@@ -154,12 +152,12 @@ const QuickViewMobile: React.FunctionComponent<QuickViewProps> = ({
                       </ButtonText>
                     </Button>
                   ) : (
-                    <Counter
-                      value={getItem(id).quantity}
-                      onDecrement={handleRemoveClick}
-                      onIncrement={handleAddClick}
-                    />
-                  )}
+                      <Counter
+                        value={getItem(id).quantity}
+                        onDecrement={handleRemoveClick}
+                        onIncrement={handleAddClick}
+                      />
+                    )}
                 </ProductCartBtn>
               </ProductCartWrapper>
             </ProductInfo>

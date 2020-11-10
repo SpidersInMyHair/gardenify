@@ -23,7 +23,6 @@ import {
   RelatedItems,
 } from './product-details-one.style';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
-import { CartIcon } from 'assets/icons/CartIcon';
 import ReadMore from 'components/truncate/truncate';
 import CarouselWithCustomDots from 'components/multi-carousel/multi-carousel';
 import Products from 'components/product-grid/product-list/product-list';
@@ -126,7 +125,6 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   borderRadius={100}
                   onClick={handleAddClick}
                 >
-                  <CartIcon mr={2} />
                   <ButtonText>
                     <FormattedMessage
                       id="addCartButton"
@@ -135,12 +133,12 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   </ButtonText>
                 </Button>
               ) : (
-                <Counter
-                  value={getItem(data.id).quantity}
-                  onDecrement={handleRemoveClick}
-                  onIncrement={handleAddClick}
-                />
-              )}
+                  <Counter
+                    value={getItem(data.id).quantity}
+                    onDecrement={handleRemoveClick}
+                    onIncrement={handleAddClick}
+                  />
+                )}
             </ProductCartBtn>
           </ProductCartWrapper>
 

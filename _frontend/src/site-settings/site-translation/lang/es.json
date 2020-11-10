@@ -13,12 +13,8 @@
   "nav.offer": "Oferta",
   "nav.help": "Necesitas ayuda",
   "nav.profile": "Perfil",
-  "nav.checkout": "Revisa",
-  "nav.order_received": "Factura de pedido",
   "nav.logout": "Cerrar sesión",
   "nav.login": "Iniciar sesión",
-  "nav.order": "Su pedido",
-
   "groceriesTitle": "Abarrotes entregados en {minute} minutos",
   "groceriesSubTitle": "Obtenga sus alimentos y refrigerios saludables entregados en su puerta todo el día todos los días",
   "makeupTitle": "Maquillajes de marca e importados",
@@ -27,25 +23,18 @@
   "bagsSubTitle": "Obtenga sus bolsos exclusivos y de marca entregados en poco tiempo",
   "womenClothsTitle": "Compra tus vestidos de diseñador",
   "womenClothsSubTitle": "Listo para usar vestidos a medida para usted en línea. Date prisa mientras duren las existencias.",
-
   "furnitureTitle": "Muebles exclusivos a precio económico",
   "furnitureSubTitle": "Haga de su casa un hogar con nuestra amplia colección de hermosos muebles.",
-
   "booksTitle": "Tu propia tienda de libros",
   "booksSubTitle": "Obtenga sus libros favoritos de nuestra amplia gama de libros.",
-
   "medicineTitle": "Su medicamento, entregado",
   "medicineSubTitle": "Diga adiós a todas sus preocupaciones de atención médica con nosotros.",
-
   "foodsTitle": "Tu orden lo entregamos",
   "foodsSubTitle": "Obtenga sus comidas favoritas en menos de una hora",
-
-  "alternativeCheckout": "Alternativa de pago",
   "termAndConditionHelper": "Al realizar esta compra, usted acepta nuestro",
   "termAndCondition": "términos y Condiciones.",
   "reqMedicine": "Solicitar medicina",
   "submitRequest": "Enviar peticion",
-
   "noteHead": "Nota",
   "noteDescription": "La disponibilidad del producto y el precio se confirmarán por teléfono. Cargo por entrega dentro de la ciudad $ 5 y fuera de la ciudad $ 10.",
   "rmMedicineName": "Nombre de medicina",
@@ -55,10 +44,8 @@
   "cartTitle": "Su pedido",
   "discountText": "Descuento",
   "vatText": "Incl. IVA",
-
   "searchPlaceholder": "Busque sus productos desde aquí",
   "searchButtonText": "Buscar",
-
   "mobileSignInButtonText": "Participar",
   "navlinkAccountSettings": "La configuración de su cuenta",
   "cartItems": "artículos",
@@ -85,14 +72,12 @@
   "savedCardsId": "Tarjetas guardadas",
   "savedContactId": "Guardar contacto",
   "savedAddressId": "Guardar dirección",
-
   "siteFooter": "Pickbazar es un producto de",
   "itemsText": "artículos",
   "shippinFeeText": "Gastos de envío",
   "voucherText": "Vale",
   "voucherApply": "Aplicar",
   "couponError": "Cupón Inválido",
-
   "deliverySchedule": "Calendario de entregas",
   "checkoutDeliveryAddress": "Dirección de entrega",
   "contactNumberText": "Número de contacto",
@@ -132,25 +117,19 @@
   "forgotPassText": "Se te olvidó tu contraseña",
   "sendResetPassText": "Le enviaremos un enlace para restablecer su contraseña",
   "resetPasswordBtn": "Restablecer contraseñas",
-
   "intlCopyBtnId": "Copiar",
   "intlCopySuccessId": "Copiado",
-
   "locationModalheading": "Selecciona tu ubicación",
   "locationModalSubHeading": "Debe seleccionar su ubicación para el servicio de entrega",
   "locationModalFooter": "Entrega gratuita para el primer pedido",
   "saleText": "Rebaja",
   "offText": "Apagada",
-
   "faqNo1Title": "¿Cómo contactar con el Servicio al Cliente?",
   "faqNo1Desc": "Nuestro equipo de experiencia del cliente está disponible los {number1} días de la semana y ofrecemos {number2} formas de ponerse en contacto: correo electrónico y chat. Intentamos responder rápidamente, por lo que no debe esperar demasiado para recibir una respuesta.",
-
   "faqNo2Title": "La instalación de la aplicación falló, ¿cómo actualizar la información del sistema?",
   "faqNo2Desc": "Por favor lea la documentación cuidadosamente. También tenemos algunos videos tutoriales en línea sobre este tema. Si el problema persiste, abra un ticket en el foro de soporte",
-
   "faqNo3Title": "Respuesta del sitio web tomando tiempo, ¿cómo mejorar?",
   "faqNo3Desc": "Al principio, verifique su conexión a internet. También tenemos algunos videos tutoriales en línea sobre este tema. Si el problema persiste, abra un ticket en el foro de soporte.",
-
   "faqNo4Title": "¿Cómo creo una cuenta?",
   "faqNo4Desc": "Si desea abrir una cuenta para uso personal, puede hacerlo por teléfono o en línea. Abrir una cuenta en línea solo debería tomar unos minutos.",
   "totalText": "Total",
@@ -178,9 +157,7 @@
   "bookSectionTitle": "Acerca del libro",
   "authorSectionTitle": "Sobre el autor",
   "defaultIntlId": "Agregue un marcador de posición del archivo de idioma",
-
   "noResultFound": "Lo sentimos, no se encontraron resultados :(",
-
   "deliveryText": "Entrega",
   "cuisineText": "Cocina",
   "minOrderText": "La orden mínima",

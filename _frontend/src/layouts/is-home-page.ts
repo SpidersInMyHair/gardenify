@@ -5,7 +5,6 @@ import {
   MAKEUP_PAGE,
   BAGS_PAGE,
   FURNITURE_PAGE,
-  BOOK_PAGE,
   MEDICINE_PAGE,
   RESTAURANT_PAGE,
 } from 'site-settings/site-navigation';
@@ -16,7 +15,6 @@ const arr = [
   MAKEUP_PAGE,
   BAGS_PAGE,
   FURNITURE_PAGE,
-  BOOK_PAGE,
   MEDICINE_PAGE,
   RESTAURANT_PAGE,
 ];
