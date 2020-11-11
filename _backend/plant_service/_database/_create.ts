@@ -74,12 +74,12 @@ connection.query(` \
   ); \
   CREATE TABLE IF NOT EXISTS plant_distributions ( \
     distribution_slug       varchar(256)  NOT NULL, \
-    plant_slug              varchar(256)  NOT NULL, \
+    slug              varchar(256)  NOT NULL, \
     id                      int           NOT NULL AUTO_INCREMENT, \
     PRIMARY KEY (id), \
-    FOREIGN KEY (plant_slug) REFERENCES plant_varieties(slug), \
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug), \
     FOREIGN KEY (distribution_slug) REFERENCES plant_distribution_details(distribution_slug), \
-    UNIQUE (distribution_slug, plant_slug) \
+    UNIQUE (distribution_slug, slug) \
   ); \
   CREATE TABLE IF NOT EXISTS comments ( \
     id         int           NOT NULL AUTO_INCREMENT, \

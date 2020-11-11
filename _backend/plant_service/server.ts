@@ -47,7 +47,8 @@ import {
  GET  /plant/comments/:slug       Get the user comments related to a particular plant (using slug)
  POST /plant/comments/:slug       Post a user's comment about a particular plant
  GET  /plant/distribution/:slug   Get the summary of a distribution given a (distribution) slug.
- GET  /plant/distributions/:slug   Get the list of distributions.
+ GET  /plant/distribution/        Get the list of distributions.
+ GET  /plant/distribution/in/:slug Get a list of plants in the distribution
 ------------------------------------------------------------------------- */
 
 // GET  /plant/distribution
@@ -273,6 +274,29 @@ app.get(`${SERVICE}/distribution/:slug`, (req: GetDistributionRequest, res: GetD
   repo.getDistribution(req.params.slug)
     .then((distribution: Distribution) => {
       res.send(distribution).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// GET  /plant/distribution/in/:slug
+app.get(`${SERVICE}/distribution/in/:slug`, (req: any, res: GetPlantsResponse) => {
+  console.log(req.params.slug)
+  let limit = 20;
+  let offset = 0;
+  if (req.query['limit'] !== '') {
+    limit = req.query.limit;
+    delete req.query.limit;
+  }
+  if (req.query['offset'] !== '') {
+    offset = req.query.offset;
+    delete req.query.offset
+  }
+  repo.getPlantsInDistribution(req.params.slug, offset,limit)
+    .then((plants: Array<PlantVariety>) => {
+      res.send(plants).status(200).end();
     })
     .catch((err: any) => {
       console.log(err);

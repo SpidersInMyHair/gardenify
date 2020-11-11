@@ -375,6 +375,22 @@ function getDistributions(offset: number = 0, limit: number = 20, query: any): P
   })  
 }
 
+function getPlantsInDistribution(slug: string, offset: number = 0, limit: number = 20): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_distributions as pd \
+      INNER JOIN plant_varieties as pv ON pd.slug=pv.slug \
+      WHERE pd.distribution_slug=\"${slug}\" \
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<PlantVariety>) => {
+        console.log(results);
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
 module.exports = {
   getPlant,
   getPlants,
@@ -392,5 +408,6 @@ module.exports = {
   getRatings,
   getRatingByUser,
   getDistribution,
-  getDistributions
+  getDistributions,
+  getPlantsInDistribution
 }

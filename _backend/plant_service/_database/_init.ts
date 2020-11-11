@@ -33,8 +33,8 @@ connection.query(` \
             if (err) throw err;
             console.log('> MySQL: Initialized distribution details table');
             connection.query(`
-              LOAD DATA LOCAL INFILE "_backend/plant_service/data/distribution_details.csv" \
-              INTO TABLE plant_distribution_details \
+              LOAD DATA LOCAL INFILE "_backend/plant_service/data/distributions.csv" \
+              INTO TABLE plant_distributions \
               FIELDS TERMINATED BY ',' \
               OPTIONALLY ENCLOSED BY '"' \
               IGNORE 1 LINES;`
