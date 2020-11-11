@@ -4,9 +4,6 @@
     on top of arc/info grid data obtained from BOM
     (http://www.bom.gov.au/climate/averages/maps.shtml)
     to obtain averages by postcode and output to a csv
-
-    TODO: currently there is a bug which means that annual frost counts are out of wack.  Need to fix.
-
 """
 import os
 from glob import glob
@@ -22,22 +19,11 @@ from tqdm import tqdm
 #import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    """
-    shapefile = fiona.open('data/POA06aAUST_region.shp')
-    src = rasterio.open('data/maxann.txt')
-
-    shapes = [feature["geometry"] for feature in shapefile]
-    post_codes = [feature['properties']['POA_2006'] for feature in shapefile]
-
-    out_image, out_transform = rasterio.mask.mask(src, [shapes[post_codes.index(sys.argv[1])]],crop=True)
-
-    out_image[out_image==-9999] = np.nan
-    print(np.nanmean(out_image))
-    #sns.heatmap(out_image[0])
-    #plt.show()
-    """
+    # directory of this script
     script_dir = os.path.dirname(os.path.realpath(__file__))
+    # where the data is kept ....
     data_dir = os.path.abspath(os.path.join(script_dir,'../data/climate'))
+    # target output file
     outfile = os.path.abspath(os.path.join(script_dir,'../data/climate_by_postcode.csv'))
     out_fh = open(outfile,'w')
 
@@ -70,6 +56,8 @@ if __name__ == '__main__':
                 climate_dataframes[k]) for k in climate_keys]), file=out_fh)
         except:
             pass
+        
+    # and close out our files
     out_fh.close()
 
     postcode_shapefile.close()
