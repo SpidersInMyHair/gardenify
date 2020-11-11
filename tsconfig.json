@@ -13,8 +13,7 @@
     //     "_frontend/*"
     //   ]
     // },
-    "types": ["react"],
-    "jsx": "react",
+    "types": ["node"],
     "resolveJsonModule": true,
   },
   "include": [
