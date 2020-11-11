@@ -8,13 +8,13 @@ type RatingsProps = {
 };
 
 const Ratings: React.FC<RatingsProps> = ({ratings, handleRating}) => {
-    const [rating, setRating] = useState((ratings && ratings.user_rating) || 0)
+    const [rating, setRating] = useState(0)
     return (
         <span style={{marginLeft: 20, fontSize: "xx-large"}}>
             <span style={{color: "forestgreen", cursor: "pointer"}}>
                 {[1,2,3,4,5].map((key) => (
                     <span key={key} onClick={() =>  handleRating(key)} onMouseEnter={() => setRating(key)} onMouseLeave={() => setRating((ratings && ratings.user_rating) || 0)}>
-                        {key <= rating ? "★" : "☆"}
+                        {rating ? (key <= rating ? "★" : "☆") : (ratings && key <= ratings.user_rating ? "★" : "☆")}
                     </span>
                 ))}
             </span>

@@ -96,7 +96,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
     isAuthenticated && checkFavourite(general.slug).then((success) => setFavourite(success))
     getComments(general.slug).then((c) => setComments(c))
     getRatings(general.slug).then((r) => r && setRatings(r))
-  }, []);
+  }, [isAuthenticated]);
 
   const FavouriteButton = () => isAuthenticated ?
     <span onClick={toggleFavourite} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
