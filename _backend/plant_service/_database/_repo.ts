@@ -345,6 +345,67 @@ function insertRating(slug: string, user_id: number, rating: Number) {
   })
 }
 
+function getDistribution(slug: string): Promise<Distribution> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, species_count \
+      FROM plant_distribution_details \
+      WHERE distribution_slug=${connection.escape(slug)} \
+      LIMIT 1;`
+      , (err: any, results: Array<Distribution>) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results[0] : undefined);
+      });
+  })
+}
+
+function getDistribution(offset: number = 0, limit: number = 20, query: any): Promise<PlantDistribution[]> {
+  if (query && query.search) {
+    const sanitizedKeyword = connection.escape('%' + query.search + '%');
+    delete query.search;
+    return new Promise((resolve, reject) => {
+      connection.query(` \
+        SELECT slug, name, common_name, genus, family, img_url \
+        FROM plant_varieties \
+        WHERE (slug       LIKE ${sanitizedKeyword} \
+        OR    name        LIKE ${sanitizedKeyword} \
+        OR    common_name LIKE ${sanitizedKeyword} \
+        OR    genus       LIKE ${sanitizedKeyword} \
+        OR    family      LIKE ${sanitizedKeyword}) \
+        ${Object.keys(query).map((param) => (
+          query[param] ? `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}` : ''
+        )).join(" ")}
+        ORDER BY img_url \
+        LIMIT ${offset},${limit}; \
+        `, (err: any, results: Array<PlantVariety>) => {
+          if (err) reject(err);
+          resolve(results.length > 0 ? results : undefined);
+      });
+    })  
+  }
+
+  let first = true;
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT slug, name, common_name, genus, family, img_url \
+      FROM plant_varieties \
+      ${Object.keys(query).map((param) => {
+        if (!query[param]) return
+        if (first) {
+          first = false;
+          return `WHERE ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
+        }
+        return `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
+      }).join(" ")}
+      ORDER BY img_url \
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<PlantVariety>) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })
+}
+
 module.exports = {
   getPlant,
   getPlants,

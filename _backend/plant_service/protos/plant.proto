@@ -44,3 +44,13 @@ enum Unit {
   GRAM = 0;
   LITER = 1;
 }
+
+message Distribution {
+    string distribution_slug = 1;
+    string name = 2;
+    string tdwg_code = 3;
+    uint32 level = 4;
+    string parent_slug = 5;
+    string parent_name = 6;
+    uint32 species_count = 7;
+}

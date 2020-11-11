@@ -6,7 +6,8 @@ import {
   PlantVariety,
   PlantScientificDetails,
   Comments,
-  Ratings
+  Ratings,
+  Distribution
 } from "../../protos/_backend/plant_service/protos/plant_pb";
 
 export interface GetPlantRequest extends Request {
@@ -15,57 +16,57 @@ export interface GetPlantRequest extends Request {
   };
 }
 
-export interface GetPlantResponse<ResBody = PlantVariety> extends Response {
+export interface GetDistributionResponse<ResBody = DistributionVariety> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetPlantsResponse<ResBody = Array<PlantVariety>> extends Response {
+export interface GetDistributionsResponse<ResBody = Array<DistributionVariety>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface CreatePlantRequest<ReqBody = PlantVariety> extends Request {
+export interface CreateDistributionRequest<ReqBody = DistributionVariety> extends Request {
   body: ReqBody;
 }
 
-export type CreatePlantResponse = Response;
+export type CreateDistributionResponse = Response;
 
-export interface GetPlantItemsRequest extends Request {
+export interface GetDistributionItemsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetPlantItemsResponse<ResBody = Array<Array<PlantItem>>> extends Response {
+export interface GetDistributionItemsResponse<ResBody = Array<Array<DistributionItem>>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetPlantInstructionsRequest extends Request {
+export interface GetDistributionInstructionsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetPlantInstructionsResponse<ResBody = Array<PlantInstruction>> extends Response {
+export interface GetDistributionInstructionsResponse<ResBody = Array<DistributionInstruction>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetPlantScientificDetailsRequest extends Request {
+export interface GetDistributionScientificDetailsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetPlantScientificDetailsResponse<ResBody = PlantScientificDetails> extends Response {
+export interface GetDistributionScientificDetailsResponse<ResBody = DistributionScientificDetails> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetPlantsByKeywordRequest extends Request {
+export interface GetDistributionsByKeywordRequest extends Request {
   params: {
     keyword: string,
   };
 }
 
-export interface GetPlantsByKeywordResponse<ResBody = Array<PlantVariety>> extends Response {
+export interface GetDistributionsByKeywordResponse<ResBody = Array<DistributionVariety>> extends Response {
   send: Send<ResBody, this>;
 }
 
@@ -100,3 +101,17 @@ export interface CreateRatingsRequest<ReqBody = Ratings> extends Request {
 }
 
 export type CreateRatingsResponse = Response;
+
+export interface GetDistributionRequest extends Request {
+  params: {
+    slug: string,
+  };
+}
+
+export interface GetDistributionResponse<ResBody = Distribution> extends Response {
+  send: Send<ResBody, this>;
+}
+
+export interface GetDistributionsResponse<ResBody = Array<Distribution>> extends Response {
+  send: Send<ResBody, this>;
+}

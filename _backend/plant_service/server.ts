@@ -29,7 +29,10 @@ import {
   GetCommentsRequest,
   GetCommentsResponse,
   GetRatingsRequest,
-  GetRatingsResponse
+  GetRatingsResponse,
+  GetDistributionRequest,
+  GetDistributionResponse,
+  GetDistributionsResponse,
 } from "./_messages";
 
 /* --------------------------- SERVICE ENDPOINTS --------------------------- 
@@ -42,6 +45,7 @@ import {
  GET  /plant/search/:keyword      Get the summary of all plants matching the keyword
  GET  /plant/comments/:slug       Get the user comments related to a particular plant (using slug)
  POST /plant/comments/:slug       Post a user's comment about a particular plant
+ GET  /plant/distribution/:slug   Get the summary of a distribution given a (distribution) slug.
 ------------------------------------------------------------------------- */
 
 // GET  /plant/:slug
@@ -237,4 +241,39 @@ app.post(`${SERVICE}/rating`, (req: any, res: any) => {
       }
     })
   }
+});
+
+// GET  /plant/distribution/:slug
+app.get(`${SERVICE}/:slug`, (req: GetDistributionRequest, res: GetDistributionResponse) => {
+  console.log(req.params.slug)
+  repo.getDistribution(req.params.slug)
+    .then((distribution: Distribution) => {
+      res.send(distribution).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// GET  /plant/distribution
+app.get(`${SERVICE}`, (req: any, res: GetDistributionsResponse) => {
+  let limit = 20;
+  let offset = 0;
+  if (req.query['limit'] !== '') {
+    limit = req.query.limit;
+    delete req.query.limit;
+  }
+  if (req.query['offset'] !== '') {
+    offset = req.query.offset;
+    delete req.query.offset
+  }
+  repo.getDistributions(offset, limit, req.query)
+    .then((distribution: Array<Distribution>) => {
+      res.send(distribution).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
