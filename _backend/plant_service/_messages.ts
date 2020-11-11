@@ -16,57 +16,57 @@ export interface GetPlantRequest extends Request {
   };
 }
 
-export interface GetDistributionResponse<ResBody = DistributionVariety> extends Response {
+export interface GetPlantResponse<ResBody = PlantVariety> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetDistributionsResponse<ResBody = Array<DistributionVariety>> extends Response {
+export interface GetPlantsResponse<ResBody = Array<PlantVariety>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface CreateDistributionRequest<ReqBody = DistributionVariety> extends Request {
+export interface CreatePlantRequest<ReqBody = PlantVariety> extends Request {
   body: ReqBody;
 }
 
-export type CreateDistributionResponse = Response;
+export type CreatePlantResponse = Response;
 
-export interface GetDistributionItemsRequest extends Request {
+export interface GetPlantItemsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetDistributionItemsResponse<ResBody = Array<Array<DistributionItem>>> extends Response {
+export interface GetPlantItemsResponse<ResBody = Array<Array<PlantItem>>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetDistributionInstructionsRequest extends Request {
+export interface GetPlantInstructionsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetDistributionInstructionsResponse<ResBody = Array<DistributionInstruction>> extends Response {
+export interface GetPlantInstructionsResponse<ResBody = Array<PlantInstruction>> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetDistributionScientificDetailsRequest extends Request {
+export interface GetPlantScientificDetailsRequest extends Request {
   params: {
     slug: string,
   };
 }
 
-export interface GetDistributionScientificDetailsResponse<ResBody = DistributionScientificDetails> extends Response {
+export interface GetPlantScientificDetailsResponse<ResBody = PlantScientificDetails> extends Response {
   send: Send<ResBody, this>;
 }
 
-export interface GetDistributionsByKeywordRequest extends Request {
+export interface GetPlantsByKeywordRequest extends Request {
   params: {
     keyword: string,
   };
 }
 
-export interface GetDistributionsByKeywordResponse<ResBody = Array<DistributionVariety>> extends Response {
+export interface GetPlantsByKeywordResponse<ResBody = Array<PlantVariety>> extends Response {
   send: Send<ResBody, this>;
 }
 
