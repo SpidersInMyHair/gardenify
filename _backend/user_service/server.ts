@@ -159,6 +159,20 @@ app.get(`${SERVICE}/profile/favourites/:slug`, (req: GetUserRequest, res: GetUse
   const id = req.cookies.UID;
   checkSession(id, req.cookies.SID).then((session) => {
     if (!session) res.sendStatus(401)
+    else repo.checkFavourite(id, req.params.slug)
+      .then((success) => res.send({status: success}).status(200).end())
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  })
+});
+
+// GET  /user/profile/favourites/:slug               Sets the plant to one of the users favourites.
+app.get(`${SERVICE}/profile/favourites/add/:slug`, (req: GetUserRequest, res: GetUserResponse) => {
+  const id = req.cookies.UID;
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
     else repo.addFavourite(id, req.params.slug)
       .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
       .catch((err: any) => {

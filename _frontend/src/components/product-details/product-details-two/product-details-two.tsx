@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Button } from 'components/button/button';
 import Image from 'components/image/image';
+import AuthenticationForm from 'features/authentication-form';
+import { openModal } from '@redq/reuse-modal';
 import {
   ProductDetailsWrapper,
   ProductPreview,
@@ -23,6 +25,8 @@ import {
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
+import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
+import { AuthContext } from 'contexts/auth/auth.context';
 
 type ProductDetailsProps = {
   general: any;
@@ -43,12 +47,52 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   relatedPlants,
   deviceType
 }) => {
+  const [favourite, setFavourite] = useState(false);
+
+  const {
+    authDispatch,
+    authState: { isAuthenticated }
+  } = useContext<any>(AuthContext);
+
+  const toggleFavourite = () => {
+    if (favourite) {
+      removeFavourite(general.slug).then((success) => success && setFavourite(false))
+    } else {
+      addFavourite(general.slug).then((success) => success && setFavourite(true))
+    }
+  }
+
+const handleLogin = () => {
+  authDispatch({
+    type: 'SIGNIN',
+  });
+
+  openModal({
+    show: true,
+    overlayClassName: 'quick-view-overlay',
+    closeOnClickOutside: true,
+    component: AuthenticationForm,
+    closeComponent: '',
+    config: {
+      enableResizing: false,
+      disableDragging: true,
+      className: 'quick-view-modal',
+      width: 458,
+      height: 'auto',
+    },
+  });
+};
 
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
+    isAuthenticated && checkFavourite(general.slug).then((success) => setFavourite(success))
   }, []);
+
+  const FavouriteButton = () => isAuthenticated ?
+    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
+  : <span onClick={handleLogin} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
 
   return (
     <>
@@ -79,14 +123,15 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
 
         <ProductInfo> 
           { general.common_name === 'None' ? 
-          <Title>{general.name}</Title> :
+          <Title>{general.name}<FavouriteButton/></Title> :
           <>
-            <Title>{general.common_name}</Title>
+            <Title>{general.common_name}<FavouriteButton/></Title>
             <SubTitle>
               {general.name}
             </SubTitle>
           </>
           }
+
           <DescriptionWrapper>
             <Description>
               {general.description && <> {general.description} <br />

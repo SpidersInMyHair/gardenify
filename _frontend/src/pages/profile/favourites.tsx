@@ -46,7 +46,6 @@ const FavouritesPage: NextPage<Props> = ({ deviceType }) => {
     getFavourites().then((favs) => setFavourites(favs))
   }, [])
   
-  console.log(favourites)
   return (
     <>
       <SEO title="Favourites - gardenify" description="Favourites Details" />

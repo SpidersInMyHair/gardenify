@@ -149,6 +149,21 @@ function getFavourites(id: string, offset: number = 0, limit: number = 20) {
   })
 }
 
+
+function checkFavourite(id: string, slug: string) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                      \
+    SELECT *                                                                \
+    FROM favourites                                                         \
+    WHERE user_id=UUID_TO_BIN(${connection.escape(id)}) AND plant_slug=${connection.escape(slug)} \
+    LIMIT 1;`
+    , (err: any, results: Array<any>) => {
+      if (err) reject(err);
+      resolve(results && results.length ? true : false);
+    });
+  })
+}
+
 function addFavourite(id: string, slug: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                      \
@@ -183,6 +198,7 @@ module.exports = {
   getProfile,
   editProfile,
   getFavourites,
+  checkFavourite,
   addFavourite,
   removeFavourite
 }
