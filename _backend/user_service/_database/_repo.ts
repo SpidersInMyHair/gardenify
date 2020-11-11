@@ -171,7 +171,7 @@ function addFavourite(id: string, slug: string) {
     VALUES (UUID_TO_BIN(${connection.escape(id)}), ${connection.escape(slug)});`
     , (err: any, results: Array<any>) => {
       if (err) reject(err);
-      resolve(results ? true : undefined);
+      resolve(results ? true : false);
     });
   })
 }
@@ -183,7 +183,7 @@ function removeFavourite(id: string, slug: string) {
     WHERE user_id=UUID_TO_BIN(${connection.escape(id)}) AND plant_slug=${connection.escape(slug)};`
     , (err: any, results: Array<any>) => {
       if (err) reject(err);
-      resolve(results ? true : undefined);
+      resolve(results ? true : false);
     });
   })
 }

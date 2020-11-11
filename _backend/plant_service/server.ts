@@ -32,6 +32,20 @@ import {
   GetRatingsResponse
 } from "./_messages";
 
+async function checkSession(id: string, session_key: string) {
+  if (!id || !session_key) {
+    return false
+  }
+
+  try {
+    const session = await repo.getSession(id, session_key)
+    return session ? true : false
+  } catch (err: any) {
+    console.log(err);
+    return false
+  }
+}
+
 /* --------------------------- SERVICE ENDPOINTS --------------------------- 
  GET  /plant/:slug                Get the summary of a plant variety given an slug.
  POST /plant/                     Create a new plant variety.
@@ -187,21 +201,28 @@ app.get(`${SERVICE}/comment/:slug`, (req: GetCommentsRequest, res: GetCommentsRe
 
 // POST /plant/comment
 app.post(`${SERVICE}/comment`, (req: any, res: any) => {
-  repo.insertComment( //
-    req.body.plant_variety_id, //
-    req.body.user_id, //
-    req.body.comment_description //
-  )
-    .then(() => res.sendStatus(200))
-    .catch((err: any) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
+  const id = req.cookies.UID;
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.insertComment( //
+      req.body.slug, //
+      id, //
+      req.body.comment_description //
+    )
+      .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+    })
+  
 });
 
-// GET  /plant/rating:slug
+// GET  /plant/rating/:slug
 app.get(`${SERVICE}/rating/:slug`, (req: GetRatingsRequest, res: GetRatingsResponse) => {
-  repo.getRatings(req.params.slug)
+  const id = req.cookies.UID;
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) repo.getRatings(req.params.slug)
     .then((comments: Array<Ratings>) => {
       res.send(comments).status(200).end();
     })
@@ -209,6 +230,13 @@ app.get(`${SERVICE}/rating/:slug`, (req: GetRatingsRequest, res: GetRatingsRespo
       console.log(err);
       res.sendStatus(500);
     });
+    else repo.getRatings(req.params.slug, id)
+      .then((rating: any) => res.send(rating).status(200).end())
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });  
+    })
 });
 
 // POST /plant/rating
@@ -216,25 +244,19 @@ app.post(`${SERVICE}/rating`, (req: any, res: any) => {
   if (req.body.rating < 1 || req.body.rating > 5) {
     console.log('Invalid Rating; must be an integer between 1 and 5 inclusive');
     res.sendStatus(500);
-  } else {
-    repo.getRatingByUser(
-      req.body.plant_variety_id,
-      req.body.user_id
-    ).then((rating: Ratings) => {
-      if(typeof rating !== 'undefined') {
-        console.log('Rating by this user for this plant already exists');
-        res.sendStatus(500);
-      } else {
-        repo.insertRating(
-          req.body.plant_variety_id,
-          req.body.user_id,
-          req.body.rating
-        ) .then(() => res.sendStatus(200))
-          .catch((err: any) => {
-            console.log(err);
-            res.sendStatus(500);
-          });
-      }
-    })
+    return
   }
+  const id = req.cookies.UID;
+  checkSession(id, req.cookies.SID).then((session) => {
+    if (!session) res.sendStatus(401)
+    else repo.insertRating(
+      id,
+      req.body.slug,
+      req.body.rating
+    ) .then((success) => success ? res.sendStatus(200) : res.sendStatus(500))
+      .catch((err: any) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+    })
 });

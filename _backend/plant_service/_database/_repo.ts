@@ -274,9 +274,10 @@ function getPlantsByKeyword(keyword: string): Promise<PlantVariety[]> {
 function getComments(slug: string): Promise<Array<Array<Comments>>> {
   return new Promise((resolve, reject) => {
     connection.query(` \
-      SELECT * \
-      FROM comments \
-      WHERE slug=${connection.escape(slug)}; \
+      SELECT name, image_url, comment_description                       \
+      FROM comments JOIN profiles on comments.user_id=profiles.user_id  \
+      WHERE slug=${connection.escape(slug)}                             \
+      ORDER BY date DESC;                                               \
     `, (err: any, results: Array<Array<Comments>>) => {
       if (err) reject(err);
       resolve(results.length > 0 ? results : []);
@@ -284,63 +285,70 @@ function getComments(slug: string): Promise<Array<Array<Comments>>> {
   });
 }
 
-function insertComment(slug: string, user_id: number, comment_description: string) {
+function insertComment(slug: string, user_id: string, comment_description: string) {
   return new Promise((resolve, reject) => {
     connection.query(` \
       INSERT INTO comments (slug, user_id, comment_description) \
       VALUES ( \
         ${connection.escape(slug)}, \
-        ${connection.escape(user_id)}, \
+        UUID_TO_BIN(${connection.escape(user_id)}), \
         ${connection.escape(comment_description)} \
       );`
       , (err: any, results: any) => {
         if (err) reject(err);
-        resolve(results);
+        resolve(results ? true : false);
       });
   })
 }
 
-function getRatings(slug: string): Promise<Array<Array<Ratings>>> {
+function getRatings(slug: string, user_id?: string): Promise<any> {
   return new Promise((resolve, reject) => {
     connection.query(` \
-      SELECT * \
-      FROM ratings \
-      WHERE slug=${connection.escape(slug)}; \
-    `, (err: any, results: Array<Array<Ratings>>) => {
+      SELECT AVG(rating) AS rating                            \
+      FROM ratings                                            \
+      WHERE slug=${connection.escape(slug)};                  \
+      SELECT rating AS user_rating                            \
+      FROM ratings                                            \
+      WHERE slug=${connection.escape(slug)}                   \
+      AND user_id=UUID_TO_BIN(${connection.escape(user_id)})  \
+      LIMIT 1;                                                \
+    `, (err: any, results: Array<any>) => {
       if (err) reject(err);
-      resolve(results.length > 0 ? results : []);
+      if (results && results.length > 1) resolve({...results[0][0], ...results[1][0]})
+      else if (results && results.length) resolve(...results[0])
+      else resolve([])
     });
   });
 }
 
-function getRatingByUser(slug: string, user_id: number): Promise<Ratings> {
+function insertRating(user_id: string, slug: string, rating: Number) {
   return new Promise((resolve, reject) => {
     connection.query(` \
-      SELECT * \
-      FROM ratings \
-      WHERE slug=${connection.escape(slug)} \
-      AND user_id=${connection.escape(user_id)}
-      LIMIT 1; \
-    `, (err: any, results: any) => {
-      if (err) reject(err);
-      resolve(typeof results !== 'undefined' ? results[0] : undefined);
-    });
-  });
-}
-
-function insertRating(slug: string, user_id: number, rating: Number) {
-  return new Promise((resolve, reject) => {
-    connection.query(` \
-      INSERT INTO ratings (slug, user_id, rating) \
-      VALUES ( \
-        ${connection.escape(slug)}, \
-        ${connection.escape(user_id)}, \
-        ${connection.escape(rating)} \
+      INSERT INTO ratings (user_id, slug, rating)     \
+      VALUES (                                        \
+        UUID_TO_BIN(${connection.escape(user_id)}),   \
+        ${connection.escape(slug)},                   \
+        ${connection.escape(rating)}                  \
       );`
       , (err: any, results: any) => {
         if (err) reject(err);
-        resolve(results);
+        resolve(results ? true : false);
       });
+  })
+}
+
+function getSession(id: string, session_key: string) {
+  return new Promise((resolve, reject) => {
+    connection.query(`                                                      \
+      SELECT session_key                                                    \
+      FROM sessions                                                         \
+      WHERE user_id=UUID_TO_BIN(${connection.escape(id)})                   \
+      AND session_key=UUID_TO_BIN(${connection.escape(session_key)})        \
+      LIMIT 1;`
+    , (err: any, results: Array<any>) => {
+      if (err) reject(err);
+      resolve(results && results.length ? results[0] : undefined);
+    });
   })
 }
 
@@ -358,6 +366,6 @@ module.exports = {
   insertComment,
   getComments,
   insertRating,
-  getRatings,
-  getRatingByUser
+  getSession,
+  getRatings
 }
