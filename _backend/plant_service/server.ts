@@ -114,7 +114,7 @@ app.get(`${SERVICE}/items/:slug`, (req: GetPlantItemsRequest, res: GetPlantItems
       if (plantItems.length <= 0) {
         repo.getScientificDetails(req.params.slug)
         .then((plantScientificDetails: PlantScientificDetails) => {
-          if (typeof plantScientificDetails !== 'undefined') {
+          if (plantScientificDetails) {
             repo.addItems(req.params.slug).then(() => {
               repo.getItems(req.params.slug)
                 .then((plantItems: Array<Array<PlantItem>>) => {
@@ -159,7 +159,7 @@ app.get(`${SERVICE}/instructions/:slug`, (req: GetPlantInstructionsRequest, res:
 app.get(`${SERVICE}/scientific/:slug`, (req: GetPlantScientificDetailsRequest, res: GetPlantScientificDetailsResponse) => {
   repo.getScientificDetails(req.params.slug)
     .then((plantScientificDetails: PlantScientificDetails) => {
-      if (typeof plantScientificDetails !== 'undefined') {
+      if (plantScientificDetails) {
         res.send(plantScientificDetails).status(200).end();
       } else {
         //repo.getScientificDetails(req.params.slug)

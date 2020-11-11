@@ -92,7 +92,7 @@ function insert(trefle_id: string, slug: string, name: string, common_name: stri
   })
 }
 
-function insert_scientific(data): Promise<number> {
+function insert_scientific(data): Promise<boolean> {
   return new Promise((resolve, reject) => {
     connection.query(` \
       INSERT INTO plant_scientific_details (slug, wiki, description, ph_low, ph_high, temperature_low, temperature_high, precipitation_low, precipitation_high, light, soil_salinity, soil_texture, soil_humidity, soil_nutriments) \
@@ -114,12 +114,12 @@ function insert_scientific(data): Promise<number> {
       ); \
     `, (err: any, results: any) => {
       if (err) reject(err);
-      resolve(typeof results === 'undefined' ? 0 : 1);
+      resolve(results ? true : false);
     });
   })
 }
 
-function insert_item(data):Promise<number>{ 
+function insert_item(data):Promise<boolean>{ 
   return new Promise((resolve, reject) => {
     connection.query(` \
       INSERT INTO plant_items (slug, item_name) \
@@ -129,7 +129,7 @@ function insert_item(data):Promise<number>{
       ); \
     `, (err: any, results: any) => {
       if (err) reject(err);
-      resolve(typeof results === 'undefined' ? 0 : 1);
+      resolve(results ? true : false);
     });
   })
 }
@@ -156,7 +156,7 @@ function getInstructions(slug: string): Promise<Array<PlantInstruction>> {
       ORDER BY step_number ASC;`
       , (err: any, results: Array<Array<PlantInstruction>>) => {
         if (err) reject(err);
-        resolve(typeof results !== 'undefined' ? results[1] : []);
+        resolve(results && results.length ? results[1] : []);
       });
   });
 }
@@ -170,17 +170,17 @@ function getScientificDetails(slug: string): Promise<PlantScientificDetails> {
       LIMIT 1;`
       , (err: any, results: any) => {
         if (err) reject(err);
-        resolve(typeof results !== 'undefined' ? results[0] : undefined);
+        resolve(results && results.length ? results[0] : undefined);
       });
   });
 }
 
-function addItems(slug: string): Promise<number> {
+function addItems(slug: string): Promise<boolean> {
   
   return new Promise((resolve) => {
     getScientificDetails(slug)
       .then((plantScientificDetails: any) => {
-        if(typeof plantScientificDetails !== 'undefined'){
+        if(plantScientificDetails){
           let items = [];
           // Item for watering
           let temp = 'Water hose';
@@ -230,12 +230,12 @@ function addItems(slug: string): Promise<number> {
           for (let i = 0; i < items.length; i++) {
             insert_item({'slug' : slug, 'item_name':items[i]});
           }
-          resolve(1);
+          resolve(true);
       }});
     }) 
 }
 
-function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
+function addScientificDetails(slug: string): Promise<PlantScientificDetails|{}> {
   const pyshell = new PythonShell('source_garden_detail.py', {
     mode: 'json',
     //pythonOptions: ['-u'], // get print results in real-time
@@ -245,9 +245,9 @@ function addScientificDetails(slug: string): Promise<PlantScientificDetails> {
 
   return new Promise((resolve, reject) => {
     pyshell.on('message', function (response: any) {
-      typeof response.slug !== 'undefined' ? insert_scientific(response).then(() => {
+      response.slug ? insert_scientific(response).then(() => {
         resolve(getScientificDetails(slug))
-      }) : resolve(undefined);
+      }) : resolve({});
     })
   })
 }
