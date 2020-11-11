@@ -23,5 +23,25 @@ connection.query(` \
       , (err: any) => {
         if (err) throw err;
         console.log('> MySQL: Initialized plant tables');
+        connection.query(`
+          LOAD DATA LOCAL INFILE "_backend/plant_service/data/distribution_details.csv" \
+          INTO TABLE plant_distribution_details \
+          FIELDS TERMINATED BY ',' \
+          OPTIONALLY ENCLOSED BY '"' \
+          IGNORE 1 LINES;`
+          , (err: any) => {
+            if (err) throw err;
+            console.log('> MySQL: Initialized distribution details table');
+            connection.query(`
+              LOAD DATA LOCAL INFILE "_backend/plant_service/data/distribution_details.csv" \
+              INTO TABLE plant_distribution_details \
+              FIELDS TERMINATED BY ',' \
+              OPTIONALLY ENCLOSED BY '"' \
+              IGNORE 1 LINES;`
+              , (err: any) => {
+                if (err) throw err;
+                console.log('> MySQL: Initialized plant distribution table');
+              });
+          });
       });
   });

@@ -1,4 +1,4 @@
-region_slug,name,tdwg_code,level,parent_slug,parent_name,species_count
+distribution_slug,name,tdwg_code,level,parent_slug,parent_name,species_count
 tcs-ab,Abkhaziya,TCS-AB,4,tcs,Transcaucasus,0
 bzn-ac,Acre,BZN-AC,4,bzn,Brazil North,0
 tcs-ad,Adzhariya,TCS-AD,4,tcs,Transcaucasus,0

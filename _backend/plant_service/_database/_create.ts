@@ -6,9 +6,12 @@ connection = require('../../../_repository/_config').connection;
 connection.query(` \
   DROP TABLE IF EXISTS ratings; \
   DROP TABLE IF EXISTS comments; \
+  DROP TABLE IF EXISTS plant_distributions; \
+  DROP TABLE IF EXISTS plant_distribution_details; \
   DROP TABLE IF EXISTS plant_items; \
   DROP TABLE IF EXISTS plant_instructions; \
   DROP TABLE IF EXISTS plant_scientific_details; \
+  DROP TABLE IF EXISTS plant_comments; \
   DROP TABLE IF EXISTS plant_varieties; \
   DROP TABLE IF EXISTS plant_families; \
   CREATE TABLE IF NOT EXISTS plant_families ( \
@@ -58,15 +61,33 @@ connection.query(` \
     soil_nutriments int, \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \
   ); \
+  CREATE TABLE IF NOT EXISTS plant_distribution_details ( \
+    distribution_slug   varchar(256)    NOT NULL    UNIQUE, \
+    name                varchar(256)    NOT NULL, \
+    tdwg_code           varchar(256)    NOT NULL, \
+    level               int             NOT NULL, \
+    parent_slug         varchar(256), \
+    parent_name         varchar(256), \
+    species_count       int             NOT NULL, \
+    id                      int           NOT NULL AUTO_INCREMENT, \
+    PRIMARY KEY (id) \
+  ); \
+  CREATE TABLE IF NOT EXISTS plant_distributions ( \
+    distribution_slug       varchar(256)  NOT NULL, \
+    plant_slug              varchar(256)  NOT NULL, \
+    id                      int           NOT NULL AUTO_INCREMENT, \
+    PRIMARY KEY (id), \
+    FOREIGN KEY (plant_slug) REFERENCES plant_varieties(slug), \
+    FOREIGN KEY (distribution_slug) REFERENCES plant_distribution_details(distribution_slug), \
+    UNIQUE (distribution_slug, plant_slug) \
+  ); \
   CREATE TABLE IF NOT EXISTS comments ( \
     id         int           NOT NULL AUTO_INCREMENT, \
     slug       varchar(256)  NOT NULL, \
     user_id    int           NOT NULL, \
     date       TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP, \
     comment_description varchar(1024) NOT NULL, \
-    PRIMARY KEY (id), \
-    FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \
-  ); \
+    PRIMARY KEY (id), \ FOREIGN KEY (slug) REFERENCES plant_varieties(slug) \); \
   CREATE TABLE IF NOT EXISTS ratings ( \
     id         int           NOT NULL AUTO_INCREMENT, \
     slug       varchar(256)  NOT NULL, \

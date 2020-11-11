@@ -1,12 +1,6 @@
 """
-    _backend/plant_service/py_scripts/scrape_trefle_plants.py:
+    _backend/plant_service/py_scripts/scrape_trefle_distributions.py:
 
-    This script should be called from the root directory with
-    `run npm scrape:plant_varieties`.  It will request each
-    page of results from trefle.io/api/v1/plants and output
-    the data to `_backend/plant_service/data/plant_varieties.json.gz`.
-    This file will be in compressed (gzip) json format as an array
-    of json objects.
 """
 import gzip
 import json

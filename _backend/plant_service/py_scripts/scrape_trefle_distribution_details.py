@@ -25,7 +25,7 @@ if __name__ == '__main__':
     pbar = None
 
     fh = open(os.path.join(OUTDIR,'distribution_details.csv'),'w')
-    print('region_slug,name,tdwg_code,level,parent_slug,parent_name,species_count',file=fh)
+    print('distribution_slug,name,tdwg_code,level,parent_slug,parent_name,species_count',file=fh)
     while(not done):
         resp = requests.get('https://trefle.io' + page + '&token=' + TOKEN)
 
