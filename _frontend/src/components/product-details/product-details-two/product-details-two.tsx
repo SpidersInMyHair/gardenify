@@ -21,11 +21,16 @@ import {
   MetaItem,
   Table,
   RelatedItems,
+  DetailsTitle,
+  DetailsWrapper,
 } from './product-details-two.style';
+import Ratings from './ratings';
+import Comments from './comments';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
+import { getComments, getRatings, setUserRating, setUserComment } from 'utils/api/plant';
 import { AuthContext } from 'contexts/auth/auth.context';
 
 type ProductDetailsProps = {
@@ -48,10 +53,12 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   deviceType
 }) => {
   const [favourite, setFavourite] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [ratings, setRatings] = useState(undefined);
 
   const {
     authDispatch,
-    authState: { isAuthenticated }
+    authState: { isAuthenticated, user }
   } = useContext<any>(AuthContext);
 
   const toggleFavourite = () => {
@@ -62,37 +69,42 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
     }
   }
 
-const handleLogin = () => {
-  authDispatch({
-    type: 'SIGNIN',
-  });
+  const handleLogin = () => {
+    authDispatch({
+      type: 'SIGNIN',
+    });
 
-  openModal({
-    show: true,
-    overlayClassName: 'quick-view-overlay',
-    closeOnClickOutside: true,
-    component: AuthenticationForm,
-    closeComponent: '',
-    config: {
-      enableResizing: false,
-      disableDragging: true,
-      className: 'quick-view-modal',
-      width: 458,
-      height: 'auto',
-    },
-  });
-};
+    openModal({
+      show: true,
+      overlayClassName: 'quick-view-overlay',
+      closeOnClickOutside: true,
+      component: AuthenticationForm,
+      closeComponent: '',
+      config: {
+        enableResizing: false,
+        disableDragging: true,
+        className: 'quick-view-modal',
+        width: 458,
+        height: 'auto',
+      },
+    });
+  };
+
+  const handleRating = (r) => isAuthenticated ? setUserRating(general.slug, r).then(() => getRatings(general.slug).then((r) => r && setRatings(r))) : handleLogin();
+  const handleComment = (c) => isAuthenticated ? setUserComment(general.slug, c).then(() => getComments(general.slug).then((c) => c && setComments(c))) : handleLogin();
 
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
     isAuthenticated && checkFavourite(general.slug).then((success) => setFavourite(success))
-  }, []);
+    getComments(general.slug).then((c) => setComments(c))
+    getRatings(general.slug).then((r) => r && setRatings(r))
+  }, [isAuthenticated]);
 
   const FavouriteButton = () => isAuthenticated ?
-    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
-  : <span onClick={handleLogin} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
+    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
+  : <span onClick={handleLogin} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
 
   return (
     <>
@@ -123,9 +135,17 @@ const handleLogin = () => {
 
         <ProductInfo> 
           { general.common_name === 'None' ? 
-          <Title>{general.name}<FavouriteButton/></Title> :
+          <Title>
+            {general.name}
+            <FavouriteButton/>
+            <Ratings ratings={ratings} handleRating={handleRating}/>
+          </Title> :
           <>
-            <Title>{general.common_name}<FavouriteButton/></Title>
+            <Title>
+              {general.common_name}
+              <FavouriteButton/>
+              <Ratings ratings={ratings} handleRating={handleRating}/>
+            </Title>
             <SubTitle>
               {general.name}
             </SubTitle>
@@ -207,11 +227,12 @@ const handleLogin = () => {
         </ProductInfo>
       </ProductDetailsWrapper>
 
-      {/* <DetailsWrapper ref={scrollRef}>
+      <DetailsWrapper>
         <DetailsTitle>
-          About The Plant
+          Comments
         </DetailsTitle>
-      </DetailsWrapper> */}
+        <Comments comments={comments} user={user} handleComment={handleComment}/>
+      </DetailsWrapper>
 
       <RelatedItems>
         <h2>

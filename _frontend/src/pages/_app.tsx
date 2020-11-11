@@ -47,7 +47,7 @@ export default function ExtendedApp({ Component, pageProps }) {
               </AppLayout>
               <GlobalStyle />
             </AuthProvider>
-            <ToastContainer autoClose={3000} hideProgressBar={true} closeOnClick/>
+            <ToastContainer position="top-left" autoClose={3000} hideProgressBar={true} closeOnClick/>
           </AppProvider>
         </CartProvider>
       </LanguageProvider>

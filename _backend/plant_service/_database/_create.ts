@@ -62,7 +62,7 @@ connection.query(`                                                              
   CREATE TABLE IF NOT EXISTS comments (                                                             \
     id         int           NOT NULL AUTO_INCREMENT,                                               \
     slug       varchar(256)  NOT NULL,                                                              \
-    user_id    int           NOT NULL,                                                              \
+    user_id    BINARY(16)    NOT NULL,                                                              \
     date       TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,                                    \
     comment_description varchar(1024) NOT NULL,                                                     \
     PRIMARY KEY (id),                                                                               \
@@ -71,7 +71,7 @@ connection.query(`                                                              
   CREATE TABLE IF NOT EXISTS ratings (                                                              \
     id         int           NOT NULL AUTO_INCREMENT,                                               \
     slug       varchar(256)  NOT NULL,                                                              \
-    user_id    int           NOT NULL,                                                              \
+    user_id    BINARY(16)    NOT NULL,                                                              \
     date       TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,                                    \
     rating     int           NOT NULL,                                                              \
     PRIMARY KEY (id),                                                                               \

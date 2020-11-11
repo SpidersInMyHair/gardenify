@@ -23,7 +23,7 @@ import {
   DrawerMenuItem,
   UserOptionMenu,
 } from './header.style';
-import UserImage from 'assets/images/user.jpg';
+import UserImage from 'assets/images/user.svg';
 import {
   MOBILE_DRAWER_MENU,
   PROFILE_PAGE,
@@ -35,7 +35,7 @@ const MobileDrawer: React.FunctionComponent = () => {
   const isDrawerOpen = useAppState('isDrawerOpen');
   const dispatch = useAppDispatch();
   const {
-    authState: { isAuthenticated },
+    authState: { isAuthenticated, user },
     authDispatch,
   } = useContext<any>(AuthContext);
   // Toggle drawer
@@ -80,7 +80,7 @@ const MobileDrawer: React.FunctionComponent = () => {
       },
     });
   };
-
+  
   return (
     <Drawer
       width='316px'
@@ -106,11 +106,11 @@ const MobileDrawer: React.FunctionComponent = () => {
               {isAuthenticated ? (
                 <LoginView>
                   <UserAvatar>
-                    <img src={UserImage} alt='user_avatar' />
+                    <img src={user && user.image_url ? user.image_url : UserImage} alt='user_avatar' />
                   </UserAvatar>
                   <UserDetails>
-                    <h3>David Kinderson</h3>
-                    <span>+990 374 987</span>
+                    <h3>{user && user.name}</h3>
+                    <span>{user && user.email}</span>
                   </UserDetails>
                 </LoginView>
               ) : (
