@@ -6,7 +6,8 @@ import {
   PlantVariety,
   PlantScientificDetails,
   Comments,
-  Ratings
+  Ratings,
+  Distribution
 } from "../../protos/_backend/plant_service/protos/plant_pb";
 
 export interface GetPlantRequest extends Request {
@@ -100,3 +101,17 @@ export interface CreateRatingsRequest<ReqBody = Ratings> extends Request {
 }
 
 export type CreateRatingsResponse = Response;
+
+export interface GetDistributionRequest extends Request {
+  params: {
+    slug: string,
+  };
+}
+
+export interface GetDistributionResponse<ResBody = Distribution> extends Response {
+  send: Send<ResBody, this>;
+}
+
+export interface GetDistributionsResponse<ResBody = Array<Distribution>> extends Response {
+  send: Send<ResBody, this>;
+}

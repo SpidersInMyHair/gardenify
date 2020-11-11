@@ -187,9 +187,54 @@ export namespace Ratings {
   }
 }
 
+export class Distribution extends jspb.Message {
+  getDistributionSlug(): string;
+  setDistributionSlug(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getTdwgCode(): string;
+  setTdwgCode(value: string): void;
+
+  getLevel(): number;
+  setLevel(value: number): void;
+
+  getParentSlug(): string;
+  setParentSlug(value: string): void;
+
+  getParentName(): string;
+  setParentName(value: string): void;
+
+  getSpeciesCount(): number;
+  setSpeciesCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Distribution.AsObject;
+  static toObject(includeInstance: boolean, msg: Distribution): Distribution.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Distribution, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Distribution;
+  static deserializeBinaryFromReader(message: Distribution, reader: jspb.BinaryReader): Distribution;
+}
+
+export namespace Distribution {
+  export type AsObject = {
+    distributionSlug: string,
+    name: string,
+    tdwgCode: string,
+    level: number,
+    parentSlug: string,
+    parentName: string,
+    speciesCount: number,
+  }
+}
+
 export interface UnitMap {
   GRAM: 0;
   LITER: 1;
 }
 
 export const Unit: UnitMap;
+

@@ -4,7 +4,8 @@ import {
   PlantScientificDetails,
   PlantVariety,
   Comments,
-  Ratings
+  Ratings,
+  Distribution
 } from "../../../protos/_backend/plant_service/protos/plant_pb";
 
 let { PythonShell } = require('python-shell');
@@ -336,6 +337,51 @@ function insertRating(user_id: string, slug: string, rating: Number) {
   })
 }
 
+function getDistribution(slug: string): Promise<Distribution> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, species_count \
+      FROM plant_distribution_details \
+      WHERE distribution_slug=${connection.escape(slug)} \
+      LIMIT 1;`
+      , (err: any, results: Array<Distribution>) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results[0] : undefined);
+      });
+  })
+}
+
+function getDistributions(offset: number = 0, limit: number = 20, query: any): Promise<Distribution[]> {
+  const sanitizedKeyword = connection.escape('%' + query.search + '%');
+  delete query.search;
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, species_count \
+      FROM plant_distribution_details \
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<Distribution>) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
+function getPlantsInDistribution(slug: string, offset: number = 0, limit: number = 20): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_distributions as pd \
+      INNER JOIN plant_varieties as pv ON pd.slug=pv.slug \
+      WHERE pd.distribution_slug=\"${slug}\" \
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<PlantVariety>) => {
+        console.log(results);
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
 function getSession(id: string, session_key: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                      \
@@ -365,6 +411,9 @@ module.exports = {
   insertComment,
   getComments,
   insertRating,
+  getDistribution,
+  getDistributions,
+  getPlantsInDistribution,
   getSession,
   getRatings
 }
