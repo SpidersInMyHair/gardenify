@@ -13,13 +13,16 @@ import {
   PROFILE_SIDEBAR_TOP_MENU,
   PROFILE_SIDEBAR_BOTTOM_MENU,
 } from 'site-settings/site-navigation';
+import { useCookies } from "react-cookie"
 
 const SidebarCategory: React.FC<{}> = () => {
   const { authDispatch } = useContext<any>(AuthContext);
+  const [cookies, setCookie, removeCookie] = useCookies(['UID', 'SID']);
 
   const handleLogout = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('access_token');
+      removeCookie("UID");
+      removeCookie("SID")
       authDispatch({ type: 'SIGN_OUT' });
       Router.push('/');
     }

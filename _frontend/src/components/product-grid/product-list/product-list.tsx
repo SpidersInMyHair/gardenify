@@ -65,7 +65,6 @@ export const Products: React.FC<ProductsProps> = ({
         {data.map((item: any, index: number) => (
           <ProductsCol
             key={index}
-            style={{ paddingLeft: 0, paddingRight: 1 }}
           >
             <ProductCardWrapper>
               <Fade

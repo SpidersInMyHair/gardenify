@@ -19,7 +19,7 @@ const Select: React.FC<SelectProps> = ({
   ...props
 }) => {
   // Add all classes to an array
-  const addAllClasses = ['pickbazar__select'];
+  const addAllClasses = ['gardenify__select'];
 
   // Add label position class
   if (labelPosition) {
@@ -32,7 +32,7 @@ const Select: React.FC<SelectProps> = ({
   }
 
   const LabelField = labelText && (
-    <span className="pickbazar__field-label">{labelText}</span>
+    <span className="gardenify__field-label">{labelText}</span>
   );
 
   const position = labelPosition || 'top';

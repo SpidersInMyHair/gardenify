@@ -1,7 +1,7 @@
 export const siteMetadata = {
-  title: `PickBazar`,
+  title: `Gardenify`,
   author: {
-    name: `RedQ, Inc`,
+    name: `Gardenify`,
     summary: ``,
   },
   description: ``,

@@ -7,7 +7,6 @@ import {
   IconWrapper,
   Wrapper,
   Container,
-  LogoWrapper,
   Heading,
   SubHeading,
   HelperText,
@@ -20,7 +19,7 @@ import { Facebook } from 'assets/icons/Facebook';
 import { Google } from 'assets/icons/Google';
 import { AuthContext } from 'contexts/auth/auth.context';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { loginUser, registerUser } from 'utils/api/user';
+import { registerUser } from 'utils/api/user';
 
 export default function SignOutModal() {
   const intl = useIntl();
@@ -28,12 +27,15 @@ export default function SignOutModal() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const registerCallback = () => {
+  const registerCallback = (e) => {
+    e.preventDefault();
     if (typeof window !== 'undefined') {
-      registerUser({ email, password }).then(() => loginUser({ email, password }));
-      // localStorage.setItem('access_token', `${email}.${password}`);
-      authDispatch({ type: 'SIGNIN_SUCCESS' });
-      closeModal();
+      registerUser({ email, password }).then((user) => {
+        if (user) {
+          authDispatch({ type: 'SIGNIN_SUCCESS', user: {email: email} })
+          closeModal();
+        }
+      });
     }
   };
 
@@ -102,7 +104,7 @@ export default function SignOutModal() {
             <FormattedMessage id='continueBtn' defaultMessage='Continue' />
           </Button>
         </form>
-        <Divider>
+        {/* <Divider>
           <span>
             <FormattedMessage id='orText' defaultMessage='or' />
           </span>
@@ -136,7 +138,7 @@ export default function SignOutModal() {
             id='continueGoogleBtn'
             defaultMessage='Continue with Google'
           />
-        </Button>
+        </Button> */}
         <Offer style={{ padding: '20px 0' }}>
           <FormattedMessage
             id='alreadyHaveAccount'

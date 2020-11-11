@@ -3,7 +3,7 @@ import { themeGet } from '@styled-system/theme-get';
 
 const SelectStyle = styled.div<any>`
   /* Select label default style */
-  .pickbazar__field-label {
+  .gardenify__field-label {
     color: ${themeGet('colors.text.label', '#767676')};
     font-size: calc(${themeGet('fontSizes.base', '15')}px + 1px);
     font-weight: ${themeGet('fontWeights.medium', '500')};
@@ -13,7 +13,7 @@ const SelectStyle = styled.div<any>`
   &.label_left {
     display: flex;
     align-items: center;
-    .pickbazar__field-label {
+    .gardenify__field-label {
       margin-right: 10px;
     }
   }
@@ -24,20 +24,20 @@ const SelectStyle = styled.div<any>`
     flex-direction: row-reverse;
     align-items: center;
 
-    .pickbazar__field-label {
+    .gardenify__field-label {
       margin-left: 10px;
     }
   }
 
   /* Switch label style when labelPosition on top || bottom */
   &.label_top {
-    .pickbazar__field-label {
+    .gardenify__field-label {
       display: flex;
       margin-bottom: 8px;
     }
   }
   &.label_bottom {
-    .pickbazar__field-label {
+    .gardenify__field-label {
       display: flex;
       margin-top: 8px;
     }

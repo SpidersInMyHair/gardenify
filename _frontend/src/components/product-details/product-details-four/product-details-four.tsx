@@ -8,7 +8,6 @@ import {
   ProductTitlePriceWrapper,
   ProductTitle,
   ProductDescription,
-  ButtonText,
   ProductMeta,
   ProductCartWrapper,
   ProductPriceWrapper,
@@ -20,7 +19,6 @@ import {
   MetaItem,
   RelatedItems,
 } from './product-details-four.style';
-import { CartIcon } from 'assets/icons/CartIcon';
 import ReadMore from 'components/truncate/truncate';
 import CarouselWithCustomDots from 'components/multi-carousel/multi-carousel';
 import { CURRENCY } from 'utils/constant';
@@ -107,23 +105,16 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
                   size='big'
                   onClick={handleAddClick}
                 >
-                  <CartIcon mr={2} />
-                  <ButtonText>
-                    <FormattedMessage
-                      id='addToCartButton'
-                      defaultMessage='Add to cart'
-                    />
-                  </ButtonText>
                 </Button>
               ) : (
-                <Counter
-                  value={getItem(data.id).quantity}
-                  onDecrement={handleRemoveClick}
-                  onIncrement={handleAddClick}
-                  className='card-counter'
-                  variant='altHorizontal'
-                />
-              )}
+                  <Counter
+                    value={getItem(data.id).quantity}
+                    onDecrement={handleRemoveClick}
+                    onIncrement={handleAddClick}
+                    className='card-counter'
+                    variant='altHorizontal'
+                  />
+                )}
             </ProductCartBtn>
           </ProductCartWrapper>
 

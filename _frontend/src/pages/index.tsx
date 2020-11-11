@@ -12,7 +12,7 @@ import {
   MobileCarouselDropdown,
 } from 'assets/styles/pages.style';
 // Static Data Import Here
-import bannerImage from 'assets/images/banner/banner.png';
+import bannerImage from 'assets/images/banner.png';
 import { SEO } from 'components/seo';
 import { useRefScroll } from 'utils/use-ref-scroll';
 import { ModalProvider } from 'contexts/modal/modal.provider';

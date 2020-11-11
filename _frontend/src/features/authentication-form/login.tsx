@@ -5,7 +5,6 @@ import {
   IconWrapper,
   Wrapper,
   Container,
-  LogoWrapper,
   Heading,
   SubHeading,
   OfferSection,
@@ -13,6 +12,7 @@ import {
   // Input,
   Divider,
 } from './authentication-form.style';
+import { toast } from 'react-toastify';
 import { Facebook } from 'assets/icons/Facebook';
 import { Google } from 'assets/icons/Google';
 import { AuthContext } from 'contexts/auth/auth.context';
@@ -38,12 +38,17 @@ export default function SignInModal() {
     });
   };
 
-  const loginCallback = () => {
+  const loginCallback = (e) => {
+    e.preventDefault();
     if (typeof window !== 'undefined') {
-      loginUser({ email, password });
-      // localStorage.setItem('access_token', `${email}.${password}`);
-      authDispatch({ type: 'SIGNIN_SUCCESS' });
-      closeModal();
+      loginUser({ email, password }).then((user) => {
+        if (user) {
+          authDispatch({ type: 'SIGNIN_SUCCESS', user: user })
+          closeModal();
+        } else {
+          toast.error("Couldn't Login: Invalid username or password");
+        }
+      });
     }
   };
 
@@ -98,7 +103,7 @@ export default function SignInModal() {
             <FormattedMessage id='continueBtn' defaultMessage='Continue' />
           </Button>
         </form>
-        <Divider>
+        {/* <Divider>
           <span>
             <FormattedMessage id='orText' defaultMessage='or' />
           </span>
@@ -136,7 +141,7 @@ export default function SignInModal() {
             id='continueGoogleBtn'
             defaultMessage='Continue with Google'
           />
-        </Button>
+        </Button> */}
 
         <Offer style={{ padding: '20px 0' }}>
           <FormattedMessage

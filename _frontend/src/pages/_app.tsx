@@ -7,6 +7,7 @@ import { LanguageProvider } from 'contexts/language/language.provider';
 import { CartProvider } from 'contexts/cart/use-cart';
 import { useMedia } from 'utils/use-media';
 import AppLayout from 'layouts/app-layout';
+import { ToastContainer } from 'react-toastify';
 
 // External CSS import here
 import 'swiper/swiper-bundle.min.css';
@@ -19,6 +20,7 @@ import 'react-spring-modal/dist/index.css';
 import 'overlayscrollbars/css/OverlayScrollbars.css';
 import 'components/scrollbar/scrollbar.css';
 import '@redq/reuse-modal/lib/index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { GlobalStyle } from 'assets/styles/global.style';
 
@@ -45,6 +47,7 @@ export default function ExtendedApp({ Component, pageProps }) {
               </AppLayout>
               <GlobalStyle />
             </AuthProvider>
+            <ToastContainer position="top-left" autoClose={3000} hideProgressBar={true} closeOnClick/>
           </AppProvider>
         </CartProvider>
       </LanguageProvider>

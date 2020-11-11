@@ -12,9 +12,7 @@ import { Button } from 'components/button/button';
 import { Input } from 'components/forms/input';
 import { FormattedMessage } from 'react-intl';
 import { Label } from 'components/forms/label';
-import Contact from 'features/contact/contact';
-import Address from 'features/address/address';
-import Payment from 'features/payment/payment';
+import { editUser } from 'utils/api/user';
 
 type SettingsContentProps = {
   deviceType?: {
@@ -35,10 +33,7 @@ const SettingsContent: React.FC<SettingsContentProps> = ({ deviceType }) => {
     });
   };
 
-  const handleSave = async () => {
-    const { name, email } = state;
-    console.log(name, email, 'name, email');
-  };
+  const handleSave = () => editUser(state)
 
   return (
     <SettingsForm>
@@ -86,33 +81,38 @@ const SettingsContent: React.FC<SettingsContentProps> = ({ deviceType }) => {
               backgroundColor='#F7F7F7'
             />
           </Col>
+          <Col xs={12} sm={5} md={5} lg={5}>
+            <Label>
+              Bio
+            </Label>
+            <Input
+              type='text'
+              label='Bio'
+              name='description'
+              value={state.description}
+              onChange={handleChange}
+              backgroundColor='#F7F7F7'
+              height='48px'
+            />
+          </Col>
+
+          <Col xs={12} sm={5} md={5} lg={5}>
+            <Label>
+              Password
+            </Label>
+            <Input
+              type='password'
+              name='password'
+              label='Password'
+              onChange={handleChange}
+              backgroundColor='#F7F7F7'
+            />
+          </Col>
 
           <Col xs={12} sm={2} md={2} lg={2}>
             <Button size='big' style={{ width: '100%' }} onClick={handleSave}>
               <FormattedMessage id='profileSaveBtn' defaultMessage='Save' />
             </Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <SettingsFormContent>
-              <Contact />
-            </SettingsFormContent>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12} style={{ position: 'relative' }}>
-            <SettingsFormContent>
-              <Address />
-            </SettingsFormContent>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <SettingsFormContent>
-              <Payment deviceType={deviceType} />
-            </SettingsFormContent>
           </Col>
         </Row>
       </SettingsFormContent>

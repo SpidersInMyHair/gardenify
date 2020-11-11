@@ -1,18 +1,13 @@
 // product card for food
 import React from 'react';
 import Image from 'components/image/image';
-import { CURRENCY } from 'utils/constant';
 import {
   FoodCardWrapper,
   FoodImageWrapper,
   ProductInfo,
   Category,
-  Duration,
-  ProductMeta,
-  DeliveryOpt,
   DiscountPercent,
 } from '../product-card.style';
-import { FormattedMessage } from 'react-intl';
 
 type CardProps = {
   name: string;
@@ -58,14 +53,6 @@ const ProductCard: React.FC<CardProps> = ({
         <Category style={{ marginBottom: 20, display: 'inline-block' }}>
           {restaurantType}
         </Category>
-        <ProductMeta style={{ marginTop: 'auto' }}>
-          <DeliveryOpt>
-            {!isFree && CURRENCY}
-            {delivery}{' '}
-            <FormattedMessage id='deliveryText' defaultMessage='Delivery' />
-          </DeliveryOpt>
-          <Duration>{duration}</Duration>
-        </ProductMeta>
       </ProductInfo>
     </FoodCardWrapper>
   );
