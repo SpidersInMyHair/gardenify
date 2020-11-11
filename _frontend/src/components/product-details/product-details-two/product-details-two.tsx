@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Button } from 'components/button/button';
 import Image from 'components/image/image';
+import AuthenticationForm from 'features/authentication-form';
+import { openModal } from '@redq/reuse-modal';
 import {
   ProductDetailsWrapper,
   ProductPreview,
@@ -24,6 +26,7 @@ import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
+import { AuthContext } from 'contexts/auth/auth.context';
 
 type ProductDetailsProps = {
   general: any;
@@ -46,6 +49,11 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
 }) => {
   const [favourite, setFavourite] = useState(false);
 
+  const {
+    authDispatch,
+    authState: { isAuthenticated }
+  } = useContext<any>(AuthContext);
+
   const toggleFavourite = () => {
     if (favourite) {
       removeFavourite(general.slug).then((success) => success && setFavourite(false))
@@ -54,14 +62,37 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
     }
   }
 
+const handleLogin = () => {
+  authDispatch({
+    type: 'SIGNIN',
+  });
+
+  openModal({
+    show: true,
+    overlayClassName: 'quick-view-overlay',
+    closeOnClickOutside: true,
+    component: AuthenticationForm,
+    closeComponent: '',
+    config: {
+      enableResizing: false,
+      disableDragging: true,
+      className: 'quick-view-modal',
+      width: 458,
+      height: 'auto',
+    },
+  });
+};
+
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
-    checkFavourite(general.slug).then((success) => setFavourite(success))
+    isAuthenticated && checkFavourite(general.slug).then((success) => setFavourite(success))
   }, []);
 
-  const FavouriteButton = () => <span onClick={toggleFavourite} style={{marginLeft: 10, color: "gold", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '★' : '☆'}</span>
+  const FavouriteButton = () => isAuthenticated ?
+    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
+  : <span onClick={handleLogin} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
 
   return (
     <>

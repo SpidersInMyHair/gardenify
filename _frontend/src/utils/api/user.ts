@@ -93,7 +93,6 @@ export async function getFavourites() {
 }
 
 export async function checkFavourite(slug) {
-  console.log("CHECK FAVE")
   try {
     const fetchResponse = await fetch(`${url}/user/profile/favourites/${slug}`, {
       method: 'GET',
