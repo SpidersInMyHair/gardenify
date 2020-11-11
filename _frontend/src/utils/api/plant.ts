@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 const url = process.env.NEXT_PUBLIC_REST_API_ENDPOINT;
 
 export async function getPlants(query?: string) {
@@ -45,7 +46,38 @@ export async function getPlantsByKeyword(text) {
   return plants.json();
 }
 
-export async function getPlantItems(slug) {
-  const items = await fetch(`${url}/plant/items/${slug}`);
-  return items.json();
+export async function getComments(slug) {
+  try {
+    const res = await fetch(`${url}/plant/comment/${slug}`);
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+export async function getRatings(slug) {
+  try {
+    const res = await fetch(`${url}/plant/rating/${slug}`);
+    return await res.json();
+  } catch {
+    return undefined;
+  }
+}
+
+export async function setUserRating(slug, rating) {
+  try {
+    const fetchResponse = await fetch(`${url}/plant/rating`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({slug: slug, rating: rating})
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't update rating");
+    return true;
+  } catch {
+    return null;
+  }
 }

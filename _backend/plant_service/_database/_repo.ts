@@ -314,9 +314,8 @@ function getRatings(slug: string, user_id?: string): Promise<any> {
       LIMIT 1;                                                \
     `, (err: any, results: Array<any>) => {
       if (err) reject(err);
-      if (results && results.length > 1) resolve({...results[0][0], ...results[1][0]})
-      else if (results && results.length) resolve(...results[0])
-      else resolve([])
+      if (results && results.length > 1 && results[0][0].rating) resolve({...results[0][0], ...results[1][0]})
+      else resolve(undefined)
     });
   });
 }
@@ -324,12 +323,12 @@ function getRatings(slug: string, user_id?: string): Promise<any> {
 function insertRating(user_id: string, slug: string, rating: Number) {
   return new Promise((resolve, reject) => {
     connection.query(` \
-      INSERT INTO ratings (user_id, slug, rating)     \
-      VALUES (                                        \
-        UUID_TO_BIN(${connection.escape(user_id)}),   \
-        ${connection.escape(slug)},                   \
-        ${connection.escape(rating)}                  \
-      );`
+      INSERT INTO ratings (user_id, slug, rating)                             \
+      VALUES (                                                                \
+        UUID_TO_BIN(${connection.escape(user_id)}),                           \
+        ${connection.escape(slug)},                                           \
+        ${connection.escape(rating)}                                          \
+      ) ON DUPLICATE KEY UPDATE rating=${connection.escape(rating)};`
       , (err: any, results: any) => {
         if (err) reject(err);
         resolve(results ? true : false);
