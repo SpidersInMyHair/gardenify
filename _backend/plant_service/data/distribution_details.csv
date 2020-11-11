@@ -1,0 +1,666 @@
+region_slug,name,tdwg_code,level,parent_slug,parent_name,species_count
+tcs-ab,Abkhaziya,TCS-AB,4,tcs,Transcaucasus,0
+bzn-ac,Acre,BZN-AC,4,bzn,Brazil North,0
+tcs-ad,Adzhariya,TCS-AD,4,tcs,Transcaucasus,0
+afg,Afghanistan,AFG,3,34,Western Asia,4544
+mxe-ag,Aguascalientes,MXE-AG,4,mxe,Mexico Northeast,0
+cls-ai,Aisen,CLS-AI,4,cls,Chile South,0
+ala,Alabama,ALA,3,78,Southeastern U.S.A.,3874
+bze-al,Alagoas,BZE-AL,4,bze,Brazil Northeast,0
+ask,Alaska,ASK,3,70,Subarctic America,1537
+alb,Albania,ALB,3,13,Southeastern Europe,3429
+abt,Alberta,ABT,3,71,Western Canada,1776
+ald,Aldabra,ALD,3,29,Western Indian Ocean,230
+alu,Aleutian Is.,ALU,3,70,Subarctic America,388
+alg,Algeria,ALG,3,20,Northern Africa,3880
+alt,Altay,ALT,3,30,Siberia,2555
+bzn-ap,Amapa,BZN-AP,4,bzn,Brazil North,0
+bzn-am,Amazonas,BZN-AM,4,bzn,Brazil North,0
+sam-as,American Samoa,SAM-AS,4,sam,Samoa,0
+asp,Amsterdam-St.Paul Is,ASP,3,90,Subantarctic Islands,82
+amu,Amur,AMU,3,31,Russian Far East,1496
+and,Andaman Is.,AND,3,41,Indo-China,2057
+ind-ap,Andhra Pradesh,IND-AP,4,ind,India,0
+spa-an,Andorra,SPA-AN,4,spa,Spain,0
+ang,Angola,ANG,3,26,South Tropical Africa,6390
+lee-ag,Anguilla,LEE-AG,4,lee,Leeward Is.,0
+chs-ah,Anhui,CHS-AH,4,chs,China Southeast,0
+ggi-an,Annobón,GGI-AN,4,ggi,Gulf of Guinea Is.,0
+ant,Antarctica,ANT,3,91,Antarctic Continent,4
+lee-ab,Antigua-Barbuda,LEE-AB,4,lee,Leeward Is.,0
+atp,Antipodean Is.,ATP,3,51,New Zealand,255
+cln-an,Antofagasta,CLN-AN,4,cln,Chile North,0
+age-df,Argentina Distrito Federal,AGE-DF,4,age,Argentina Northeast,0
+age,Argentina Northeast,AGE,3,85,Southern South America,6266
+agw,Argentina Northwest,AGW,3,85,Southern South America,5912
+ags,Argentina South,AGS,3,85,Southern South America,2507
+ari,Arizona,ARI,3,76,Southwestern U.S.A.,3959
+ark,Arkansas,ARK,3,78,Southeastern U.S.A.,2399
+tcs-ar,Armenia,TCS-AR,4,tcs,Transcaucasus,0
+aru,Aruba,ARU,3,81,Caribbean,348
+ehm-ap,Arunachal Pradesh,EHM-AP,4,ehm,East Himalaya,0
+asc,Ascension,ASC,3,28,Middle Atlantic Ocean,203
+wau-ac,Ashmore-Cartier Is.,WAU-AC,4,wau,Western Australia,0
+ass,Assam,ASS,3,40,Indian Subcontinent,5356
+cln-at,Atacama,CLN-AT,4,cln,Chile North,0
+nsw-ct,Australian Capital Territory,NSW-CT,4,nsw,New South Wales,0
+aut,Austria,AUT,3,11,Middle Europe,4208
+lee-av,Aves I.,LEE-AV,4,lee,Leeward Is.,0
+tcs-az,Azerbaijan,TCS-AZ,4,tcs,Transcaucasus,0
+azo,Azores,AZO,3,21,Macaronesia,896
+bah,Bahamas,BAH,3,81,Caribbean,1349
+bze-ba,Bahia,BZE-BA,4,bze,Brazil Northeast,0
+gst-ba,Bahrain,GST-BA,4,gst,Gulf States,0
+mxn-bc,Baja California,MXN-BC,4,mxn,Mexico Northwest,0
+mxn-bs,Baja California Sur,MXN-BS,4,mxn,Mexico Northwest,0
+bal,Baleares,BAL,3,12,Southwestern Europe,1583
+lsi-ba,Bali,LSI-BA,4,lsi,Lesser Sunda Is.,0
+blt,Baltic States,BLT,3,14,Eastern Europe,2058
+ban,Bangladesh,BAN,3,40,Indian Subcontinent,4663
+win-ba,Barbados,WIN-BA,4,win,Windward Is.,0
+chn-bj,Beijing,CHN-BJ,4,chn,China North-Central,0
+blr,Belarus,BLR,3,14,Eastern Europe,1660
+bgm,Belgium,BGM,3,11,Middle Europe,2552
+blz,Belize,BLZ,3,80,Central America,3523
+ben,Benin,BEN,3,22,West Tropical Africa,2527
+ber,Bermuda,BER,3,81,Caribbean,525
+ehm-bh,Bhutan,EHM-BH,4,ehm,East Himalaya,0
+ind-bi,Bihar,IND-BI,4,ind,India,0
+clc-bi,Biobio,CLC-BI,4,clc,Chile Central,0
+ggi-bi,Bioko,GGI-BI,4,ggi,Gulf of Guinea Is.,0
+bis,Bismarck Archipelago,BIS,3,43,Papuasia,1510
+bol,Bolivia,BOL,3,83,Western South America,14675
+nla-bo,Bonaire,NLA-BO,4,nla,Netherlands Antilles,0
+bor,Borneo,BOR,3,42,Malesia,11190
+yug-bh,Bosnia- Herzegovina,YUG-BH,4,yug,Yugoslavia,0
+bot,Botswana,BOT,3,27,Southern Africa,2587
+bou,Bouvet I.,BOU,3,90,Subantarctic Islands,0
+bzc-df,Brasilia Distrito Federal,BZC-DF,4,bzc,Brazil West-Central,0
+bzn,Brazil North,BZN,3,84,Brazil,13172
+bze,Brazil Northeast,BZE,3,84,Brazil,11205
+bzs,Brazil South,BZS,3,84,Brazil,8830
+bzl,Brazil Southeast,BZL,3,84,Brazil,17731
+bzc,Brazil West-Central,BZC,3,84,Brazil,9684
+brc,British Columbia,BRC,3,71,Western Canada,2886
+lee-bv,British Virgin Is.,LEE-BV,4,lee,Leeward Is.,0
+bor-br,Brunei,BOR-BR,4,bor,Borneo,0
+age-ba,Buenos Aires,AGE-BA,4,age,Argentina Northeast,0
+bul,Bulgaria,BUL,3,13,Southeastern Europe,3803
+bkn,Burkina,BKN,3,22,West Tropical Africa,1885
+bur,Burundi,BUR,3,23,West-Central Tropical Africa,2896
+bry,Buryatiya,BRY,3,30,Siberia,1804
+cab,Cabinda,CAB,3,23,West-Central Tropical Africa,923
+cal,California,CAL,3,76,Southwestern U.S.A.,7422
+cbd,Cambodia,CBD,3,41,Indo-China,3360
+cmn,Cameroon,CMN,3,23,West-Central Tropical Africa,7207
+mxt-ca,Campeche,MXT-CA,4,mxt,Mexico Southeast,0
+cny,Canary Is.,CNY,3,21,Macaronesia,2359
+cpp,Cape Provinces,CPP,3,27,Southern Africa,16682
+cvi,Cape Verde,CVI,3,21,Macaronesia,739
+cpv,Caprivi Strip,CPV,3,27,Southern Africa,588
+crl,Caroline Is.,CRL,3,62,Northwestern Pacific,1017
+agw-ca,Catamarca,AGW-CA,4,agw,Argentina Northwest,0
+cay,Cayman Is.,CAY,3,81,Caribbean,726
+bze-ce,Ceara,BZE-CE,4,bze,Brazil Northeast,0
+caf,Central African Repu,CAF,3,23,West-Central Tropical Africa,3783
+cpi,Central American Pac,CPI,3,80,Central America,237
+ruc,Central European Rus,RUC,3,14,Eastern Europe,2297
+age-ch,Chaco,AGE-CH,4,age,Argentina Northeast,0
+cha,Chad,CHA,3,24,Northeast Tropical Africa,2287
+cgs,Chagos Archipelago,CGS,3,29,Western Indian Ocean,210
+ind-ch,Chandigarh,IND-CH,4,ind,India,0
+fra-ci,Channel Is.,FRA-CI,4,fra,France,0
+ctm,Chatham Is.,CTM,3,51,New Zealand,508
+ncs-ch,Chechnya,NCS-CH,4,ncs,North Caucasus,0
+ind-ct,Chhattisgarh,IND-CT,4,ind,India,0
+mxt-ci,Chiapas,MXT-CI,4,mxt,Mexico Southeast,0
+mxe-cu,Chihuahua,MXE-CU,4,mxe,Mexico Northeast,0
+clc,Chile Central,CLC,3,85,Southern South America,3497
+cln,Chile North,CLN,3,85,Southern South America,1866
+cls,Chile South,CLS,3,85,Southern South America,1634
+chn,China North-Central,CHN,3,36,China,5928
+chc,China South-Central,CHC,3,36,China,19959
+chs,China Southeast,CHS,3,36,China,11550
+cta,Chita,CTA,3,30,Siberia,1535
+chc-cq,Chongqing,CHC-CQ,4,chc,China South-Central,0
+xms,Christmas I.,XMS,3,42,Malesia,379
+ags-cb,Chubut,AGS-CB,4,ags,Argentina South,0
+cpi-cl,Clipperton I.,CPI-CL,4,cpi,Central American Pac,0
+mxe-co,Coahuila,MXE-CO,4,mxe,Mexico Northeast,0
+and-co,Coco Is.,AND-CO,4,and,Andaman Is.,0
+cpi-co,Cocos I.,CPI-CO,4,cpi,Central American Pac,0
+cki,Cocos (Keeling) Is.,CKI,3,42,Malesia,127
+mxs-cl,Colima,MXS-CL,4,mxs,Mexico Southwest,0
+clm,Colombia,CLM,3,83,Western South America,23796
+swc-cc,Colombian Caribbean Is.,SWC-CC,4,swc,Southwest Caribbean,0
+col,Colorado,COL,3,73,Northwestern U.S.A.,3384
+com,Comoros,COM,3,29,Western Indian Ocean,877
+con,Congo,CON,3,23,West-Central Tropical Africa,3972
+cnt,Connecticut,CNT,3,75,Northeastern U.S.A.,2163
+coo,Cook Is.,COO,3,61,South-Central Pacific,650
+clc-co,Coquimbo,CLC-CO,4,clc,Chile Central,0
+qld-cs,Coral Sea Is. Territory,QLD-CS,4,qld,Queensland,0
+age-cd,Cordoba,AGE-CD,4,age,Argentina Northeast,0
+age-cn,Corrientes,AGE-CN,4,age,Argentina Northeast,0
+cor,Corse,COR,3,12,Southwestern Europe,2266
+cos,Costa Rica,COS,3,80,Central America,10027
+yug-cr,Croatia,YUG-CR,4,yug,Yugoslavia,0
+crz,Crozet Is.,CRZ,3,90,Subantarctic Islands,69
+cub,Cuba,CUB,3,81,Caribbean,6694
+nla-cu,Curaçao,NLA-CU,4,nla,Netherlands Antilles,0
+cyp,Cyprus,CYP,3,34,Western Asia,1755
+cze,Czechoslovakia,CZE,3,11,Middle Europe,4351
+cze-cz,Czech Republic,CZE-CZ,4,cze,Czechoslovakia,0
+ind-dd,Dadra-Nagar-Haveli,IND-DD,4,ind,India,0
+ncs-da,Dagestan,NCS-DA,4,ncs,North Caucasus,0
+ind-dm,Daman,IND-DM,4,ind,India,0
+ehm-dj,Darjiling,EHM-DJ,4,ehm,East Himalaya,0
+del,Delaware,DEL,3,78,Southeastern U.S.A.,1761
+ind-de,Delhi,IND-DE,4,ind,India,0
+den,Denmark,DEN,3,10,Northern Europe,2017
+dsv,Desventurados Is.,DSV,3,85,Southern South America,61
+wdc,District of Columbia,WDC,3,78,Southeastern U.S.A.,1236
+ind-di,Diu,IND-DI,4,ind,India,0
+dji,Djibouti,DJI,3,24,Northeast Tropical Africa,801
+win-do,Dominica,WIN-DO,4,win,Windward Is.,0
+dom,Dominican Republic,DOM,3,81,Caribbean,4490
+mxe-du,Durango,MXE-DU,4,mxe,Mexico Northeast,0
+eai,East Aegean Is.,EAI,3,34,Western Asia,2258
+eas,Easter Is.,EAS,3,61,South-Central Pacific,170
+cpp-ec,Eastern Cape Province,CPP-EC,4,cpp,Cape Provinces,0
+rue,East European Russia,RUE,3,14,Eastern Europe,2202
+ehm,East Himalaya,EHM,3,40,Indian Subcontinent,7636
+lsi-et,East Timor,LSI-ET,4,lsi,Lesser Sunda Is.,0
+ecu,Ecuador,ECU,3,83,Western South America,17365
+egy,Egypt,EGY,3,20,Northern Africa,1806
+els,El Salvador,ELS,3,80,Central America,3637
+age-er,Entre Rios,AGE-ER,4,age,Argentina Northeast,0
+eqg,Equatorial Guinea,EQG,3,23,West-Central Tropical Africa,1433
+eri,Eritrea,ERI,3,24,Northeast Tropical Africa,1981
+bzl-es,Espirito Santo,BZL-ES,4,bzl,Brazil Southeast,0
+blt-es,Estonia,BLT-ES,4,blt,Baltic States,0
+eth,Ethiopia,ETH,3,24,Northeast Tropical Africa,5495
+fal,Falkland Is.,FAL,3,90,Subantarctic Islands,321
+bze-fn,Fernando de Noronha,BZE-FN,4,bze,Brazil Northeast,0
+fij,Fiji,FIJ,3,60,Southwestern Pacific,2153
+fin,Finland,FIN,3,10,Northern Europe,2478
+fla,Florida,FLA,3,78,Southeastern U.S.A.,3917
+age-fo,Formosa,AGE-FO,4,age,Argentina Northeast,0
+for,Føroyar,FOR,3,10,Northern Europe,385
+fra,France,FRA,3,12,Southwestern Europe,6806
+ofs,Free State,OFS,3,27,Southern Africa,2994
+frg,French Guiana,FRG,3,82,Northern South America,4762
+chs-fj,Fujian,CHS-FJ,4,chs,China Southeast,0
+gab,Gabon,GAB,3,23,West-Central Tropical Africa,4968
+gal,Galápagos,GAL,3,83,Western South America,917
+gam,Gambia,GAM,3,22,West Tropical Africa,950
+chn-gs,Gansu,CHN-GS,4,chn,China North-Central,0
+tvl-ga,Gauteng,TVL-GA,4,tvl,Northern Provinces,0
+geo,Georgia,GEO,3,78,Southeastern U.S.A.,3288
+ger,Germany,GER,3,11,Middle Europe,4652
+gha,Ghana,GHA,3,22,West Tropical Africa,3285
+spa-gi,Gibraltar,SPA-GI,4,spa,Spain,0
+gil,Gilbert Is.,GIL,3,60,Southwestern Pacific,224
+ind-go,Goa,IND-GO,4,ind,India,0
+bzc-go,Goias,BZC-GO,4,bzc,Brazil West-Central,0
+grb,Great Britain,GRB,3,10,Northern Europe,4203
+grc,Greece,GRC,3,13,Southeastern Europe,5483
+gnl,Greenland,GNL,3,70,Subarctic America,580
+win-gr,Grenada,WIN-GR,4,win,Windward Is.,0
+tcs-gr,Gruziya,TCS-GR,4,tcs,Transcaucasus,0
+mxi-gu,Guadalupe I.,MXI-GU,4,mxi,Mexican Pacific Is.,0
+lee-gu,Guadeloupe,LEE-GU,4,lee,Leeward Is.,0
+mrn-gu,Guam,MRN-GU,4,mrn,Marianas,0
+mxe-gu,Guanajuato,MXE-GU,4,mxe,Mexico Northeast,0
+chs-gd,Guangdong,CHS-GD,4,chs,China Southeast,0
+chs-gx,Guangxi,CHS-GX,4,chs,China Southeast,0
+gua,Guatemala,GUA,3,80,Central America,8119
+mxs-gr,Guerrero,MXS-GR,4,mxs,Mexico Southwest,0
+gui,Guinea,GUI,3,22,West Tropical Africa,3117
+gnb,Guinea-Bissau,GNB,3,22,West Tropical Africa,1518
+chc-gz,Guizhou,CHC-GZ,4,chc,China South-Central,0
+ind-gu,Gujarat,IND-GU,4,ind,India,0
+ggi,Gulf of Guinea Is.,GGI,3,23,West-Central Tropical Africa,2235
+gst,Gulf States,GST,3,35,Arabian Peninsula,744
+guy,Guyana,GUY,3,82,Northern South America,6278
+chh,Hainan,CHH,3,36,China,3660
+hai,Haiti,HAI,3,81,Caribbean,4124
+ind-ha,Haryana,IND-HA,4,ind,India,0
+haw,Hawaii,HAW,3,63,North-Central Pacific,2153
+haw-hi,Hawaiian Is.,HAW-HI,4,haw,Hawaii,0
+hmd,Heard-McDonald Is.,HMD,3,90,Subantarctic Islands,11
+chn-hb,Hebei,CHN-HB,4,chn,China North-Central,0
+chm-hj,Heilongjiang,CHM-HJ,4,chm,Manchuria,0
+chs-he,Henan,CHS-HE,4,chs,China Southeast,0
+mxe-hi,Hidalgo,MXE-HI,4,mxe,Mexico Northeast,0
+whm-hp,Himachal Pradesh,WHM-HP,4,whm,West Himalaya,0
+jap-hk,Hokkaido,JAP-HK,4,jap,Japan,0
+swc-hc,Honduran Caribbean Is.,SWC-HC,4,swc,Southwest Caribbean,0
+hon,Honduras,HON,3,80,Central America,6567
+chs-hk,Hong Kong,CHS-HK,4,chs,China Southeast,0
+jap-hn,Honshu,JAP-HN,4,jap,Japan,0
+hbi,Howland-Baker Is.,HBI,3,60,Southwestern Pacific,14
+chc-hu,Hubei,CHC-HU,4,chc,China South-Central,0
+chs-hn,Hunan,CHS-HN,4,chs,China Southeast,0
+hun,Hungary,HUN,3,11,Middle Europe,2672
+ice,Iceland,ICE,3,10,Northern Europe,848
+ida,Idaho,IDA,3,73,Northwestern U.S.A.,2698
+ill,Illinois,ILL,3,74,North-Central U.S.A.,3289
+ind,India,IND,3,40,Indian Subcontinent,7998
+ini,Indiana,INI,3,75,Northeastern U.S.A.,2250
+ncs-in,Ingushetiya,NCS-IN,4,ncs,North Caucasus,0
+chi,Inner Mongolia,CHI,3,36,China,2242
+iow,Iowa,IOW,3,74,North-Central U.S.A.,1785
+irn,Iran,IRN,3,34,Western Asia,8134
+irq,Iraq,IRQ,3,34,Western Asia,3219
+ire,Ireland,IRE,3,10,Northern Europe,1725
+nwg-ij,Irian Jaya,NWG-IJ,4,nwg,New Guinea,0
+irk,Irkutsk,IRK,3,30,Siberia,1710
+pal-is,Israel,PAL-IS,4,pal,Palestine,0
+ita,Italy,ITA,3,13,Southeastern Europe,6566
+ivo,Ivory Coast,IVO,3,22,West Tropical Africa,3855
+mxs-ja,Jalisco,MXS-JA,4,mxs,Mexico Southwest,0
+jam,Jamaica,JAM,3,81,Caribbean,3546
+whm-jk,Jammu-Kashmir,WHM-JK,4,whm,West Himalaya,0
+jap,Japan,JAP,3,38,Eastern Asia,5738
+jaw,Jawa,JAW,3,42,Malesia,5586
+ind-jk,Jharkhand,IND-JK,4,ind,India,0
+chs-js,Jiangsu,CHS-JS,4,chs,China Southeast,0
+chs-jx,Jiangxi,CHS-JX,4,chs,China Southeast,0
+chm-jl,Jilin,CHM-JL,4,chm,Manchuria,0
+haw-ji,Johnston I.,HAW-JI,4,haw,Hawaii,0
+pal-jo,Jordan,PAL-JO,4,pal,Palestine,0
+jnf,Juan Fernández Is.,JNF,3,85,Southern South America,459
+agw-ju,Jujuy,AGW-JU,4,agw,Argentina Northwest,0
+ncs-kb,Kabardino-Balkariya,NCS-KB,4,ncs,North Caucasus,0
+bor-ka,Kalimantan,BOR-KA,4,bor,Borneo,0
+blt-ka,Kaliningrad,BLT-KA,4,blt,Baltic States,0
+kam,Kamchatka,KAM,3,31,Russian Far East,1188
+kan,Kansas,KAN,3,74,North-Central U.S.A.,1956
+ncs-kc,Karacheyevo-Cherkessiya,NCS-KC,4,ncs,North Caucasus,0
+ind-kl,Karaikal,IND-KL,4,ind,India,0
+ind-kt,Karnataka,IND-KT,4,ind,India,0
+kaz,Kazakhstan,KAZ,3,32,Middle Asia,5233
+kzn,Kazan-retto,KZN,3,38,Eastern Asia,252
+kty,Kentucky,KTY,3,78,Southeastern U.S.A.,2680
+ken,Kenya,KEN,3,25,East Tropical Africa,6987
+ind-ke,Kerala,IND-KE,4,ind,India,0
+keg,Kerguelen,KEG,3,90,Subantarctic Islands,88
+ker,Kermadec Is.,KER,3,51,New Zealand,234
+kha,Khabarovsk,KHA,3,31,Russian Far East,1956
+chs-ki,Kin-Men,CHS-KI,4,chs,China Southeast,0
+kgz,Kirgizstan,KGZ,3,32,Middle Asia,3892
+lin-ki,Kiribati Line Is.,LIN-KI,4,lin,Line Is.,0
+kor,Korea,KOR,3,38,Eastern Asia,3718
+yug-ko,Kosovo,YUG-KO,4,yug,Yugoslavia,0
+ncs-kr,Krasnodar,NCS-KR,4,ncs,North Caucasus,0
+kra,Krasnoyarsk,KRA,3,30,Siberia,2125
+kri,Kriti,KRI,3,13,Southeastern Europe,2089
+kry,Krym,KRY,3,14,Eastern Europe,2434
+kur,Kuril Is.,KUR,3,31,Russian Far East,1205
+kuw,Kuwait,KUW,3,35,Arabian Peninsula,329
+nat,KwaZulu-Natal,NAT,3,27,Southern Africa,5568
+jap-ky,Kyushu,JAP-KY,4,jap,Japan,0
+clc-la,La Araucania,CLC-LA,4,clc,Chile Central,0
+lab,Labrador,LAB,3,72,Eastern Canada,698
+ldv,Laccadive Is.,LDV,3,40,Indian Subcontinent,236
+lao,Laos,LAO,3,41,Indo-China,4844
+age-lp,La Pampa,AGE-LP,4,age,Argentina Northeast,0
+agw-lr,La Rioja,AGW-LR,4,agw,Argentina Northwest,0
+blt-la,Latvia,BLT-LA,4,blt,Baltic States,0
+lbs-lb,Lebanon,LBS-LB,4,lbs,Lebanon-Syria,0
+lbs,Lebanon-Syria,LBS,3,34,Western Asia,3992
+lee,Leeward Is.,LEE,3,81,Caribbean,2796
+les,Lesotho,LES,3,27,Southern Africa,1844
+lsi,Lesser Sunda Is.,LSI,3,42,Malesia,3098
+chm-ln,Liaoning,CHM-LN,4,chm,Manchuria,0
+lbr,Liberia,LBR,3,22,West Tropical Africa,2734
+lby,Libya,LBY,3,20,Northern Africa,1943
+aut-li,Liechtenstein,AUT-LI,4,aut,Austria,0
+lin,Line Is.,LIN,3,61,South-Central Pacific,101
+blt-li,Lithuania,BLT-LI,4,blt,Baltic States,0
+nfk-lh,Lord Howe I.,NFK-LH,4,nfk,Norfolk Is.,0
+cls-ll,Los Lagos,CLS-LL,4,cls,Chile South,0
+lou,Louisiana,LOU,3,78,Southeastern U.S.A.,2709
+bgm-lu,Luxembourg,BGM-LU,4,bgm,Belgium,0
+chs-ma,Macau,CHS-MA,4,chs,China Southeast,0
+yug-ma,Macedonia,YUG-MA,4,yug,Yugoslavia,0
+maq,Macquarie Is.,MAQ,3,90,Subantarctic Islands,53
+mdg,Madagascar,MDG,3,29,Western Indian Ocean,10979
+mdr,Madeira,MDR,3,21,Macaronesia,1300
+ind-mp,Madhya Pradesh,IND-MP,4,ind,India,0
+mag,Magadan,MAG,3,31,Russian Far East,1253
+cls-mg,Magellanes,CLS-MG,4,cls,Chile South,0
+ind-mr,Maharashtra,IND-MR,4,ind,India,0
+ind-mh,Mahe,IND-MH,4,ind,India,0
+mai,Maine,MAI,3,75,Northeastern U.S.A.,2007
+mlw,Malawi,MLW,3,26,South Tropical Africa,4852
+mly,Malaya,MLY,3,42,Malesia,8981
+mdv,Maldives,MDV,3,40,Indian Subcontinent,247
+mli,Mali,MLI,3,22,West Tropical Africa,1921
+cpi-ma,Malpelo I.,CPI-MA,4,cpi,Central American Pac,0
+sic-ma,Malta,SIC-MA,4,sic,Sicilia,0
+mol,Maluku,MOL,3,42,Malesia,3002
+chm,Manchuria,CHM,3,36,China,2523
+tok-ma,Manihiki Is.,TOK-MA,4,tok,Tokelau-Manihiki,0
+ass-ma,Manipur,ASS-MA,4,ass,Assam,0
+man,Manitoba,MAN,3,71,Western Canada,1474
+bze-ma,Maranhao,BZE-MA,4,bze,Brazil Northeast,0
+mcs,Marcus I.,MCS,3,62,Northwestern Pacific,14
+mrn,Marianas,MRN,3,62,Northwestern Pacific,609
+mpe,Marion-Prince Edward,MPE,3,90,Subantarctic Islands,38
+mrq,Marquesas,MRQ,3,61,South-Central Pacific,454
+mrs,Marshall Is.,MRS,3,62,Northwestern Pacific,157
+win-ma,Martinique,WIN-MA,4,win,Windward Is.,0
+mry,Maryland,MRY,3,78,Southeastern U.S.A.,2378
+mas,Masachusettes,MAS,3,75,Northeastern U.S.A.,2448
+bzc-mt,Mato Grosso,BZC-MT,4,bzc,Brazil West-Central,0
+bzc-ms,Mato Grosso do Sul,BZC-MS,4,bzc,Brazil West-Central,0
+chs-mp,Ma-tsu-Pai-chuan,CHS-MP,4,chs,China Southeast,0
+clc-ma,Maule,CLC-MA,4,clc,Chile Central,0
+mtn,Mauritania,MTN,3,22,West Tropical Africa,1081
+mau,Mauritius,MAU,3,29,Western Indian Ocean,1716
+com-ma,Mayotte,COM-MA,4,com,Comoros,0
+ass-me,Meghalaya,ASS-ME,4,ass,Assam,0
+agw-me,Mendoza,AGW-ME,4,agw,Argentina Northwest,0
+mxi,Mexican Pacific Is.,MXI,3,79,Mexico,351
+mxc,Mexico Central,MXC,3,79,Mexico,7332
+mxc-df,Mexico Distrito Federal,MXC-DF,4,mxc,Mexico Central,0
+mxg,Mexico Gulf,MXG,3,79,Mexico,7641
+mxe,Mexico Northeast,MXE,3,79,Mexico,11713
+mxn,Mexico Northwest,MXN,3,79,Mexico,7215
+mxt,Mexico Southeast,MXT,3,79,Mexico,8973
+mxs,Mexico Southwest,MXS,3,79,Mexico,14008
+mxc-me,Mexico State,MXC-ME,4,mxc,Mexico Central,0
+mic,Michigan,MIC,3,75,Northeastern U.S.A.,2388
+mxs-mi,Michoacan,MXS-MI,4,mxs,Mexico Southwest,0
+crl-mf,Micronesia Federated States,CRL-MF,4,crl,Caroline Is.,0
+haw-mi,Midway Is.,HAW-MI,4,haw,Hawaii,0
+bzl-mg,Minas Gerais,BZL-MG,4,bzl,Brazil Southeast,0
+min,Minnesota,MIN,3,74,North-Central U.S.A.,1952
+age-mi,Misiones,AGE-MI,4,age,Argentina Northeast,0
+msi,Mississippi,MSI,3,78,Southeastern U.S.A.,2487
+mso,Missouri,MSO,3,74,North-Central U.S.A.,2448
+ass-mi,Mizoram,ASS-MI,4,ass,Assam,0
+ukr-mo,Moldova,UKR-MO,4,ukr,Ukraine,0
+fra-mo,Monaco,FRA-MO,4,fra,France,0
+mon,Mongolia,MON,3,37,Mongolia,2761
+mnt,Montana,MNT,3,73,Northwestern U.S.A.,2484
+yug-mn,Montenegro,YUG-MN,4,yug,Yugoslavia,0
+lee-mo,Montserrat,LEE-MO,4,lee,Leeward Is.,0
+mxc-mo,Morelos,MXC-MO,4,mxc,Mexico Central,0
+mor,Morocco,MOR,3,20,Northern Africa,4585
+moz,Mozambique,MOZ,3,26,South Tropical Africa,5546
+mci,Mozambique Channel I,MCI,3,29,Western Indian Ocean,87
+tvl-mp,Mpumalanga,TVL-MP,4,tvl,Northern Provinces,0
+mya,Myanmar,MYA,3,41,Indo-China,9301
+ass-na,Nagaland,ASS-NA,4,ass,Assam,0
+tcs-nk,Nagorno Karabakh,TCS-NK,4,tcs,Transcaucasus,0
+tcs-na,Nakhichevan,TCS-NA,4,tcs,Transcaucasus,0
+nam,Namibia,NAM,3,27,Southern Africa,3971
+nns,Nansei-shoto,NNS,3,38,Eastern Asia,1772
+nru,Nauru,NRU,3,60,Southwestern Pacific,176
+hai-ni,Navassa I.,HAI-NI,4,hai,Haiti,0
+mxs-na,Nayarit,MXS-NA,4,mxs,Mexico Southwest,0
+neb,Nebraska,NEB,3,74,North-Central U.S.A.,1651
+chi-nm,Nei Mongol,CHI-NM,4,chi,Inner Mongolia,0
+nep,Nepal,NEP,3,40,Indian Subcontinent,5728
+net,Netherlands,NET,3,11,Middle Europe,2151
+nla,Netherlands Antilles,NLA,3,81,Caribbean,588
+lee-nl,Netherlands Leeward Is.,LEE-NL,4,lee,Leeward Is.,0
+ags-ne,Neuquen,AGS-NE,4,ags,Argentina South,0
+nev,Nevada,NEV,3,76,Southwestern U.S.A.,3046
+nbr,New Brunswick,NBR,3,72,Eastern Canada,1370
+nwc,New Caledonia,NWC,3,60,Southwestern Pacific,3444
+nfl,Newfoundland,NFL,3,72,Eastern Canada,1158
+nwg,New Guinea,NWG,3,43,Papuasia,12933
+nwh,New Hampshire,NWH,3,75,Northeastern U.S.A.,1811
+nwj,New Jersey,NWJ,3,75,Northeastern U.S.A.,2377
+nwm,New Mexico,NWM,3,77,South-Central U.S.A.,4103
+nsw,New South Wales,NSW,3,50,Australia,6233
+nwy,New York,NWY,3,75,Northeastern U.S.A.,3752
+nzn,New Zealand North,NZN,3,51,New Zealand,2303
+nzs,New Zealand South,NZS,3,51,New Zealand,2428
+nic,Nicaragua,NIC,3,80,Central America,5669
+swc-nc,Nicaraguan Caribbean Is.,SWC-NC,4,swc,Southwest Caribbean,0
+ncb,Nicobar Is.,NCB,3,41,Indo-China,1429
+ngr,Niger,NGR,3,22,West Tropical Africa,1129
+nga,Nigeria,NGA,3,22,West Tropical Africa,4868
+chi-nx,Ningxia,CHI-NX,4,chi,Inner Mongolia,0
+nue,Niue,NUE,3,60,Southwestern Pacific,420
+nfk-ni,Norfolk I.,NFK-NI,4,nfk,Norfolk Is.,0
+nfk,Norfolk Is.,NFK,3,50,Australia,717
+nca,North Carolina,NCA,3,78,Southeastern U.S.A.,3237
+ncs,North Caucasus,NCS,3,33,Caucasus,3110
+nda,North Dakota,NDA,3,74,North-Central U.S.A.,1281
+cpp-nc,Northern Cape Province,CPP-NC,4,cpp,Cape Provinces,0
+ire-ni,Northern Ireland,IRE-NI,4,ire,Ireland,0
+mrn-nm,Northern Marianas,MRN-NM,4,mrn,Marianas,0
+tvl-np,Northern Province,TVL-NP,4,tvl,Northern Provinces,0
+tvl,Northern Provinces,TVL,3,27,Southern Africa,5912
+nta,Northern Territory,NTA,3,50,Australia,3817
+run,North European Russi,RUN,3,14,Eastern Europe,1987
+kor-nk,North Korea,KOR-NK,4,kor,Korea,0
+sol-no,North Solomons,SOL-NO,4,sol,Solomon Is.,0
+ruw,Northwest European R,RUW,3,14,Eastern Europe,1690
+tvl-nw,North-West Province,TVL-NW,4,tvl,Northern Provinces,0
+nwt,Northwest Territorie,NWT,3,70,Subarctic America,1025
+yem-ny,North Yemen,YEM-NY,4,yem,Yemen,0
+nor,Norway,NOR,3,10,Northern Europe,2302
+nsc,Nova Scotia,NSC,3,72,Eastern Canada,1394
+mxe-nl,Nuevo León,MXE-NL,4,mxe,Mexico Northeast,0
+nun,Nunavut,NUN,3,70,Subarctic America,585
+mxs-oa,Oaxaca,MXS-OA,4,mxs,Mexico Southwest,0
+oga,Ogasawara-shoto,OGA,3,38,Eastern Asia,462
+clc-oh,O'Higgins,CLC-OH,4,clc,Chile Central,0
+ohi,Ohio,OHI,3,75,Northeastern U.S.A.,2368
+okl,Oklahoma,OKL,3,74,North-Central U.S.A.,2437
+oma,Oman,OMA,3,35,Arabian Peninsula,1290
+ont,Ontario,ONT,3,72,Eastern Canada,2661
+ore,Oregon,ORE,3,73,Northwestern U.S.A.,3837
+ind-or,Orissa,IND-OR,4,ind,India,0
+pak,Pakistan,PAK,3,40,Indian Subcontinent,4456
+crl-pa,Palau,CRL-PA,4,crl,Caroline Is.,0
+pal,Palestine,PAL,3,34,Western Asia,2961
+pan,Panamá,PAN,3,80,Central America,9506
+nwg-pn,Papua New Guinea,NWG-PN,4,nwg,New Guinea,0
+bzn-pa,Para,BZN-PA,4,bzn,Brazil North,0
+scs-pi,Paracel Is.,SCS-PI,4,scs,South China Sea,0
+par,Paraguay,PAR,3,85,Southern South America,5419
+bze-pb,Paraiba,BZE-PB,4,bze,Brazil Northeast,0
+bzs-pr,Parana,BZS-PR,4,bzs,Brazil South,0
+mly-pm,Peninsular Malaysia,MLY-PM,4,mly,Malaya,0
+pen,Pennsylvania,PEN,3,75,Northeastern U.S.A.,2729
+bze-pe,Pernambuco,BZE-PE,4,bze,Brazil Northeast,0
+per,Peru,PER,3,83,Western South America,20043
+phi,Philippines,PHI,3,42,Malesia,8990
+phx,Phoenix Is.,PHX,3,60,Southwestern Pacific,70
+bze-pi,Piaui,BZE-PI,4,bze,Brazil Northeast,0
+pit,Pitcairn Is.,PIT,3,61,South-Central Pacific,129
+pol,Poland,POL,3,11,Middle Europe,3028
+ind-po,Pondicherry,IND-PO,4,ind,India,0
+por,Portugal,POR,3,12,Southwestern Europe,3038
+prm,Primorye,PRM,3,31,Russian Far East,2310
+pei,Prince Edward I.,PEI,3,72,Eastern Canada,862
+ggi-pr,Príncipe,GGI-PR,4,ggi,Gulf of Guinea Is.,0
+mxc-pu,Puebla,MXC-PU,4,mxc,Mexico Central,0
+pue,Puerto Rico,PUE,3,81,Caribbean,3173
+ind-pu,Punjab,IND-PU,4,ind,India,0
+gst-qa,Qatar,GST-QA,4,gst,Gulf States,0
+chq,Qinghai,CHQ,3,36,China,2226
+que,Québec,QUE,3,72,Eastern Canada,2300
+qld,Queensland,QLD,3,50,Australia,8267
+mxe-qu,Querétaro,MXE-QU,4,mxe,Mexico Northeast,0
+mxt-qr,Quintana Roo,MXT-QR,4,mxt,Mexico Southeast,0
+ind-ra,Rajasthan,IND-RA,4,ind,India,0
+reu,Réunion,REU,3,29,Western Indian Ocean,1632
+mxi-rg,Revillagigedo Is.,MXI-RG,4,mxi,Mexican Pacific Is.,0
+rho,Rhode I.,RHO,3,75,Northeastern U.S.A.,1587
+bzl-rj,Rio de Janeiro,BZL-RJ,4,bzl,Brazil Southeast,0
+bze-rn,Rio Grande do Norte,BZE-RN,4,bze,Brazil Northeast,0
+bzs-rs,Rio Grande do Sul,BZS-RS,4,bzs,Brazil South,0
+ags-rn,Rio Negro,AGS-RN,4,ags,Argentina South,0
+mxi-ra,Rocas Alijos,MXI-RA,4,mxi,Mexican Pacific Is.,0
+rod,Rodrigues,ROD,3,29,Western Indian Ocean,399
+rom,Romania,ROM,3,13,Southeastern Europe,3637
+bzn-ro,Rondonia,BZN-RO,4,bzn,Brazil North,0
+bzn-rm,Roraima,BZN-RM,4,bzn,Brazil North,0
+rwa,Rwanda,RWA,3,23,West-Central Tropical Africa,2677
+bor-sb,Sabah,BOR-SB,4,bor,Borneo,0
+sak,Sakhalin,SAK,3,31,Russian Far East,1383
+agw-sa,Salta,AGW-SA,4,agw,Argentina Northwest,0
+sam,Samoa,SAM,3,60,Southwestern Pacific,1085
+agw-sj,San Juan,AGW-SJ,4,agw,Argentina Northwest,0
+agw-sl,San Luis,AGW-SL,4,agw,Argentina Northwest,0
+mxe-sl,San Luis Potosí,MXE-SL,4,mxe,Mexico Northeast,0
+ita-sm,San Marino,ITA-SM,4,ita,Italy,0
+bzs-sc,Santa Catarina,BZS-SC,4,bzs,Brazil South,0
+ags-sc,Santa Cruz,AGS-SC,4,ags,Argentina South,0
+scz,Santa Cruz Is.,SCZ,3,60,Southwestern Pacific,247
+age-sf,Santa Fe,AGE-SF,4,age,Argentina Northeast,0
+clc-sa,Santiago,CLC-SA,4,clc,Chile Central,0
+agw-se,Santiago del Estero,AGW-SE,4,agw,Argentina Northwest,0
+bzl-sp,Sao Paulo,BZL-SP,4,bzl,Brazil Southeast,0
+ggi-st,São Tomé,GGI-ST,4,ggi,Gulf of Guinea Is.,0
+bor-sr,Sarawak,BOR-SR,4,bor,Borneo,0
+sar,Sardegna,SAR,3,12,Southwestern Europe,2157
+sas,Saskatchewan,SAS,3,71,Western Canada,1409
+sau,Saudi Arabia,SAU,3,35,Arabian Peninsula,2151
+sel,Selvagens,SEL,3,21,Macaronesia,103
+sen,Senegal,SEN,3,22,West Tropical Africa,2266
+yug-se,Serbia,YUG-SE,4,yug,Yugoslavia,0
+bze-se,Sergipe,BZE-SE,4,bze,Brazil Northeast,0
+ncs-so,Severo-Osetiya,NCS-SO,4,ncs,North Caucasus,0
+sey,Seychelles,SEY,3,29,Western Indian Ocean,686
+chn-sa,Shaanxi,CHN-SA,4,chn,China North-Central,0
+chn-sd,Shandong,CHN-SD,4,chn,China North-Central,0
+chs-sh,Shanghai,CHS-SH,4,chs,China Southeast,0
+chn-sx,Shanxi,CHN-SX,4,chn,China North-Central,0
+jap-sh,Shikoku,JAP-SH,4,jap,Japan,0
+chc-sc,Sichuan,CHC-SC,4,chc,China South-Central,0
+sic,Sicilia,SIC,3,13,Southeastern Europe,2713
+sie,Sierra Leone,SIE,3,22,West Tropical Africa,2772
+ehm-si,Sikkim,EHM-SI,4,ehm,East Himalaya,0
+sin,Sinai,SIN,3,34,Western Asia,1287
+mxn-si,Sinaloa,MXN-SI,4,mxn,Mexico Northwest,0
+mly-si,Singapore,MLY-SI,4,mly,Malaya,0
+cze-sl,Slovakia,CZE-SL,4,cze,Czechoslovakia,0
+yug-sl,Slovenia,YUG-SL,4,yug,Yugoslavia,0
+sci,Society Is.,SCI,3,61,South-Central Pacific,967
+soc,Socotra,SOC,3,24,Northeast Tropical Africa,835
+sol,Solomon Is.,SOL,3,43,Papuasia,2277
+som,Somalia,SOM,3,24,Northeast Tropical Africa,3223
+mxn-so,Sonora,MXN-SO,4,mxn,Mexico Northwest,0
+soa,South Australia,SOA,3,50,Australia,3537
+sca,South Carolina,SCA,3,78,Southeastern U.S.A.,2877
+scs,South China Sea,SCS,3,41,Indo-China,285
+sda,South Dakota,SDA,3,74,North-Central U.S.A.,1557
+rus,South European Russi,RUS,3,14,Eastern Europe,2213
+sge,South Georgia,SGE,3,90,Subantarctic Islands,73
+kor-sk,South Korea,KOR-SK,4,kor,Korea,0
+ssa,South Sandwich Is.,SSA,3,90,Subantarctic Islands,2
+sol-so,South Solomons,SOL-SO,4,sol,Solomon Is.,0
+swc,Southwest Caribbean,SWC,3,81,Caribbean,336
+yem-sy,South Yemen,YEM-SY,4,yem,Yemen,0
+spa,Spain,SPA,3,12,Southwestern Europe,7016
+mor-sp,Spanish North African Territories,MOR-SP,4,mor,Morocco,0
+scs-si,Spratly Is.,SCS-SI,4,scs,South China Sea,0
+srl,Sri Lanka,SRL,3,40,Indian Subcontinent,4135
+ncs-st,Stavropol,NCS-ST,4,ncs,North Caucasus,0
+sth,St.Helena,STH,3,28,Middle Atlantic Ocean,437
+lee-sk,St. Kitts-Nevis,LEE-SK,4,lee,Leeward Is.,0
+win-sl,St. Lucia,WIN-SL,4,win,Windward Is.,0
+lee-sm,St. Martin-St. Barthelemy,LEE-SM,4,lee,Leeward Is.,0
+nfl-sp,St. Pierre-Miquelon,NFL-SP,4,nfl,Newfoundland,0
+win-sv,St. Vincent,WIN-SV,4,win,Windward Is.,0
+sud,Sudan,SUD,3,24,Northeast Tropical Africa,4189
+sul,Sulawesi,SUL,3,42,Malesia,4306
+sum,Sumatera,SUM,3,42,Malesia,6946
+sur,Suriname,SUR,3,82,Northern South America,4404
+sva,Svalbard,SVA,3,10,Northern Europe,197
+tok-sw,Swains I.,TOK-SW,4,tok,Tokelau-Manihiki,0
+swz,Swaziland,SWZ,3,27,Southern Africa,2758
+swe,Sweden,SWE,3,10,Northern Europe,3938
+swi,Switzerland,SWI,3,11,Middle Europe,3641
+lbs-sy,Syria,LBS-SY,4,lbs,Lebanon-Syria,0
+mxt-tb,Tabasco,MXT-TB,4,mxt,Mexico Southeast,0
+tzk,Tadzhikistan,TZK,3,32,Middle Asia,4295
+tai,Taiwan,TAI,3,38,Eastern Asia,4702
+mxe-ta,Tamaulipas,MXE-TA,4,mxe,Mexico Northeast,0
+ind-tn,Tamil Nadu,IND-TN,4,ind,India,0
+tan,Tanzania,TAN,3,25,East Tropical Africa,10469
+cln-ta,Tarapaca,CLN-TA,4,cln,Chile North,0
+tas,Tasmania,TAS,3,50,Australia,2024
+ten,Tennessee,TEN,3,78,Southeastern U.S.A.,2962
+tex,Texas,TEX,3,77,South-Central U.S.A.,5236
+tha,Thailand,THA,3,41,Indo-China,10474
+chn-tj,Tianjin,CHN-TJ,4,chn,China North-Central,0
+cht,Tibet,CHT,3,36,China,6966
+ags-tf,Tierra del Fuego (Argentina),AGS-TF,4,ags,Argentina South,0
+mxc-tl,Tlaxcala,MXC-TL,4,mxc,Mexico Central,0
+bzn-to,Tocantins,BZN-TO,4,bzn,Brazil North,0
+tog,Togo,TOG,3,22,West Tropical Africa,2109
+tok-to,Tokelau,TOK-TO,4,tok,Tokelau-Manihiki,0
+tok,Tokelau-Manihiki,TOK,3,60,Southwestern Pacific,137
+ton,Tonga,TON,3,60,Southwestern Pacific,730
+tcs,Transcaucasus,TCS,3,33,Caucasus,5609
+bzl-tr,Trindade,BZL-TR,4,bzl,Brazil Southeast,0
+trt,Trinidad-Tobago,TRT,3,81,Caribbean,3435
+ass-tr,Tripura,ASS-TR,4,ass,Assam,0
+tdc,Tristan da Cunha,TDC,3,90,Subantarctic Islands,223
+tua,Tuamotu,TUA,3,61,South-Central Pacific,181
+tub,Tubuai Is.,TUB,3,61,South-Central Pacific,351
+agw-tu,Tucuman,AGW-TU,4,agw,Argentina Northwest,0
+tun,Tunisia,TUN,3,20,Northern Africa,2560
+tur,Turkey,TUR,3,34,Western Asia,10277
+tue,Turkey-in-Europe,TUE,3,13,Southeastern Europe,2283
+tkm,Turkmenistan,TKM,3,32,Middle Asia,2736
+tci,Turks-Caicos Is.,TCI,3,81,Caribbean,452
+tva,Tuva,TVA,3,30,Siberia,1652
+tuv,Tuvalu,TUV,3,60,Southwestern Pacific,83
+uga,Uganda,UGA,3,25,East Tropical Africa,5037
+ukr,Ukraine,UKR,3,14,Eastern Europe,3491
+gst-ua,United Arab Emirates,GST-UA,4,gst,Gulf States,0
+uru,Uruguay,URU,3,85,Southern South America,2929
+lin-us,U.S. Line Is.,LIN-US,4,lin,Line Is.,0
+uta,Utah,UTA,3,76,Southwestern U.S.A.,3332
+whm-ut,Uttaranchal,WHM-UT,4,whm,West Himalaya,0
+ind-up,Uttar Pradesh,IND-UP,4,ind,India,0
+uzb,Uzbekistan,UZB,3,32,Middle Asia,3831
+clc-va,Valparaiso,CLC-VA,4,clc,Chile Central,0
+van,Vanuatu,VAN,3,60,Southwestern Pacific,1055
+ita-vc,Vatican City,ITA-VC,4,ita,Italy,0
+ven,Venezuela,VEN,3,82,Northern South America,16178
+vna,Venezuelan Antilles,VNA,3,81,Caribbean,1045
+mxg-vc,Veracruz,MXG-VC,4,mxg,Mexico Gulf,0
+ver,Vermont,VER,3,75,Northeastern U.S.A.,2294
+vic,Victoria,VIC,3,50,Australia,3663
+vie,Vietnam,VIE,3,41,Indo-China,11298
+vrg,Virginia,VRG,3,78,Southeastern U.S.A.,2970
+lee-vi,Virgin Is.,LEE-VI,4,lee,Leeward Is.,0
+wak,Wake I.,WAK,3,62,Northwestern Pacific,43
+wal,Wallis-Futuna Is.,WAL,3,60,Southwestern Pacific,407
+was,Washington,WAS,3,73,Northwestern U.S.A.,3016
+ind-wb,West Bengal,IND-WB,4,ind,India,0
+wau,Western Australia,WAU,3,50,Australia,9883
+cpp-wc,Western Cape Province,CPP-WC,4,cpp,Cape Provinces,0
+wsa,Western Sahara,WSA,3,20,Northern Africa,392
+whm,West Himalaya,WHM,3,40,Indian Subcontinent,4999
+wsb,West Siberia,WSB,3,30,Siberia,2291
+wva,West Virginia,WVA,3,75,Northeastern U.S.A.,2041
+win,Windward Is.,WIN,3,81,Caribbean,2527
+wis,Wisconsin,WIS,3,74,North-Central U.S.A.,2067
+wyo,Wyoming,WYO,3,73,Northwestern U.S.A.,2444
+chx,Xinjiang,CHX,3,36,China,3446
+yak,Yakutskiya,YAK,3,30,Siberia,1544
+ind-ya,Yanam,IND-YA,4,ind,India,0
+yem,Yemen,YEM,3,35,Arabian Peninsula,2088
+mxt-yu,Yucatán,MXT-YU,4,mxt,Mexico Southeast,0
+yug,Yugoslavia,YUG,3,13,Southeastern Europe,5987
+yuk,Yukon,YUK,3,70,Subarctic America,1147
+chc-yn,Yunnan,CHC-YN,4,chc,China South-Central,0
+mxe-za,Zacatecas,MXE-ZA,4,mxe,Mexico Northeast,0
+zai,Zaïre,ZAI,3,23,West-Central Tropical Africa,9670
+zam,Zambia,ZAM,3,26,South Tropical Africa,6375
+chs-zj,Zhejiang,CHS-ZJ,4,chs,China Southeast,0
+zim,Zimbabwe,ZIM,3,26,South Tropical Africa,5582
