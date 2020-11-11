@@ -63,7 +63,7 @@ const Comments: React.FC<CommentsProps> = ({comments, user, handleComment}) => {
             {comments && comments.map((comment, i) => (
                 <OuterRow key={i}>
                     <InnerRow>
-                        <Avatar><img src={comment.image ? comment.image : UserImage} /></Avatar>
+                        <Avatar><img src={comment.image_url ? comment.image_url : UserImage} /></Avatar>
                         <SubTitle style={{marginBottom: 0}}>{comment.name ? comment.name : "Anonymous User"}</SubTitle>
                     </InnerRow>
                     <InnerRow>
