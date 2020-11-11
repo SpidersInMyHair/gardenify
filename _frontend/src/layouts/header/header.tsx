@@ -7,7 +7,7 @@ import { RightMenu } from './menu/right-menu/right-menu';
 import HeaderWrapper from './header.style';
 import LogoImage from 'assets/images/Gardenify.png';
 import Logo from 'layouts/logo/logo';
-import UserImage from 'assets/images/user.jpg';
+import UserImage from 'assets/images/user.svg';
 import { isCategoryPage } from '../is-home-page';
 import Search from 'features/search/search';
 import { useCookies } from 'react-cookie';

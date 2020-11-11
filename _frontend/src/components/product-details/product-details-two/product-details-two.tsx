@@ -21,13 +21,16 @@ import {
   MetaItem,
   Table,
   RelatedItems,
+  DetailsTitle,
+  DetailsWrapper,
 } from './product-details-two.style';
 import Ratings from './ratings';
+import Comments from './comments';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
-import { getComments, getRatings, setUserRating } from 'utils/api/plant';
+import { getComments, getRatings, setUserRating, setUserComment } from 'utils/api/plant';
 import { AuthContext } from 'contexts/auth/auth.context';
 
 type ProductDetailsProps = {
@@ -55,7 +58,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
 
   const {
     authDispatch,
-    authState: { isAuthenticated }
+    authState: { isAuthenticated, user }
   } = useContext<any>(AuthContext);
 
   const toggleFavourite = () => {
@@ -88,6 +91,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   };
 
   const handleRating = (r) => isAuthenticated ? setUserRating(general.slug, r).then(() => getRatings(general.slug).then((r) => r && setRatings(r))) : handleLogin();
+  const handleComment = (c) => isAuthenticated ? setUserComment(general.slug, c).then(() => getComments(general.slug).then((c) => c && setComments(c))) : handleLogin();
 
   useEffect(() => {
     setTimeout(() => {
@@ -99,8 +103,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   }, [isAuthenticated]);
 
   const FavouriteButton = () => isAuthenticated ?
-    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
-  : <span onClick={handleLogin} style={{marginLeft: 20, color: "forestgreen", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
+    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
+  : <span onClick={handleLogin} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
 
   return (
     <>
@@ -223,11 +227,12 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
         </ProductInfo>
       </ProductDetailsWrapper>
 
-      {/* <DetailsWrapper ref={scrollRef}>
+      <DetailsWrapper>
         <DetailsTitle>
-          About The Plant
+          Comments
         </DetailsTitle>
-      </DetailsWrapper> */}
+        <Comments comments={comments} user={user} handleComment={handleComment}/>
+      </DetailsWrapper>
 
       <RelatedItems>
         <h2>

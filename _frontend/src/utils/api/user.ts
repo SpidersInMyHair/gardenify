@@ -69,6 +69,7 @@ export async function editUser(userInfo) {
       body: JSON.stringify(userInfo),  
     });
     if (!fetchResponse.ok) toast.error("Couldn't update user info");
+    toast.error("Updated info");
     return fetchResponse.ok;
   } catch (e) {
     return e;

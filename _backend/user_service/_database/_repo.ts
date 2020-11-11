@@ -122,11 +122,11 @@ function editProfile(id: string , user: any, profile: any) {
     connection.query(`                                                      \
       UPDATE profiles                                                       \
       SET                                                                   \
-      ${Object.keys(profile).map((param) => `${connection.escapeId(param)}=${connection.escape(profile[param])}`).join("\n")}
+      ${Object.keys(profile).map((param) => profile[param] ? `${connection.escapeId(param)}=${connection.escape(profile[param])}` : '').join(" ")} \
       WHERE user_id=UUID_TO_BIN(${connection.escape(id)});                  \
       UPDATE users                                                          \
       SET                                                                   \
-      ${Object.keys(user).map((param) => user[param] ? `${connection.escapeId(param)}=${connection.escape(user[param])}` : '').join("\n")}
+      ${Object.keys(user).map((param) => user[param] ? `${connection.escapeId(param)}=${connection.escape(user[param])}` : '').join(" ")} \
       WHERE id=UUID_TO_BIN(${connection.escape(id)});                       \
       `
     , (err: any, results: any) => {

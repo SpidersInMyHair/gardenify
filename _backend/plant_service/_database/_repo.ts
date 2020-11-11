@@ -62,7 +62,7 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
           return `WHERE ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
         }
         return `AND  ${connection.escapeId(param)} LIKE ${connection.escape('%' + query[param] + '%')}`
-      }).join(" ")}
+      }).join(" ")} \
       ORDER BY img_url \
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {

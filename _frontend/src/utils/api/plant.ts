@@ -81,3 +81,21 @@ export async function setUserRating(slug, rating) {
     return null;
   }
 }
+
+export async function setUserComment(slug, comment) {
+  try {
+    const fetchResponse = await fetch(`${url}/plant/comment`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({slug: slug, comment_description: comment})
+    });
+    if (!fetchResponse.ok) toast.error("Couldn't update rating");
+    return true;
+  } catch {
+    return null;
+  }
+}
