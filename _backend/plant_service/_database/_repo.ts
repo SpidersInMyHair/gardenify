@@ -380,6 +380,7 @@ function getPlantsInDistribution(slug: string, offset: number = 0, limit: number
         resolve(results.length > 0 ? results : undefined);
     });
   })  
+}
 
 function getSession(id: string, session_key: string) {
   return new Promise((resolve, reject) => {
@@ -410,14 +411,9 @@ module.exports = {
   insertComment,
   getComments,
   insertRating,
-<<<<<<< HEAD
-  getRatings,
-  getRatingByUser,
   getDistribution,
   getDistributions,
-  getPlantsInDistribution
-=======
+  getPlantsInDistribution,
   getSession,
   getRatings
->>>>>>> f9a782237de3deefc2b83f43dc8068a04377d684
 }

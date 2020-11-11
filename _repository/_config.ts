@@ -37,8 +37,4 @@ const db_init = require('../_backend/_common/db_init');
 
 app.use(plant_create);
 app.use(user_create);
-<<<<<<< HEAD
-app.use(user_init);
-=======
 app.use(db_init);
->>>>>>> f9a782237de3deefc2b83f43dc8068a04377d684
