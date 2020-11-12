@@ -111,16 +111,16 @@ connection.query(`                                                              
     rainan      float       NOT NULL,                   \
     rh9an       float       NOT NULL,                   \
     id          int         NOT NULL AUTO_INCREMENT,                                               \
-    PRIMARY KEY (pc)
+    PRIMARY KEY (id)
   );
   CREATE TABLE IF NOT EXISTS plant_climates (                                                       \
     slug        varchar(256)  UNIQUE      NOT NULL,                                                   \
-    humidity    float         NOT NULL,                                                               \
-    ffdm        float         NOT NULL,                   \
-    min_precip  float         NOT NULL,                   \
-    max_precip  float         NOT NULL,                   \
+    humidity    float,                                                               \
+    ffdm        float,                   \
+    min_precip  float,                   \
+    max_precip  float,                   \
     id          int           NOT NULL AUTO_INCREMENT,                                               \
-    PRIMARY KEY (slug),
+    PRIMARY KEY (id),
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug)                                             \
   );`
 , (err: any) => {

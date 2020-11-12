@@ -326,3 +326,26 @@ app.get(`${SERVICE}/distribution/in/:slug`, (req: any, res: GetPlantsResponse) =
     });
 });
 
+// GET  /plant/post_code/:post_code
+app.get(`${SERVICE}/post_code/:post_code`, (req: any, res: GetPlantsResponse) => {
+  console.log(req.params.post_code)
+  let limit = 20;
+  let offset = 0;
+  if (req.query['limit'] !== '') {
+    limit = req.query.limit;
+    delete req.query.limit;
+  }
+  if (req.query['offset'] !== '') {
+    offset = req.query.offset;
+    delete req.query.offset
+  }
+  repo.getPlantsForPostCode(req.params.post_code, offset,limit)
+    .then((plants: Array<PlantVariety>) => {
+      res.send(plants).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
