@@ -19,6 +19,16 @@ connection.query(` \
       INTO TABLE plant_varieties \
       FIELDS TERMINATED BY ',' \
       OPTIONALLY ENCLOSED BY '"' \
+      IGNORE 1 LINES; \
+      LOAD DATA LOCAL INFILE "_backend/plant_service/data/distribution_details.csv" \
+      INTO TABLE plant_distribution_details \
+      FIELDS TERMINATED BY ',' \
+      OPTIONALLY ENCLOSED BY '"' \
+      IGNORE 1 LINES; \
+      LOAD DATA LOCAL INFILE "_backend/plant_service/data/distributions.csv" \
+      INTO TABLE plant_distributions \
+      FIELDS TERMINATED BY ',' \
+      OPTIONALLY ENCLOSED BY '"' \
       IGNORE 1 LINES;`
       , (err: any) => {
         if (err) throw err;
