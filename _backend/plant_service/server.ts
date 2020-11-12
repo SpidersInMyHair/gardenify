@@ -327,7 +327,7 @@ app.get(`${SERVICE}/distribution/in/:slug`, (req: any, res: GetPlantsResponse) =
 });
 
 // GET  /plant/post_code/:post_code
-app.get(`${SERVICE}/post_code/:post_code`, (req: any, res: GetPlantsResponse) => {
+app.get(`${SERVICE}/postcode/:post_code`, (req: any, res: GetPlantsResponse) => {
   console.log(req.params.post_code)
   let limit = 20;
   let offset = 0;
