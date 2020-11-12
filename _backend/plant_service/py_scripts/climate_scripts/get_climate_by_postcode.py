@@ -22,9 +22,9 @@ if __name__ == '__main__':
     # directory of this script
     script_dir = os.path.dirname(os.path.realpath(__file__))
     # where the data is kept ....
-    data_dir = os.path.abspath(os.path.join(script_dir,'../data/climate'))
+    data_dir = os.path.abspath(os.path.join(script_dir,'../../data/climate'))
     # target output file
-    outfile = os.path.abspath(os.path.join(script_dir,'../data/climate_by_postcode.csv'))
+    outfile = os.path.abspath(os.path.join(script_dir,'../../data/climate_by_postcode.csv'))
     out_fh = open(outfile,'w')
 
     # load the shapefile with postcodes
