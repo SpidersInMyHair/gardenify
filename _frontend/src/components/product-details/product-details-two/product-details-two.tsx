@@ -32,6 +32,7 @@ import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
 import { getComments, getRatings, setUserRating, setUserComment } from 'utils/api/plant';
 import { AuthContext } from 'contexts/auth/auth.context';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 type ProductDetailsProps = {
   general: any;
@@ -105,6 +106,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   const FavouriteButton = () => isAuthenticated ?
     <span onClick={toggleFavourite} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
   : <span onClick={handleLogin} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
+
+ const locations = [{lat: 40, lng: 41},{lat: 40, lng: 51},{lat: 40, lng: 60} ];
 
   return (
     <>
@@ -209,6 +212,12 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               })}
             </MetaTable>
           </DescriptionWrapper>
+            
+          <LoadScript googleMapsApiKey='AIzaSyCmu7lxrxwkcFUnnm2ba0_7eTO2cSfmepE'>
+            <GoogleMap mapContainerStyle={{height:'500px', width:'550px'}} zoom={4} center={{lat:41, lng:40}}>
+              {locations && locations.map((location, index) => <Marker onClick={() => console.log('khello')} key={index} position={{lat:location.lat, lng:location.lng}} />)}
+            </GoogleMap>
+          </LoadScript>
 
           <ProductMeta>
             <MetaSingle>
