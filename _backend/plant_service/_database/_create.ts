@@ -4,6 +4,8 @@ module.exports = express();
 connection = require('../../../_repository/_config').connection;
 
 connection.query(`                                                                                  \
+  DROP TABLE IF EXISTS plant_climates;                                                              \
+  DROP TABLE IF EXISTS post_code_climates;                                                          \
   DROP TABLE IF EXISTS favourites;                                                                  \
   DROP TABLE IF EXISTS ratings;                                                                     \
   DROP TABLE IF EXISTS comments;                                                                    \
@@ -77,6 +79,26 @@ connection.query(`                                                              
     PRIMARY KEY (id),                                                                               \
     FOREIGN KEY (slug) REFERENCES plant_varieties(slug),                                            \
     UNIQUE (slug, user_id)                                                                          \
+  );
+  CREATE TABLE IF NOT EXISTS post_code_climates (                                                   \
+    pc          varchar(8)  UNIQUE      NOT NULL,                                                   \
+    frostann    float       NOT NULL,                                                               \
+    maxsum      float       NOT NULL,                   \
+    minwin      float       NOT NULL,                   \
+    rainan      float       NOT NULL,                   \
+    rh9an       float       NOT NULL,                   \
+    id          int         NOT NULL AUTO_INCREMENT,                                               \
+    PRIMARY KEY (pc)
+  );
+  CREATE TABLE IF NOT EXISTS plant_climates (                                                       \
+    slug        varchar(256)  UNIQUE      NOT NULL,                                                   \
+    humidity    float         NOT NULL,                                                               \
+    ffdm        float         NOT NULL,                   \
+    min_precip  float         NOT NULL,                   \
+    max_precip  float         NOT NULL,                   \
+    id          int           NOT NULL AUTO_INCREMENT,                                               \
+    PRIMARY KEY (slug),
+    FOREIGN KEY (slug) REFERENCES plant_varieties(slug)                                             \
   );`
 , (err: any) => {
   if (err) throw err;
