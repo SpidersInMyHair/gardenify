@@ -27,19 +27,18 @@ type Props = {
 };
 
 const ProfilePage: NextPage<Props> = ({ deviceType }) => {
-  
   const {
     authState: { isLoading, isAuthenticated, user }
   } = useContext<any>(AuthContext);
 
   const router = useRouter();
+  if (isLoading) return <Loader />
+
   if (!isLoading && !isAuthenticated) {
     toast.error("User not logged in")
-    window.location.href = "/";
+    router.push("/");
     return null
   }
-
-  if (isLoading) return <Loader />
   
   return (
     <>
