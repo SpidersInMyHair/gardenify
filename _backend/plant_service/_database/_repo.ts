@@ -399,7 +399,7 @@ function getPlantsForPostCode(post_code: string, offset: number = 0, limit: numb
     connection.query(` \
       SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
       FROM plant_varieties as pv \
-      INNER JOIN (SELECT pc.slug \
+      INNER JOIN (SELECT pc.slug, pc.ffdm, pc.humidity, pc.max_precip\
           FROM plant_climates as pc, post_code_climates as pcc \
             WHERE (pcc.pc="${post_code}") AND ( \
             ((366 - pcc.frostann > pc.ffdm) AND ( (pc.humidity IS NULL AND pc.min_precip IS NULL) OR \
@@ -407,6 +407,7 @@ function getPlantsForPostCode(post_code: string, offset: number = 0, limit: numb
                 (pc.max_precip IS NULL AND pcc.rh9an/10 > pc.humidity) OR \
                 (pc.humidity IS NULL and pcc.rainan < pc.max_precip)))) \
       ) as x ON x.slug=pv.slug \ 
+      ORDER BY x.ffdm DESC, x.humidity DESC, x.max_precip DESC\
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {
         console.log(results);
