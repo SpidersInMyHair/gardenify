@@ -402,9 +402,10 @@ function getPlantsForPostCode(post_code: string, offset: number = 0, limit: numb
       INNER JOIN (SELECT pc.slug \
           FROM plant_climates as pc, post_code_climates as pcc \
             WHERE (pcc.pc="${post_code}") AND ( \
-            ((366 - pcc.frostann > pc.ffdm) and ((pcc.rh9an/10 > pc.humidity) OR \
-                (pcc.rainan between pc.min_precip and pc.max_precip))) OR \ 
-            ((366 - pcc.frostann > pc.ffdm) AND ((pc.humidity is null) OR (pcc.rh9an/10 > pc.humidity)))) \
+            ((366 - pcc.frostann > pc.ffdm) AND ( (pc.humidity IS NULL AND pc.min_precip IS NULL) OR \
+                (pcc.rainan < pc.max_precip AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.max_precip IS NULL AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.humidity IS NULL and pcc.rainan < pc.max_precip)))) \
       ) as x ON x.slug=pv.slug \ 
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {
