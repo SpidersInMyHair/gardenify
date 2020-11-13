@@ -1,6 +1,12 @@
 # COMP/SENG4920 Group Project: Gardenify
 Amir Harambasic, Rishad Mahbub, Nathan Ellis, Mohamed Al Mouiee, Forrest Koch
 
+## GitHub
+To aid in marking, the repository has been made public and is available from
+[https://github.com/SpidersInMyHair/gardenify](https://github.com/SpidersInMyHair/gardenify).
+We strongly suggest viewing the documentation using the GitHub interface so the 
+markdown can be rendered properly.
+
 ## Contents
 - [Project Planning](planning/planning.md)
 - [Backend](_backend/backend.md)
