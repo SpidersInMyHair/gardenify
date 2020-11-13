@@ -382,6 +382,41 @@ function getPlantsInDistribution(slug: string, offset: number = 0, limit: number
   })  
 }
 
+function getPlantsForPostCode(post_code: string, offset: number = 0, limit: number = 20): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    /*
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_climates as pc, post_code_climates as pcc \
+      INNER JOIN plant_varieties as pv ON pc.slug=pv.slug \
+      WHERE (pcc.pc="${post_code}") AND ( \
+            ((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
+                (pcc.rainan between pc.min_precip and pc.max_precip))) OR \ 
+            ((366 - pcc.frostann > pc.ffdm) AND ((pc.humidity is null) OR (pcc.rh9an/10 > pc.humidity)))) \
+      LIMIT ${offset},${limit}; \
+      */
+            //((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_varieties as pv \
+      INNER JOIN (SELECT pc.slug, pc.ffdm, pc.humidity, pc.max_precip\
+          FROM plant_climates as pc, post_code_climates as pcc \
+            WHERE (pcc.pc="${post_code}") AND ( \
+            ((366 - pcc.frostann > pc.ffdm) AND ( (pc.humidity IS NULL AND pc.min_precip IS NULL) OR \
+                (pcc.rainan < pc.max_precip AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.max_precip IS NULL AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.humidity IS NULL and pcc.rainan < pc.max_precip)))) \
+      ) as x ON x.slug=pv.slug \ 
+      ORDER BY x.ffdm DESC, x.humidity DESC, x.max_precip DESC\
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<PlantVariety>) => {
+        console.log(results);
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
 function getSession(id: string, session_key: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                      \
@@ -414,6 +449,7 @@ module.exports = {
   getDistribution,
   getDistributions,
   getPlantsInDistribution,
+  getPlantsForPostCode,
   getSession,
   getRatings
 }
