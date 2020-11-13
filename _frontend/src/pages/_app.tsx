@@ -4,7 +4,6 @@ import { defaultTheme } from 'site-settings/site-theme/default';
 import { AppProvider } from 'contexts/app/app.provider';
 import { AuthProvider } from 'contexts/auth/auth.provider';
 import { LanguageProvider } from 'contexts/language/language.provider';
-import { CartProvider } from 'contexts/cart/use-cart';
 import { useMedia } from 'utils/use-media';
 import AppLayout from 'layouts/app-layout';
 import { ToastContainer } from 'react-toastify';
@@ -36,20 +35,18 @@ export default function ExtendedApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <LanguageProvider messages={messages}>
-        <CartProvider>
-          <AppProvider>
-            <AuthProvider>
-              <AppLayout>
-                <Component
-                  {...pageProps}
-                  deviceType={{ mobile, tablet, desktop }}
-                />
-              </AppLayout>
-              <GlobalStyle />
-            </AuthProvider>
-            <ToastContainer position="top-left" autoClose={3000} hideProgressBar={true} closeOnClick/>
-          </AppProvider>
-        </CartProvider>
+        <AppProvider>
+          <AuthProvider>
+            <AppLayout>
+              <Component
+                {...pageProps}
+                deviceType={{ mobile, tablet, desktop }}
+              />
+            </AppLayout>
+            <GlobalStyle />
+          </AuthProvider>
+          <ToastContainer position="top-left" autoClose={3000} hideProgressBar={true} closeOnClick />
+        </AppProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

@@ -29,6 +29,16 @@ connection.query(` \
       INTO TABLE plant_distributions \
       FIELDS TERMINATED BY ',' \
       OPTIONALLY ENCLOSED BY '"' \
+      IGNORE 1 LINES;
+      LOAD DATA LOCAL INFILE "_backend/plant_service/data/climate_by_postcode.csv" \
+      INTO TABLE post_code_climates \
+      FIELDS TERMINATED BY ',' \
+      OPTIONALLY ENCLOSED BY '"' \
+      IGNORE 1 LINES;
+      LOAD DATA LOCAL INFILE "_backend/plant_service/data/climate_plants_merged.csv" \
+      INTO TABLE plant_climates \
+      FIELDS TERMINATED BY ',' \
+      OPTIONALLY ENCLOSED BY '"' \
       IGNORE 1 LINES;`
       , (err: any) => {
         if (err) throw err;

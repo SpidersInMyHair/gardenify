@@ -382,6 +382,7 @@ function getPlantsInDistribution(slug: string, offset: number = 0, limit: number
   })  
 }
 
+<<<<<<< HEAD
 
 function getDistributionsForPlants(slug: string, offset: number = 0, limit: number = 20): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -391,13 +392,47 @@ function getDistributionsForPlants(slug: string, offset: number = 0, limit: numb
       INNER JOIN plant_distributions as pd ON pd.distribution_slug=pdd.distribution_slug \
       WHERE pd.slug=\"${slug}\"; \
       `, (err: any, results: any) => {
+=======
+function getPlantsForPostCode(post_code: string, offset: number = 0, limit: number = 20): Promise<PlantVariety[]> {
+  return new Promise((resolve, reject) => {
+    /*
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_climates as pc, post_code_climates as pcc \
+      INNER JOIN plant_varieties as pv ON pc.slug=pv.slug \
+      WHERE (pcc.pc="${post_code}") AND ( \
+            ((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
+                (pcc.rainan between pc.min_precip and pc.max_precip))) OR \ 
+            ((366 - pcc.frostann > pc.ffdm) AND ((pc.humidity is null) OR (pcc.rh9an/10 > pc.humidity)))) \
+      LIMIT ${offset},${limit}; \
+      */
+            //((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
+    connection.query(` \
+      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
+      FROM plant_varieties as pv \
+      INNER JOIN (SELECT pc.slug, pc.ffdm, pc.humidity, pc.max_precip\
+          FROM plant_climates as pc, post_code_climates as pcc \
+            WHERE (pcc.pc="${post_code}") AND ( \
+            ((366 - pcc.frostann > pc.ffdm) AND ( (pc.humidity IS NULL AND pc.min_precip IS NULL) OR \
+                (pcc.rainan < pc.max_precip AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.max_precip IS NULL AND pcc.rh9an/10 > pc.humidity) OR \
+                (pc.humidity IS NULL and pcc.rainan < pc.max_precip)))) \
+      ) as x ON x.slug=pv.slug \ 
+      ORDER BY x.ffdm DESC, x.humidity DESC, x.max_precip DESC\
+      LIMIT ${offset},${limit}; \
+      `, (err: any, results: Array<PlantVariety>) => {
+        console.log(results);
+>>>>>>> main
         if (err) reject(err);
         resolve(results.length > 0 ? results : undefined);
     });
   })  
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 function getSession(id: string, session_key: string) {
   return new Promise((resolve, reject) => {
     connection.query(`                                                      \
@@ -430,7 +465,11 @@ module.exports = {
   getDistribution,
   getDistributions,
   getPlantsInDistribution,
+<<<<<<< HEAD
   getDistributionsForPlants,
+=======
+  getPlantsForPostCode,
+>>>>>>> main
   getSession,
   getRatings
 }

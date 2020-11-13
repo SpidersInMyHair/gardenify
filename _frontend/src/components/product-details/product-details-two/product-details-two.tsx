@@ -104,8 +104,8 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   }, [isAuthenticated]);
 
   const FavouriteButton = () => isAuthenticated ?
-    <span onClick={toggleFavourite} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{favourite ? '❤' : '♡'}</span>
-  : <span onClick={handleLogin} style={{marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer"}}>{'♡'}</span>
+    <span onClick={toggleFavourite} style={{ marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer" }}>{favourite ? '❤' : '♡'}</span>
+    : <span onClick={handleLogin} style={{ marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer" }}>{'♡'}</span>
 
  const [locations, setLocations] = useState([])
  useEffect(() => {
@@ -139,23 +139,23 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           />
         </ProductPreview>
 
-        <ProductInfo> 
-          { general.common_name === 'None' ? 
-          <Title>
-            {general.name}
-            <FavouriteButton/>
-            <Ratings ratings={ratings} handleRating={handleRating}/>
-          </Title> :
-          <>
+        <ProductInfo>
+          {general.common_name === 'None' ?
             <Title>
-              {general.common_name}
-              <FavouriteButton/>
-              <Ratings ratings={ratings} handleRating={handleRating}/>
-            </Title>
-            <SubTitle>
               {general.name}
-            </SubTitle>
-          </>
+              <FavouriteButton />
+              <Ratings ratings={ratings} handleRating={handleRating} />
+            </Title> :
+            <>
+              <Title>
+                {general.common_name}
+                <FavouriteButton />
+                <Ratings ratings={ratings} handleRating={handleRating} />
+              </Title>
+              <SubTitle>
+                {general.name}
+              </SubTitle>
+            </>
           }
 
           <DescriptionWrapper>
@@ -163,11 +163,11 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               {general.description && <> {general.description} <br />
               (source: Wikipedia)
               <a
-                href={scientific.wiki}
-                target="_blank"
-                style={{ color: '#009e7f', fontWeight: 'bold' }}
-              >
-                Read More
+                  href={scientific.wiki}
+                  target="_blank"
+                  style={{ color: '#009e7f', fontWeight: 'bold' }}
+                >
+                  Read More
               </a>
               </>}
             </Description>
@@ -244,14 +244,14 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
         <DetailsTitle>
           Comments
         </DetailsTitle>
-        <Comments comments={comments} user={user} handleComment={handleComment}/>
+        <Comments comments={comments} user={user} handleComment={handleComment} />
       </DetailsWrapper>
 
       <RelatedItems>
         <h2>
           <FormattedMessage
             id="intlRelatedItems"
-            defaultMessage="Related Items"
+            defaultMessage="Related Plants"
           />
         </h2>
         <Products

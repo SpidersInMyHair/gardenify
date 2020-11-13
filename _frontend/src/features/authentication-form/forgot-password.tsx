@@ -34,7 +34,7 @@ export default function ForgotPasswordModal() {
         <SubHeading>
           <FormattedMessage
             id='sendResetPassText'
-            defaultMessage="We'll send you a link to reset your password"
+            defaultMessage="We'll send you a link to reset your password."
           />
         </SubHeading>
 
@@ -42,7 +42,7 @@ export default function ForgotPasswordModal() {
           type='text'
           placeholder={intl.formatMessage({
             id: 'emailAddressPlaceholder',
-            defaultMessage: 'Email Address or Contact No.',
+            defaultMessage: 'Email Address',
           })}
           height='48px'
           backgroundColor='#F7F7F7'
@@ -63,7 +63,7 @@ export default function ForgotPasswordModal() {
         <Offer style={{ padding: '20px 0 0' }}>
           <FormattedMessage id='backToSign' defaultMessage='Back to' />{' '}
           <LinkButton onClick={toggleSignInForm}>
-            <FormattedMessage id='loginBtnText' defaultMessage='Login' />
+            <FormattedMessage id='loginBtnText' defaultMessage='Log In' />
           </LinkButton>
         </Offer>
       </Container>
