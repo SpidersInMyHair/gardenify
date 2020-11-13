@@ -292,9 +292,21 @@ app.post(`${SERVICE}/rating`, (req: any, res: any) => {
 
 // GET  /plant/distribution/:slug
 app.get(`${SERVICE}/distribution/:slug`, (req: GetDistributionRequest, res: GetDistributionResponse) => {
-  console.log(req.params.slug)
   repo.getDistribution(req.params.slug)
     .then((distribution: Distribution) => {
+      res.send(distribution).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+// GET  /plant/distribution/plant/:slug
+app.get(`${SERVICE}/distribution/plants/:slug`, (req: GetDistributionRequest, res: GetDistributionResponse) => {
+  repo.getDistributionsForPlants(req.params.slug)
+    .then((distribution: any) => {
       res.send(distribution).status(200).end();
     })
     .catch((err: any) => {

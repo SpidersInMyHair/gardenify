@@ -68,7 +68,7 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {
         if (err) reject(err);
-        resolve(results.length > 0 ? results : undefined);
+        resolve(results && results.length ? results : undefined);
     });
   })
 }
@@ -356,7 +356,7 @@ function getDistributions(offset: number = 0, limit: number = 20, query: any): P
   delete query.search;
   return new Promise((resolve, reject) => {
     connection.query(` \
-      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, species_count \
+      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, lat, lng, species_count \
       FROM plant_distribution_details \
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<Distribution>) => {
@@ -382,20 +382,22 @@ function getPlantsInDistribution(slug: string, offset: number = 0, limit: number
   })  
 }
 
+function getDistributionsForPlants(slug: string, offset: number = 0, limit: number = 20): Promise<any> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT pdd.name, pdd.lat, pdd.lng \
+      FROM plant_distribution_details as pdd \
+      INNER JOIN plant_distributions as pd ON pd.distribution_slug=pdd.distribution_slug \
+      WHERE pd.slug=\"${slug}\"; \
+      `, (err: any, results: any) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
 function getPlantsForPostCode(post_code: string, offset: number = 0, limit: number = 20): Promise<PlantVariety[]> {
   return new Promise((resolve, reject) => {
-    /*
-    connection.query(` \
-      SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
-      FROM plant_climates as pc, post_code_climates as pcc \
-      INNER JOIN plant_varieties as pv ON pc.slug=pv.slug \
-      WHERE (pcc.pc="${post_code}") AND ( \
-            ((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
-                (pcc.rainan between pc.min_precip and pc.max_precip))) OR \ 
-            ((366 - pcc.frostann > pc.ffdm) AND ((pc.humidity is null) OR (pcc.rh9an/10 > pc.humidity)))) \
-      LIMIT ${offset},${limit}; \
-      */
-            //((pc.ffdm is null) and ((pcc.rh9an/10 > pc.humidity) OR \
     connection.query(` \
       SELECT pv.slug, pv.name, pv.common_name, pv.genus, pv.family, pv.img_url \
       FROM plant_varieties as pv \
@@ -449,6 +451,7 @@ module.exports = {
   getDistribution,
   getDistributions,
   getPlantsInDistribution,
+  getDistributionsForPlants,
   getPlantsForPostCode,
   getSession,
   getRatings

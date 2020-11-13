@@ -64,6 +64,15 @@ export async function getRatings(slug) {
   }
 }
 
+export async function getDistributionsByPlant(slug) {
+  try {
+    const res = await fetch(`${url}/plant/distribution/plants/${slug}`);
+    return await res.json();
+  } catch {
+    return undefined;
+  }
+}
+
 export async function setUserRating(slug, rating) {
   try {
     const fetchResponse = await fetch(`${url}/plant/rating`, {

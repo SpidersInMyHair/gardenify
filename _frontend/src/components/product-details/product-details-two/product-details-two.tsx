@@ -30,8 +30,9 @@ import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Products from 'components/product-grid/product-list/product-list';
 import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
-import { getComments, getRatings, setUserRating, setUserComment } from 'utils/api/plant';
+import { getComments, getRatings, setUserRating, setUserComment, getDistributionsByPlant} from 'utils/api/plant';
 import { AuthContext } from 'contexts/auth/auth.context';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
 type ProductDetailsProps = {
   general: any;
@@ -105,6 +106,18 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
   const FavouriteButton = () => isAuthenticated ?
     <span onClick={toggleFavourite} style={{ marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer" }}>{favourite ? '❤' : '♡'}</span>
     : <span onClick={handleLogin} style={{ marginLeft: 20, color: "#009E7F", fontSize: "xx-large", cursor: "pointer" }}>{'♡'}</span>
+
+ const [locations, setLocations] = useState([])
+ useEffect(() => {
+  getDistributionsByPlant(general.slug).then((values) => setLocations(values));
+  }, []);
+
+  const toggleLocationPopup = (index) => {
+    let templocations = [...locations];
+    let newloc = {...locations[index], showPopup: !locations[index].showPopup};
+    templocations[index] = newloc;
+    setLocations(templocations);
+  }
 
   return (
     <>
@@ -209,6 +222,24 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               })}
             </MetaTable>
           </DescriptionWrapper>
+          
+          <SubTitle>Plant Distribution</SubTitle>
+          <LoadScript googleMapsApiKey='AIzaSyCmu7lxrxwkcFUnnm2ba0_7eTO2cSfmepE'>
+            <GoogleMap mapContainerStyle={{height:'500px', width:'750px'}} zoom={2} center={{lat:41, lng:40}}>
+              {locations && locations.map((location, index) => 
+              <Marker key={index} onClick={() => toggleLocationPopup(index)} position={{lat:location.lat, lng:location.lng}} >
+                { location.showPopup && 
+                    <InfoWindow onCloseClick={() => toggleLocationPopup(index)}>
+                      <div>
+                        <SubTitle>{location.name}</SubTitle>
+                        <p>Lat: {location.lat}, Lng: {location.lng}</p>
+                      </div>
+                    </InfoWindow>
+                }
+              </Marker>
+            )}
+            </GoogleMap>
+          </LoadScript>
 
           <ProductMeta>
             <MetaSingle>
