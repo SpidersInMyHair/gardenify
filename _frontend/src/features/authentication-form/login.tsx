@@ -56,13 +56,13 @@ export default function SignInModal() {
     <Wrapper>
       <Container>
         <Heading>
-          <FormattedMessage id='welcomeBack' defaultMessage='Welcome Back' />
+          <FormattedMessage id='welcomeBack' defaultMessage='Log In' />
         </Heading>
 
         <SubHeading>
           <FormattedMessage
             id='loginText'
-            defaultMessage='Login with your email &amp; password'
+            defaultMessage='Please login with your account details.'
           />
         </SubHeading>
         <form onSubmit={loginCallback}>
@@ -70,7 +70,7 @@ export default function SignInModal() {
             type='email'
             placeholder={intl.formatMessage({
               id: 'emailAddressPlaceholder',
-              defaultMessage: 'Email Address.',
+              defaultMessage: 'Email Address',
             })}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -84,7 +84,7 @@ export default function SignInModal() {
             type='password'
             placeholder={intl.formatMessage({
               id: 'passwordPlaceholder',
-              defaultMessage: 'Password (min 6 characters)',
+              defaultMessage: 'Password',
             })}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -146,7 +146,7 @@ export default function SignInModal() {
         <Offer style={{ padding: '20px 0' }}>
           <FormattedMessage
             id='dontHaveAccount'
-            defaultMessage="Don't have any account?"
+            defaultMessage="Don't have an account?"
           />{' '}
           <LinkButton onClick={toggleSignUpForm}>
             <FormattedMessage id='signUpBtnText' defaultMessage='Sign Up' />

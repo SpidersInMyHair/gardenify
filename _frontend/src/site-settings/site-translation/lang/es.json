@@ -55,5 +55,7 @@
   "intlTextBy": "por",
   "intlRelatedItems": "Artículos relacionados",
   "noResultFound": "Lo sentimos, no se encontraron resultados :(",
-  "loadMoreButton": "Carga más"
+  "loadMoreButton": "Carga más",
+  "home.title": "Gardenify",
+  "home.subtitle": "¿Te apetece un poco verde?"
 }
