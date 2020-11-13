@@ -1,6 +1,8 @@
 ## plant\_service
 
-This service provides the following endpoints:
+### Endpoints 
+
+This service provides the following endpoints see [plant_service/server.ts](plant_service/server.ts):
 
 | endpoint                      | type  | Desciption                                                            |
 |-------------------------------|-------|-----------------------------------------------------------------------|
@@ -15,5 +17,20 @@ This service provides the following endpoints:
 |/plant/distribution/:slug      | GET   | Get the summary of a distribution given a (distribution) slug.        |
 |/plant/distribution/           | GET   | Get the list of distributions.                                        |
 |/plant/distribution/in/:slug   | GET   | Get a list of plants in the distribution.                             |
+|/plant/postcode/:postcode      | GET   | Get a list of plants suitable for the postcode.                       |
 
 
+## user\_service
+
+### Endpoints
+This service provides the following endpoints see [user_service/server.ts](user_service/server.ts):
+
+| endpoint                      | type  | Desciption                                                            |
+|-------------------------------|-------|-----------------------------------------------------------------------|
+|/user                          | GET   | Get if user session is valid by examining cookies.                    |
+|/user                          | POST  | Create a new user.                                                    |
+|/user/:id                      | GET   | Get the user with the given id.                                       |
+|/user/login                    | POST  | Login an user.                                                        |
+|/user/logout                   | POST  | Logout an user.                                                       |
+|/user/profile/:id              | GET   | Get the profile for the given user id.                                | 
+|/user/profile/:id              | POST  | Edit the profile for the given user id.                               |
