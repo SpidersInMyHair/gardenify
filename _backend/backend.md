@@ -21,25 +21,29 @@ This service provides the following endpoints see [plant_service/server.ts](plan
 
 ### MySQL Tables
 
-*plant_families* -- table of all plants
-- name -- test
+**plant_families** 
+- name
 - common_name
-- plant_varieties
+
+**plant_varieties**
 - common_name
 - family
 - genus
-- trefle_id
-- img_url
+- trefle_id (id for trefle.io)
+- img_url (path to image)
 - name
-- slug
-*plant_items*
+- slug (unique identifer)
+
+**plant_items**
 - slug
 - item_name
-*plant_instructions*
+
+**plant_instructions**
 - slug
 - step_number
 - instruction
-*plant_scientific_details*
+
+**plant_scientific_details**
 - slug
 - wiki
 - description
@@ -54,7 +58,8 @@ This service provides the following endpoints see [plant_service/server.ts](plan
 - soil_texture
 - soil_humidity
 - soil_nutriments
-*plant_distribution_details*
+
+**plant_distribution_details**
 - distribution_slug
 - name
 - tdwg_code
@@ -62,36 +67,41 @@ This service provides the following endpoints see [plant_service/server.ts](plan
 - parent_slug
 - parent_name
 - species_count
-*plant_distributions*
+
+**plant_distributions**
 - distribution_slug
 - slug
-*comments*
+
+**comments**
 - slug
 - user_id
 - date
 - comment_description
-*ratings*
+
+**ratings**
 - slug
 - user_id
 - date
 - rating
-*post_code_climates*
-- pc
-- frostann
-- maxsum
-- minwin
-- rainan
-- rh9an
-*plant_climates*
+
+**post_code_climates**
+- pc (postcode)
+- frostann (annual number of days with frost)
+- maxsum (average high during summer)
+- minwin (average low during winter)
+- rainan (average annual rainfall)
+- rh9an (average humidity at 9am)
+
+**plant_climates**
 - slug
 - humidity
-- ffdm
+- ffdm (minimum number of frost free days)
 - min_precip
 - max_precip
 
 ### Other
 Also see [data](plant_service/data/data.md) and [scripts](plant_service/py_scripts/scripts.md)
-which help support this functionality of the above endpoints.
+which help support this functionality of the above endpoints and tables.
 
 
 ## user\_service
@@ -108,3 +118,24 @@ This service provides the following endpoints see [user_service/server.ts](user_
 |/user/logout                   | POST  | Logout an user.                                                       |
 |/user/profile/:id              | GET   | Get the profile for the given user id.                                | 
 |/user/profile/:id              | POST  | Edit the profile for the given user id.                               |
+
+### MySQL Tables
+
+**users**
+- id
+- email
+- password
+
+**sessions**
+- user_id
+- session_key
+
+**favourites**
+- user_id 
+- plant_slug
+
+**profiles**
+- user_id
+- name
+- description
+- image_url
