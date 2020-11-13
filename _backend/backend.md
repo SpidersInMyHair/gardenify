@@ -19,50 +19,75 @@ This service provides the following endpoints see [plant_service/server.ts](plan
 |/plant/distribution/in/:slug   | GET   | Get a list of plants in the distribution.                             |
 |/plant/postcode/:postcode      | GET   | Get a list of plants suitable for the postcode.                       |
 
-### JSON Objects
+### MySQL Tables
 
-*PlantVariety* 
-- id: unique identifier
-- genus: the genus of the plant
-- species: the genus of the plant
-- description: plant description
-
-*PlantItem*
-- plant_variety_id: n
-- item_name:
-
-*PlantInstruction*
-- plant_variety_id:
-- step_number:
-- instruction:
-
-*PlantScientificDetails*
-- plant_variety_id:
-- ph_low:
-- ph_high:
-- temperature_low:
-- temperature_high:
-
-*Comments*
-- id:
-- plant_variety_id:
-- user_id:
-- comment_description:
-
-*Ratings*
-- id:
-- plant_variety_id:
-- user_id:
-- rating:
-
-*Distribution*
-- distribution_slug:
-- name:
-- tdwg_code:
-- level:
-- parent_slug:
-- parent_name:
-- species_count:
+*plant_families* -- table of all plants
+- name -- test
+- common_name
+- plant_varieties
+- common_name
+- family
+- genus
+- trefle_id
+- img_url
+- name
+- slug
+*plant_items*
+- slug
+- item_name
+*plant_instructions*
+- slug
+- step_number
+- instruction
+*plant_scientific_details*
+- slug
+- wiki
+- description
+- ph_low
+- ph_high
+- temperature_low
+- temperature_high
+- precipitation_low
+- precipitation_high
+- light
+- soil_salinity
+- soil_texture
+- soil_humidity
+- soil_nutriments
+*plant_distribution_details*
+- distribution_slug
+- name
+- tdwg_code
+- level
+- parent_slug
+- parent_name
+- species_count
+*plant_distributions*
+- distribution_slug
+- slug
+*comments*
+- slug
+- user_id
+- date
+- comment_description
+*ratings*
+- slug
+- user_id
+- date
+- rating
+*post_code_climates*
+- pc
+- frostann
+- maxsum
+- minwin
+- rainan
+- rh9an
+*plant_climates*
+- slug
+- humidity
+- ffdm
+- min_precip
+- max_precip
 
 ### Other
 Also see [data](plant_service/data/data.md) and [scripts](plant_service/py_scripts/scripts.md)
