@@ -7,7 +7,7 @@ A flow chart of the various components and technology involved in the project
 ### [backend diagram](backend_diagram.png)
 A flow chart of how most of the backend files interact.
 
-### [Advanced Search](wireframes/Advanced\ Search.png)
+### [Advanced Search](wireframes/Advanced_Search.png)
 wireframe of advanced search feature.
 
 ### [Dashboard](wireframes/Dashboard.png)
@@ -19,7 +19,7 @@ Wireframe of homepage.
 ### [Login](wireframes/Login.png)
 Wireframe of login feature.
 
-### [Plant Location](wireframes/Plant\ Location.png)
+### [Plant Location](wireframes/Plant_Location.png)
 Wireframe of plant location display.
 
 ### [Profile](wireframes/Profile.png)
