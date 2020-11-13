@@ -36,7 +36,7 @@ export const MobileBanner: React.FC<Props> = ({ intlTitleId }) => {
           <Description>
             <FormattedMessage
               id={intlTitleId}
-              defaultMessage="Set Your Title Through Language File"
+              defaultMessage="Gardenify"
               values={{ minute: 90 }}
             />
           </Description>

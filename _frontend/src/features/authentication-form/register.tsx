@@ -32,7 +32,7 @@ export default function SignOutModal() {
     if (typeof window !== 'undefined') {
       registerUser({ email, password }).then((user) => {
         if (user) {
-          authDispatch({ type: 'SIGNIN_SUCCESS', user: {email: email} })
+          authDispatch({ type: 'SIGNIN_SUCCESS', user: { email: email } })
           closeModal();
         }
       });
@@ -62,7 +62,7 @@ export default function SignOutModal() {
             type='email'
             placeholder={intl.formatMessage({
               id: 'emailAddressPlaceholder',
-              defaultMessage: 'Email Address.',
+              defaultMessage: 'Email Address',
             })}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -76,7 +76,7 @@ export default function SignOutModal() {
             type='password'
             placeholder={intl.formatMessage({
               id: 'passwordPlaceholder',
-              defaultMessage: 'Password (min 6 characters)',
+              defaultMessage: 'Password',
             })}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -87,11 +87,11 @@ export default function SignOutModal() {
           />
           <HelperText style={{ padding: '20px 0 30px' }}>
             <FormattedMessage
-              id='signUpText'
+              id='signUpPrompt'
               defaultMessage="By signing up, you agree to Gardenify's"
             />
           &nbsp;
-          <Link href='/'>
+          <Link href='/about'>
               <a>
                 <FormattedMessage
                   id='termsConditionText'
