@@ -69,6 +69,8 @@ connection.query(` \
     level               int             NOT NULL, \
     parent_slug         varchar(256), \
     parent_name         varchar(256), \
+    lat                 float NOT NULL, \
+    lng                 float NOT NULL, \
     species_count       int             NOT NULL, \
     id                      int           NOT NULL AUTO_INCREMENT, \
     PRIMARY KEY (id) \

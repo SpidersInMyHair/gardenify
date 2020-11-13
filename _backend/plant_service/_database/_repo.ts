@@ -356,7 +356,7 @@ function getDistributions(offset: number = 0, limit: number = 20, query: any): P
   delete query.search;
   return new Promise((resolve, reject) => {
     connection.query(` \
-      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, species_count \
+      SELECT distribution_slug, name, tdwg_code, level, parent_slug, parent_name, lat, lng, species_count \
       FROM plant_distribution_details \
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<Distribution>) => {
@@ -381,6 +381,22 @@ function getPlantsInDistribution(slug: string, offset: number = 0, limit: number
     });
   })  
 }
+
+
+function getDistributionsForPlants(slug: string, offset: number = 0, limit: number = 20): Promise<any> {
+  return new Promise((resolve, reject) => {
+    connection.query(` \
+      SELECT pdd.lat, pdd.lng \
+      FROM plant_distribution_details as pdd \
+      INNER JOIN plant_distributions as pd ON pd.distribution_slug=pdd.distribution_slug \
+      WHERE pd.slug=\"${slug}\"; \
+      `, (err: any, results: any) => {
+        if (err) reject(err);
+        resolve(results.length > 0 ? results : undefined);
+    });
+  })  
+}
+
 
 function getSession(id: string, session_key: string) {
   return new Promise((resolve, reject) => {
@@ -414,6 +430,7 @@ module.exports = {
   getDistribution,
   getDistributions,
   getPlantsInDistribution,
+  getDistributionsForPlants,
   getSession,
   getRatings
 }

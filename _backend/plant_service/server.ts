@@ -303,6 +303,20 @@ app.get(`${SERVICE}/distribution/:slug`, (req: GetDistributionRequest, res: GetD
     });
 });
 
+
+// GET  /plant/distribution/plant/:slug
+app.get(`${SERVICE}/distribution/plant/:slug`, (req: GetDistributionRequest, res: GetDistributionResponse) => {
+  console.log(req.params.slug)
+  repo.getDistributionsForPlants(req.params.slug)
+    .then((distribution: any) => {
+      res.send(distribution).status(200).end();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
 // GET  /plant/distribution/in/:slug
 app.get(`${SERVICE}/distribution/in/:slug`, (req: any, res: GetPlantsResponse) => {
   console.log(req.params.slug)
