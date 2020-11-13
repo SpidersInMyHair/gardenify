@@ -19,6 +19,55 @@ This service provides the following endpoints see [plant_service/server.ts](plan
 |/plant/distribution/in/:slug   | GET   | Get a list of plants in the distribution.                             |
 |/plant/postcode/:postcode      | GET   | Get a list of plants suitable for the postcode.                       |
 
+### JSON Objects
+
+*PlantVariety* 
+- id: unique identifier
+- genus: the genus of the plant
+- species: the genus of the plant
+- description: plant description
+
+*PlantItem*
+- plant_variety_id: n
+- item_name:
+
+*PlantInstruction*
+- plant_variety_id:
+- step_number:
+- instruction:
+
+*PlantScientificDetails*
+- plant_variety_id:
+- ph_low:
+- ph_high:
+- temperature_low:
+- temperature_high:
+
+*Comments*
+- id:
+- plant_variety_id:
+- user_id:
+- comment_description:
+
+*Ratings*
+- id:
+- plant_variety_id:
+- user_id:
+- rating:
+
+*Distribution*
+- distribution_slug:
+- name:
+- tdwg_code:
+- level:
+- parent_slug:
+- parent_name:
+- species_count:
+
+### Other
+Also see [data](plant_service/data/data.md) and [scripts](plant_service/py_scripts/scripts.md)
+which help support this functionality of the above endpoints.
+
 
 ## user\_service
 

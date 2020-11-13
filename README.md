@@ -12,6 +12,7 @@ markdown can be rendered properly.
 - [Backend](_backend/backend.md)
 - [Frontend](_frontend/frontend.md)
 - [Data](_backend/plant_service/data/data.md)
+- [Python Scripts](_backend/plant_service/py_scripts/scripts.md)
 
 ## Requirements
 - npm >= 6.14.8
