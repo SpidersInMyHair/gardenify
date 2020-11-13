@@ -1,8 +1,23 @@
+# COMP/SENG4920 Group Project: Gardenify
+Amir Harambasic, Rishad Mahbub, Nathan Ellis, Mohamed Al Mouiee, Forrest Koch
+
+## Contents
+- [Project Planning](planning/planning.md)
+- [Backend](_backend/backend.md)
+- [Frontend](_frontend/frontend.md)
+- [Data](_backend/plant_service/data/data.md)
+
+## Requirements
+- npm >= 6.14.8
+- yarn >= 1.22.10
+- python3 >= 3.8.6
+- mysql >= 8.0.0
+
 ## Getting Started
 
-First, install the dependencies:
+From the root directory, install the dependencies:
 ```bash
-npm install
+yarn
 ```
 
 Then, install and setup MySQL locally:
@@ -37,12 +52,8 @@ exit
 Then, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
-
-It is important to run this dev build instead of running npm start.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
