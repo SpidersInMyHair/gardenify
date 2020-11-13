@@ -1,6 +1,6 @@
 """
     _backend/plant_service/py_scripts/scrape_distribution_details.py:
-
+    scrape all of the distribution details from trefle and output to a csv
 """
 import gzip
 import json
