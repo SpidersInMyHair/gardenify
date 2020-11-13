@@ -68,7 +68,7 @@ function getPlants(offset: number = 0, limit: number = 20, query: any): Promise<
       LIMIT ${offset},${limit}; \
       `, (err: any, results: Array<PlantVariety>) => {
         if (err) reject(err);
-        resolve(results.length > 0 ? results : undefined);
+        resolve(results && results.length ? results : undefined);
     });
   })
 }

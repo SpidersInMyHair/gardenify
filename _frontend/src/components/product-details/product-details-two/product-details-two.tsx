@@ -32,7 +32,7 @@ import { FormattedMessage } from 'react-intl';
 import { checkFavourite, addFavourite, removeFavourite } from 'utils/api/user';
 import { getComments, getRatings, setUserRating, setUserComment, getDistributionsByPlant} from 'utils/api/plant';
 import { AuthContext } from 'contexts/auth/auth.context';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
 type ProductDetailsProps = {
   general: any;
@@ -111,6 +111,13 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
  useEffect(() => {
   getDistributionsByPlant(general.slug).then((values) => setLocations(values));
   }, []);
+
+  const toggleLocationPopup = (index) => {
+    let templocations = [...locations];
+    let newloc = {...locations[index], showPopup: !locations[index].showPopup};
+    templocations[index] = newloc;
+    setLocations(templocations);
+  }
 
   return (
     <>
@@ -219,7 +226,18 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
           <SubTitle>Plant Distribution</SubTitle>
           <LoadScript googleMapsApiKey='AIzaSyCmu7lxrxwkcFUnnm2ba0_7eTO2cSfmepE'>
             <GoogleMap mapContainerStyle={{height:'500px', width:'750px'}} zoom={2} center={{lat:41, lng:40}}>
-              {locations && locations.map((location, index) => <Marker onClick={() => console.log('khello')} key={index} position={{lat:location.lat, lng:location.lng}} />)}
+              {locations && locations.map((location, index) => 
+              <Marker key={index} onClick={() => toggleLocationPopup(index)} position={{lat:location.lat, lng:location.lng}} >
+                { location.showPopup && 
+                    <InfoWindow onCloseClick={() => toggleLocationPopup(index)}>
+                      <div>
+                        <SubTitle>{location.name}</SubTitle>
+                        <p>Lat: {location.lat}, Lng: {location.lng}</p>
+                      </div>
+                    </InfoWindow>
+                }
+              </Marker>
+            )}
             </GoogleMap>
           </LoadScript>
 

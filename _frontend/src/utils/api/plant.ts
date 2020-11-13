@@ -66,7 +66,7 @@ export async function getRatings(slug) {
 
 export async function getDistributionsByPlant(slug) {
   try {
-    const res = await fetch(`${url}/plant/distribution/plant/${slug}`);
+    const res = await fetch(`${url}/plant/distribution/plants/${slug}`);
     return await res.json();
   } catch {
     return undefined;
