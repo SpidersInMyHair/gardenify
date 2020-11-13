@@ -21,7 +21,6 @@
     "scrape:plant_varieties:json_to_csv": "python3 _backend/plant_service/py_scripts/get_plant_varieties.py|jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv'> _backend/plant_service/data/plant_varieties.csv"
   },
   "dependencies": {
-    "@react-google-maps/api": "^1.13.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
