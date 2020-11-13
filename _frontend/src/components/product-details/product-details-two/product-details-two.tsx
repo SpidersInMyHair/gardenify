@@ -215,7 +215,7 @@ const ProductDetails: React.FunctionComponent<ProductDetailsProps> = ({
               })}
             </MetaTable>
           </DescriptionWrapper>
-           
+          
           <SubTitle>Plant Distribution</SubTitle>
           <LoadScript googleMapsApiKey='AIzaSyCmu7lxrxwkcFUnnm2ba0_7eTO2cSfmepE'>
             <GoogleMap mapContainerStyle={{height:'500px', width:'750px'}} zoom={2} center={{lat:41, lng:40}}>
