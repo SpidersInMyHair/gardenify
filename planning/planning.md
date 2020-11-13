@@ -28,5 +28,5 @@ Wireframe of profile page.
 ### [Register](wireframes/Register.png)
 Wireframe of registration page.
 
-### [Specific Plant](wireframes/Specific Plant.png)
+### [Specific Plant](wireframes/Specific_Plant.png)
 Wireframe of page for a specific plant.
