@@ -1,8 +1,30 @@
+# COMP/SENG4920 Group Project: Gardenify
+Amir Harambasic, Rishad Mahbub, Nathan Ellis, Mohamed Al Mouiee, Forrest Koch
+
+## GitHub
+To aid in marking, the repository has been made public and is available from
+[https://github.com/SpidersInMyHair/gardenify](https://github.com/SpidersInMyHair/gardenify).
+We strongly suggest viewing the documentation using the GitHub interface so the 
+markdown can be rendered properly.
+
+## Contents
+- [Project Planning](planning/planning.md)
+- [Backend](_backend/backend.md)
+- [Frontend](_frontend/frontend.md)
+- [Data](_backend/plant_service/data/data.md)
+- [Python Scripts](_backend/plant_service/py_scripts/scripts.md)
+
+## Requirements
+- npm >= 6.14.8
+- yarn >= 1.22.10
+- python3 >= 3.8.6
+- mysql >= 8.0.0
+
 ## Getting Started
 
-First, install the dependencies:
+From the root directory, install the dependencies:
 ```bash
-npm install
+yarn
 ```
 
 Then, install and setup MySQL locally:
@@ -34,17 +56,20 @@ FLUSH PRIVILEGES;
 exit
 ```
 
-Then, run the development server:
+6. Make sure MySQL is configured to allow reading from local files. This can
+be done by adding the following to `my.conf` (probably in `/etc/mysql`)
+```
+local-infile=1
+```
+You may need to restart the MySQL service after making this change.
+
+7. Then, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-It is important to run this dev build instead of running npm start.
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the frontend pages and components inside the `/_frontend` folder. These edits are automatically re-rendered.
 You can start editing the backend endpoints inside the `/_backend` folder. These edits are *not* automatically re-built. The server must be rebuilt first.

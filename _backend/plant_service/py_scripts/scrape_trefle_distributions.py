@@ -1,6 +1,7 @@
 """
     _backend/plant_service/py_scripts/scrape_trefle_distributions.py:
-
+    get the plants associated with each distribution and print out to
+    a csv
 """
 import gzip
 import json
